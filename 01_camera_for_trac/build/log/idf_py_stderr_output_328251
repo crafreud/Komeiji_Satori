@@ -1,0 +1,15 @@
+CMake Error at /home/cra/esp/esp-idf/tools/cmake/build.cmake:610 (message):
+  ERROR: Error during request
+
+  URL:
+  https://components-file.espressif.com/components/espressif/esp_http_server.json
+
+
+  Status code: 403 Forbidden
+
+Call Stack (most recent call first):
+  /home/cra/esp/esp-idf/tools/cmake/project.cmake:717 (idf_build_process)
+  CMakeLists.txt:6 (project)
+
+
+ninja: error: rebuilding 'build.ninja': subcommand failed

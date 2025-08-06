@@ -1,0 +1,57 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/home/cra/workplace_esp32/Komeiji_Satori/examples/motion_detection/managed_components/espressif__opencv/opencv_contrib/modules/signal/include/opencv2/signal.hpp",
+			"labels" : 
+			[
+				"Extra",
+				"opencv_signal",
+				"Module"
+			]
+		},
+		{
+			"file" : "/home/cra/workplace_esp32/Komeiji_Satori/examples/motion_detection/managed_components/espressif__opencv/opencv_contrib/modules/signal/include/opencv2/signal/signal_resample.hpp",
+			"labels" : 
+			[
+				"Extra",
+				"opencv_signal",
+				"Module"
+			]
+		},
+		{
+			"file" : "/home/cra/workplace_esp32/Komeiji_Satori/examples/motion_detection/managed_components/espressif__opencv/opencv_contrib/modules/signal/src/signal_resample.cpp",
+			"labels" : 
+			[
+				"Extra",
+				"opencv_signal",
+				"Module"
+			]
+		},
+		{
+			"file" : "/home/cra/workplace_esp32/Komeiji_Satori/examples/motion_detection/managed_components/espressif__opencv/opencv_contrib/modules/signal/src/precomp.hpp",
+			"labels" : 
+			[
+				"Extra",
+				"opencv_signal",
+				"Module"
+			]
+		},
+		{
+			"file" : "/home/cra/workplace_esp32/Komeiji_Satori/examples/motion_detection/build/esp-idf/espressif__opencv/opencv-build/cvconfig.h"
+		},
+		{
+			"file" : "/home/cra/workplace_esp32/Komeiji_Satori/examples/motion_detection/build/esp-idf/espressif__opencv/opencv-build/opencv2/opencv_modules.hpp"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"Extra",
+			"opencv_signal",
+			"Module"
+		],
+		"name" : "opencv_signal"
+	}
+}

@@ -1,0 +1,84 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/home/cra/workplace_esp32/Komeiji_Satori/examples/motion_detection/managed_components/espressif__opencv/opencv_contrib/modules/aruco/include/opencv2/aruco.hpp",
+			"labels" : 
+			[
+				"Extra",
+				"opencv_aruco",
+				"Module"
+			]
+		},
+		{
+			"file" : "/home/cra/workplace_esp32/Komeiji_Satori/examples/motion_detection/managed_components/espressif__opencv/opencv_contrib/modules/aruco/include/opencv2/aruco/aruco_calib.hpp",
+			"labels" : 
+			[
+				"Extra",
+				"opencv_aruco",
+				"Module"
+			]
+		},
+		{
+			"file" : "/home/cra/workplace_esp32/Komeiji_Satori/examples/motion_detection/managed_components/espressif__opencv/opencv_contrib/modules/aruco/include/opencv2/aruco/charuco.hpp",
+			"labels" : 
+			[
+				"Extra",
+				"opencv_aruco",
+				"Module"
+			]
+		},
+		{
+			"file" : "/home/cra/workplace_esp32/Komeiji_Satori/examples/motion_detection/managed_components/espressif__opencv/opencv_contrib/modules/aruco/src/aruco.cpp",
+			"labels" : 
+			[
+				"Extra",
+				"opencv_aruco",
+				"Module"
+			]
+		},
+		{
+			"file" : "/home/cra/workplace_esp32/Komeiji_Satori/examples/motion_detection/managed_components/espressif__opencv/opencv_contrib/modules/aruco/src/aruco_calib.cpp",
+			"labels" : 
+			[
+				"Extra",
+				"opencv_aruco",
+				"Module"
+			]
+		},
+		{
+			"file" : "/home/cra/workplace_esp32/Komeiji_Satori/examples/motion_detection/managed_components/espressif__opencv/opencv_contrib/modules/aruco/src/charuco.cpp",
+			"labels" : 
+			[
+				"Extra",
+				"opencv_aruco",
+				"Module"
+			]
+		},
+		{
+			"file" : "/home/cra/workplace_esp32/Komeiji_Satori/examples/motion_detection/managed_components/espressif__opencv/opencv_contrib/modules/aruco/src/precomp.hpp",
+			"labels" : 
+			[
+				"Extra",
+				"opencv_aruco",
+				"Module"
+			]
+		},
+		{
+			"file" : "/home/cra/workplace_esp32/Komeiji_Satori/examples/motion_detection/build/esp-idf/espressif__opencv/opencv-build/cvconfig.h"
+		},
+		{
+			"file" : "/home/cra/workplace_esp32/Komeiji_Satori/examples/motion_detection/build/esp-idf/espressif__opencv/opencv-build/opencv2/opencv_modules.hpp"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"Extra",
+			"opencv_aruco",
+			"Module"
+		],
+		"name" : "opencv_aruco"
+	}
+}

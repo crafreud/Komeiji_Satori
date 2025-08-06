@@ -1,0 +1,2 @@
+source /home/cra/workplace_esp32/Komeiji_Satori/examples/motion_detection/build/bootloader/gdbinit/symbols
+source /home/cra/workplace_esp32/Komeiji_Satori/examples/motion_detection/build/bootloader/gdbinit/connect

@@ -1,0 +1,48 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/home/cra/workplace_esp32/Komeiji_Satori/examples/motion_detection/managed_components/espressif__opencv/opencv_contrib/modules/plot/include/opencv2/plot.hpp",
+			"labels" : 
+			[
+				"Extra",
+				"opencv_plot",
+				"Module"
+			]
+		},
+		{
+			"file" : "/home/cra/workplace_esp32/Komeiji_Satori/examples/motion_detection/managed_components/espressif__opencv/opencv_contrib/modules/plot/src/plot.cpp",
+			"labels" : 
+			[
+				"Extra",
+				"opencv_plot",
+				"Module"
+			]
+		},
+		{
+			"file" : "/home/cra/workplace_esp32/Komeiji_Satori/examples/motion_detection/managed_components/espressif__opencv/opencv_contrib/modules/plot/src/precomp.hpp",
+			"labels" : 
+			[
+				"Extra",
+				"opencv_plot",
+				"Module"
+			]
+		},
+		{
+			"file" : "/home/cra/workplace_esp32/Komeiji_Satori/examples/motion_detection/build/esp-idf/espressif__opencv/opencv-build/cvconfig.h"
+		},
+		{
+			"file" : "/home/cra/workplace_esp32/Komeiji_Satori/examples/motion_detection/build/esp-idf/espressif__opencv/opencv-build/opencv2/opencv_modules.hpp"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"Extra",
+			"opencv_plot",
+			"Module"
+		],
+		"name" : "opencv_plot"
+	}
+}

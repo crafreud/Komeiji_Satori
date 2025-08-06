@@ -1,0 +1,3163 @@
+[0;32mI (136) esp_image: segm�ESP-ROM:esp32s3-20210327[0m
+Build:Mar 27 2021
+rst:0x1 (POWERON),boot:0x8 (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2810,len:0x15a0
+load:0x403c8700,len:0x4
+load:0x403c8704,len:0xd20
+load:0x403cb700,len:0x2f00
+entry 0x403c8928
+[0;32mI (27) boot: ESP-IDF v5.4.1 2nd stage bootloader[0m
+[0;32mI (27) boot: compile time Aug  1 2025 19:44:05[0m
+[0;32mI (27) boot: Multicore bootloader[0m
+[0;32mI (27) boot: chip revision: v0.2[0m
+[0;32mI (30) boot: efuse block revision: v1.3[0m
+[0;32mI (33) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (37) boot.esp32s3: SPI Mode       : DIO[0m
+[0;32mI (41) boot.esp32s3: SPI Flash Size : 8MB[0m
+[0;32mI (45) boot: Enabling RNG early entropy source...[0m
+[0;32mI (49) boot: Partition Table:[0m
+[0;32mI (52) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (58) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (65) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (71) boot:  2 factory          factory app      00 00 00010000 00300000[0m
+[0;32mI (78) boot:  3 storage          Unknown data     01 81 00310000 0007d000[0m
+[0;32mI (84) boot: End of partition table[0m
+[0;32mI (87) esp_image: segment 0: paddr=00010020 vaddr=3c0c0020 size=39794h (235412) map[0m
+[0;32mI (136) esp_image: segment 1: paddr=000497bc vaddr=3fc92500 size=06744h ( 26436) load[0m
+[0;32mI (142) esp_image: segment 2: paddr=0004ff08 vaddr=40374000 size=00110h (   272) load[0m
+[0;32mI (143) esp_image: segment 3: paddr=00050020 vaddr=42000020 size=be75ch (780124) map[0m
+[0;32mI (285) esp_image: segment 4: paddr=0010e784 vaddr=40374110 size=0e30ch ( 58124) load[0m
+[0;32mI (298) esp_image: segment 5: paddr=0011ca98 vaddr=600fe100 size=0001ch (    28) load[0m
+[0;32mI (305) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (305) boot: Disabling RNG early entropy source...[0m
+[0;32mI (316) octal_psram: vendor id    : 0x0d (AP)[0m
+[0;32mI (316) octal_psram: dev id       : 0x02 (generation 3)[0m
+[0;32mI (316) octal_psram: density      : 0x03 (64 Mbit)[0m
+[0;32mI (318) octal_psram: good-die     : 0x01 (Pass)[0m
+[0;32mI (323) octal_psram: Latency      : 0x01 (Fixed)[0m
+[0;32mI (327) octal_psram: VCC          : 0x01 (3V)[0m
+[0;32mI (331) octal_psram: SRF          : 0x01 (Fast Refresh)[0m
+[0;32mI (336) octal_psram: BurstType    : 0x01 (Hybrid Wrap)[0m
+[0;32mI (341) octal_psram: BurstLen     : 0x01 (32 Byte)[0m
+[0;32mI (345) octal_psram: Readlatency  : 0x02 (10 cycles@Fixed)[0m
+[0;32mI (351) octal_psram: DriveStrength: 0x00 (1/1)[0m
+[0;32mI (355) MSPI Timing: PSRAM timing tuning index: 4[0m
+[0;32mI (359) esp_psram: Found 8MB PSRAM device[0m
+[0;32mI (363) esp_psram: Speed: 80MHz[0m
+[0;32mI (366) cpu_start: Multicore app[0m
+[0;32mI (785) esp_psram: SPI SRAM memory test OK[0m
+[0;32mI (794) cpu_start: Pro cpu start user code[0m
+[0;32mI (794) cpu_start: cpu freq: 240000000 Hz[0m
+[0;32mI (794) app_init: Application information:[0m
+[0;32mI (794) app_init: Project name:     motion_detection[0m
+[0;32mI (799) app_init: App version:      78dcb4f[0m
+[0;32mI (802) app_init: Compile time:     Aug  1 2025 19:43:51[0m
+[0;32mI (807) app_init: ELF file SHA256:  8cc03263a0c69253...[0m
+[0;32mI (812) app_init: ESP-IDF:          v5.4.1[0m
+[0;32mI (816) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (820) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (824) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (828) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (834) heap_init: At 3FC9CD80 len 0004C990 (306 KiB): RAM[0m
+[0;32mI (839) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (844) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (850) heap_init: At 600FE11C len 00001ECC (7 KiB): RTCRAM[0m
+[0;32mI (855) esp_psram: Adding pool of 8192K of PSRAM memory to heap allocator[0m
+[0;32mI (862) spi_flash: detected chip: boya[0m
+[0;32mI (865) spi_flash: flash io: dio[0m
+[0;33mW (868) spi_flash: Detected size(16384k) larger than the size in the binary image header(8192k). Using the size in the binary image header.[0m
+[0;32mI (883) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (887) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (893) main_task: Started on CPU0[0m
+[0;32mI (913) esp_psram: Reserving pool of 32K of internal memory for DMA/internal allocations[0m
+[0;32mI (913) main_task: Calling app_main()[0m
+Init
+OpenCV info print: 
+General configuration for OpenCV 4.10.0 =====================================
+  Version control:               unknown
+
+  Extra modules:
+    Location (extra):            /home/cra/workplace_esp32/Komeiji_Satori/examples/motion_detection/managed_components/espressif__opencv/opencv_contrib/modules
+    Version control (extra):     unknown
+
+  Platform:
+    Timestamp:                   2025-08-01T11:44:33Z
+    Host:                        Linux 6.6.87.1-microsoft-standard-WSL2 x86_64
+    Target:                      Generic xtensa
+    CMake:                       3.28.3
+    CMake generator:             Ninja
+    CMake build tool:            /usr/bin/ninja
+    Configuration:               Release
+
+  CPU/HW features:
+    Baseline:
+      requested:                 DETECT
+
+  C/C++:
+    Built as dynamic libs?:      NO
+    C++ standard:                11
+    C++ Compiler:                /home/cra/.espressif/tools/xtensa-esp-elf/esp-14.2.0_20241119/xtensa-esp-elf/bin/xtensa-esp32s3-elf-g++  (ver 14.2.0)
+    C++ flags (Release):         -mlongcalls  -fno-builtin-memcpy -fno-builtin-memset -fno-builtin-bzero -fno-builtin-stpcpy -fno-builtin-strncpy -I/home/cra/workplace_esp32/Komeiji_Satori/examples/motion_detection/build/config -I/home/cra/esp/esp-idf/components/newlib/platform_include -I/home/cra/esp/esp-idf/components/freertos/config/include -I/home/cra/esp/esp-idf/components/freertos/config/include/freertos -I/home/cra/esp/esp-idf/components/freertos/config/xtensa/include -I/home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include -I/home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include -I/home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos -I/home/cra/esp/esp-idf/components/freertos/esp_additions/include -I/home/cra/esp/esp-idf/components/esp_hw_support/include -I/home/cra/esp/esp-idf/components/esp_hw_support/include/soc -I/home/cra/esp/esp-idf/components/esp_hw_support/include/soc/esp32s3 -I/home/cra/esp/esp-idf/components/esp_hw_support/dma/include -I/home/cra/esp/esp-idf/components/esp_hw_support/ldo/include -I/home/cra/esp/esp-idf/components/esp_hw_support/debug_probe/include -I/home/cra/esp/esp-idf/components/esp_hw_support/port/esp32s3/. -I/home/cra/esp/esp-idf/components/esp_hw_support/port/esp32s3/include -I/home/cra/esp/esp-idf/components/heap/include -I/home/cra/esp/esp-idf/components/heap/tlsf -I/home/cra/esp/esp-idf/components/log/include -I/home/cra/esp/esp-idf/components/soc/include -I/home/cra/esp/esp-idf/components/soc/esp32s3 -I/home/cra/esp/esp-idf/components/soc/esp32s3/include -I/home/cra/esp/esp-idf/components/soc/esp32s3/register -I/home/cra/esp/esp-idf/components/hal/platform_port/include -I/home/cra/esp/esp-idf/components/hal/esp32s3/include -I/home/cra/esp/esp-idf/components/hal/include -I/home/cra/esp/esp-idf/components/esp_rom/include -I/home/cra/esp/esp-idf/components/esp_rom/esp32s3/include -I/home/cra/esp/esp-idf/components/esp_rom/esp32s3/include/esp32s3 -I/home/cra/esp/esp-idf/components/esp_rom/esp32s3 -I/home/cra/esp/esp-idf/components/esp_common/include -I/home/cra/esp/esp-idf/components/esp_system/include -I/home/cra/esp/esp-idf/components/esp_system/port/soc -I/home/cra/esp/esp-idf/components/esp_system/port/include/private -I/home/cra/esp/esp-idf/components/xtensa/esp32s3/include -I/home/cra/esp/esp-idf/components/xtensa/include -I/home/cra/esp/esp-idf/components/xtensa/deprecated_include -I/home/cra/esp/esp-idf/components/lwip/include -I/home/cra/esp/esp-idf/components/lwip/include/apps -I/home/cra/esp/esp-idf/components/lwip/include/apps/sntp -I/home/cra/esp/esp-idf/components/lwip/lwip/src/include -I/home/cra/esp/esp-idf/components/lwip/port/include -I/home/cra/esp/esp-idf/components/lwip/port/freertos/include -I/home/cra/esp/esp-idf/components/lwip/port/esp32xx/include -I/home/cra/esp/esp-idf/components/lwip/port/esp32xx/include/arch -I/home/cra/esp/esp-idf/components/lwip/port/esp32xx/include/sys -I/home/cra/esp/esp-idf/components/vfs/include -I/home/cra/esp/esp-idf/components/pthread/include -D_DEFAULT_SOURCE -DCV_INT32_T_IS_LONG_INT=ON -Dalloca=__builtin_alloca   -fsigned-char -W -Wall -Wreturn-type -Wnon-virtual-dtor -Waddress -Wsequence-point -Wformat -Wformat-security -Wmissing-declarations -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Wsuggest-override -Wno-delete-non-virtual-dtor -Wno-comment -Wimplicit-fallthrough=3 -Wno-strict-overflow -fdiagnostics-show-option -fomit-frame-pointer -ffunction-sections -fdata-sections  -fvisibility=hidden -fvisibility-inlines-hidden -Os -ggdb  -ffunction-sections -fdata-sections -DDEBUG -D_DEBUG -mlongcalls -mauto-litpools  -DNDEBUG
+    C++ flags (Debug):           -mlongcalls  -fno-builtin-memcpy -fno-builtin-memset -fno-builtin-bzero -fno-builtin-stpcpy -fno-builtin-strncpy -I/home/cra/workplace_esp32/Komeiji_Satori/examples/motion_detection/build/config -I/home/cra/esp/esp-idf/components/newlib/platform_include -I/home/cra/esp/esp-idf/components/freertos/config/include -I/home/cra/esp/esp-idf/components/freertos/config/include/freertos -I/home/cra/esp/esp-idf/components/freertos/config/xtensa/include -I/home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include -I/home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include -I/home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos -I/home/cra/esp/esp-idf/components/freertos/esp_additions/include -I/home/cra/esp/esp-idf/components/esp_hw_support/include -I/home/cra/esp/esp-idf/components/esp_hw_support/include/soc -I/home/cra/esp/esp-idf/components/esp_hw_support/include/soc/esp32s3 -I/home/cra/esp/esp-idf/components/esp_hw_support/dma/include -I/home/cra/esp/esp-idf/components/esp_hw_support/ldo/include -I/home/cra/esp/esp-idf/components/esp_hw_support/debug_probe/include -I/home/cra/esp/esp-idf/components/esp_hw_support/port/esp32s3/. -I/home/cra/esp/esp-idf/components/esp_hw_support/port/esp32s3/include -I/home/cra/esp/esp-idf/components/heap/include -I/home/cra/esp/esp-idf/components/heap/tlsf -I/home/cra/esp/esp-idf/components/log/include -I/home/cra/esp/esp-idf/components/soc/include -I/home/cra/esp/esp-idf/components/soc/esp32s3 -I/home/cra/esp/esp-idf/components/soc/esp32s3/include -I/home/cra/esp/esp-idf/components/soc/esp32s3/register -I/home/cra/esp/esp-idf/components/hal/platform_port/include -I/home/cra/esp/esp-idf/components/hal/esp32s3/include -I/home/cra/esp/esp-idf/components/hal/include -I/home/cra/esp/esp-idf/components/esp_rom/include -I/home/cra/esp/esp-idf/components/esp_rom/esp32s3/include -I/home/cra/esp/esp-idf/components/esp_rom/esp32s3/include/esp32s3 -I/home/cra/esp/esp-idf/components/esp_rom/esp32s3 -I/home/cra/esp/esp-idf/components/esp_common/include -I/home/cra/esp/esp-idf/components/esp_system/include -I/home/cra/esp/esp-idf/components/esp_system/port/soc -I/home/cra/esp/esp-idf/components/esp_system/port/include/private -I/home/cra/esp/esp-idf/components/xtensa/esp32s3/include -I/home/cra/esp/esp-idf/components/xtensa/include -I/home/cra/esp/esp-idf/components/xtensa/deprecated_include -I/home/cra/esp/esp-idf/components/lwip/include -I/home/cra/esp/esp-idf/components/lwip/include/apps -I/home/cra/esp/esp-idf/components/lwip/include/apps/sntp -I/home/cra/esp/esp-idf/components/lwip/lwip/src/include -I/home/cra/esp/esp-idf/components/lwip/port/include -I/home/cra/esp/esp-idf/components/lwip/port/freertos/include -I/home/cra/esp/esp-idf/components/lwip/port/esp32xx/include -I/home/cra/esp/esp-idf/components/lwip/port/esp32xx/include/arch -I/home/cra/esp/esp-idf/components/lwip/port/esp32xx/include/sys -I/home/cra/esp/esp-idf/components/vfs/include -I/home/cra/esp/esp-idf/components/pthread/include -D_DEFAULT_SOURCE -DCV_INT32_T_IS_LONG_INT=ON -Dalloca=__builtin_alloca   -fsigned-char -W -Wall -Wreturn-type -Wnon-virtual-dtor -Waddress -Wsequence-point -Wformat -Wformat-security -Wmissing-declarations -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Wsuggest-override -Wno-delete-non-virtual-dtor -Wno-comment -Wimplicit-fallthrough=3 -Wno-strict-overflow -fdiagnostics-show-option -fomit-frame-pointer -ffunction-sections -fdata-sections  -fvisibility=hidden -fvisibility-inlines-hidden -g  -O0 -DDEBUG -D_DEBUG
+    C Compiler:                  /home/cra/.espressif/tools/xtensa-esp-elf/esp-14.2.0_20241119/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc
+    C flags (Release):           -mlongcalls  -fno-builtin-memcpy -fno-builtin-memset -fno-builtin-bzero -fno-builtin-stpcpy -fno-builtin-strncpy -I/home/cra/workplace_esp32/Komeiji_Satori/examples/motion_detection/build/config -I/home/cra/esp/esp-idf/components/newlib/platform_include -I/home/cra/esp/esp-idf/components/freertos/config/include -I/home/cra/esp/esp-idf/components/freertos/config/include/freertos -I/home/cra/esp/esp-idf/components/freertos/config/xtensa/include -I/home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include -I/home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include -I/home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos -I/home/cra/esp/esp-idf/components/freertos/esp_additions/include -I/home/cra/esp/esp-idf/components/esp_hw_support/include -I/home/cra/esp/esp-idf/components/esp_hw_support/include/soc -I/home/cra/esp/esp-idf/components/esp_hw_support/include/soc/esp32s3 -I/home/cra/esp/esp-idf/components/esp_hw_support/dma/include -I/home/cra/esp/esp-idf/components/esp_hw_support/ldo/include -I/home/cra/esp/esp-idf/components/esp_hw_support/debug_probe/include -I/home/cra/esp/esp-idf/components/esp_hw_support/port/esp32s3/. -I/home/cra/esp/esp-idf/components/esp_hw_support/port/esp32s3/include -I/home/cra/esp/esp-idf/components/heap/include -I/home/cra/esp/esp-idf/components/heap/tlsf -I/home/cra/esp/esp-idf/components/log/include -I/home/cra/esp/esp-idf/components/soc/include -I/home/cra/esp/esp-idf/components/soc/esp32s3 -I/home/cra/esp/esp-idf/components/soc/esp32s3/include -I/home/cra/esp/esp-idf/components/soc/esp32s3/register -I/home/cra/esp/esp-idf/components/hal/platform_port/include -I/home/cra/esp/esp-idf/components/hal/esp32s3/include -I/home/cra/esp/esp-idf/components/hal/include -I/home/cra/esp/esp-idf/components/esp_rom/include -I/home/cra/esp/esp-idf/components/esp_rom/esp32s3/include -I/home/cra/esp/esp-idf/components/esp_rom/esp32s3/include/esp32s3 -I/home/cra/esp/esp-idf/components/esp_rom/esp32s3 -I/home/cra/esp/esp-idf/components/esp_common/include -I/home/cra/esp/esp-idf/components/esp_system/include -I/home/cra/esp/esp-idf/components/esp_system/port/soc -I/home/cra/esp/esp-idf/components/esp_system/port/include/private -I/home/cra/esp/esp-idf/components/xtensa/esp32s3/include -I/home/cra/esp/esp-idf/components/xtensa/include -I/home/cra/esp/esp-idf/components/xtensa/deprecated_include -I/home/cra/esp/esp-idf/components/lwip/include -I/home/cra/esp/esp-idf/components/lwip/include/apps -I/home/cra/esp/esp-idf/components/lwip/include/apps/sntp -I/home/cra/esp/esp-idf/components/lwip/lwip/src/include -I/home/cra/esp/esp-idf/components/lwip/port/include -I/home/cra/esp/esp-idf/components/lwip/port/freertos/include -I/home/cra/esp/esp-idf/components/lwip/port/esp32xx/include -I/home/cra/esp/esp-idf/components/lwip/port/esp32xx/include/arch -I/home/cra/esp/esp-idf/components/lwip/port/esp32xx/include/sys -I/home/cra/esp/esp-idf/components/vfs/include -I/home/cra/esp/esp-idf/components/pthread/include -D_DEFAULT_SOURCE   -fsigned-char -W -Wall -Wreturn-type -Waddress -Wsequence-point -Wformat -Wformat-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wuninitialized -Wno-comment -Wimplicit-fallthrough=3 -Wno-strict-overflow -fdiagnostics-show-option -fomit-frame-pointer -ffunction-sections -fdata-sections  -fvisibility=hidden -Os -ggdb  -ffunction-sections -fdata-sections -DDEBUG -D_DEBUG -mlongcalls -mauto-litpools  -DNDEBUG
+    C flags (Debug):             -mlongcalls  -fno-builtin-memcpy -fno-builtin-memset -fno-builtin-bzero -fno-builtin-stpcpy -fno-builtin-strncpy -I/home/cra/workplace_esp32/Komeiji_Satori/examples/motion_detection/build/config -I/home/cra/esp/esp-idf/components/newlib/platform_include -I/home/cra/esp/esp-idf/components/freertos/config/include -I/home/cra/esp/esp-idf/components/freertos/config/include/freertos -I/home/cra/esp/esp-idf/components/freertos/config/xtensa/include -I/home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include -I/home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include -I/home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos -I/home/cra/esp/esp-idf/components/freertos/esp_additions/include -I/home/cra/esp/esp-idf/components/esp_hw_support/include -I/home/cra/esp/esp-idf/components/esp_hw_support/include/soc -I/home/cra/esp/esp-idf/components/esp_hw_support/include/soc/esp32s3 -I/home/cra/esp/esp-idf/components/esp_hw_support/dma/include -I/home/cra/esp/esp-idf/components/esp_hw_support/ldo/include -I/home/cra/esp/esp-idf/components/esp_hw_support/debug_probe/include -I/home/cra/esp/esp-idf/components/esp_hw_support/port/esp32s3/. -I/home/cra/esp/esp-idf/components/esp_hw_support/port/esp32s3/include -I/home/cra/esp/esp-idf/components/heap/include -I/home/cra/esp/esp-idf/components/heap/tlsf -I/home/cra/esp/esp-idf/components/log/include -I/home/cra/esp/esp-idf/components/soc/include -I/home/cra/esp/esp-idf/components/soc/esp32s3 -I/home/cra/esp/esp-idf/components/soc/esp32s3/include -I/home/cra/esp/esp-idf/components/soc/esp32s3/register -I/home/cra/esp/esp-idf/components/hal/platform_port/include -I/home/cra/esp/esp-idf/components/hal/esp32s3/include -I/home/cra/esp/esp-idf/components/hal/include -I/home/cra/esp/esp-idf/components/esp_rom/include -I/home/cra/esp/esp-idf/components/esp_rom/esp32s3/include -I/home/cra/esp/esp-idf/components/esp_rom/esp32s3/include/esp32s3 -I/home/cra/esp/esp-idf/components/esp_rom/esp32s3 -I/home/cra/esp/esp-idf/components/esp_common/include -I/home/cra/esp/esp-idf/components/esp_system/include -I/home/cra/esp/esp-idf/components/esp_system/port/soc -I/home/cra/esp/esp-idf/components/esp_system/port/include/private -I/home/cra/esp/esp-idf/components/xtensa/esp32s3/include -I/home/cra/esp/esp-idf/components/xtensa/include -I/home/cra/esp/esp-idf/components/xtensa/deprecated_include -I/home/cra/esp/esp-idf/components/lwip/include -I/home/cra/esp/esp-idf/components/lwip/include/apps -I/home/cra/esp/esp-idf/components/lwip/include/apps/sntp -I/home/cra/esp/esp-idf/components/lwip/lwip/src/include -I/home/cra/esp/esp-idf/components/lwip/port/include -I/home/cra/esp/esp-idf/components/lwip/port/freertos/include -I/home/cra/esp/esp-idf/components/lwip/port/esp32xx/include -I/home/cra/esp/esp-idf/components/lwip/port/esp32xx/include/arch -I/home/cra/esp/esp-idf/components/lwip/port/esp32xx/include/sys -I/home/cra/esp/esp-idf/components/vfs/include -I/home/cra/esp/esp-idf/components/pthread/include -D_DEFAULT_SOURCE   -fsigned-char -W -Wall -Wreturn-type -Waddress -Wsequence-point -Wformat -Wformat-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wuninitialized -Wno-comment -Wimplicit-fallthrough=3 -Wno-strict-overflow -fdiagnostics-show-option -fomit-frame-pointer -ffunction-sections -fdata-sections  -fvisibility=hidden -g  -O0 -DDEBUG -D_DEBUG
+    Linker flags (Release):      -Wl,--gc-sections  
+    Linker flags (Debug):        -Wl,--gc-sections  
+    ccache:                      NO
+    Precompiled headers:         NO
+    Extra dependencies:
+    3rdparty dependencies:       libjpeg-turbo libwebp libpng libtiff libopenjp2 zlib
+
+  OpenCV modules:
+    To be built:                 aruco bioinspired calib3d ccalib core dnn dnn_objdetect dnn_superres dpm face features2d flann fuzzy hfs highgui img_hash imgcodecs imgproc intensity_transform line_descriptor mcc ml objdetect optflow phase_unwrapping photo plot quality rapid reg rgbd saliency shape signal stereo stitching structured_light superres surface_matching text tracking video videostab wechat_qrcode xfeatures2d ximgproc xobjdetect xphoto
+    Disabled:                    bgsegm datasets videoio world
+    Disabled by dependency:      -
+    Unavailable:                 alphamat cannops cudaarithm cudabgsegm cudacodec cudafeatures2d cudafilters cudaimgproc cudalegacy cudaobjdetect cudaoptflow cudastereo cudawarping cudev cvv freetype gapi hdf java julia matlab ovis python2 python3 sfm ts viz
+    Applications:                -
+    Documentation:               NO
+    Non-free algorithms:         NO
+
+  GUI:                           NONE
+
+  Media I/O: 
+    ZLib:                        build (ver 1.3.1)
+    JPEG:                        build-libjpeg-turbo (ver 3.0.3-70)
+      SIMD Support Request:      YES
+      SIMD Support:              NO
+    WEBP:                        build (ver encoder: 0x020f)
+    PNG:                         build (ver 1.6.43)
+      SIMD Support Request:      YES
+      SIMD Support:              NO
+    TIFF:                        build (ver 42 - 4.6.0)
+    JPEG 2000:                   build (ver 2.5.0)
+    HDR:                         YES
+    SUNRASTER:                   YES
+    PXM:                         YES
+    PFM:                         YES
+
+  Video I/O:
+    DC1394:                      NO
+    FFMPEG:                      NO
+      avcodec:                   NO
+      avformat:                  NO
+      avutil:                    NO
+      swscale:                   NO
+      avresample:                NO
+    GStreamer:                   NO
+
+  Parallel framework:            none
+
+  Trace:                         YES (built-in)
+
+  Other third-party libraries:
+    Lapack:                      NO
+    Custom HAL:                  NO
+    Flatbuffers:                 builtin/3rdparty (23.5.9)
+
+  Python (for build):            /home/cra/.espressif/python_env/idf5.4_py3.12_env/bin/python
+
+  Install to:                    /home/cra/workplace_esp32/Komeiji_Satori/examples/motion_detection/build/esp-idf/espressif__opencv/opencv-build/install
+-----------------------------------------------------------------
+
+[0;32mI (2513) s3 ll_cam: DMA Channel=0[0m
+[0;32mI (2513) cam_hal: cam init ok[0m
+[0;32mI (2513) sccb-ng: pin_sda 20 pin_scl 19[0m
+[0;32mI (2523) sccb-ng: sccb_i2c_port=1[0m
+[0;32mI (2533) camera: Camera PID=0x26 VER=0x42 MIDL=0x7f MIDH=0xa2[0m
+[0;32mI (2533) camera: Detected OV2640 camera[0m
+[0;32mI (2533) camera: Detected camera at address=0x30[0m
+[0;32mI (2603) s3 ll_cam: node_size: 3840, nodes_per_line: 1, lines_per_node: 6[0m
+[0;32mI (2603) s3 ll_cam: dma_half_buffer_min:  3840, dma_half_buffer: 15360, lines_per_half_buffer: 24, dma_buffer_size: 30720[0m
+[0;32mI (2603) cam_hal: buffer_size: 30720, half_buffer_size: 15360, node_buffer_size: 3840, node_cnt: 8, total_cnt: 10[0m
+[0;32mI (2613) cam_hal: Allocating 76800 Byte frame buffer in PSRAM[0m
+[0;32mI (2623) cam_hal: cam config ok[0m
+[0;32mI (2623) ov2640: Set PLL: clk_2x: 1, clk_div: 3, pclk_auto: 1, pclk_div: 8[0m
+[0;32mI (2693) CAM: Camera sensor 7f a2 0026 42[0m
+[0;33mW (3023) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [123, 116]
+[0;33mW (3263) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (3503) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [40, 156]
+[0;33mW (3743) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [164, 81]
+[0;33mW (3983) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [145, 71]
+[0;33mW (4223) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [130, 75]
+[0;33mW (4463) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [113, 75]
+[0;33mW (4703) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [83, 109]
+[0;33mW (4943) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [145, 83]
+[0;33mW (5183) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [172, 89]
+[0;33mW (5423) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [189, 127]
+[0;33mW (5663) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [182, 158]
+[0;33mW (5903) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [201, 150]
+[0;33mW (6143) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [184, 139]
+[0;33mW (6383) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [182, 143]
+[0;33mW (6623) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [171, 159]
+[0;33mW (6863) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [166, 162]
+[0;33mW (7103) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [265, 149]
+[0;33mW (7343) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [225, 153]
+[0;33mW (7583) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [161, 157]
+[0;33mW (7823) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [264, 172]
+[0;33mW (8063) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [160, 171]
+[0;33mW (8303) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [140, 164]
+[0;33mW (8543) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [142, 176]
+[0;33mW (8783) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [38, 238]
+[0;33mW (9023) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [177, 128]
+[0;33mW (9263) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [142, 183]
+[0;33mW (9503) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [167, 173]
+[0;33mW (9743) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [226, 120]
+[0;33mW (9983) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [244, 84]
+[0;33mW (10223) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [184, 154]
+[0;33mW (10463) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [159, 133]
+[0;33mW (10703) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [108, 94]
+[0;33mW (10943) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [95, 85]
+[0;33mW (11183) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [143, 56]
+[0;33mW (11423) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [66, 14]
+[0;33mW (11663) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [58, 61]
+[0;33mW (11903) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [121, 126]
+[0;33mW (12143) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [102, 48]
+[0;33mW (12383) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [226, 19]
+[0;33mW (12623) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [103, 156]
+[0;33mW (12863) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [151, 130]
+[0;33mW (13103) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [152, 76]
+[0;33mW (13343) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [78, 14]
+[0;33mW (13583) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [38, 23]
+[0;33mW (13823) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [116, 51]
+[0;33mW (14063) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [164, 73]
+[0;33mW (14303) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [194, 60]
+[0;33mW (14543) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [243, 65]
+[0;33mW (14783) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [251, 97]
+[0;33mW (15023) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [214, 99]
+[0;33mW (15263) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [223, 112]
+[0;33mW (15503) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [146, 123]
+[0;33mW (15743) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [147, 121]
+[0;33mW (15983) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [175, 140]
+[0;33mW (16223) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [145, 139]
+[0;33mW (16463) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [173, 115]
+[0;33mW (16703) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [124, 168]
+[0;33mW (16943) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [116, 121]
+[0;33mW (17183) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [43, 78]
+[0;33mW (17423) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [75, 182]
+[0;33mW (17663) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [70, 99]
+[0;33mW (17903) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [42, 222]
+[0;33mW (18143) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [62, 177]
+[0;33mW (18383) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [41, 108]
+[0;33mW (18613) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [116, 218]
+[0;33mW (18853) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [80, 184]
+[0;33mW (19093) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [119, 55]
+[0;33mW (19333) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [48, 162]
+[0;33mW (19573) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [43, 142]
+[0;33mW (19813) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [46, 197]
+[0;33mW (20053) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [45, 154]
+[0;33mW (20293) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [52, 164]
+[0;33mW (20533) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [56, 188]
+[0;33mW (20773) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [55, 169]
+[0;33mW (21013) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [78, 206]
+[0;33mW (21253) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [66, 178]
+[0;33mW (21493) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [63, 73]
+[0;33mW (21733) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [55, 170]
+[0;33mW (21973) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [52, 173]
+[0;33mW (22213) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [64, 199]
+[0;33mW (22453) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [55, 174]
+[0;33mW (22693) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [29, 163]
+[0;33mW (22933) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [54, 174]
+[0;33mW (23173) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [48, 151]
+[0;33mW (23413) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [52, 207]
+[0;33mW (23653) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [60, 177]
+[0;33mW (23893) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [92, 72]
+[0;33mW (24133) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [56, 174]
+[0;33mW (24373) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [66, 161]
+[0;33mW (24613) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [65, 210]
+[0;33mW (24853) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [60, 180]
+[0;33mW (25093) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [41, 216]
+[0;33mW (25333) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [56, 189]
+[0;33mW (25573) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [55, 122]
+[0;33mW (25813) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [53, 213]
+[0;33mW (26053) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [53, 185]
+[0;33mW (26293) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [47, 234]
+[0;33mW (26533) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [59, 188]
+[0;33mW (26773) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [69, 121]
+[0;33mW (27013) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [61, 221]
+[0;33mW (27253) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [53, 186]
+[0;33mW (27493) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [34, 220]
+[0;33mW (27733) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [52, 198]
+[0;33mW (27973) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [49, 118]
+[0;33mW (28213) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [50, 217]
+[0;33mW (28453) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [47, 193]
+[0;33mW (28693) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [36, 231]
+[0;33mW (28933) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [52, 201]
+[0;33mW (29173) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [0, 94]
+[0;33mW (29413) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [44, 227]
+[0;33mW (29653) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [39, 219]
+[0;33mW (29893) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [40, 222]
+[0;33mW (30133) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [44, 222]
+[0;33mW (30373) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (30613) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [40, 224]
+[0;33mW (30853) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [43, 221]
+[0;33mW (31093) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [33, 229]
+[0;33mW (31333) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [40, 225]
+[0;33mW (31573) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (31813) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [36, 225]
+[0;33mW (32053) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [26, 227]
+[0;33mW (32293) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (32533) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [34, 224]
+[0;33mW (32773) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (33013) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [4, 236]
+[0;33mW (33253) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [31, 227]
+[0;33mW (33493) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (33733) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [31, 228]
+[0;33mW (33973) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (34213) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [12, 234]
+[0;33mW (34453) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [28, 220]
+[0;33mW (34693) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (34933) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [1, 232]
+[0;33mW (35173) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (35413) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [18, 238]
+[0;33mW (35653) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (35893) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (36133) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (36373) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (36613) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [0, 238]
+[0;33mW (36853) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (37093) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (37333) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (37573) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (37813) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (38053) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (38293) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (38533) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (38773) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (39013) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (39253) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (39493) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (39733) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (39973) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (40213) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [8, 233]
+[0;33mW (40453) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (40693) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [8, 233]
+[0;33mW (40933) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (41173) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (41413) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (41653) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (41893) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (42123) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (42363) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (42603) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [14, 232]
+[0;33mW (42853) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (43083) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (43323) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [36, 225]
+[0;33mW (43563) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (43803) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (44043) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (44283) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (44523) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [33, 224]
+[0;33mW (44763) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (45003) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [30, 226]
+[0;33mW (45243) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [6, 238]
+[0;33mW (45483) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [20, 238]
+[0;33mW (45723) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [28, 227]
+[0;33mW (45963) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (46203) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [246, 151]
+[0;33mW (46443) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [186, 132]
+[0;33mW (46683) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [130, 123]
+[0;33mW (46923) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [106, 76]
+[0;33mW (47163) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [83, 29]
+[0;33mW (47403) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [78, 172]
+[0;33mW (47643) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [67, 39]
+[0;33mW (47883) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [82, 114]
+[0;33mW (48123) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [1, 238]
+[0;33mW (48363) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [103, 87]
+[0;33mW (48603) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [104, 48]
+[0;33mW (48843) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [121, 193]
+[0;33mW (49083) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [96, 102]
+[0;33mW (49323) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [111, 195]
+[0;33mW (49563) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [54, 97]
+[0;33mW (49803) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [15, 63]
+[0;33mW (50043) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [58, 108]
+[0;33mW (50283) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [81, 155]
+[0;33mW (50523) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [41, 169]
+[0;33mW (50763) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [29, 62]
+[0;33mW (51003) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [68, 154]
+[0;33mW (51243) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [90, 174]
+[0;33mW (51483) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [80, 90]
+[0;33mW (51723) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [130, 111]
+[0;33mW (51963) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [96, 177]
+[0;33mW (52203) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [100, 160]
+[0;33mW (52443) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [1, 196]
+[0;33mW (52683) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [109, 196]
+[0;33mW (52923) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [18, 57]
+[0;33mW (53163) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (53403) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (53643) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (53883) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (54123) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [33, 215]
+[0;33mW (54363) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [17, 144]
+[0;33mW (54603) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (54843) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (55083) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (55323) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (55563) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [56, 186]
+[0;33mW (55803) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (56043) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (56283) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [79, 200]
+[0;33mW (56523) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [16, 95]
+[0;33mW (56763) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (57003) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (57243) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [76, 210]
+[0;33mW (57483) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [110, 162]
+[0;33mW (57723) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (57963) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [93, 206]
+[0;33mW (58203) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [95, 130]
+[0;33mW (58443) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [58, 210]
+[0;33mW (58683) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [116, 174]
+[0;33mW (58923) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (59163) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (59403) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [21, 56]
+[0;33mW (59643) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (59883) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (60123) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (60363) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [68, 216]
+[0;33mW (60603) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [41, 121]
+[0;33mW (60843) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (61083) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (61323) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (61563) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [22, 215]
+[0;33mW (61803) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (62043) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (62283) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (62523) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (62763) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (63003) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (63243) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [93, 196]
+[0;33mW (63483) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [78, 82]
+[0;33mW (63723) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [137, 133]
+[0;33mW (63963) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [117, 185]
+[0;33mW (64203) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [58, 133]
+[0;33mW (64443) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [129, 166]
+[0;33mW (64683) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [122, 53]
+[0;33mW (64923) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [113, 119]
+[0;33mW (65163) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [103, 32]
+[0;33mW (65403) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (65643) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [71, 178]
+[0;33mW (65883) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [71, 89]
+[0;33mW (66123) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [124, 108]
+[0;33mW (66363) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [145, 104]
+[0;33mW (66603) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [122, 55]
+[0;33mW (66843) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [115, 91]
+[0;33mW (67083) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [130, 82]
+[0;33mW (67323) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [142, 124]
+[0;33mW (67563) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [118, 100]
+[0;33mW (67803) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [53, 4]
+[0;33mW (68043) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [45, 72]
+[0;33mW (68283) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [136, 214]
+[0;33mW (68523) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [123, 93]
+[0;33mW (68763) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [175, 69]
+[0;33mW (68993) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [144, 136]
+[0;33mW (69233) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [130, 140]
+[0;33mW (69473) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [83, 178]
+[0;33mW (69713) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [44, 134]
+[0;33mW (69953) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [122, 198]
+[0;33mW (70193) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [171, 131]
+[0;33mW (70433) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [106, 124]
+[0;33mW (70673) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [51, 159]
+[0;33mW (70913) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [275, 86]
+[0;33mW (71153) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [84, 206]
+[0;33mW (71393) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [60, 152]
+[0;33mW (71633) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [80, 223]
+[0;33mW (71873) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [69, 189]
+[0;33mW (72113) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [42, 16]
+[0;33mW (72353) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [75, 196]
+[0;33mW (72593) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [40, 156]
+[0;33mW (72833) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [73, 220]
+[0;33mW (73073) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [54, 182]
+[0;33mW (73313) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [48, 229]
+[0;33mW (73553) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [70, 196]
+[0;33mW (73793) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (74033) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [74, 210]
+[0;33mW (74273) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [58, 184]
+[0;33mW (74513) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [43, 220]
+[0;33mW (74753) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [60, 189]
+[0;33mW (74993) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (75233) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [74, 212]
+[0;33mW (75473) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [34, 156]
+[0;33mW (75713) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [75, 216]
+[0;33mW (75953) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [62, 192]
+[0;33mW (76193) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [56, 238]
+[0;33mW (76433) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [66, 205]
+[0;33mW (76673) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (76913) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [70, 220]
+[0;33mW (77153) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [44, 181]
+[0;33mW (77393) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [92, 230]
+[0;33mW (77633) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [68, 208]
+[0;33mW (77873) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (78113) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [69, 216]
+[0;33mW (78353) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [38, 211]
+[0;33mW (78593) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [88, 223]
+[0;33mW (78833) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [60, 214]
+[0;33mW (79073) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (79313) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [68, 215]
+[0;33mW (79553) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (79793) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [62, 220]
+[0;33mW (80033) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [38, 211]
+[0;33mW (80273) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [62, 238]
+[0;33mW (80513) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [66, 215]
+[0;33mW (80753) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (80993) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [77, 220]
+[0;33mW (81233) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [42, 210]
+[0;33mW (81473) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [33, 230]
+[0;33mW (81713) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [60, 214]
+[0;33mW (81953) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (82193) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [67, 218]
+[0;33mW (82433) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (82673) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [44, 232]
+[0;33mW (82913) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [37, 214]
+[0;33mW (83153) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (83393) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [43, 219]
+[0;33mW (83633) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (83873) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [39, 221]
+[0;33mW (84113) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (84353) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [54, 234]
+[0;33mW (84593) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [38, 220]
+[0;33mW (84833) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (85073) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [49, 218]
+[0;33mW (85313) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (85553) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [42, 217]
+[0;33mW (85793) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (86033) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [35, 225]
+[0;33mW (86273) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [49, 216]
+[0;33mW (86513) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (86753) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [46, 218]
+[0;33mW (86993) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (87233) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [39, 230]
+[0;33mW (87473) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (87713) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (87953) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (88193) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (88433) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [42, 216]
+[0;33mW (88673) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [42, 208]
+[0;33mW (88913) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (89153) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [48, 220]
+[0;33mW (89393) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (89633) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [25, 238]
+[0;33mW (89873) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (90113) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (90353) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (90593) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (90833) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (91073) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (91313) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (91553) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (91793) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (92023) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (92263) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (92503) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (92743) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (92983) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (93223) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (93463) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (93703) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (93943) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (94183) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (94423) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (94663) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (94903) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (95143) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (95383) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (95623) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (95863) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (96103) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (96343) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (96583) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (96823) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (97063) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (97303) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (97543) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (97783) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (98023) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (98263) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (98503) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (98743) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (98983) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (99223) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (99463) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (99703) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (99943) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (100183) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (100423) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (100663) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (100903) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (101143) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (101383) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (101623) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (101863) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (102103) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (102343) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (102583) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (102823) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (103063) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (103303) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (103543) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (103783) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (104023) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (104263) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (104503) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (104743) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (104983) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (105223) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (105463) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (105703) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (105943) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (106183) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (106423) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [44, 231]
+[0;33mW (106663) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (106903) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (107143) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (107383) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (107623) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (107863) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (108103) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (108343) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (108583) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (108823) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (109063) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (109303) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (109543) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (109783) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (110023) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (110263) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (110503) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (110743) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (110983) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (111223) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (111463) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (111703) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (111943) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (112183) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (112423) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (112663) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (112903) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (113143) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (113383) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (113623) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (113863) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (114103) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (114343) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (114583) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (114823) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (115063) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (115303) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (115543) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (115783) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (116023) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (116263) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (116503) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (116743) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (116973) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (117213) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (117453) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (117693) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (117933) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (118173) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (118413) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (118653) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (118893) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (119133) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (119373) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (119613) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (119853) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (120093) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (120333) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (120573) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (120813) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (121053) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (121293) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (121533) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (121773) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (122013) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (122253) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (122493) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (122733) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (122973) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (123213) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (123453) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (123693) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (123933) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (124173) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (124413) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (124653) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (124893) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (125133) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (125373) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (125613) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (125853) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (126093) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (126333) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (126573) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (126813) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (127053) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (127293) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (127533) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (127773) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (128013) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (128253) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (128493) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (128733) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (128973) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (129213) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (129453) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (129693) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (129933) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (130173) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (130413) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (130653) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [4, 220]
+[0;33mW (130893) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (131133) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (131373) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (131613) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (131853) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (132093) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (132333) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (132573) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (132813) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (133053) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (133293) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (133533) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (133773) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (134013) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (134253) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (134493) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (134733) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (134973) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (135213) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (135453) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (135693) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (135933) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (136173) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (136413) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (136653) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (136893) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (137133) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (137373) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (137613) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (137853) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (138093) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (138333) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (138573) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (138813) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (139053) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (139293) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (139533) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (139773) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (140013) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (140253) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (140493) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (140733) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (140973) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (141213) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (141453) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (141693) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (141923) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (142163) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (142403) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (142643) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (142883) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (143123) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (143363) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (143603) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (143843) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (144083) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (144323) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (144563) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (144803) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (145043) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (145283) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (145523) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (145763) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (146003) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (146243) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (146483) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (146723) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (146963) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (147203) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (147443) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (147683) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (147923) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (148163) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (148403) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (148643) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (148883) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (149123) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (149363) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (149603) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (149843) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (150083) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (150323) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (150563) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (150803) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (151043) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (151283) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (151523) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (151763) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (152003) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (152243) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (152483) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (152723) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (152963) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (153203) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (153443) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (153683) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (153923) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (154163) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (154403) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (154643) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (154883) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (155123) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (155363) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (155603) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (155843) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (156083) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (156323) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (156563) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (156803) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (157043) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (157283) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (157523) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (157763) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (158003) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (158243) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (158483) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (158723) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (158963) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (159203) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (159443) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (159683) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [39, 229]
+[0;33mW (159923) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (160163) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [43, 225]
+[0;33mW (160403) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (160643) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (160883) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [24, 238]
+[0;33mW (161123) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (161363) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [43, 216]
+[0;33mW (161603) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (161843) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [40, 232]
+[0;33mW (162083) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [42, 209]
+[0;33mW (162323) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (162563) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [37, 216]
+[0;33mW (162803) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (163043) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [25, 238]
+[0;33mW (163283) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (163523) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (163763) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (164003) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (164243) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (164483) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (164723) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [46, 215]
+[0;33mW (164963) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (165203) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [39, 216]
+[0;33mW (165443) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (165683) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [22, 237]
+[0;33mW (165923) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [37, 214]
+[0;33mW (166163) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (166403) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [43, 217]
+[0;33mW (166643) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (166873) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (167113) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [45, 214]
+[0;33mW (167363) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (167593) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (167833) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (168073) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (168313) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (168553) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (168793) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (169033) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (169273) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (169513) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (169753) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (169993) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (170233) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (170473) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (170713) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (170953) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (171193) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (171433) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (171673) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (171913) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (172153) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (172393) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (172633) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (172873) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (173113) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (173353) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (173593) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (173833) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (174073) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (174313) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (174553) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (174793) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (175033) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (175273) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (175513) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (175753) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (175993) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (176233) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (176473) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (176713) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (176953) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (177193) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (177433) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (177673) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (177913) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (178153) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (178393) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (178633) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (178873) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (179113) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (179353) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (179593) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (179833) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (180073) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (180313) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (180553) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (180793) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (181033) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (181273) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (181513) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (181753) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (181993) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (182233) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (182473) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (182713) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (182953) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (183193) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (183433) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (183673) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (183913) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (184153) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (184393) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (184633) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (184873) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (185113) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (185353) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (185593) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (185833) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (186073) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (186313) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (186553) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (186793) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (187033) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (187273) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (187513) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (187753) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (187993) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (188233) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (188473) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (188713) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (188953) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (189193) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (189433) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (189673) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (189913) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (190153) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (190393) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (190633) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (190873) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (191113) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (191353) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (191593) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (191833) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (192063) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (192303) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (192543) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (192783) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (193023) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (193263) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (193503) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (193743) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (193983) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (194223) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (194463) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (194703) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (194943) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (195183) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (195423) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (195663) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (195903) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (196143) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (196383) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (196623) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (196863) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (197103) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (197343) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (197583) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (197823) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (198063) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (198303) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (198543) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (198783) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (199023) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (199263) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (199503) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (199743) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (199983) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (200223) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (200463) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (200703) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (200943) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (201183) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (201423) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (201663) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (201903) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (202143) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (202383) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (202623) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (202863) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (203103) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (203343) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (203583) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (203823) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (204063) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (204303) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (204543) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (204783) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (205023) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (205263) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (205503) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (205743) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (205983) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (206223) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (206463) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (206703) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (206943) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (207183) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (207423) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (207663) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (207903) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (208143) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (208383) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (208623) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (208863) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (209103) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (209343) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (209583) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (209823) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (210063) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (210303) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (210543) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (210783) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (211023) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (211263) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (211503) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (211743) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (211983) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (212223) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (212463) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (212703) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (212943) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (213183) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (213423) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (213663) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [41, 231]
+[0;33mW (213903) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (214143) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (214383) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (214623) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (214863) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (215103) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (215343) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (215583) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (215823) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (216063) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (216303) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (216543) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (216783) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (217013) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (217253) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (217493) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (217733) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (217973) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (218213) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (218453) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (218693) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (218933) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (219173) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (219413) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (219653) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (219893) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (220133) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (220373) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (220613) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (220853) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (221093) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [36, 214]
+[0;33mW (221333) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (221573) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [43, 230]
+[0;33mW (221813) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [4, 210]
+[0;33mW (222053) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (222293) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [42, 232]
+[0;33mW (222533) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (222773) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [25, 238]
+[0;33mW (223013) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (223253) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (223493) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (223733) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (223973) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [44, 217]
+[0;33mW (224213) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (224453) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [49, 230]
+[0;33mW (224693) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (224933) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (225173) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [42, 209]
+[0;33mW (225413) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (225653) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [35, 218]
+[0;33mW (225893) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [23, 210]
+[0;33mW (226133) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (226373) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [21, 216]
+[0;33mW (226613) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (226853) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [44, 229]
+[0;33mW (227093) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (227333) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (227573) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [49, 214]
+[0;33mW (227813) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (228053) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [38, 222]
+[0;33mW (228293) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (228533) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [46, 233]
+[0;33mW (228773) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (229013) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (229253) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (229493) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (229733) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (229973) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (230213) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (230453) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (230693) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (230933) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (231173) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (231413) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (231653) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (231893) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (232133) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (232373) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (232613) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (232853) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (233093) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (233333) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (233573) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (233813) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (234053) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (234293) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (234533) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (234773) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (235013) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (235253) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (235493) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (235733) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (235973) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (236213) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (236453) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (236693) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (236933) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (237173) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (237413) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (237653) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (237893) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (238133) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (238373) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (238613) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (238853) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (239093) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (239333) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (239573) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (239813) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (240053) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (240293) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (240533) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (240773) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (241013) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (241253) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (241493) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (241733) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (241963) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (242203) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (242443) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (242683) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (242923) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (243163) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (243403) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (243643) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (243883) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (244123) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (244363) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (244603) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (244843) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (245083) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (245323) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (245563) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (245803) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (246043) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (246283) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (246523) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (246763) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (247003) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (247243) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [24, 238]
+[0;33mW (247483) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (247723) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [46, 215]
+[0;33mW (247963) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (248203) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [56, 215]
+[0;33mW (248443) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [36, 211]
+[0;33mW (248683) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (248923) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [39, 215]
+[0;33mW (249163) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (249403) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [35, 222]
+[0;33mW (249643) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (249883) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [40, 231]
+[0;33mW (250123) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [42, 212]
+[0;33mW (250363) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (250603) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [36, 214]
+[0;33mW (250843) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (251083) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [34, 228]
+[0;33mW (251323) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [39, 210]
+[0;33mW (251563) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (251803) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [40, 215]
+[0;33mW (252043) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (252283) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [53, 230]
+[0;33mW (252523) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [49, 226]
+[0;33mW (252763) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (253003) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [23, 238]
+[0;33mW (253243) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (253483) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [55, 220]
+[0;33mW (253723) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (253963) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (254203) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (254443) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (254683) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (254923) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (255163) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (255403) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (255643) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [41, 222]
+[0;33mW (255883) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (256123) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (256363) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (256603) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (256843) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (257083) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (257323) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (257563) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (257803) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (258043) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (258283) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (258523) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (258763) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (259003) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (259243) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (259483) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (259723) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (259963) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (260203) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (260443) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (260683) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (260923) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (261163) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (261403) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (261643) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (261883) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (262123) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (262363) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (262603) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (262843) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (263083) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (263323) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (263563) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (263803) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (264043) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (264283) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (264523) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (264763) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (265003) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (265243) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (265483) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (265723) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (265963) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (266203) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (266443) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (266683) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (266913) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (267153) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (267393) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [24, 238]
+[0;33mW (267643) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (267873) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (268113) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (268353) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (268593) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (268833) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (269073) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (269313) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (269553) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (269793) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (270033) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (270273) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (270513) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (270753) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (270993) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (271233) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (271473) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (271713) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (271953) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (272193) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (272433) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (272673) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (272913) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (273153) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (273393) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (273633) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (273873) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (274113) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (274353) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (274593) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (274833) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (275073) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (275313) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (275553) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (275793) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (276033) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [27, 231]
+[0;33mW (276273) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (276513) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (276753) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (276993) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [98, 114]
+[0;33mW (277233) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (277473) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [7, 220]
+[0;33mW (277713) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (277953) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [10, 215]
+[0;33mW (278193) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (278433) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (278673) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (278913) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (279153) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (279393) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (279633) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [225, 223]
+[0;33mW (279873) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [24, 238]
+[0;33mW (280113) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [94, 200]
+[0;33mW (280353) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (280593) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (280833) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (281073) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (281313) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (281553) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [185, 213]
+[0;33mW (281793) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (282033) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (282273) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (282513) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (282753) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [21, 232]
+[0;33mW (282993) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [11, 233]
+[0;33mW (283233) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (283473) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (283713) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (283953) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (284193) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (284433) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [45, 216]
+[0;33mW (284673) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (284913) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [28, 227]
+[0;33mW (285153) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (285393) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (285633) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [8, 192]
+[0;33mW (285873) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (286113) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [33, 229]
+[0;33mW (286353) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (286593) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [25, 238]
+[0;33mW (286833) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [51, 230]
+[0;33mW (287073) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (287313) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [31, 229]
+[0;33mW (287553) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (287793) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (288033) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (288273) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [25, 238]
+[0;33mW (288513) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [25, 238]
+[0;33mW (288753) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (288993) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (289233) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [69, 237]
+[0;33mW (289473) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [67, 236]
+[0;33mW (289713) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (289953) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [53, 231]
+[0;33mW (290193) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (290433) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [22, 238]
+[0;33mW (290673) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [36, 199]
+[0;33mW (290913) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (291153) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [49, 236]
+[0;33mW (291393) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (291633) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (291863) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (292103) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (292343) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [23, 238]
+[0;33mW (292593) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (292823) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (293063) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (293303) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (293543) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (293783) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (294023) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (294263) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (294503) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (294743) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (294983) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (295223) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (295463) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (295703) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (295943) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (296183) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (296423) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (296663) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (296903) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (297143) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (297383) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (297623) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (297863) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (298103) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (298343) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (298583) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (298823) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (299063) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (299303) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (299543) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (299783) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (300023) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (300263) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (300503) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (300743) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (300983) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (301223) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (301463) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (301703) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (301943) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (302183) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (302423) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (302663) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [35, 231]
+[0;33mW (302903) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (303143) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (303383) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (303623) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (303863) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (304103) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (304343) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (304583) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (304823) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (305063) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (305303) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (305543) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (305783) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (306023) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (306263) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (306503) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (306743) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (306983) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (307223) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (307463) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (307703) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [48, 232]
+[0;33mW (307943) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (308183) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [38, 218]
+[0;33mW (308423) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (308663) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [36, 215]
+[0;33mW (308903) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [34, 219]
+[0;33mW (309143) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (309383) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (309623) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (309863) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [42, 222]
+[0;33mW (310103) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (310343) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (310583) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (310823) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (311063) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (311303) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (311543) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (311783) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (312023) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (312263) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (312503) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (312743) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (312983) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (313223) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (313463) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [35, 220]
+[0;33mW (313703) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (313943) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [40, 232]
+[0;33mW (314183) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [43, 218]
+[0;33mW (314423) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (314663) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [38, 216]
+[0;33mW (314903) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (315143) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [46, 204]
+[0;33mW (315383) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (315623) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (315863) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (316103) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (316343) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (316583) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (316813) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (317053) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (317293) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (317533) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (317773) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (318013) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (318253) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (318493) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (318733) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (318973) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (319213) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (319453) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (319693) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (319933) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (320173) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (320413) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (320653) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (320893) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (321133) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (321373) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (321613) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (321853) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (322093) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (322333) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (322573) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (322813) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (323053) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (323293) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (323533) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (323773) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (324013) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (324253) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (324493) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (324733) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (324973) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (325213) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (325453) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (325693) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (325933) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (326173) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (326413) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (326653) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (326893) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (327133) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (327373) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (327613) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (327853) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (328093) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (328333) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (328573) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (328813) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (329053) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (329293) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (329533) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [38, 197]
+[0;33mW (329773) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (330013) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [42, 201]
+[0;33mW (330253) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (330493) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (330733) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (330973) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (331213) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (331453) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (331693) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (331933) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (332173) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (332413) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (332653) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (332893) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (333133) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (333373) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (333613) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (333853) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (334093) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (334333) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (334573) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (334813) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (335053) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (335293) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (335533) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (335773) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (336013) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (336253) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (336493) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (336733) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (336973) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (337213) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (337453) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (337693) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (337933) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (338173) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (338413) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (338653) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (338893) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (339133) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (339373) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (339613) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (339853) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (340093) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [24, 238]
+[0;33mW (340333) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (340573) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (340813) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (341053) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (341293) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (341533) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (341763) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (342003) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (342243) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [24, 238]
+[0;33mW (342493) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (342723) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (342963) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (343203) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (343443) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [52, 229]
+[0;33mW (343683) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (343923) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (344163) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (344403) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (344643) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (344883) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (345123) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (345363) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (345603) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (345843) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (346083) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (346323) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (346563) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (346803) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (347043) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (347283) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (347523) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (347763) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (348003) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (348243) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (348483) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (348723) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (348963) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (349203) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (349443) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (349683) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (349923) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (350163) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (350403) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (350643) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (350883) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (351123) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (351363) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (351603) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (351843) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (352083) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (352323) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (352563) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (352803) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (353043) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (353283) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (353523) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (353763) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (354003) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (354243) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (354483) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (354723) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (354963) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (355203) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (355443) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (355683) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (355923) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (356163) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (356403) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (356643) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (356883) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (357123) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (357363) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (357603) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (357843) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (358083) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (358323) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (358563) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (358803) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (359043) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (359283) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (359523) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (359763) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (360003) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (360243) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (360483) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (360723) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (360963) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (361203) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (361443) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (361683) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (361923) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (362163) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (362403) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (362643) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (362883) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (363123) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (363363) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (363603) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (363843) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (364083) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (364323) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (364563) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (364803) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (365043) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (365283) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (365523) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (365763) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (366003) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (366243) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (366483) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (366723) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (366953) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (367193) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (367433) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (367673) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (367913) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (368153) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [68, 238]
+[0;33mW (368393) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [64, 238]
+[0;33mW (368633) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (368873) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (369113) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (369353) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (369593) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (369833) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (370073) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (370313) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (370553) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (370793) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (371033) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (371273) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (371513) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (371753) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (371993) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (372233) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (372473) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (372713) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (372953) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (373193) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (373433) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (373673) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (373913) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (374153) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (374393) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (374633) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (374873) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (375113) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (375353) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (375593) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (375833) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (376073) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (376313) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (376553) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (376793) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (377033) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [21, 238]
+[0;33mW (377273) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [55, 213]
+[0;33mW (377513) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (377753) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [46, 215]
+[0;33mW (377993) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (378233) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [69, 221]
+[0;33mW (378473) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [42, 213]
+[0;33mW (378713) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (378953) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (379193) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (379433) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (379673) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (379913) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (380153) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (380393) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (380633) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (380873) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (381113) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (381353) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (381593) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (381833) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (382073) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (382313) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (382553) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (382793) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (383033) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (383273) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (383513) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (383753) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (383993) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (384233) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (384473) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (384713) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (384953) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (385193) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (385433) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (385673) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (385913) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (386153) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (386393) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (386633) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (386873) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (387113) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (387353) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (387593) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (387833) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (388073) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (388313) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (388553) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (388793) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (389033) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (389273) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (389513) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (389753) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (389993) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [42, 209]
+[0;33mW (390233) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (390473) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [43, 215]
+[0;33mW (390713) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (390953) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (391193) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (391433) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (391673) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (391903) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (392143) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (392383) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (392623) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (392863) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (393103) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (393343) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (393583) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [50, 219]
+[0;33mW (393823) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (394063) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (394303) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (394543) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (394783) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (395023) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (395263) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (395503) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (395743) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (395983) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (396223) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (396463) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (396703) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (396943) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (397183) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (397423) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (397663) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (397903) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (398143) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (398383) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (398623) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (398863) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (399103) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (399343) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (399583) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (399823) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [62, 212]
+[0;33mW (400063) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (400303) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [74, 218]
+[0;33mW (400543) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [39, 210]
+[0;33mW (400783) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [38, 230]
+[0;33mW (401023) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [72, 213]
+[0;33mW (401263) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (401503) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [68, 215]
+[0;33mW (401743) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [17, 230]
+[0;33mW (401983) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [73, 218]
+[0;33mW (402223) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [62, 215]
+[0;33mW (402463) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (402703) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [50, 232]
+[0;33mW (402943) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (403183) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (403423) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (403663) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (403903) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (404143) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (404383) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (404623) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (404863) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (405103) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (405343) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (405583) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (405823) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (406063) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (406303) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (406543) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (406783) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (407023) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (407263) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (407503) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (407743) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (407983) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (408223) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (408463) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (408703) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (408943) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (409183) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (409423) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (409663) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (409903) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (410143) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (410383) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (410623) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (410863) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (411103) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (411343) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (411583) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (411823) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (412063) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (412303) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (412543) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (412783) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (413023) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (413263) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (413503) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (413743) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (413983) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (414223) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (414463) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (414703) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (414943) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (415183) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (415423) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (415663) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (415903) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (416143) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (416383) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (416623) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (416853) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (417093) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (417333) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (417573) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (417813) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (418053) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (418293) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (418533) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (418773) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (419013) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (419253) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (419493) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (419733) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (419973) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (420213) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (420453) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (420693) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (420933) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (421173) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (421413) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (421653) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (421893) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (422133) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (422373) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (422613) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (422853) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (423093) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (423333) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (423573) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (423813) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [34, 198]
+[0;33mW (424053) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (424293) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [41, 225]
+[0;33mW (424533) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (424773) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (425013) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (425253) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (425493) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (425733) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (425973) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [24, 238]
+[0;33mW (426213) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (426453) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [23, 238]
+[0;33mW (426693) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (426933) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (427173) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (427413) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (427653) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (427893) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (428133) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (428373) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (428613) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (428853) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (429093) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (429333) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (429573) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (429813) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (430053) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (430293) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (430533) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (430773) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (431013) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (431253) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (431493) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (431733) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (431973) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (432213) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (432453) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (432693) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (432933) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (433173) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (433413) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (433653) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (433893) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (434133) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (434373) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (434613) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (434853) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (435093) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (435333) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (435573) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (435813) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (436053) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (436293) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (436533) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (436773) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (437013) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (437253) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (437493) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (437733) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (437973) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (438213) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (438453) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (438693) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (438933) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (439173) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (439413) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (439653) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (439893) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (440133) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (440373) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (440613) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (440853) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (441093) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (441333) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (441573) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (441803) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (442043) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (442283) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (442523) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (442763) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (443003) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (443243) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (443483) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (443723) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (443963) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (444203) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [310, 28]
+[0;33mW (444443) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (444683) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (444923) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (445163) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (445403) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [7, 220]
+[0;33mW (445643) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [4, 220]
+[0;33mW (445883) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (446123) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (446363) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (446603) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (446843) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (447083) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (447323) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (447563) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (447803) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (448043) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (448283) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (448523) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (448763) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (449003) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (449243) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (449483) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (449723) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (449963) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (450203) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (450443) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (450683) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (450923) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (451163) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (451403) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (451643) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (451883) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (452123) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (452363) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (452603) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (452843) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (453083) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (453323) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (453563) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (453803) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (454043) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (454283) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (454523) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (454763) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (455003) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (455243) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (455483) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (455723) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (455963) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (456203) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (456443) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (456683) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (456923) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (457163) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (457403) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (457643) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (457883) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (458123) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (458363) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (458603) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (458843) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (459083) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (459323) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (459563) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (459803) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (460043) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (460283) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (460523) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (460763) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (461003) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (461243) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (461483) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (461723) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (461963) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (462203) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (462443) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (462683) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (462923) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (463163) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (463403) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (463643) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (463883) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (464123) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (464363) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (464603) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [89, 130]
+[0;33mW (464843) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (465083) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (465323) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (465563) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (465803) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (466043) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (466283) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (466523) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (466753) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (466993) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (467233) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (467473) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (467713) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (467953) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [103, 187]
+[0;33mW (468203) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [92, 62]
+[0;33mW (468443) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (468673) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (468913) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (469153) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (469393) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (469633) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (469873) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (470113) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (470353) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (470593) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (470833) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (471073) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (471313) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (471553) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [34, 212]
+[0;33mW (471793) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (472033) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (472273) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (472513) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (472753) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (472993) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (473233) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (473473) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (473713) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (473953) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (474193) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (474433) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (474673) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (474913) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (475153) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (475393) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (475633) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (475873) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (476113) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (476353) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (476593) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (476833) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (477073) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (477313) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (477553) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (477793) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (478033) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (478273) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (478513) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (478753) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (478993) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (479233) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (479473) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (479713) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (479953) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (480193) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (480433) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (480673) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (480913) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (481153) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (481393) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (481633) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (481873) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (482113) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (482353) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (482593) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (482833) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (483073) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (483313) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (483553) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (483793) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (484033) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (484273) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (484513) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (484753) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (484993) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (485233) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (485473) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (485713) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (485953) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (486193) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (486433) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (486673) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (486913) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (487153) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (487393) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (487633) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (487873) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (488113) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (488353) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (488593) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (488833) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (489073) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (489313) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (489553) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (489793) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (490033) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (490273) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (490513) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (490753) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (490993) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (491233) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (491473) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (491713) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (491943) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (492183) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (492423) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (492663) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (492903) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (493143) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (493383) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (493623) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (493863) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (494103) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (494343) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (494583) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (494823) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (495063) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (495303) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (495543) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (495783) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (496023) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (496263) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (496503) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (496743) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (496983) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (497223) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (497463) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (497703) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (497943) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (498183) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (498423) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [56, 230]
+[0;33mW (498663) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [42, 218]
+[0;33mW (498903) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (499143) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [22, 238]
+[0;33mW (499383) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (499623) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (499863) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (500103) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (500343) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [45, 232]
+[0;33mW (500583) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (500823) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (501063) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (501303) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (501543) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (501783) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (502023) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (502263) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (502503) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (502743) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (502983) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [33, 229]
+[0;33mW (503223) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (503463) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (503703) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (503943) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (504183) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (504423) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (504663) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (504903) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (505143) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (505383) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (505623) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (505863) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (506103) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (506343) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (506583) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (506823) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (507063) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (507303) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (507543) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (507783) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (508023) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (508263) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (508503) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (508743) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (508983) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (509223) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (509463) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (509703) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (509943) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (510183) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (510423) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (510663) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (510903) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (511143) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (511383) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (511623) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (511863) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (512103) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (512343) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (512583) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (512823) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (513063) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (513303) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (513543) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (513783) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (514023) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (514263) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (514503) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (514743) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (514983) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (515223) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (515463) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (515703) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (515943) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (516183) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (516423) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (516663) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (516893) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (517133) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (517373) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (517613) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (517853) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (518093) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (518333) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (518573) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (518813) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (519053) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (519293) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [51, 230]
+[0;33mW (519533) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (519773) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [36, 226]
+[0;33mW (520013) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (520253) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (520493) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (520733) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (520973) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (521213) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (521453) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (521693) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (521933) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (522173) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (522413) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (522653) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (522893) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (523133) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (523373) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [35, 232]
+[0;33mW (523613) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (523853) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (524093) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (524333) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (524573) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (524813) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (525053) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (525293) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (525533) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (525773) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (526013) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (526253) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (526493) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (526733) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (526973) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (527213) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (527453) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (527693) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (527933) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (528173) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (528413) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (528653) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (528893) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (529133) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (529373) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (529613) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (529853) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (530093) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [22, 238]
+[0;33mW (530333) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [23, 238]
+[0;33mW (530573) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (530813) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (531053) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (531293) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (531533) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (531773) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (532013) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (532253) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (532493) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (532733) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (532973) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (533213) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (533453) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (533693) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (533933) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (534173) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (534413) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (534653) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (534893) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (535133) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (535373) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (535613) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (535853) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (536093) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (536333) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (536573) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (536813) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (537053) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (537293) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (537533) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (537773) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (538013) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (538253) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (538493) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (538733) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (538973) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (539213) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (539453) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (539693) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (539933) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (540173) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (540413) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (540653) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (540893) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (541133) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (541373) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (541613) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (541843) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (542083) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [63, 84]
+[0;33mW (542333) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (542563) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [120, 22]
+[0;33mW (542813) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (543043) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (543283) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [239, 229]
+[0;33mW (543523) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (543763) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (544003) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (544243) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (544483) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (544723) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (544963) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (545203) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (545443) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (545683) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (545923) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (546163) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (546403) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (546643) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (546883) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (547123) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (547363) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (547603) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (547843) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (548083) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (548323) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (548563) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (548803) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (549043) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (549283) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (549523) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (549763) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (550003) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (550243) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (550483) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (550723) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (550963) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (551203) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (551443) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (551683) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (551923) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (552163) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (552403) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (552643) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (552883) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (553123) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (553363) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (553603) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (553843) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (554083) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (554323) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (554563) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (554803) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (555043) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (555283) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (555523) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (555763) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (556003) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (556243) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (556483) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (556723) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (556963) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (557203) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (557443) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (557683) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (557923) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (558163) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (558403) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (558643) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [40, 223]
+[0;33mW (558883) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [52, 228]
+[0;33mW (559123) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (559363) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [38, 220]
+[0;33mW (559603) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (559843) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [62, 217]
+[0;33mW (560083) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (560323) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [48, 228]
+[0;33mW (560563) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (560803) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (561043) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [44, 207]
+[0;33mW (561283) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (561523) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [56, 214]
+[0;33mW (561763) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (562003) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [69, 223]
+[0;33mW (562243) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [28, 212]
+[0;33mW (562483) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [10, 230]
+[0;33mW (562723) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [39, 221]
+[0;33mW (562963) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (563203) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [41, 231]
+[0;33mW (563443) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (563683) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [22, 238]
+[0;33mW (563923) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [22, 238]
+[0;33mW (564163) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (564403) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [69, 219]
+[0;33mW (564643) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (564883) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (565123) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (565363) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (565603) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [93, 232]
+[0;33mW (565843) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [59, 215]
+[0;33mW (566083) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (566323) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [65, 215]
+[0;33mW (566563) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (566793) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [82, 221]
+[0;33mW (567043) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [41, 210]
+[0;33mW (567283) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [37, 233]
+[0;33mW (567523) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [44, 215]
+[0;33mW (567763) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (567993) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [71, 215]
+[0;33mW (568233) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (568473) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [78, 217]
+[0;33mW (568713) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [38, 213]
+[0;33mW (568953) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [40, 233]
+[0;33mW (569193) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [67, 216]
+[0;33mW (569433) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (569673) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [53, 213]
+[0;33mW (569913) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (570153) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [41, 218]
+[0;33mW (570393) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (570633) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [90, 224]
+[0;33mW (570873) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [43, 230]
+[0;33mW (571113) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [21, 237]
+[0;33mW (571353) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [49, 218]
+[0;33mW (571593) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (571833) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [73, 212]
+[0;33mW (572073) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (572313) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [63, 219]
+[0;33mW (572553) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [47, 208]
+[0;33mW (572793) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [38, 232]
+[0;33mW (573033) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [37, 211]
+[0;33mW (573273) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (573513) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [69, 214]
+[0;33mW (573753) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [51, 212]
+[0;33mW (573993) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [18, 238]
+[0;33mW (574233) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [34, 216]
+[0;33mW (574473) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [25, 238]
+[0;33mW (574713) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [47, 210]
+[0;33mW (574953) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (575193) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [1, 221]
+[0;33mW (575433) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (575673) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (575913) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (576153) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (576393) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [22, 238]
+[0;33mW (576633) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (576873) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [22, 238]
+[0;33mW (577113) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [54, 231]
+[0;33mW (577353) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (577593) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (577833) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (578073) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (578313) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (578553) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (578793) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (579033) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (579273) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (579513) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (579753) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (579993) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (580233) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (580473) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (580713) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (580953) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (581193) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (581433) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (581673) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (581913) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (582153) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (582393) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (582633) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (582873) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (583113) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (583353) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (583593) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (583833) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (584073) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [28, 213]
+[0;33mW (584313) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (584553) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (584793) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (585033) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (585273) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (585513) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (585753) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (585993) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (586233) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (586473) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (586713) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (586953) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (587193) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (587433) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (587673) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (587913) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (588153) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (588393) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (588633) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (588873) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (589113) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (589353) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (589593) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (589833) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (590073) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (590313) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (590553) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (590793) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (591033) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (591273) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (591513) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (591753) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (591983) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (592223) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (592463) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (592703) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (592943) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (593183) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (593423) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (593663) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (593903) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (594143) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (594383) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (594623) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (594863) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (595103) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (595343) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (595583) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (595823) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (596063) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (596303) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (596543) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (596783) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [24, 238]
+[0;33mW (597023) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [34, 214]
+[0;33mW (597263) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (597503) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [39, 228]
+[0;33mW (597743) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [45, 221]
+[0;33mW (597983) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [45, 234]
+[0;33mW (598223) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [36, 216]
+[0;33mW (598463) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (598703) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [51, 222]
+[0;33mW (598943) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (599183) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [37, 234]
+[0;33mW (599423) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (599663) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (599903) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [48, 230]
+[0;33mW (600143) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [23, 238]
+[0;33mW (600383) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [57, 214]
+[0;33mW (600623) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (600863) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [35, 232]
+[0;33mW (601103) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (601343) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [39, 232]
+[0;33mW (601583) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [35, 217]
+[0;33mW (601823) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (602063) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (602303) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (602543) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (602783) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (603023) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (603263) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (603503) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (603743) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (603983) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (604223) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (604463) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (604703) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (604943) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (605183) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (605423) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (605663) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (605903) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (606143) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (606383) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (606623) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (606863) OpenCV: Motion detection - 4.00 FPS[0m

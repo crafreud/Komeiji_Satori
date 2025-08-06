@@ -1,0 +1,6 @@
+CMake Warning at cmake/OpenCVDetectCXXCompiler.cmake:110 (message):
+  OpenCV: unrecognized target processor configuration
+Call Stack (most recent call first):
+  CMakeLists.txt:198 (include)
+
+

@@ -1,0 +1,13 @@
+# Target labels
+ bootloader
+# Source files and their labels
+/home/cra/workplace_esp32/Komeiji_Satori/01_camera_for_trac/build/CMakeFiles/bootloader
+/home/cra/workplace_esp32/Komeiji_Satori/01_camera_for_trac/build/CMakeFiles/bootloader.rule
+/home/cra/workplace_esp32/Komeiji_Satori/01_camera_for_trac/build/CMakeFiles/bootloader-complete.rule
+/home/cra/workplace_esp32/Komeiji_Satori/01_camera_for_trac/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule
+/home/cra/workplace_esp32/Komeiji_Satori/01_camera_for_trac/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule
+/home/cra/workplace_esp32/Komeiji_Satori/01_camera_for_trac/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule
+/home/cra/workplace_esp32/Komeiji_Satori/01_camera_for_trac/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule
+/home/cra/workplace_esp32/Komeiji_Satori/01_camera_for_trac/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule
+/home/cra/workplace_esp32/Komeiji_Satori/01_camera_for_trac/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule
+/home/cra/workplace_esp32/Komeiji_Satori/01_camera_for_trac/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule

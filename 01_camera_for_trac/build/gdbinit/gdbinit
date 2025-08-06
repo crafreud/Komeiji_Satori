@@ -1,0 +1,2 @@
+source /home/cra/workplace_esp32/Komeiji_Satori/01_camera_for_trac/build/gdbinit/symbols
+source /home/cra/workplace_esp32/Komeiji_Satori/01_camera_for_trac/build/gdbinit/connect

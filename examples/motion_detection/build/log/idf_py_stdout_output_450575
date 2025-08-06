@@ -1,0 +1,173 @@
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0x1 (POWERON),boot:0x8 (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2810,len:0x15a0
+load:0x403c8700,len:0x4
+load:0x403c8704,len:0xd20
+load:0x403cb700,len:0x2f00
+entry 0x403c8928
+[0;32mI (27) boot: ESP-IDF v5.4.1 2nd stage bootloader[0m
+[0;32mI (27) boot: compile time Aug  1 2025 19:44:05[0m
+[0;32mI (27) boot: Multicore bootloader[0m
+[0;32mI (27) boot: chip revision: v0.2[0m
+[0;32mI (30) boot: efuse block revision: v1.3[0m
+[0;32mI (33) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (37) boot.esp32s3: SPI Mode       : DIO[0m
+[0;32mI (41) boot.esp32s3: SPI Flash Size : 8MB[0m
+[0;32mI (45) boot: Enabling RNG early entropy source...[0m
+[0;32mI (49) boot: Partition Table:[0m
+[0;32mI (52) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (58) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (65) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (71) boot:  2 factory          factory app      00 00 00010000 00300000[0m
+[0;32mI (78) boot:  3 storage          Unknown data     01 81 00310000 0007d000[0m
+[0;32mI (84) boot: End of partition table[0m
+[0;32mI (87) esp_image: segment 0: paddr=00010020 vaddr=3c0c0020 size=39794h (235412) map[0m
+[0;32mI (136) esp_image: segment 1: paddr=000497bc vaddr=3fc92500 size=06744h ( 26436) load[0m
+[0;32mI (142) esp_image: segment 2: paddr=0004ff08 vaddr=40374000 size=00110h (   272) load[0m
+[0;32mI (143) esp_image: segment 3: paddr=00050020 vaddr=42000020 size=be75ch (780124) map[0m
+[0;32mI (285) esp_image: segment 4: paddr=0010e784 vaddr=40374110 size=0e30ch ( 58124) load[0m
+[0;32mI (298) esp_image: segment 5: paddr=0011ca98 vaddr=600fe100 size=0001ch (    28) load[0m
+[0;32mI (305) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (305) boot: Disabling RNG early entropy source...[0m
+[0;32mI (316) octal_psram: vendor id    : 0x0d (AP)[0m
+[0;32mI (316) octal_psram: dev id       : 0x02 (generation 3)[0m
+[0;32mI (316) octal_psram: density      : 0x03 (64 Mbit)[0m
+[0;32mI (318) octal_psram: good-die     : 0x01 (Pass)[0m
+[0;32mI (323) octal_psram: Latency      : 0x01 (Fixed)[0m
+[0;32mI (327) octal_psram: VCC          : 0x01 (3V)[0m
+[0;32mI (331) octal_psram: SRF          : 0x01 (Fast Refresh)[0m
+[0;32mI (336) octal_psram: BurstType    : 0x01 (Hybrid Wrap)[0m
+[0;32mI (341) octal_psram: BurstLen     : 0x01 (32 Byte)[0m
+[0;32mI (345) octal_psram: Readlatency  : 0x02 (10 cycles@Fixed)[0m
+[0;32mI (351) octal_psram: DriveStrength: 0x00 (1/1)[0m
+[0;32mI (355) MSPI Timing: PSRAM timing tuning index: 4[0m
+[0;32mI (359) esp_psram: Found 8MB PSRAM device[0m
+[0;32mI (363) esp_psram: Speed: 80MHz[0m
+[0;32mI (366) cpu_start: Multicore app[0m
+[0;32mI (785) esp_psram: SPI SRAM memory test OK[0m
+[0;32mI (794) cpu_start: Pro cpu start user code[0m
+[0;32mI (794) cpu_start: cpu freq: 240000000 Hz[0m
+[0;32mI (794) app_init: Application information:[0m
+[0;32mI (794) app_init: Project name:     motion_detection[0m
+[0;32mI (799) app_init: App version:      78dcb4f[0m
+[0;32mI (802) app_init: Compile time:     Aug  1 2025 19:43:51[0m
+[0;32mI (807) app_init: ELF file SHA256:  8bf70199af1838d8...[0m
+[0;32mI (812) app_init: ESP-IDF:          v5.4.1[0m
+[0;32mI (816) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (820) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (824) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (828) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (834) heap_init: At 3FC9CD80 len 0004C990 (306 KiB): RAM[0m
+[0;32mI (839) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (844) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (850) heap_init: At 600FE11C len 00001ECC (7 KiB): RTCRAM[0m
+[0;32mI (855) esp_psram: Adding pool of 8192K of PSRAM memory to heap allocator[0m
+[0;32mI (862) spi_flash: detected chip: boya[0m
+[0;32mI (865) spi_flash: flash io: dio[0m
+[0;33mW (868) spi_flash: Detected size(16384k) larger than the size in the binary image header(8192k). Using the size in the binary image header.[0m
+[0;32mI (883) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (887) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (893) main_task: Started on CPU0[0m
+[0;32mI (913) esp_psram: Reserving pool of 32K of internal memory for DMA/internal allocations[0m
+[0;32mI (913) main_task: Calling app_main()[0m
+Init
+OpenCV info print: 
+General configuration for OpenCV 4.10.0 =====================================
+  Version control:               unknown
+
+  Extra modules:
+    Location (extra):            /home/cra/workplace_esp32/Komeiji_Satori/examples/motion_detection/managed_components/espressif__opencv/opencv_contrib/modules
+    Version control (extra):     unknown
+
+  Platform:
+    Timestamp:                   2025-08-01T11:44:33Z
+    Host:                        Linux 6.6.87.1-microsoft-standard-WSL2 x86_64
+    Target:                      Generic xtensa
+    CMake:                       3.28.3
+    CMake generator:             Ninja
+    CMake build tool:            /usr/bin/ninja
+    Configuration:               Release
+
+  CPU/HW features:
+    Baseline:
+      requested:                 DETECT
+
+  C/C++:
+    Built as dynamic libs?:      NO
+    C++ standard:                11
+    C++ Compiler:                /home/cra/.espressif/tools/xtensa-esp-elf/esp-14.2.0_20241119/xtensa-esp-elf/bin/xtensa-esp32s3-elf-g++  (ver 14.2.0)
+    C++ flags (Release):         -mlongcalls  -fno-builtin-memcpy -fno-builtin-memset -fno-builtin-bzero -fno-builtin-stpcpy -fno-builtin-strncpy -I/home/cra/workplace_esp32/Komeiji_Satori/examples/motion_detection/build/config -I/home/cra/esp/esp-idf/components/newlib/platform_include -I/home/cra/esp/esp-idf/components/freertos/config/include -I/home/cra/esp/esp-idf/components/freertos/config/include/freertos -I/home/cra/esp/esp-idf/components/freertos/config/xtensa/include -I/home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include -I/home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include -I/home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos -I/home/cra/esp/esp-idf/components/freertos/esp_additions/include -I/home/cra/esp/esp-idf/components/esp_hw_support/include -I/home/cra/esp/esp-idf/components/esp_hw_support/include/soc -I/home/cra/esp/esp-idf/components/esp_hw_support/include/soc/esp32s3 -I/home/cra/esp/esp-idf/components/esp_hw_support/dma/include -I/home/cra/esp/esp-idf/components/esp_hw_support/ldo/include -I/home/cra/esp/esp-idf/components/esp_hw_support/debug_probe/include -I/home/cra/esp/esp-idf/components/esp_hw_support/port/esp32s3/. -I/home/cra/esp/esp-idf/components/esp_hw_support/port/esp32s3/include -I/home/cra/esp/esp-idf/components/heap/include -I/home/cra/esp/esp-idf/components/heap/tlsf -I/home/cra/esp/esp-idf/components/log/include -I/home/cra/esp/esp-idf/components/soc/include -I/home/cra/esp/esp-idf/components/soc/esp32s3 -I/home/cra/esp/esp-idf/components/soc/esp32s3/include -I/home/cra/esp/esp-idf/components/soc/esp32s3/register -I/home/cra/esp/esp-idf/components/hal/platform_port/include -I/home/cra/esp/esp-idf/components/hal/esp32s3/include -I/home/cra/esp/esp-idf/components/hal/include -I/home/cra/esp/esp-idf/components/esp_rom/include -I/home/cra/esp/esp-idf/components/esp_rom/esp32s3/include -I/home/cra/esp/esp-idf/components/esp_rom/esp32s3/include/esp32s3 -I/home/cra/esp/esp-idf/components/esp_rom/esp32s3 -I/home/cra/esp/esp-idf/components/esp_common/include -I/home/cra/esp/esp-idf/components/esp_system/include -I/home/cra/esp/esp-idf/components/esp_system/port/soc -I/home/cra/esp/esp-idf/components/esp_system/port/include/private -I/home/cra/esp/esp-idf/components/xtensa/esp32s3/include -I/home/cra/esp/esp-idf/components/xtensa/include -I/home/cra/esp/esp-idf/components/xtensa/deprecated_include -I/home/cra/esp/esp-idf/components/lwip/include -I/home/cra/esp/esp-idf/components/lwip/include/apps -I/home/cra/esp/esp-idf/components/lwip/include/apps/sntp -I/home/cra/esp/esp-idf/components/lwip/lwip/src/include -I/home/cra/esp/esp-idf/components/lwip/port/include -I/home/cra/esp/esp-idf/components/lwip/port/freertos/include -I/home/cra/esp/esp-idf/components/lwip/port/esp32xx/include -I/home/cra/esp/esp-idf/components/lwip/port/esp32xx/include/arch -I/home/cra/esp/esp-idf/components/lwip/port/esp32xx/include/sys -I/home/cra/esp/esp-idf/components/vfs/include -I/home/cra/esp/esp-idf/components/pthread/include -D_DEFAULT_SOURCE -DCV_INT32_T_IS_LONG_INT=ON -Dalloca=__builtin_alloca   -fsigned-char -W -Wall -Wreturn-type -Wnon-virtual-dtor -Waddress -Wsequence-point -Wformat -Wformat-security -Wmissing-declarations -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Wsuggest-override -Wno-delete-non-virtual-dtor -Wno-comment -Wimplicit-fallthrough=3 -Wno-strict-overflow -fdiagnostics-show-option -fomit-frame-pointer -ffunction-sections -fdata-sections  -fvisibility=hidden -fvisibility-inlines-hidden -Os -ggdb  -ffunction-sections -fdata-sections -DDEBUG -D_DEBUG -mlongcalls -mauto-litpools  -DNDEBUG
+    C++ flags (Debug):           -mlongcalls  -fno-builtin-memcpy -fno-builtin-memset -fno-builtin-bzero -fno-builtin-stpcpy -fno-builtin-strncpy -I/home/cra/workplace_esp32/Komeiji_Satori/examples/motion_detection/build/config -I/home/cra/esp/esp-idf/components/newlib/platform_include -I/home/cra/esp/esp-idf/components/freertos/config/include -I/home/cra/esp/esp-idf/components/freertos/config/include/freertos -I/home/cra/esp/esp-idf/components/freertos/config/xtensa/include -I/home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include -I/home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include -I/home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos -I/home/cra/esp/esp-idf/components/freertos/esp_additions/include -I/home/cra/esp/esp-idf/components/esp_hw_support/include -I/home/cra/esp/esp-idf/components/esp_hw_support/include/soc -I/home/cra/esp/esp-idf/components/esp_hw_support/include/soc/esp32s3 -I/home/cra/esp/esp-idf/components/esp_hw_support/dma/include -I/home/cra/esp/esp-idf/components/esp_hw_support/ldo/include -I/home/cra/esp/esp-idf/components/esp_hw_support/debug_probe/include -I/home/cra/esp/esp-idf/components/esp_hw_support/port/esp32s3/. -I/home/cra/esp/esp-idf/components/esp_hw_support/port/esp32s3/include -I/home/cra/esp/esp-idf/components/heap/include -I/home/cra/esp/esp-idf/components/heap/tlsf -I/home/cra/esp/esp-idf/components/log/include -I/home/cra/esp/esp-idf/components/soc/include -I/home/cra/esp/esp-idf/components/soc/esp32s3 -I/home/cra/esp/esp-idf/components/soc/esp32s3/include -I/home/cra/esp/esp-idf/components/soc/esp32s3/register -I/home/cra/esp/esp-idf/components/hal/platform_port/include -I/home/cra/esp/esp-idf/components/hal/esp32s3/include -I/home/cra/esp/esp-idf/components/hal/include -I/home/cra/esp/esp-idf/components/esp_rom/include -I/home/cra/esp/esp-idf/components/esp_rom/esp32s3/include -I/home/cra/esp/esp-idf/components/esp_rom/esp32s3/include/esp32s3 -I/home/cra/esp/esp-idf/components/esp_rom/esp32s3 -I/home/cra/esp/esp-idf/components/esp_common/include -I/home/cra/esp/esp-idf/components/esp_system/include -I/home/cra/esp/esp-idf/components/esp_system/port/soc -I/home/cra/esp/esp-idf/components/esp_system/port/include/private -I/home/cra/esp/esp-idf/components/xtensa/esp32s3/include -I/home/cra/esp/esp-idf/components/xtensa/include -I/home/cra/esp/esp-idf/components/xtensa/deprecated_include -I/home/cra/esp/esp-idf/components/lwip/include -I/home/cra/esp/esp-idf/components/lwip/include/apps -I/home/cra/esp/esp-idf/components/lwip/include/apps/sntp -I/home/cra/esp/esp-idf/components/lwip/lwip/src/include -I/home/cra/esp/esp-idf/components/lwip/port/include -I/home/cra/esp/esp-idf/components/lwip/port/freertos/include -I/home/cra/esp/esp-idf/components/lwip/port/esp32xx/include -I/home/cra/esp/esp-idf/components/lwip/port/esp32xx/include/arch -I/home/cra/esp/esp-idf/components/lwip/port/esp32xx/include/sys -I/home/cra/esp/esp-idf/components/vfs/include -I/home/cra/esp/esp-idf/components/pthread/include -D_DEFAULT_SOURCE -DCV_INT32_T_IS_LONG_INT=ON -Dalloca=__builtin_alloca   -fsigned-char -W -Wall -Wreturn-type -Wnon-virtual-dtor -Waddress -Wsequence-point -Wformat -Wformat-security -Wmissing-declarations -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Wsuggest-override -Wno-delete-non-virtual-dtor -Wno-comment -Wimplicit-fallthrough=3 -Wno-strict-overflow -fdiagnostics-show-option -fomit-frame-pointer -ffunction-sections -fdata-sections  -fvisibility=hidden -fvisibility-inlines-hidden -g  -O0 -DDEBUG -D_DEBUG
+    C Compiler:                  /home/cra/.espressif/tools/xtensa-esp-elf/esp-14.2.0_20241119/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc
+    C flags (Release):           -mlongcalls  -fno-builtin-memcpy -fno-builtin-memset -fno-builtin-bzero -fno-builtin-stpcpy -fno-builtin-strncpy -I/home/cra/workplace_esp32/Komeiji_Satori/examples/motion_detection/build/config -I/home/cra/esp/esp-idf/components/newlib/platform_include -I/home/cra/esp/esp-idf/components/freertos/config/include -I/home/cra/esp/esp-idf/components/freertos/config/include/freertos -I/home/cra/esp/esp-idf/components/freertos/config/xtensa/include -I/home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include -I/home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include -I/home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos -I/home/cra/esp/esp-idf/components/freertos/esp_additions/include -I/home/cra/esp/esp-idf/components/esp_hw_support/include -I/home/cra/esp/esp-idf/components/esp_hw_support/include/soc -I/home/cra/esp/esp-idf/components/esp_hw_support/include/soc/esp32s3 -I/home/cra/esp/esp-idf/components/esp_hw_support/dma/include -I/home/cra/esp/esp-idf/components/esp_hw_support/ldo/include -I/home/cra/esp/esp-idf/components/esp_hw_support/debug_probe/include -I/home/cra/esp/esp-idf/components/esp_hw_support/port/esp32s3/. -I/home/cra/esp/esp-idf/components/esp_hw_support/port/esp32s3/include -I/home/cra/esp/esp-idf/components/heap/include -I/home/cra/esp/esp-idf/components/heap/tlsf -I/home/cra/esp/esp-idf/components/log/include -I/home/cra/esp/esp-idf/components/soc/include -I/home/cra/esp/esp-idf/components/soc/esp32s3 -I/home/cra/esp/esp-idf/components/soc/esp32s3/include -I/home/cra/esp/esp-idf/components/soc/esp32s3/register -I/home/cra/esp/esp-idf/components/hal/platform_port/include -I/home/cra/esp/esp-idf/components/hal/esp32s3/include -I/home/cra/esp/esp-idf/components/hal/include -I/home/cra/esp/esp-idf/components/esp_rom/include -I/home/cra/esp/esp-idf/components/esp_rom/esp32s3/include -I/home/cra/esp/esp-idf/components/esp_rom/esp32s3/include/esp32s3 -I/home/cra/esp/esp-idf/components/esp_rom/esp32s3 -I/home/cra/esp/esp-idf/components/esp_common/include -I/home/cra/esp/esp-idf/components/esp_system/include -I/home/cra/esp/esp-idf/components/esp_system/port/soc -I/home/cra/esp/esp-idf/components/esp_system/port/include/private -I/home/cra/esp/esp-idf/components/xtensa/esp32s3/include -I/home/cra/esp/esp-idf/components/xtensa/include -I/home/cra/esp/esp-idf/components/xtensa/deprecated_include -I/home/cra/esp/esp-idf/components/lwip/include -I/home/cra/esp/esp-idf/components/lwip/include/apps -I/home/cra/esp/esp-idf/components/lwip/include/apps/sntp -I/home/cra/esp/esp-idf/components/lwip/lwip/src/include -I/home/cra/esp/esp-idf/components/lwip/port/include -I/home/cra/esp/esp-idf/components/lwip/port/freertos/include -I/home/cra/esp/esp-idf/components/lwip/port/esp32xx/include -I/home/cra/esp/esp-idf/components/lwip/port/esp32xx/include/arch -I/home/cra/esp/esp-idf/components/lwip/port/esp32xx/include/sys -I/home/cra/esp/esp-idf/components/vfs/include -I/home/cra/esp/esp-idf/components/pthread/include -D_DEFAULT_SOURCE   -fsigned-char -W -Wall -Wreturn-type -Waddress -Wsequence-point -Wformat -Wformat-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wuninitialized -Wno-comment -Wimplicit-fallthrough=3 -Wno-strict-overflow -fdiagnostics-show-option -fomit-frame-pointer -ffunction-sections -fdata-sections  -fvisibility=hidden -Os -ggdb  -ffunction-sections -fdata-sections -DDEBUG -D_DEBUG -mlongcalls -mauto-litpools  -DNDEBUG
+    C flags (Debug):             -mlongcalls  -fno-builtin-memcpy -fno-builtin-memset -fno-builtin-bzero -fno-builtin-stpcpy -fno-builtin-strncpy -I/home/cra/workplace_esp32/Komeiji_Satori/examples/motion_detection/build/config -I/home/cra/esp/esp-idf/components/newlib/platform_include -I/home/cra/esp/esp-idf/components/freertos/config/include -I/home/cra/esp/esp-idf/components/freertos/config/include/freertos -I/home/cra/esp/esp-idf/components/freertos/config/xtensa/include -I/home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include -I/home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include -I/home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos -I/home/cra/esp/esp-idf/components/freertos/esp_additions/include -I/home/cra/esp/esp-idf/components/esp_hw_support/include -I/home/cra/esp/esp-idf/components/esp_hw_support/include/soc -I/home/cra/esp/esp-idf/components/esp_hw_support/include/soc/esp32s3 -I/home/cra/esp/esp-idf/components/esp_hw_support/dma/include -I/home/cra/esp/esp-idf/components/esp_hw_support/ldo/include -I/home/cra/esp/esp-idf/components/esp_hw_support/debug_probe/include -I/home/cra/esp/esp-idf/components/esp_hw_support/port/esp32s3/. -I/home/cra/esp/esp-idf/components/esp_hw_support/port/esp32s3/include -I/home/cra/esp/esp-idf/components/heap/include -I/home/cra/esp/esp-idf/components/heap/tlsf -I/home/cra/esp/esp-idf/components/log/include -I/home/cra/esp/esp-idf/components/soc/include -I/home/cra/esp/esp-idf/components/soc/esp32s3 -I/home/cra/esp/esp-idf/components/soc/esp32s3/include -I/home/cra/esp/esp-idf/components/soc/esp32s3/register -I/home/cra/esp/esp-idf/components/hal/platform_port/include -I/home/cra/esp/esp-idf/components/hal/esp32s3/include -I/home/cra/esp/esp-idf/components/hal/include -I/home/cra/esp/esp-idf/components/esp_rom/include -I/home/cra/esp/esp-idf/components/esp_rom/esp32s3/include -I/home/cra/esp/esp-idf/components/esp_rom/esp32s3/include/esp32s3 -I/home/cra/esp/esp-idf/components/esp_rom/esp32s3 -I/home/cra/esp/esp-idf/components/esp_common/include -I/home/cra/esp/esp-idf/components/esp_system/include -I/home/cra/esp/esp-idf/components/esp_system/port/soc -I/home/cra/esp/esp-idf/components/esp_system/port/include/private -I/home/cra/esp/esp-idf/components/xtensa/esp32s3/include -I/home/cra/esp/esp-idf/components/xtensa/include -I/home/cra/esp/esp-idf/components/xtensa/deprecated_include -I/home/cra/esp/esp-idf/components/lwip/include -I/home/cra/esp/esp-idf/components/lwip/include/apps -I/home/cra/esp/esp-idf/components/lwip/include/apps/sntp -I/home/cra/esp/esp-idf/components/lwip/lwip/src/include -I/home/cra/esp/esp-idf/components/lwip/port/include -I/home/cra/esp/esp-idf/components/lwip/port/freertos/include -I/home/cra/esp/esp-idf/components/lwip/port/esp32xx/include -I/home/cra/esp/esp-idf/components/lwip/port/esp32xx/include/arch -I/home/cra/esp/esp-idf/components/lwip/port/esp32xx/include/sys -I/home/cra/esp/esp-idf/components/vfs/include -I/home/cra/esp/esp-idf/components/pthread/include -D_DEFAULT_SOURCE   -fsigned-char -W -Wall -Wreturn-type -Waddress -Wsequence-point -Wformat -Wformat-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wuninitialized -Wno-comment -Wimplicit-fallthrough=3 -Wno-strict-overflow -fdiagnostics-show-option -fomit-frame-pointer -ffunction-sections -fdata-sections  -fvisibility=hidden -g  -O0 -DDEBUG -D_DEBUG
+    Linker flags (Release):      -Wl,--gc-sections  
+    Linker flags (Debug):        -Wl,--gc-sections  
+    ccache:                      NO
+    Precompiled headers:         NO
+    Extra dependencies:
+    3rdparty dependencies:       libjpeg-turbo libwebp libpng libtiff libopenjp2 zlib
+
+  OpenCV modules:
+    To be built:                 aruco bioinspired calib3d ccalib core dnn dnn_objdetect dnn_superres dpm face features2d flann fuzzy hfs highgui img_hash imgcodecs imgproc intensity_transform line_descriptor mcc ml objdetect optflow phase_unwrapping photo plot quality rapid reg rgbd saliency shape signal stereo stitching structured_light superres surface_matching text tracking video videostab wechat_qrcode xfeatures2d ximgproc xobjdetect xphoto
+    Disabled:                    bgsegm datasets videoio world
+    Disabled by dependency:      -
+    Unavailable:                 alphamat cannops cudaarithm cudabgsegm cudacodec cudafeatures2d cudafilters cudaimgproc cudalegacy cudaobjdetect cudaoptflow cudastereo cudawarping cudev cvv freetype gapi hdf java julia matlab ovis python2 python3 sfm ts viz
+    Applications:                -
+    Documentation:               NO
+    Non-free algorithms:         NO
+
+  GUI:                           NONE
+
+  Media I/O: 
+    ZLib:                        build (ver 1.3.1)
+    JPEG:                        build-libjpeg-turbo (ver 3.0.3-70)
+      SIMD Support Request:      YES
+      SIMD Support:              NO
+    WEBP:                        build (ver encoder: 0x020f)
+    PNG:                         build (ver 1.6.43)
+      SIMD Support Request:      YES
+      SIMD Support:              NO
+    TIFF:                        build (ver 42 - 4.6.0)
+    JPEG 2000:                   build (ver 2.5.0)
+    HDR:                         YES
+    SUNRASTER:                   YES
+    PXM:                         YES
+    PFM:                         YES
+
+  Video I/O:
+    DC1394:                      NO
+    FFMPEG:                      NO
+      avcodec:                   NO
+      avformat:                  NO
+      avutil:                    NO
+      swscale:                   NO
+      avresample:                NO
+    GStreamer:                   NO
+
+  Parallel framework:            none
+
+  Trace:                         YES (built-in)
+
+  Other third-party libraries:
+    Lapack:                      NO
+    Custom HAL:                  NO
+    Flatbuffers:                 builtin/3rdparty (23.5.9)
+
+  Python (for build):            /home/cra/.espressif/python_env/idf5.4_py3.12_env/bin/python
+
+  Install to:                    /home/cra/workplace_esp32/Komeiji_Satori/examples/motion_detection/build/esp-idf/espressif__opencv/opencv-build/install
+-----------------------------------------------------------------
+
+[0;32mI (2513) s3 ll_cam: DMA Channel=0[0m
+[0;32mI (2513) cam_hal: cam init ok[0m
+[0;32mI (2513) sccb-ng: pin_sda 20 pin_scl 19[0m
+[0;32mI (2523) sccb-ng: sccb_i2c_port=1[0m
+[1;31mE (2533) camera: Detected camera not supported.[0m
+[1;31mE (2533) camera: Camera probe failed with error 0x106(ESP_ERR_NOT_SUPPORTED)[0m
+[1;31mE (2533) gdma: gdma_disconnect(319): no peripheral is connected to the channel[0m
+[1;31mE (2543) CAM: Camera Init Failed[0m
+[0;32mI (2543) main_task: Returned from app_main()[0m

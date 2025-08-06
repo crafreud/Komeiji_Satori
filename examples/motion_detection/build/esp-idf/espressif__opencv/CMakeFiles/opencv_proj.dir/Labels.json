@@ -1,0 +1,43 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/home/cra/workplace_esp32/Komeiji_Satori/examples/motion_detection/build/esp-idf/espressif__opencv/CMakeFiles/opencv_proj"
+		},
+		{
+			"file" : "/home/cra/workplace_esp32/Komeiji_Satori/examples/motion_detection/build/esp-idf/espressif__opencv/CMakeFiles/opencv_proj.rule"
+		},
+		{
+			"file" : "/home/cra/workplace_esp32/Komeiji_Satori/examples/motion_detection/build/esp-idf/espressif__opencv/CMakeFiles/opencv_proj-complete.rule"
+		},
+		{
+			"file" : "/home/cra/workplace_esp32/Komeiji_Satori/examples/motion_detection/build/esp-idf/espressif__opencv/opencv_proj-prefix/src/opencv_proj-stamp/opencv_proj-build.rule"
+		},
+		{
+			"file" : "/home/cra/workplace_esp32/Komeiji_Satori/examples/motion_detection/build/esp-idf/espressif__opencv/opencv_proj-prefix/src/opencv_proj-stamp/opencv_proj-configure.rule"
+		},
+		{
+			"file" : "/home/cra/workplace_esp32/Komeiji_Satori/examples/motion_detection/build/esp-idf/espressif__opencv/opencv_proj-prefix/src/opencv_proj-stamp/opencv_proj-download.rule"
+		},
+		{
+			"file" : "/home/cra/workplace_esp32/Komeiji_Satori/examples/motion_detection/build/esp-idf/espressif__opencv/opencv_proj-prefix/src/opencv_proj-stamp/opencv_proj-install.rule"
+		},
+		{
+			"file" : "/home/cra/workplace_esp32/Komeiji_Satori/examples/motion_detection/build/esp-idf/espressif__opencv/opencv_proj-prefix/src/opencv_proj-stamp/opencv_proj-mkdir.rule"
+		},
+		{
+			"file" : "/home/cra/workplace_esp32/Komeiji_Satori/examples/motion_detection/build/esp-idf/espressif__opencv/opencv_proj-prefix/src/opencv_proj-stamp/opencv_proj-patch.rule"
+		},
+		{
+			"file" : "/home/cra/workplace_esp32/Komeiji_Satori/examples/motion_detection/build/esp-idf/espressif__opencv/opencv_proj-prefix/src/opencv_proj-stamp/opencv_proj-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"opencv_proj"
+		],
+		"name" : "opencv_proj"
+	}
+}

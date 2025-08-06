@@ -1,0 +1,13 @@
+# Target labels
+ opencv_proj
+# Source files and their labels
+/home/cra/workplace_esp32/Komeiji_Satori/examples/motion_detection/build/esp-idf/espressif__opencv/CMakeFiles/opencv_proj
+/home/cra/workplace_esp32/Komeiji_Satori/examples/motion_detection/build/esp-idf/espressif__opencv/CMakeFiles/opencv_proj.rule
+/home/cra/workplace_esp32/Komeiji_Satori/examples/motion_detection/build/esp-idf/espressif__opencv/CMakeFiles/opencv_proj-complete.rule
+/home/cra/workplace_esp32/Komeiji_Satori/examples/motion_detection/build/esp-idf/espressif__opencv/opencv_proj-prefix/src/opencv_proj-stamp/opencv_proj-build.rule
+/home/cra/workplace_esp32/Komeiji_Satori/examples/motion_detection/build/esp-idf/espressif__opencv/opencv_proj-prefix/src/opencv_proj-stamp/opencv_proj-configure.rule
+/home/cra/workplace_esp32/Komeiji_Satori/examples/motion_detection/build/esp-idf/espressif__opencv/opencv_proj-prefix/src/opencv_proj-stamp/opencv_proj-download.rule
+/home/cra/workplace_esp32/Komeiji_Satori/examples/motion_detection/build/esp-idf/espressif__opencv/opencv_proj-prefix/src/opencv_proj-stamp/opencv_proj-install.rule
+/home/cra/workplace_esp32/Komeiji_Satori/examples/motion_detection/build/esp-idf/espressif__opencv/opencv_proj-prefix/src/opencv_proj-stamp/opencv_proj-mkdir.rule
+/home/cra/workplace_esp32/Komeiji_Satori/examples/motion_detection/build/esp-idf/espressif__opencv/opencv_proj-prefix/src/opencv_proj-stamp/opencv_proj-patch.rule
+/home/cra/workplace_esp32/Komeiji_Satori/examples/motion_detection/build/esp-idf/espressif__opencv/opencv_proj-prefix/src/opencv_proj-stamp/opencv_proj-update.rule
