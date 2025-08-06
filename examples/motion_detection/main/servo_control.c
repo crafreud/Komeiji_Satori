@@ -8,8 +8,10 @@
 #include "driver/ledc.h"
 #include "driver/gpio.h"
 #include "esp_log.h"
+#include "esp_random.h"
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
+#include "freertos/timers.h"
 
 static const char *TAG = "SERVO_CONTROL";
 
@@ -30,11 +32,36 @@ static const ledc_channel_t servo_channel[SERVO_MAX] = {
 };
 
 // 当前舵机角度记录
-static uint32_t current_angles[SERVO_MAX] = {90, 90, 90, 90}; // 初始化为中位
+static uint32_t current_angles[SERVO_MAX] = {85, 135, 85, 90}; // 初始化为各自有效范围的中位
+
+// 舵机角度限制
+static const uint32_t servo_min_angle[SERVO_MAX] = {50, 90, 50, 0};   // 最小角度
+static const uint32_t servo_max_angle[SERVO_MAX] = {120, 180, 120, 180}; // 最大角度
 
 // 平滑移动参数
-#define SMOOTH_STEP 2  // 每次移动的最大角度步长
-#define MOVE_DELAY_MS 20  // 移动间隔时间
+#define SMOOTH_STEP 3  // 每次移动的最大角度步长
+#define MOVE_DELAY_MS 10  // 移动间隔时间
+
+// 追踪模式参数
+#define SCAN_INTERVAL_MS 10000  // 扫描间隔10秒
+#define TRACKING_ENABLED 1
+#define TRACKING_DISABLED 0
+
+// 滤波参数
+#define FILTER_ALPHA 0.7f  // 滤波系数，越大响应越快
+#define MIN_ANGLE_CHANGE 5  // 最小角度变化阈值，小于此值按5度处理
+
+// 全局变量
+static int tracking_mode = TRACKING_DISABLED;
+static TimerHandle_t scan_timer = NULL;
+static TaskHandle_t tracking_task_handle = NULL;
+static TaskHandle_t scan_task_handle = NULL;
+static int last_detected_x = -1;
+static int last_detected_y = -1;
+
+// 滤波变量
+static float filtered_servo2_angle = 135.0f;  // 舵机2滤波后的角度
+static float filtered_servo3_angle = 85.0f;   // 舵机3滤波后的角度
 
 /**
  * @brief 角度转换为PWM占空比
@@ -75,9 +102,21 @@ esp_err_t servo_control_init(void)
     
     // 配置每个舵机的LEDC通道
     for (int i = 0; i < SERVO_MAX; i++) {
+        uint32_t init_angle;
+        
+        // 舵机1特殊初始化：开机120度
+        if (i == SERVO_1) {
+            init_angle = 120;
+        } else {
+            // 其他舵机初始化为各自有效范围的中位角度
+            init_angle = (servo_min_angle[i] + servo_max_angle[i]) / 2;
+        }
+        
+        current_angles[i] = init_angle;
+        
         ledc_channel_config_t ledc_channel_cfg = {
             .channel = servo_channel[i],
-            .duty = angle_to_duty(90), // 初始化为90度中位
+            .duty = angle_to_duty(init_angle),
             .gpio_num = servo_gpio[i],
             .speed_mode = LEDC_LOW_SPEED_MODE,
             .hpoint = 0,
@@ -90,6 +129,16 @@ esp_err_t servo_control_init(void)
         }
     }
     
+    // 等待1秒后将舵机1移动到50度
+    vTaskDelay(pdMS_TO_TICKS(1000));
+    ret = servo_set_angle(SERVO_1, 50);
+    if (ret != ESP_OK) {
+        ESP_LOGE(TAG, "Failed to move servo 1 to 50 degrees: %s", esp_err_to_name(ret));
+        return ret;
+    }
+    
+    ESP_LOGI(TAG, "Servo 1 moved from 120° to 50° after initialization");
+    
     ESP_LOGI(TAG, "Servo control initialized successfully");
     return ESP_OK;
 }
@@ -101,9 +150,14 @@ esp_err_t servo_set_angle(servo_id_t servo_id, uint32_t angle)
         return ESP_ERR_INVALID_ARG;
     }
     
-    if (angle > SERVO_MAX_DEGREE) {
-        ESP_LOGW(TAG, "Angle %lu exceeds maximum, clamping to %d", angle, SERVO_MAX_DEGREE);
-        angle = SERVO_MAX_DEGREE;
+    // 应用舵机特定的角度限制
+    if (angle < servo_min_angle[servo_id]) {
+        ESP_LOGW(TAG, "Servo %d angle %lu below minimum, clamping to %lu", servo_id, angle, servo_min_angle[servo_id]);
+        angle = servo_min_angle[servo_id];
+    }
+    if (angle > servo_max_angle[servo_id]) {
+        ESP_LOGW(TAG, "Servo %d angle %lu exceeds maximum, clamping to %lu", servo_id, angle, servo_max_angle[servo_id]);
+        angle = servo_max_angle[servo_id];
     }
     
     uint32_t duty = angle_to_duty(angle);
@@ -152,34 +206,72 @@ static esp_err_t servo_smooth_move(servo_id_t servo_id, uint32_t target_angle)
 
 esp_err_t servo_track_position(int pos_x, int pos_y, int frame_width, int frame_height)
 {
-    // 将图像坐标映射到舵机角度
-    // X轴控制水平舵机 (SERVO_1和SERVO_2)
-    // Y轴控制垂直舵机 (SERVO_3和SERVO_4)
+    // 只在追踪模式下执行
+    if (tracking_mode != TRACKING_ENABLED) {
+        return ESP_OK;
+    }
     
-    // 计算水平角度 (0-180度)
-    uint32_t horizontal_angle = (pos_x * SERVO_MAX_DEGREE) / frame_width;
-    if (horizontal_angle > SERVO_MAX_DEGREE) horizontal_angle = SERVO_MAX_DEGREE;
+    // 更新最后检测到的位置
+    last_detected_x = pos_x;
+    last_detected_y = pos_y;
     
-    // 计算垂直角度 (0-180度)
-    uint32_t vertical_angle = (pos_y * SERVO_MAX_DEGREE) / frame_height;
-    if (vertical_angle > SERVO_MAX_DEGREE) vertical_angle = SERVO_MAX_DEGREE;
+    // 计算目标角度
+    float target_servo2_angle = (float)(servo_min_angle[SERVO_2] + 
+        (pos_x * (servo_max_angle[SERVO_2] - servo_min_angle[SERVO_2])) / frame_width);
     
-    ESP_LOGI(TAG, "Tracking position (%d, %d) -> H:%lu°, V:%lu°", 
-             pos_x, pos_y, horizontal_angle, vertical_angle);
+    float target_servo3_angle = (float)(servo_min_angle[SERVO_3] + 
+        (pos_y * (servo_max_angle[SERVO_3] - servo_min_angle[SERVO_3])) / frame_height);
     
-    // 控制水平舵机 (SERVO_1和SERVO_2同步)
-    esp_err_t ret = servo_smooth_move(SERVO_1, horizontal_angle);
-    if (ret != ESP_OK) return ret;
+    // 应用低通滤波
+    filtered_servo2_angle = FILTER_ALPHA * target_servo2_angle + (1.0f - FILTER_ALPHA) * filtered_servo2_angle;
+    filtered_servo3_angle = FILTER_ALPHA * target_servo3_angle + (1.0f - FILTER_ALPHA) * filtered_servo3_angle;
     
-    ret = servo_smooth_move(SERVO_2, horizontal_angle);
-    if (ret != ESP_OK) return ret;
+    // 计算角度变化并处理小幅度动作
+    uint32_t new_servo2_angle = (uint32_t)(filtered_servo2_angle + 0.5f);  // 四舍五入
+    uint32_t new_servo3_angle = (uint32_t)(filtered_servo3_angle + 0.5f);  // 四舍五入
     
-    // 控制垂直舵机 (SERVO_3和SERVO_4同步)
-    ret = servo_smooth_move(SERVO_3, vertical_angle);
-    if (ret != ESP_OK) return ret;
+    int angle_diff_servo2 = (int)new_servo2_angle - (int)current_angles[SERVO_2];
+    int angle_diff_servo3 = (int)new_servo3_angle - (int)current_angles[SERVO_3];
     
-    ret = servo_smooth_move(SERVO_4, vertical_angle);
-    if (ret != ESP_OK) return ret;
+    // 对于不足MIN_ANGLE_CHANGE的动作，按MIN_ANGLE_CHANGE的方向处理
+    uint32_t final_servo2_angle = current_angles[SERVO_2];
+    uint32_t final_servo3_angle = current_angles[SERVO_3];
+    
+    bool need_move_servo2 = false;
+    bool need_move_servo3 = false;
+    
+    if (abs(angle_diff_servo2) >= MIN_ANGLE_CHANGE) {
+        final_servo2_angle = new_servo2_angle;
+        need_move_servo2 = true;
+    } else if (angle_diff_servo2 != 0) {
+        // 不足5度的动作按5度处理
+        final_servo2_angle = current_angles[SERVO_2] + (angle_diff_servo2 > 0 ? MIN_ANGLE_CHANGE : -MIN_ANGLE_CHANGE);
+        need_move_servo2 = true;
+    }
+    
+    if (abs(angle_diff_servo3) >= MIN_ANGLE_CHANGE) {
+        final_servo3_angle = new_servo3_angle;
+        need_move_servo3 = true;
+    } else if (angle_diff_servo3 != 0) {
+        // 不足5度的动作按5度处理
+        final_servo3_angle = current_angles[SERVO_3] + (angle_diff_servo3 > 0 ? MIN_ANGLE_CHANGE : -MIN_ANGLE_CHANGE);
+        need_move_servo3 = true;
+    }
+    
+    ESP_LOGI(TAG, "Tracking position (%d, %d) -> Target S2:%.1f°, S3:%.1f° -> Final S2:%lu°, S3:%lu°", 
+             pos_x, pos_y, target_servo2_angle, target_servo3_angle, final_servo2_angle, final_servo3_angle);
+    
+    // 执行舵机移动
+    esp_err_t ret = ESP_OK;
+    if (need_move_servo2) {
+        ret = servo_smooth_move(SERVO_2, final_servo2_angle);
+        if (ret != ESP_OK) return ret;
+    }
+    
+    if (need_move_servo3) {
+        ret = servo_smooth_move(SERVO_3, final_servo3_angle);
+        if (ret != ESP_OK) return ret;
+    }
     
     return ESP_OK;
 }
@@ -187,6 +279,9 @@ esp_err_t servo_track_position(int pos_x, int pos_y, int frame_width, int frame_
 esp_err_t servo_control_stop(void)
 {
     esp_err_t ret = ESP_OK;
+    
+    // 停止追踪模式
+    servo_stop_tracking();
     
     // 停止所有舵机的PWM输出
     for (int i = 0; i < SERVO_MAX; i++) {
@@ -199,4 +294,153 @@ esp_err_t servo_control_stop(void)
     
     ESP_LOGI(TAG, "All servos stopped");
     return ret;
+}
+
+/**
+ * @brief 扫描任务函数
+ */
+static void scan_task(void *pvParameters)
+{
+    while (1) {
+        // 等待任务通知
+        ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
+        
+        // 执行扫描动作
+        servo_scan_action();
+    }
+}
+
+/**
+ * @brief 扫描定时器回调函数
+ */
+static void scan_timer_callback(TimerHandle_t xTimer)
+{
+    // 通过任务通知触发扫描动作，避免在定时器回调中执行耗时操作
+    if (scan_task_handle != NULL) {
+        xTaskNotifyGive(scan_task_handle);
+    }
+}
+
+esp_err_t servo_scan_action(void)
+{
+    ESP_LOGI(TAG, "Executing random scan action");
+    
+    // 生成舵机1有效范围内的随机角度 (50-120度)
+    uint32_t min_angle = servo_min_angle[SERVO_1]; // 50度
+    uint32_t max_angle = servo_max_angle[SERVO_1]; // 120度
+    
+    // 生成第一个随机角度
+    uint32_t random_angle1 = min_angle + (esp_random() % (max_angle - min_angle + 1));
+    
+    esp_err_t ret = servo_smooth_move(SERVO_1, random_angle1);
+    if (ret != ESP_OK) {
+        ESP_LOGE(TAG, "Failed to move servo 1 to %lu°", random_angle1);
+        return ret;
+    }
+    
+    ESP_LOGI(TAG, "Moved to random angle: %lu°", random_angle1);
+    vTaskDelay(pdMS_TO_TICKS(500)); // 停留0.5秒
+    
+    // 生成第二个随机角度
+    uint32_t random_angle2 = min_angle + (esp_random() % (max_angle - min_angle + 1));
+    
+    ret = servo_smooth_move(SERVO_1, random_angle2);
+    if (ret != ESP_OK) {
+        ESP_LOGE(TAG, "Failed to move servo 1 to %lu°", random_angle2);
+        return ret;
+    }
+    
+    ESP_LOGI(TAG, "Moved to random angle: %lu°", random_angle2);
+    vTaskDelay(pdMS_TO_TICKS(500)); // 停留0.5秒
+    
+    // 生成第三个随机角度
+    uint32_t random_angle3 = min_angle + (esp_random() % (max_angle - min_angle + 1));
+    
+    ret = servo_smooth_move(SERVO_1, random_angle3);
+    if (ret != ESP_OK) {
+        ESP_LOGE(TAG, "Failed to move servo 1 to %lu°", random_angle3);
+        return ret;
+    }
+    
+    ESP_LOGI(TAG, "Random scan action completed with final angle: %lu°", random_angle3);
+    return ESP_OK;
+}
+
+esp_err_t servo_start_tracking(void)
+{
+    if (tracking_mode == TRACKING_ENABLED) {
+        ESP_LOGW(TAG, "Tracking mode already enabled");
+        return ESP_OK;
+    }
+    
+    tracking_mode = TRACKING_ENABLED;
+    
+    // 初始化滤波变量为当前舵机角度
+    filtered_servo2_angle = (float)current_angles[SERVO_2];
+    filtered_servo3_angle = (float)current_angles[SERVO_3];
+    
+    // 创建扫描任务
+    if (scan_task_handle == NULL) {
+        BaseType_t task_ret = xTaskCreate(scan_task, "ScanTask", 4096, NULL, 5, &scan_task_handle);
+        if (task_ret != pdPASS) {
+            ESP_LOGE(TAG, "Failed to create scan task");
+            tracking_mode = TRACKING_DISABLED;
+            return ESP_FAIL;
+        }
+    }
+    
+    // 创建扫描定时器
+    if (scan_timer == NULL) {
+        scan_timer = xTimerCreate("ScanTimer", 
+                                 pdMS_TO_TICKS(SCAN_INTERVAL_MS),
+                                 pdTRUE, // 自动重载
+                                 NULL,
+                                 scan_timer_callback);
+        
+        if (scan_timer == NULL) {
+            ESP_LOGE(TAG, "Failed to create scan timer");
+            tracking_mode = TRACKING_DISABLED;
+            return ESP_FAIL;
+        }
+    }
+    
+    // 启动定时器
+    if (xTimerStart(scan_timer, 0) != pdPASS) {
+        ESP_LOGE(TAG, "Failed to start scan timer");
+        tracking_mode = TRACKING_DISABLED;
+        return ESP_FAIL;
+    }
+    
+    ESP_LOGI(TAG, "Tracking mode started with 10s scan interval");
+    return ESP_OK;
+}
+
+esp_err_t servo_stop_tracking(void)
+{
+    if (tracking_mode == TRACKING_DISABLED) {
+        ESP_LOGW(TAG, "Tracking mode already disabled");
+        return ESP_OK;
+    }
+    
+    tracking_mode = TRACKING_DISABLED;
+    
+    // 停止定时器
+    if (scan_timer != NULL) {
+        xTimerStop(scan_timer, 0);
+        xTimerDelete(scan_timer, 0);
+        scan_timer = NULL;
+    }
+    
+    // 删除扫描任务
+    if (scan_task_handle != NULL) {
+        vTaskDelete(scan_task_handle);
+        scan_task_handle = NULL;
+    }
+    
+    // 重置位置记录
+    last_detected_x = -1;
+    last_detected_y = -1;
+    
+    ESP_LOGI(TAG, "Tracking mode stopped");
+    return ESP_OK;
 }

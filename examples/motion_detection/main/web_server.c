@@ -45,31 +45,31 @@ static const char* html_page =
 "        <div id='status' class='status' style='display:none;'></div>\n"
 "        \n"
 "        <div class='servo-control'>\n"
-"            <div class='servo-title'>舵机 1 (GPIO 1)</div>\n"
+"            <div class='servo-title'>舵机 1 (GPIO 1) - 范围: 50°-120°</div>\n"
 "            <div class='slider-container'>\n"
-"                <input type='range' min='0' max='180' value='90' class='slider' id='servo1' oninput='updateAngle(1, this.value)'>\n"
-"                <span class='angle-display' id='angle1'>90°</span>\n"
+"                <input type='range' min='50' max='120' value='85' class='slider' id='servo1' oninput='updateAngle(1, this.value)'>\n"
+"                <span class='angle-display' id='angle1'>85°</span>\n"
 "            </div>\n"
 "        </div>\n"
 "        \n"
 "        <div class='servo-control'>\n"
-"            <div class='servo-title'>舵机 2 (GPIO 2)</div>\n"
+"            <div class='servo-title'>舵机 2 (GPIO 2) - 范围: 90°-180°</div>\n"
 "            <div class='slider-container'>\n"
-"                <input type='range' min='0' max='180' value='90' class='slider' id='servo2' oninput='updateAngle(2, this.value)'>\n"
-"                <span class='angle-display' id='angle2'>90°</span>\n"
+"                <input type='range' min='90' max='180' value='135' class='slider' id='servo2' oninput='updateAngle(2, this.value)'>\n"
+"                <span class='angle-display' id='angle2'>135°</span>\n"
 "            </div>\n"
 "        </div>\n"
 "        \n"
 "        <div class='servo-control'>\n"
-"            <div class='servo-title'>舵机 3 (GPIO 4)</div>\n"
+"            <div class='servo-title'>舵机 3 (GPIO 4) - 范围: 50°-120°</div>\n"
 "            <div class='slider-container'>\n"
-"                <input type='range' min='0' max='180' value='90' class='slider' id='servo3' oninput='updateAngle(3, this.value)'>\n"
-"                <span class='angle-display' id='angle3'>90°</span>\n"
+"                <input type='range' min='50' max='120' value='85' class='slider' id='servo3' oninput='updateAngle(3, this.value)'>\n"
+"                <span class='angle-display' id='angle3'>85°</span>\n"
 "            </div>\n"
 "        </div>\n"
 "        \n"
 "        <div class='servo-control'>\n"
-"            <div class='servo-title'>舵机 4 (GPIO 10)</div>\n"
+"            <div class='servo-title'>舵机 4 (GPIO 10) - 范围: 0°-180°</div>\n"
 "            <div class='slider-container'>\n"
 "                <input type='range' min='0' max='180' value='90' class='slider' id='servo4' oninput='updateAngle(4, this.value)'>\n"
 "                <span class='angle-display' id='angle4'>90°</span>\n"
@@ -77,7 +77,10 @@ static const char* html_page =
 "        </div>\n"
 "        \n"
 "        <div class='button-group'>\n"
-"            <button class='reset-btn' onclick='resetAllServos()'>重置所有舵机到90°</button>\n"
+"            <button class='reset-btn' onclick='resetAllServos()'>重置所有舵机到中位</button>\n"
+"            <button class='reset-btn' onclick='startTracking()'>启动追踪模式</button>\n"
+"            <button class='reset-btn' onclick='stopTracking()'>停止追踪模式</button>\n"
+"            <button class='reset-btn' onclick='scanAction()'>执行随机动作</button>\n"
 "        </div>\n"
 "    </div>\n"
 "    \n"
@@ -100,11 +103,48 @@ static const char* html_page =
 "        }\n"
 "        \n"
 "        function resetAllServos() {\n"
+"            // 每个舵机的中位角度\n"
+"            const centerAngles = [85, 135, 85, 90]; // 对应舵机1,2,3,4\n"
+"            \n"
 "            for (let i = 1; i <= 4; i++) {\n"
-"                document.getElementById('servo' + i).value = 90;\n"
-"                document.getElementById('angle' + i).textContent = '90°';\n"
-"                updateAngle(i, 90);\n"
+"                const centerAngle = centerAngles[i-1];\n"
+"                document.getElementById('servo' + i).value = centerAngle;\n"
+"                document.getElementById('angle' + i).textContent = centerAngle + '°';\n"
+"                updateAngle(i, centerAngle);\n"
 "            }\n"
+"        }\n"
+"        \n"
+"        function startTracking() {\n"
+"            fetch('/api/tracking', {\n"
+"                method: 'POST',\n"
+"                headers: { 'Content-Type': 'application/json' },\n"
+"                body: JSON.stringify({ action: 'start' })\n"
+"            })\n"
+"            .then(response => response.json())\n"
+"            .then(data => showStatus(data.message, data.success))\n"
+"            .catch(error => showStatus('启动追踪模式失败', false));\n"
+"        }\n"
+"        \n"
+"        function stopTracking() {\n"
+"            fetch('/api/tracking', {\n"
+"                method: 'POST',\n"
+"                headers: { 'Content-Type': 'application/json' },\n"
+"                body: JSON.stringify({ action: 'stop' })\n"
+"            })\n"
+"            .then(response => response.json())\n"
+"            .then(data => showStatus(data.message, data.success))\n"
+"            .catch(error => showStatus('停止追踪模式失败', false));\n"
+"        }\n"
+"        \n"
+"        function scanAction() {\n"
+"            fetch('/api/scan', {\n"
+"                method: 'POST',\n"
+"                headers: { 'Content-Type': 'application/json' },\n"
+"                body: JSON.stringify({})\n"
+"            })\n"
+"            .then(response => response.json())\n"
+"            .then(data => showStatus(data.message, data.success))\n"
+"            .catch(error => showStatus('执行随机动作失败', false));\n"
 "        }\n"
 "        \n"
 "        function showStatus(message, isSuccess) {\n"
@@ -195,6 +235,111 @@ static esp_err_t servo_api_handler(httpd_req_t *req)
     return ESP_OK;
 }
 
+// 处理追踪控制API请求
+static esp_err_t tracking_api_handler(httpd_req_t *req)
+{
+    char buf[100];
+    int ret, remaining = req->content_len;
+    
+    if (remaining >= sizeof(buf)) {
+        httpd_resp_send_err(req, HTTPD_400_BAD_REQUEST, "Content too long");
+        return ESP_FAIL;
+    }
+    
+    ret = httpd_req_recv(req, buf, remaining);
+    if (ret <= 0) {
+        httpd_resp_send_err(req, HTTPD_408_REQ_TIMEOUT, "Request timeout");
+        return ESP_FAIL;
+    }
+    
+    buf[ret] = '\0';
+    
+    cJSON *json = cJSON_Parse(buf);
+    if (json == NULL) {
+        httpd_resp_send_err(req, HTTPD_400_BAD_REQUEST, "Invalid JSON");
+        return ESP_FAIL;
+    }
+    
+    cJSON *action_json = cJSON_GetObjectItem(json, "action");
+    if (!cJSON_IsString(action_json)) {
+        cJSON_Delete(json);
+        httpd_resp_send_err(req, HTTPD_400_BAD_REQUEST, "Missing action");
+        return ESP_FAIL;
+    }
+    
+    const char *action = action_json->valuestring;
+    esp_err_t err = ESP_OK;
+    const char *message = "";
+    
+    if (strcmp(action, "start") == 0) {
+        err = servo_start_tracking();
+        message = (err == ESP_OK) ? "追踪模式已启动" : "启动追踪模式失败";
+    } else if (strcmp(action, "stop") == 0) {
+        err = servo_stop_tracking();
+        message = (err == ESP_OK) ? "追踪模式已停止" : "停止追踪模式失败";
+    } else {
+        cJSON_Delete(json);
+        httpd_resp_send_err(req, HTTPD_400_BAD_REQUEST, "Invalid action");
+        return ESP_FAIL;
+    }
+    
+    cJSON_Delete(json);
+    
+    // 构造响应
+    cJSON *response = cJSON_CreateObject();
+    cJSON_AddBoolToObject(response, "success", err == ESP_OK);
+    cJSON_AddStringToObject(response, "message", message);
+    
+    char *response_str = cJSON_Print(response);
+    cJSON_Delete(response);
+    
+    httpd_resp_set_type(req, "application/json");
+    httpd_resp_send(req, response_str, HTTPD_RESP_USE_STRLEN);
+    
+    free(response_str);
+    
+    ESP_LOGI(TAG, "Tracking %s", action);
+    return ESP_OK;
+}
+
+// 处理扫描动作API请求
+static esp_err_t scan_api_handler(httpd_req_t *req)
+{
+    char buf[100];
+    int ret, remaining = req->content_len;
+    
+    if (remaining >= sizeof(buf)) {
+        httpd_resp_send_err(req, HTTPD_400_BAD_REQUEST, "Content too long");
+        return ESP_FAIL;
+    }
+    
+    ret = httpd_req_recv(req, buf, remaining);
+    if (ret <= 0) {
+        httpd_resp_send_err(req, HTTPD_408_REQ_TIMEOUT, "Request timeout");
+        return ESP_FAIL;
+    }
+    
+    // 执行随机动作
+    esp_err_t err = servo_scan_action();
+    const char *message = (err == ESP_OK) ? "随机动作执行成功" : "随机动作执行失败";
+    
+    // 构造响应
+    cJSON *response = cJSON_CreateObject();
+    cJSON_AddBoolToObject(response, "success", err == ESP_OK);
+    cJSON_AddStringToObject(response, "message", message);
+    
+    char *response_str = cJSON_Print(response);
+    cJSON_Delete(response);
+    
+    httpd_resp_set_type(req, "application/json");
+    httpd_resp_send(req, response_str, HTTPD_RESP_USE_STRLEN);
+    
+    free(response_str);
+    
+    ESP_LOGI(TAG, "Random action executed");
+    return ESP_OK;
+}
+
 esp_err_t start_web_server(void)
 {
     httpd_config_t config = HTTPD_DEFAULT_CONFIG();
@@ -220,6 +365,22 @@ esp_err_t start_web_server(void)
             .user_ctx = NULL
         };
         httpd_register_uri_handler(server, &servo_api_uri);
+        
+        httpd_uri_t tracking_api_uri = {
+            .uri = "/api/tracking",
+            .method = HTTP_POST,
+            .handler = tracking_api_handler,
+            .user_ctx = NULL
+        };
+        httpd_register_uri_handler(server, &tracking_api_uri);
+        
+        httpd_uri_t scan_api_uri = {
+            .uri = "/api/scan",
+            .method = HTTP_POST,
+            .handler = scan_api_handler,
+            .user_ctx = NULL
+        };
+        httpd_register_uri_handler(server, &scan_api_uri);
         
         ESP_LOGI(TAG, "Web server started successfully");
         return ESP_OK;

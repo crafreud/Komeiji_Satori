@@ -1,0 +1,1713 @@
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0x1 (POWERON),boot:0x28 (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2810,len:0x15a0
+load:0x403c8700,len:0x4
+load:0x403c8704,len:0xd20
+load:0x403cb700,len:0x2f00
+entry 0x403c8928
+[0;32mI (27) boot: ESP-IDF v5.4.1 2nd stage bootloader[0m
+[0;32mI (27) boot: compile time Aug  1 2025 19:44:05[0m
+[0;32mI (27) boot: Multicore bootloader[0m
+[0;32mI (27) boot: chip revision: v0.2[0m
+[0;32mI (30) boot: efuse block revision: v1.3[0m
+[0;32mI (34) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (37) boot.esp32s3: SPI Mode       : DIO[0m
+[0;32mI (41) boot.esp32s3: SPI Flash Size : 8MB[0m
+[0;32mI (45) boot: Enabling RNG early entropy source...[0m
+[0;32mI (49) boot: Partition Table:[0m
+[0;32mI (52) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (58) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (65) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (71) boot:  2 factory          factory app      00 00 00010000 00300000[0m
+[0;32mI (78) boot:  3 storage          Unknown data     01 81 00310000 0007d000[0m
+[0;32mI (84) boot: End of partition table[0m
+[0;32mI (88) esp_image: segment 0: paddr=00010020 vaddr=3c120020 size=475d0h (292304) map[0m
+[0;32mI (147) esp_image: segment 1: paddr=000575f8 vaddr=3fc99e00 size=089e0h ( 35296) load[0m
+[0;32mI (154) esp_image: segment 2: paddr=0005ffe0 vaddr=40374000 size=00038h (    56) load[0m
+[0;32mI (154) esp_image: segment 3: paddr=00060020 vaddr=42000020 size=117474h (1143924) map[0m
+[0;32mI (360) esp_image: segment 4: paddr=0017749c vaddr=40374038 size=15d94h ( 89492) load[0m
+[0;32mI (379) esp_image: segment 5: paddr=0018d238 vaddr=600fe100 size=0001ch (    28) load[0m
+[0;32mI (389) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (389) boot: Disabling RNG early entropy source...[0m
+[0;32mI (399) octal_psram: vendor id    : 0x0d (AP)[0m
+[0;32mI (399) octal_psram: dev id       : 0x02 (generation 3)[0m
+[0;32mI (400) octal_psram: density      : 0x03 (64 Mbit)[0m
+[0;32mI (402) octal_psram: good-die     : 0x01 (Pass)[0m
+[0;32mI (406) octal_psram: Latency      : 0x01 (Fixed)[0m
+[0;32mI (410) octal_psram: VCC          : 0x01 (3V)[0m
+[0;32mI (414) octal_psram: SRF          : 0x01 (Fast Refresh)[0m
+[0;32mI (419) octal_psram: BurstType    : 0x01 (Hybrid Wrap)[0m
+[0;32mI (424) octal_psram: BurstLen     : 0x01 (32 Byte)[0m
+[0;32mI (429) octal_psram: Readlatency  : 0x02 (10 cycles@Fixed)[0m
+[0;32mI (434) octal_psram: DriveStrength: 0x00 (1/1)[0m
+[0;32mI (439) MSPI Timing: PSRAM timing tuning index: 4[0m
+[0;32mI (442) esp_psram: Found 8MB PSRAM device[0m
+[0;32mI (446) esp_psram: Speed: 80MHz[0m
+[0;32mI (449) cpu_start: Multicore app[0m
+[0;32mI (868) esp_psram: SPI SRAM memory test OK[0m
+[0;32mI (877) cpu_start: Pro cpu start user code[0m
+[0;32mI (877) cpu_start: cpu freq: 240000000 Hz[0m
+[0;32mI (877) app_init: Application information:[0m
+[0;32mI (877) app_init: Project name:     motion_detection[0m
+[0;32mI (882) app_init: App version:      312921ff-dirty[0m
+[0;32mI (886) app_init: Compile time:     Aug  6 2025 18:16:20[0m
+[0;32mI (891) app_init: ELF file SHA256:  e049950e1436c76f...[0m
+[0;32mI (896) app_init: ESP-IDF:          v5.4.1[0m
+[0;32mI (900) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (904) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (908) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (912) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (918) heap_init: At 3FCA9D28 len 0003F9E8 (254 KiB): RAM[0m
+[0;32mI (923) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (928) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (934) heap_init: At 600FE11C len 00001ECC (7 KiB): RTCRAM[0m
+[0;32mI (939) esp_psram: Adding pool of 8192K of PSRAM memory to heap allocator[0m
+[0;32mI (946) spi_flash: detected chip: boya[0m
+[0;32mI (949) spi_flash: flash io: dio[0m
+[0;33mW (952) spi_flash: Detected size(16384k) larger than the size in the binary image header(8192k). Using the size in the binary image header.[0m
+[0;32mI (968) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (970) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (977) main_task: Started on CPU0[0m
+[0;32mI (997) esp_psram: Reserving pool of 32K of internal memory for DMA/internal allocations[0m
+[0;32mI (997) main_task: Calling app_main()[0m
+Init
+OpenCV info print: 
+General configuration for OpenCV 4.10.0 =====================================
+  Version control:               unknown
+
+  Extra modules:
+    Location (extra):            /home/cra/workplace_esp32/Komeiji_Satori/examples/motion_detection/managed_components/espressif__opencv/opencv_contrib/modules
+    Version control (extra):     unknown
+
+  Platform:
+    Timestamp:                   2025-08-01T11:44:33Z
+    Host:                        Linux 6.6.87.1-microsoft-standard-WSL2 x86_64
+    Target:                      Generic xtensa
+    CMake:                       3.28.3
+    CMake generator:             Ninja
+    CMake build tool:            /usr/bin/ninja
+    Configuration:               Release
+
+  CPU/HW features:
+    Baseline:
+      requested:                 DETECT
+
+  C/C++:
+    Built as dynamic libs?:      NO
+    C++ standard:                11
+    C++ Compiler:                /home/cra/.espressif/tools/xtensa-esp-elf/esp-14.2.0_20241119/xtensa-esp-elf/bin/xtensa-esp32s3-elf-g++  (ver 14.2.0)
+    C++ flags (Release):         -mlongcalls  -fno-builtin-memcpy -fno-builtin-memset -fno-builtin-bzero -fno-builtin-stpcpy -fno-builtin-strncpy -I/home/cra/workplace_esp32/Komeiji_Satori/examples/motion_detection/build/config -I/home/cra/esp/esp-idf/components/newlib/platform_include -I/home/cra/esp/esp-idf/components/freertos/config/include -I/home/cra/esp/esp-idf/components/freertos/config/include/freertos -I/home/cra/esp/esp-idf/components/freertos/config/xtensa/include -I/home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include -I/home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include -I/home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos -I/home/cra/esp/esp-idf/components/freertos/esp_additions/include -I/home/cra/esp/esp-idf/components/esp_hw_support/include -I/home/cra/esp/esp-idf/components/esp_hw_support/include/soc -I/home/cra/esp/esp-idf/components/esp_hw_support/include/soc/esp32s3 -I/home/cra/esp/esp-idf/components/esp_hw_support/dma/include -I/home/cra/esp/esp-idf/components/esp_hw_support/ldo/include -I/home/cra/esp/esp-idf/components/esp_hw_support/debug_probe/include -I/home/cra/esp/esp-idf/components/esp_hw_support/port/esp32s3/. -I/home/cra/esp/esp-idf/components/esp_hw_support/port/esp32s3/include -I/home/cra/esp/esp-idf/components/heap/include -I/home/cra/esp/esp-idf/components/heap/tlsf -I/home/cra/esp/esp-idf/components/log/include -I/home/cra/esp/esp-idf/components/soc/include -I/home/cra/esp/esp-idf/components/soc/esp32s3 -I/home/cra/esp/esp-idf/components/soc/esp32s3/include -I/home/cra/esp/esp-idf/components/soc/esp32s3/register -I/home/cra/esp/esp-idf/components/hal/platform_port/include -I/home/cra/esp/esp-idf/components/hal/esp32s3/include -I/home/cra/esp/esp-idf/components/hal/include -I/home/cra/esp/esp-idf/components/esp_rom/include -I/home/cra/esp/esp-idf/components/esp_rom/esp32s3/include -I/home/cra/esp/esp-idf/components/esp_rom/esp32s3/include/esp32s3 -I/home/cra/esp/esp-idf/components/esp_rom/esp32s3 -I/home/cra/esp/esp-idf/components/esp_common/include -I/home/cra/esp/esp-idf/components/esp_system/include -I/home/cra/esp/esp-idf/components/esp_system/port/soc -I/home/cra/esp/esp-idf/components/esp_system/port/include/private -I/home/cra/esp/esp-idf/components/xtensa/esp32s3/include -I/home/cra/esp/esp-idf/components/xtensa/include -I/home/cra/esp/esp-idf/components/xtensa/deprecated_include -I/home/cra/esp/esp-idf/components/lwip/include -I/home/cra/esp/esp-idf/components/lwip/include/apps -I/home/cra/esp/esp-idf/components/lwip/include/apps/sntp -I/home/cra/esp/esp-idf/components/lwip/lwip/src/include -I/home/cra/esp/esp-idf/components/lwip/port/include -I/home/cra/esp/esp-idf/components/lwip/port/freertos/include -I/home/cra/esp/esp-idf/components/lwip/port/esp32xx/include -I/home/cra/esp/esp-idf/components/lwip/port/esp32xx/include/arch -I/home/cra/esp/esp-idf/components/lwip/port/esp32xx/include/sys -I/home/cra/esp/esp-idf/components/vfs/include -I/home/cra/esp/esp-idf/components/pthread/include -D_DEFAULT_SOURCE -DCV_INT32_T_IS_LONG_INT=ON -Dalloca=__builtin_alloca   -fsigned-char -W -Wall -Wreturn-type -Wnon-virtual-dtor -Waddress -Wsequence-point -Wformat -Wformat-security -Wmissing-declarations -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Wsuggest-override -Wno-delete-non-virtual-dtor -Wno-comment -Wimplicit-fallthrough=3 -Wno-strict-overflow -fdiagnostics-show-option -fomit-frame-pointer -ffunction-sections -fdata-sections  -fvisibility=hidden -fvisibility-inlines-hidden -Os -ggdb  -ffunction-sections -fdata-sections -DDEBUG -D_DEBUG -mlongcalls -mauto-litpools  -DNDEBUG
+    C++ flags (Debug):           -mlongcalls  -fno-builtin-memcpy -fno-builtin-memset -fno-builtin-bzero -fno-builtin-stpcpy -fno-builtin-strncpy -I/home/cra/workplace_esp32/Komeiji_Satori/examples/motion_detection/build/config -I/home/cra/esp/esp-idf/components/newlib/platform_include -I/home/cra/esp/esp-idf/components/freertos/config/include -I/home/cra/esp/esp-idf/components/freertos/config/include/freertos -I/home/cra/esp/esp-idf/components/freertos/config/xtensa/include -I/home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include -I/home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include -I/home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos -I/home/cra/esp/esp-idf/components/freertos/esp_additions/include -I/home/cra/esp/esp-idf/components/esp_hw_support/include -I/home/cra/esp/esp-idf/components/esp_hw_support/include/soc -I/home/cra/esp/esp-idf/components/esp_hw_support/include/soc/esp32s3 -I/home/cra/esp/esp-idf/components/esp_hw_support/dma/include -I/home/cra/esp/esp-idf/components/esp_hw_support/ldo/include -I/home/cra/esp/esp-idf/components/esp_hw_support/debug_probe/include -I/home/cra/esp/esp-idf/components/esp_hw_support/port/esp32s3/. -I/home/cra/esp/esp-idf/components/esp_hw_support/port/esp32s3/include -I/home/cra/esp/esp-idf/components/heap/include -I/home/cra/esp/esp-idf/components/heap/tlsf -I/home/cra/esp/esp-idf/components/log/include -I/home/cra/esp/esp-idf/components/soc/include -I/home/cra/esp/esp-idf/components/soc/esp32s3 -I/home/cra/esp/esp-idf/components/soc/esp32s3/include -I/home/cra/esp/esp-idf/components/soc/esp32s3/register -I/home/cra/esp/esp-idf/components/hal/platform_port/include -I/home/cra/esp/esp-idf/components/hal/esp32s3/include -I/home/cra/esp/esp-idf/components/hal/include -I/home/cra/esp/esp-idf/components/esp_rom/include -I/home/cra/esp/esp-idf/components/esp_rom/esp32s3/include -I/home/cra/esp/esp-idf/components/esp_rom/esp32s3/include/esp32s3 -I/home/cra/esp/esp-idf/components/esp_rom/esp32s3 -I/home/cra/esp/esp-idf/components/esp_common/include -I/home/cra/esp/esp-idf/components/esp_system/include -I/home/cra/esp/esp-idf/components/esp_system/port/soc -I/home/cra/esp/esp-idf/components/esp_system/port/include/private -I/home/cra/esp/esp-idf/components/xtensa/esp32s3/include -I/home/cra/esp/esp-idf/components/xtensa/include -I/home/cra/esp/esp-idf/components/xtensa/deprecated_include -I/home/cra/esp/esp-idf/components/lwip/include -I/home/cra/esp/esp-idf/components/lwip/include/apps -I/home/cra/esp/esp-idf/components/lwip/include/apps/sntp -I/home/cra/esp/esp-idf/components/lwip/lwip/src/include -I/home/cra/esp/esp-idf/components/lwip/port/include -I/home/cra/esp/esp-idf/components/lwip/port/freertos/include -I/home/cra/esp/esp-idf/components/lwip/port/esp32xx/include -I/home/cra/esp/esp-idf/components/lwip/port/esp32xx/include/arch -I/home/cra/esp/esp-idf/components/lwip/port/esp32xx/include/sys -I/home/cra/esp/esp-idf/components/vfs/include -I/home/cra/esp/esp-idf/components/pthread/include -D_DEFAULT_SOURCE -DCV_INT32_T_IS_LONG_INT=ON -Dalloca=__builtin_alloca   -fsigned-char -W -Wall -Wreturn-type -Wnon-virtual-dtor -Waddress -Wsequence-point -Wformat -Wformat-security -Wmissing-declarations -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Wsuggest-override -Wno-delete-non-virtual-dtor -Wno-comment -Wimplicit-fallthrough=3 -Wno-strict-overflow -fdiagnostics-show-option -fomit-frame-pointer -ffunction-sections -fdata-sections  -fvisibility=hidden -fvisibility-inlines-hidden -g  -O0 -DDEBUG -D_DEBUG
+    C Compiler:                  /home/cra/.espressif/tools/xtensa-esp-elf/esp-14.2.0_20241119/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc
+    C flags (Release):           -mlongcalls  -fno-builtin-memcpy -fno-builtin-memset -fno-builtin-bzero -fno-builtin-stpcpy -fno-builtin-strncpy -I/home/cra/workplace_esp32/Komeiji_Satori/examples/motion_detection/build/config -I/home/cra/esp/esp-idf/components/newlib/platform_include -I/home/cra/esp/esp-idf/components/freertos/config/include -I/home/cra/esp/esp-idf/components/freertos/config/include/freertos -I/home/cra/esp/esp-idf/components/freertos/config/xtensa/include -I/home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include -I/home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include -I/home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos -I/home/cra/esp/esp-idf/components/freertos/esp_additions/include -I/home/cra/esp/esp-idf/components/esp_hw_support/include -I/home/cra/esp/esp-idf/components/esp_hw_support/include/soc -I/home/cra/esp/esp-idf/components/esp_hw_support/include/soc/esp32s3 -I/home/cra/esp/esp-idf/components/esp_hw_support/dma/include -I/home/cra/esp/esp-idf/components/esp_hw_support/ldo/include -I/home/cra/esp/esp-idf/components/esp_hw_support/debug_probe/include -I/home/cra/esp/esp-idf/components/esp_hw_support/port/esp32s3/. -I/home/cra/esp/esp-idf/components/esp_hw_support/port/esp32s3/include -I/home/cra/esp/esp-idf/components/heap/include -I/home/cra/esp/esp-idf/components/heap/tlsf -I/home/cra/esp/esp-idf/components/log/include -I/home/cra/esp/esp-idf/components/soc/include -I/home/cra/esp/esp-idf/components/soc/esp32s3 -I/home/cra/esp/esp-idf/components/soc/esp32s3/include -I/home/cra/esp/esp-idf/components/soc/esp32s3/register -I/home/cra/esp/esp-idf/components/hal/platform_port/include -I/home/cra/esp/esp-idf/components/hal/esp32s3/include -I/home/cra/esp/esp-idf/components/hal/include -I/home/cra/esp/esp-idf/components/esp_rom/include -I/home/cra/esp/esp-idf/components/esp_rom/esp32s3/include -I/home/cra/esp/esp-idf/components/esp_rom/esp32s3/include/esp32s3 -I/home/cra/esp/esp-idf/components/esp_rom/esp32s3 -I/home/cra/esp/esp-idf/components/esp_common/include -I/home/cra/esp/esp-idf/components/esp_system/include -I/home/cra/esp/esp-idf/components/esp_system/port/soc -I/home/cra/esp/esp-idf/components/esp_system/port/include/private -I/home/cra/esp/esp-idf/components/xtensa/esp32s3/include -I/home/cra/esp/esp-idf/components/xtensa/include -I/home/cra/esp/esp-idf/components/xtensa/deprecated_include -I/home/cra/esp/esp-idf/components/lwip/include -I/home/cra/esp/esp-idf/components/lwip/include/apps -I/home/cra/esp/esp-idf/components/lwip/include/apps/sntp -I/home/cra/esp/esp-idf/components/lwip/lwip/src/include -I/home/cra/esp/esp-idf/components/lwip/port/include -I/home/cra/esp/esp-idf/components/lwip/port/freertos/include -I/home/cra/esp/esp-idf/components/lwip/port/esp32xx/include -I/home/cra/esp/esp-idf/components/lwip/port/esp32xx/include/arch -I/home/cra/esp/esp-idf/components/lwip/port/esp32xx/include/sys -I/home/cra/esp/esp-idf/components/vfs/include -I/home/cra/esp/esp-idf/components/pthread/include -D_DEFAULT_SOURCE   -fsigned-char -W -Wall -Wreturn-type -Waddress -Wsequence-point -Wformat -Wformat-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wuninitialized -Wno-comment -Wimplicit-fallthrough=3 -Wno-strict-overflow -fdiagnostics-show-option -fomit-frame-pointer -ffunction-sections -fdata-sections  -fvisibility=hidden -Os -ggdb  -ffunction-sections -fdata-sections -DDEBUG -D_DEBUG -mlongcalls -mauto-litpools  -DNDEBUG
+    C flags (Debug):             -mlongcalls  -fno-builtin-memcpy -fno-builtin-memset -fno-builtin-bzero -fno-builtin-stpcpy -fno-builtin-strncpy -I/home/cra/workplace_esp32/Komeiji_Satori/examples/motion_detection/build/config -I/home/cra/esp/esp-idf/components/newlib/platform_include -I/home/cra/esp/esp-idf/components/freertos/config/include -I/home/cra/esp/esp-idf/components/freertos/config/include/freertos -I/home/cra/esp/esp-idf/components/freertos/config/xtensa/include -I/home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include -I/home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include -I/home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos -I/home/cra/esp/esp-idf/components/freertos/esp_additions/include -I/home/cra/esp/esp-idf/components/esp_hw_support/include -I/home/cra/esp/esp-idf/components/esp_hw_support/include/soc -I/home/cra/esp/esp-idf/components/esp_hw_support/include/soc/esp32s3 -I/home/cra/esp/esp-idf/components/esp_hw_support/dma/include -I/home/cra/esp/esp-idf/components/esp_hw_support/ldo/include -I/home/cra/esp/esp-idf/components/esp_hw_support/debug_probe/include -I/home/cra/esp/esp-idf/components/esp_hw_support/port/esp32s3/. -I/home/cra/esp/esp-idf/components/esp_hw_support/port/esp32s3/include -I/home/cra/esp/esp-idf/components/heap/include -I/home/cra/esp/esp-idf/components/heap/tlsf -I/home/cra/esp/esp-idf/components/log/include -I/home/cra/esp/esp-idf/components/soc/include -I/home/cra/esp/esp-idf/components/soc/esp32s3 -I/home/cra/esp/esp-idf/components/soc/esp32s3/include -I/home/cra/esp/esp-idf/components/soc/esp32s3/register -I/home/cra/esp/esp-idf/components/hal/platform_port/include -I/home/cra/esp/esp-idf/components/hal/esp32s3/include -I/home/cra/esp/esp-idf/components/hal/include -I/home/cra/esp/esp-idf/components/esp_rom/include -I/home/cra/esp/esp-idf/components/esp_rom/esp32s3/include -I/home/cra/esp/esp-idf/components/esp_rom/esp32s3/include/esp32s3 -I/home/cra/esp/esp-idf/components/esp_rom/esp32s3 -I/home/cra/esp/esp-idf/components/esp_common/include -I/home/cra/esp/esp-idf/components/esp_system/include -I/home/cra/esp/esp-idf/components/esp_system/port/soc -I/home/cra/esp/esp-idf/components/esp_system/port/include/private -I/home/cra/esp/esp-idf/components/xtensa/esp32s3/include -I/home/cra/esp/esp-idf/components/xtensa/include -I/home/cra/esp/esp-idf/components/xtensa/deprecated_include -I/home/cra/esp/esp-idf/components/lwip/include -I/home/cra/esp/esp-idf/components/lwip/include/apps -I/home/cra/esp/esp-idf/components/lwip/include/apps/sntp -I/home/cra/esp/esp-idf/components/lwip/lwip/src/include -I/home/cra/esp/esp-idf/components/lwip/port/include -I/home/cra/esp/esp-idf/components/lwip/port/freertos/include -I/home/cra/esp/esp-idf/components/lwip/port/esp32xx/include -I/home/cra/esp/esp-idf/components/lwip/port/esp32xx/include/arch -I/home/cra/esp/esp-idf/components/lwip/port/esp32xx/include/sys -I/home/cra/esp/esp-idf/components/vfs/include -I/home/cra/esp/esp-idf/components/pthread/include -D_DEFAULT_SOURCE   -fsigned-char -W -Wall -Wreturn-type -Waddress -Wsequence-point -Wformat -Wformat-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wuninitialized -Wno-comment -Wimplicit-fallthrough=3 -Wno-strict-overflow -fdiagnostics-show-option -fomit-frame-pointer -ffunction-sections -fdata-sections  -fvisibility=hidden -g  -O0 -DDEBUG -D_DEBUG
+    Linker flags (Release):      -Wl,--gc-sections  
+    Linker flags (Debug):        -Wl,--gc-sections  
+    ccache:                      NO
+    Precompiled headers:         NO
+    Extra dependencies:
+    3rdparty dependencies:       libjpeg-turbo libwebp libpng libtiff libopenjp2 zlib
+
+  OpenCV modules:
+    To be built:                 aruco bioinspired calib3d ccalib core dnn dnn_objdetect dnn_superres dpm face features2d flann fuzzy hfs highgui img_hash imgcodecs imgproc intensity_transform line_descriptor mcc ml objdetect optflow phase_unwrapping photo plot quality rapid reg rgbd saliency shape signal stereo stitching structured_light superres surface_matching text tracking video videostab wechat_qrcode xfeatures2d ximgproc xobjdetect xphoto
+    Disabled:                    bgsegm datasets videoio world
+    Disabled by dependency:      -
+    Unavailable:                 alphamat cannops cudaarithm cudabgsegm cudacodec cudafeatures2d cudafilters cudaimgproc cudalegacy cudaobjdetect cudaoptflow cudastereo cudawarping cudev cvv freetype gapi hdf java julia matlab ovis python2 python3 sfm ts viz
+    Applications:                -
+    Documentation:               NO
+    Non-free algorithms:         NO
+
+  GUI:                           NONE
+
+  Media I/O: 
+    ZLib:                        build (ver 1.3.1)
+    JPEG:                        build-libjpeg-turbo (ver 3.0.3-70)
+      SIMD Support Request:      YES
+      SIMD Support:              NO
+    WEBP:                        build (ver encoder: 0x020f)
+    PNG:                         build (ver 1.6.43)
+      SIMD Support Request:      YES
+      SIMD Support:              NO
+    TIFF:                        build (ver 42 - 4.6.0)
+    JPEG 2000:                   build (ver 2.5.0)
+    HDR:                         YES
+    SUNRASTER:                   YES
+    PXM:                         YES
+    PFM:                         YES
+
+  Video I/O:
+    DC1394:                      NO
+    FFMPEG:                      NO
+      avcodec:                   NO
+      avformat:                  NO
+      avutil:                    NO
+      swscale:                   NO
+      avresample:                NO
+    GStreamer:                   NO
+
+  Parallel framework:            none
+
+  Trace:                         YES (built-in)
+
+  Other third-party libraries:
+    Lapack:                      NO
+    Custom HAL:                  NO
+    Flatbuffers:                 builtin/3rdparty (23.5.9)
+
+  Python (for build):            /home/cra/.espressif/python_env/idf5.4_py3.12_env/bin/python
+
+  Install to:                    /home/cra/workplace_esp32/Komeiji_Satori/examples/motion_detection/build/esp-idf/espressif__opencv/opencv-build/install
+-----------------------------------------------------------------
+
+[0;32mI (2607) pp: pp rom version: e7ae62f[0m
+[0;32mI (2607) net80211: net80211 rom version: e7ae62f[0m
+[0;32mI (2617) wifi:wifi driver task: 3fcc619c, prio:23, stack:3584, core=0[0m
+[0;32mI (2617) wifi:wifi firmware version: 79fa3f41ba[0m
+[0;32mI (2617) wifi:wifi certification version: v7.0[0m
+[0;32mI (2617) wifi:config NVS flash: enabled[0m
+[0;32mI (2617) wifi:config nano formatting: disabled[0m
+[0;32mI (2627) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (2627) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (2637) wifi:Init management short buffer num: 32[0m
+[0;32mI (2637) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (2637) wifi:Init static tx FG buffer num: 2[0m
+[0;32mI (2647) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (2647) wifi:Init static rx buffer num: 10[0m
+[0;32mI (2657) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (2657) wifi_init: rx ba win: 6[0m
+[0;32mI (2657) wifi_init: accept mbox: 6[0m
+[0;32mI (2667) wifi_init: tcpip mbox: 32[0m
+[0;32mI (2667) wifi_init: udp mbox: 6[0m
+[0;32mI (2667) wifi_init: tcp mbox: 6[0m
+[0;32mI (2677) wifi_init: tcp tx win: 5760[0m
+[0;32mI (2677) wifi_init: tcp rx win: 5760[0m
+[0;32mI (2677) wifi_init: tcp mss: 1440[0m
+[0;32mI (2687) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (2687) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (2697) phy_init: phy_version 700,8582a7fd,Feb 10 2025,20:13:11[0m
+[0;32mI (2727) wifi:mode : softAP (cc:ba:97:22:1a:6d)[0m
+[0;32mI (2727) wifi:Total power save buffer number: 16[0m
+[0;32mI (2727) wifi:Init max length of beacon: 752/752[0m
+[0;32mI (2727) wifi:Init max length of beacon: 752/752[0m
+[0;32mI (2737) MAIN: WiFi AP started. SSID:ESP32_Servo_Control password:12345678[0m
+[0;32mI (2737) esp_netif_lwip: DHCP server started on interface WIFI_AP_DEF with IP: 192.168.4.1[0m
+[0;32mI (2747) MAIN: Connect to http://192.168.4.1[0m
+[0;32mI (3757) SERVO_CONTROL: Servo 1 moved from 120° to 50° after initialization[0m
+[0;32mI (3757) SERVO_CONTROL: Servo control initialized successfully[0m
+[0;32mI (3757) MAIN: Servo control system initialized[0m
+[0;32mI (3757) SERVO_CONTROL: Tracking mode started with 10s scan interval[0m
+[0;32mI (3767) MAIN: Tracking mode started[0m
+[0;32mI (3767) s3 ll_cam: DMA Channel=1[0m
+[0;32mI (3767) cam_hal: cam init ok[0m
+[0;32mI (3777) sccb-ng: pin_sda 20 pin_scl 19[0m
+[0;32mI (3777) sccb-ng: sccb_i2c_port=1[0m
+[0;32mI (3787) camera: Camera PID=0x26 VER=0x42 MIDL=0x7f MIDH=0xa2[0m
+[0;32mI (3787) camera: Detected OV2640 camera[0m
+[0;32mI (3787) camera: Detected camera at address=0x30[0m
+[0;32mI (3867) s3 ll_cam: node_size: 3840, nodes_per_line: 1, lines_per_node: 6[0m
+[0;32mI (3867) s3 ll_cam: dma_half_buffer_min:  3840, dma_half_buffer: 15360, lines_per_half_buffer: 24, dma_buffer_size: 30720[0m
+[0;32mI (3867) cam_hal: buffer_size: 30720, half_buffer_size: 15360, node_buffer_size: 3840, node_cnt: 8, total_cnt: 10[0m
+[0;32mI (3877) cam_hal: Allocating 76800 Byte frame buffer in PSRAM[0m
+[0;32mI (3887) cam_hal: cam config ok[0m
+[0;32mI (3887) ov2640: Set PLL: clk_2x: 1, clk_div: 3, pclk_auto: 1, pclk_div: 8[0m
+[0;32mI (3957) CAM: Camera sensor 7f a2 0026 42[0m
+[0;33mW (4297) OpenCV: Motion detection - 2.00 FPS[0m
+Position detected: [154, 117]
+[0;32mI (4527) SERVO_CONTROL: Tracking position (154, 117) -> Target S2:133.0°, S3:84.0° -> Filtered S2:134°, S3:85°[0m
+[0;33mW (4527) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (4767) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (5007) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (5247) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (5487) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (5727) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (5967) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (6207) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (6447) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (6687) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (6927) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (7167) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (7407) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (7647) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (7887) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (8127) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (8367) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (8607) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (8847) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (9087) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (9327) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (9567) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (9807) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (10047) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (10287) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (10527) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (10767) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (11007) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (11247) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (11487) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (11727) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (11967) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (12207) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (12447) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (12687) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (12927) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (13167) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (13407) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [229, 220]
+[0;32mI (13647) SERVO_CONTROL: Tracking position (229, 220) -> Target S2:154.0°, S3:114.0° -> Filtered S2:140°, S3:93°[0m
+[0;32mI (13757) SERVO_CONTROL: Executing random scan action[0m
+[0;33mW (13787) OpenCV: Motion detection - 2.00 FPS[0m
+Position detected: [280, 162]
+[0;32mI (14047) SERVO_CONTROL: Tracking position (280, 162) -> Target S2:168.0°, S3:97.0° -> Filtered S2:149°, S3:95°[0m
+[0;33mW (14147) OpenCV: Motion detection - 2.00 FPS[0m
+[0;32mI (14337) SERVO_CONTROL: Moved to random angle: 107°[0m
+Position detected: [281, 133]
+[0;32mI (14367) SERVO_CONTROL: Tracking position (281, 133) -> Target S2:169.0°, S3:88.0° -> Filtered S2:155°, S3:93°[0m
+[0;33mW (14427) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [251, 142]
+[0;32mI (14677) SERVO_CONTROL: Tracking position (251, 142) -> Target S2:160.0°, S3:91.0° -> Filtered S2:156°, S3:92°[0m
+[0;33mW (14687) OpenCV: Motion detection - 3.00 FPS[0m
+[0;33mW (14927) OpenCV: Motion detection - 4.00 FPS[0m
+[0;32mI (15157) SERVO_CONTROL: Moved to random angle: 75°[0m
+Position detected: [269, 131]
+[0;32mI (15157) SERVO_CONTROL: Tracking position (269, 131) -> Target S2:165.0°, S3:88.0° -> Filtered S2:159°, S3:91°[0m
+[0;33mW (15207) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [1, 237]
+[0;32mI (15397) SERVO_CONTROL: Tracking position (1, 237) -> Target S2:90.0°, S3:119.0° -> Filtered S2:138°, S3:99°[0m
+[0;33mW (15687) OpenCV: Motion detection - 2.00 FPS[0m
+Position detected: [225, 150]
+[0;32mI (15877) SERVO_CONTROL: Tracking position (225, 150) -> Target S2:153.0°, S3:93.0° -> Filtered S2:143°, S3:97°[0m
+[0;32mI (15897) SERVO_CONTROL: Random scan action completed with final angle: 51°[0m
+[0;33mW (15947) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [288, 127]
+[0;32mI (16197) SERVO_CONTROL: Tracking position (288, 127) -> Target S2:171.0°, S3:87.0° -> Filtered S2:151°, S3:94°[0m
+[0;33mW (16347) OpenCV: Motion detection - 2.00 FPS[0m
+Position detected: [244, 150]
+[0;32mI (16597) SERVO_CONTROL: Tracking position (244, 150) -> Target S2:158.0°, S3:93.0° -> Filtered S2:153°, S3:94°[0m
+[0;33mW (16607) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [139, 0]
+[0;32mI (16837) SERVO_CONTROL: Tracking position (139, 0) -> Target S2:129.0°, S3:50.0° -> Filtered S2:146°, S3:81°[0m
+[0;33mW (17047) OpenCV: Motion detection - 2.00 FPS[0m
+Position detected: [268, 144]
+[0;32mI (17237) SERVO_CONTROL: Tracking position (268, 144) -> Target S2:165.0°, S3:92.0° -> Filtered S2:152°, S3:84°[0m
+[0;33mW (17347) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [279, 118]
+[0;32mI (17557) SERVO_CONTROL: Tracking position (279, 118) -> Target S2:168.0°, S3:84.0° -> Filtered S2:157°, S3:84°[0m
+[0;33mW (17627) OpenCV: Motion detection - 3.00 FPS[0m
+[0;33mW (17887) OpenCV: Motion detection - 3.00 FPS[0m
+[0;33mW (18127) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (18367) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (18607) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (18847) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (19087) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (19327) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (19567) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (19807) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (20047) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (20277) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (20527) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (20767) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (20997) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (21237) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (21477) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (21717) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (21967) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (22197) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (22437) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (22677) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (22917) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (23157) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (23397) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (23637) OpenCV: Motion detection - 4.00 FPS[0m
+[0;32mI (23757) SERVO_CONTROL: Executing random scan action[0m
+Position detected: [274, 217]
+[0;32mI (23877) SERVO_CONTROL: Tracking position (274, 217) -> Target S2:167.0°, S3:113.0° -> Filtered S2:160°, S3:93°[0m
+[0;32mI (23937) SERVO_CONTROL: Moved to random angle: 68°[0m
+[0;33mW (24027) OpenCV: Motion detection - 2.00 FPS[0m
+Position detected: [282, 146]
+[0;32mI (24277) SERVO_CONTROL: Tracking position (282, 146) -> Target S2:169.0°, S3:92.0° -> Filtered S2:162°, S3:93°[0m
+[0;33mW (24287) OpenCV: Motion detection - 3.00 FPS[0m
+[0;32mI (24457) SERVO_CONTROL: Moved to random angle: 70°[0m
+[0;33mW (24517) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (24757) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [102, 208]
+[0;32mI (24997) SERVO_CONTROL: Tracking position (102, 208) -> Target S2:118.0°, S3:110.0° -> Filtered S2:149°, S3:98°[0m
+[0;32mI (25037) SERVO_CONTROL: Random scan action completed with final angle: 62°[0m
+[0;33mW (25177) OpenCV: Motion detection - 2.00 FPS[0m
+Position detected: [153, 176]
+[0;32mI (25397) SERVO_CONTROL: Tracking position (153, 176) -> Target S2:133.0°, S3:101.0° -> Filtered S2:144°, S3:99°[0m
+[0;33mW (25457) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [100, 156]
+[0;32mI (25717) SERVO_CONTROL: Tracking position (100, 156) -> Target S2:118.0°, S3:95.0° -> Filtered S2:136°, S3:98°[0m
+[0;33mW (25797) OpenCV: Motion detection - 2.00 FPS[0m
+Position detected: [119, 135]
+[0;32mI (26037) SERVO_CONTROL: Tracking position (119, 135) -> Target S2:123.0°, S3:89.0° -> Filtered S2:132°, S3:95°[0m
+[0;33mW (26117) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [134, 169]
+[0;32mI (26357) SERVO_CONTROL: Tracking position (134, 169) -> Target S2:127.0°, S3:99.0° -> Filtered S2:131°, S3:96°[0m
+[0;33mW (26367) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [220, 160]
+[0;32mI (26597) SERVO_CONTROL: Tracking position (220, 160) -> Target S2:151.0°, S3:96.0° -> Filtered S2:137°, S3:96°[0m
+[0;33mW (26657) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [269, 152]
+[0;32mI (26917) SERVO_CONTROL: Tracking position (269, 152) -> Target S2:165.0°, S3:94.0° -> Filtered S2:145°, S3:96°[0m
+[0;33mW (26997) OpenCV: Motion detection - 2.00 FPS[0m
+Position detected: [287, 134]
+[0;32mI (27237) SERVO_CONTROL: Tracking position (287, 134) -> Target S2:170.0°, S3:89.0° -> Filtered S2:153°, S3:94°[0m
+[0;33mW (27317) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [297, 132]
+[0;32mI (27557) SERVO_CONTROL: Tracking position (297, 132) -> Target S2:173.0°, S3:88.0° -> Filtered S2:159°, S3:92°[0m
+[0;33mW (27657) OpenCV: Motion detection - 2.00 FPS[0m
+Position detected: [268, 156]
+[0;32mI (27877) SERVO_CONTROL: Tracking position (268, 156) -> Target S2:165.0°, S3:95.0° -> Filtered S2:161°, S3:93°[0m
+[0;33mW (27877) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [274, 141]
+[0;32mI (28117) SERVO_CONTROL: Tracking position (274, 141) -> Target S2:167.0°, S3:91.0° -> Filtered S2:163°, S3:92°[0m
+[0;33mW (28157) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [272, 156]
+[0;32mI (28357) SERVO_CONTROL: Tracking position (272, 156) -> Target S2:166.0°, S3:95.0° -> Filtered S2:164°, S3:93°[0m
+[0;33mW (28357) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [286, 140]
+[0;32mI (28597) SERVO_CONTROL: Tracking position (286, 140) -> Target S2:170.0°, S3:90.0° -> Filtered S2:166°, S3:92°[0m
+[0;33mW (28637) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [295, 134]
+[0;32mI (28837) SERVO_CONTROL: Tracking position (295, 134) -> Target S2:172.0°, S3:89.0° -> Filtered S2:167°, S3:91°[0m
+[0;33mW (28837) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [306, 165]
+[0;32mI (29077) SERVO_CONTROL: Tracking position (306, 165) -> Target S2:176.0°, S3:98.0° -> Filtered S2:170°, S3:93°[0m
+[0;33mW (29117) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [251, 165]
+[0;32mI (29317) SERVO_CONTROL: Tracking position (251, 165) -> Target S2:160.0°, S3:98.0° -> Filtered S2:167°, S3:95°[0m
+[0;33mW (29397) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [163, 176]
+[0;32mI (29637) SERVO_CONTROL: Tracking position (163, 176) -> Target S2:135.0°, S3:101.0° -> Filtered S2:157°, S3:97°[0m
+[0;33mW (29737) OpenCV: Motion detection - 2.00 FPS[0m
+Position detected: [95, 173]
+[0;32mI (29957) SERVO_CONTROL: Tracking position (95, 173) -> Target S2:116.0°, S3:100.0° -> Filtered S2:145°, S3:98°[0m
+[0;33mW (30117) OpenCV: Motion detection - 2.00 FPS[0m
+Position detected: [103, 188]
+[0;32mI (30357) SERVO_CONTROL: Tracking position (103, 188) -> Target S2:118.0°, S3:104.0° -> Filtered S2:137°, S3:100°[0m
+[0;33mW (30437) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [94, 181]
+[0;32mI (30677) SERVO_CONTROL: Tracking position (94, 181) -> Target S2:116.0°, S3:102.0° -> Filtered S2:131°, S3:100°[0m
+[0;33mW (30737) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [114, 179]
+[0;32mI (30997) SERVO_CONTROL: Tracking position (114, 179) -> Target S2:122.0°, S3:102.0° -> Filtered S2:128°, S3:101°[0m
+[0;33mW (31077) OpenCV: Motion detection - 2.00 FPS[0m
+Position detected: [148, 162]
+[0;32mI (31317) SERVO_CONTROL: Tracking position (148, 162) -> Target S2:131.0°, S3:97.0° -> Filtered S2:129°, S3:100°[0m
+[0;33mW (31317) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [136, 144]
+[0;32mI (31557) SERVO_CONTROL: Tracking position (136, 144) -> Target S2:128.0°, S3:92.0° -> Filtered S2:129°, S3:97°[0m
+[0;33mW (31597) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [111, 143]
+[0;32mI (31797) SERVO_CONTROL: Tracking position (111, 143) -> Target S2:121.0°, S3:91.0° -> Filtered S2:126°, S3:95°[0m
+[0;33mW (31797) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [118, 169]
+[0;32mI (32037) SERVO_CONTROL: Tracking position (118, 169) -> Target S2:123.0°, S3:99.0° -> Filtered S2:125°, S3:97°[0m
+[0;33mW (32077) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [54, 206]
+[0;32mI (32277) SERVO_CONTROL: Tracking position (54, 206) -> Target S2:105.0°, S3:110.0° -> Filtered S2:119°, S3:101°[0m
+[0;33mW (32377) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [112, 186]
+[0;32mI (32597) SERVO_CONTROL: Tracking position (112, 186) -> Target S2:121.0°, S3:104.0° -> Filtered S2:120°, S3:102°[0m
+[0;33mW (32597) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [104, 177]
+[0;32mI (32837) SERVO_CONTROL: Tracking position (104, 177) -> Target S2:119.0°, S3:101.0° -> Filtered S2:120°, S3:101°[0m
+[0;33mW (32837) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [55, 181]
+[0;32mI (33077) SERVO_CONTROL: Tracking position (55, 181) -> Target S2:105.0°, S3:102.0° -> Filtered S2:115°, S3:102°[0m
+[0;33mW (33117) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [128, 172]
+[0;32mI (33317) SERVO_CONTROL: Tracking position (128, 172) -> Target S2:126.0°, S3:100.0° -> Filtered S2:118°, S3:101°[0m
+[0;33mW (33357) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [299, 119]
+[0;32mI (33557) SERVO_CONTROL: Tracking position (299, 119) -> Target S2:174.0°, S3:84.0° -> Filtered S2:135°, S3:96°[0m
+[0;32mI (33757) SERVO_CONTROL: Executing random scan action[0m
+[0;33mW (33797) OpenCV: Motion detection - 2.00 FPS[0m
+[0;32mI (33817) SERVO_CONTROL: Moved to random angle: 67°[0m
+Position detected: [227, 144]
+[0;32mI (34037) SERVO_CONTROL: Tracking position (227, 144) -> Target S2:153.0°, S3:92.0° -> Filtered S2:140°, S3:95°[0m
+[0;33mW (34097) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [192, 176]
+[0;32mI (34357) SERVO_CONTROL: Tracking position (192, 176) -> Target S2:144.0°, S3:101.0° -> Filtered S2:142°, S3:97°[0m
+[0;33mW (34357) OpenCV: Motion detection - 3.00 FPS[0m
+[0;32mI (34377) SERVO_CONTROL: Moved to random angle: 73°[0m
+Position detected: [171, 141]
+[0;32mI (34597) SERVO_CONTROL: Tracking position (171, 141) -> Target S2:138.0°, S3:91.0° -> Filtered S2:140°, S3:95°[0m
+[0;33mW (34597) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [167, 152]
+[0;32mI (34837) SERVO_CONTROL: Tracking position (167, 152) -> Target S2:136.0°, S3:94.0° -> Filtered S2:139°, S3:95°[0m
+[0;33mW (34837) OpenCV: Motion detection - 4.00 FPS[0m
+[0;32mI (34997) SERVO_CONTROL: Random scan action completed with final angle: 61°[0m
+Position detected: [153, 140]
+[0;32mI (35077) SERVO_CONTROL: Tracking position (153, 140) -> Target S2:133.0°, S3:90.0° -> Filtered S2:137°, S3:93°[0m
+[0;33mW (35157) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [156, 160]
+[0;32mI (35397) SERVO_CONTROL: Tracking position (156, 160) -> Target S2:133.0°, S3:96.0° -> Filtered S2:136°, S3:94°[0m
+[0;33mW (35397) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [99, 177]
+[0;32mI (35637) SERVO_CONTROL: Tracking position (99, 177) -> Target S2:117.0°, S3:101.0° -> Filtered S2:130°, S3:96°[0m
+[0;33mW (35757) OpenCV: Motion detection - 2.00 FPS[0m
+Position detected: [141, 135]
+[0;32mI (35957) SERVO_CONTROL: Tracking position (141, 135) -> Target S2:129.0°, S3:89.0° -> Filtered S2:130°, S3:94°[0m
+[0;33mW (35957) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [41, 115]
+[0;32mI (36197) SERVO_CONTROL: Tracking position (41, 115) -> Target S2:101.0°, S3:83.0° -> Filtered S2:121°, S3:91°[0m
+[0;33mW (36357) OpenCV: Motion detection - 2.00 FPS[0m
+Position detected: [141, 146]
+[0;32mI (36597) SERVO_CONTROL: Tracking position (141, 146) -> Target S2:129.0°, S3:92.0° -> Filtered S2:124°, S3:91°[0m
+[0;33mW (36637) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [215, 57]
+[0;32mI (36837) SERVO_CONTROL: Tracking position (215, 57) -> Target S2:150.0°, S3:66.0° -> Filtered S2:131°, S3:84°[0m
+[0;33mW (36997) OpenCV: Motion detection - 2.00 FPS[0m
+Position detected: [146, 146]
+[0;32mI (37237) SERVO_CONTROL: Tracking position (146, 146) -> Target S2:131.0°, S3:92.0° -> Filtered S2:131°, S3:86°[0m
+[0;33mW (37237) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [193, 55]
+[0;32mI (37477) SERVO_CONTROL: Tracking position (193, 55) -> Target S2:144.0°, S3:66.0° -> Filtered S2:135°, S3:80°[0m
+[0;33mW (37557) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [132, 155]
+[0;32mI (37797) SERVO_CONTROL: Tracking position (132, 155) -> Target S2:127.0°, S3:95.0° -> Filtered S2:133°, S3:85°[0m
+[0;33mW (37857) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [119, 174]
+[0;32mI (38117) SERVO_CONTROL: Tracking position (119, 174) -> Target S2:123.0°, S3:100.0° -> Filtered S2:130°, S3:89°[0m
+[0;33mW (38217) OpenCV: Motion detection - 2.00 FPS[0m
+Position detected: [134, 150]
+[0;32mI (38437) SERVO_CONTROL: Tracking position (134, 150) -> Target S2:127.0°, S3:93.0° -> Filtered S2:129°, S3:90°[0m
+[0;33mW (38437) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [130, 119]
+[0;32mI (38677) SERVO_CONTROL: Tracking position (130, 119) -> Target S2:126.0°, S3:84.0° -> Filtered S2:128°, S3:88°[0m
+[0;33mW (38677) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (38917) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [163, 175]
+[0;32mI (39147) SERVO_CONTROL: Tracking position (163, 175) -> Target S2:135.0°, S3:101.0° -> Filtered S2:130°, S3:92°[0m
+[0;33mW (39197) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [168, 166]
+[0;32mI (39387) SERVO_CONTROL: Tracking position (168, 166) -> Target S2:137.0°, S3:98.0° -> Filtered S2:132°, S3:94°[0m
+[0;33mW (39397) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [189, 157]
+[0;32mI (39627) SERVO_CONTROL: Tracking position (189, 157) -> Target S2:143.0°, S3:95.0° -> Filtered S2:135°, S3:94°[0m
+[0;33mW (39697) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [210, 164]
+[0;32mI (39947) SERVO_CONTROL: Tracking position (210, 164) -> Target S2:149.0°, S3:97.0° -> Filtered S2:140°, S3:95°[0m
+[0;33mW (40057) OpenCV: Motion detection - 2.00 FPS[0m
+Position detected: [154, 158]
+[0;32mI (40267) SERVO_CONTROL: Tracking position (154, 158) -> Target S2:133.0°, S3:96.0° -> Filtered S2:138°, S3:95°[0m
+[0;33mW (40277) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [190, 57]
+[0;32mI (40507) SERVO_CONTROL: Tracking position (190, 57) -> Target S2:143.0°, S3:66.0° -> Filtered S2:139°, S3:87°[0m
+[0;33mW (40597) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [139, 154]
+[0;32mI (40827) SERVO_CONTROL: Tracking position (139, 154) -> Target S2:129.0°, S3:94.0° -> Filtered S2:136°, S3:89°[0m
+[0;33mW (40877) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [203, 135]
+[0;32mI (41067) SERVO_CONTROL: Tracking position (203, 135) -> Target S2:147.0°, S3:89.0° -> Filtered S2:139°, S3:89°[0m
+[0;33mW (41117) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [217, 156]
+[0;32mI (41307) SERVO_CONTROL: Tracking position (217, 156) -> Target S2:151.0°, S3:95.0° -> Filtered S2:143°, S3:91°[0m
+[0;33mW (41397) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [174, 154]
+[0;32mI (41627) SERVO_CONTROL: Tracking position (174, 154) -> Target S2:138.0°, S3:94.0° -> Filtered S2:141°, S3:92°[0m
+[0;33mW (41637) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [138, 158]
+[0;32mI (41867) SERVO_CONTROL: Tracking position (138, 158) -> Target S2:128.0°, S3:96.0° -> Filtered S2:137°, S3:93°[0m
+[0;33mW (41937) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [116, 162]
+[0;32mI (42187) SERVO_CONTROL: Tracking position (116, 162) -> Target S2:122.0°, S3:97.0° -> Filtered S2:133°, S3:94°[0m
+[0;33mW (42277) OpenCV: Motion detection - 2.00 FPS[0m
+Position detected: [130, 161]
+[0;32mI (42507) SERVO_CONTROL: Tracking position (130, 161) -> Target S2:126.0°, S3:96.0° -> Filtered S2:131°, S3:95°[0m
+[0;33mW (42517) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [148, 128]
+[0;32mI (42747) SERVO_CONTROL: Tracking position (148, 128) -> Target S2:131.0°, S3:87.0° -> Filtered S2:131°, S3:92°[0m
+[0;33mW (42757) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [142, 143]
+[0;32mI (42987) SERVO_CONTROL: Tracking position (142, 143) -> Target S2:129.0°, S3:91.0° -> Filtered S2:130°, S3:92°[0m
+[0;33mW (43027) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [155, 123]
+[0;32mI (43227) SERVO_CONTROL: Tracking position (155, 123) -> Target S2:133.0°, S3:85.0° -> Filtered S2:131°, S3:90°[0m
+[0;33mW (43277) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [100, 140]
+[0;32mI (43467) SERVO_CONTROL: Tracking position (100, 140) -> Target S2:118.0°, S3:90.0° -> Filtered S2:127°, S3:90°[0m
+[0;33mW (43507) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [117, 154]
+[0;32mI (43707) SERVO_CONTROL: Tracking position (117, 154) -> Target S2:122.0°, S3:94.0° -> Filtered S2:126°, S3:91°[0m
+[0;33mW (43717) OpenCV: Motion detection - 4.00 FPS[0m
+[0;32mI (43757) SERVO_CONTROL: Executing random scan action[0m
+Position detected: [73, 195]
+[0;32mI (43947) SERVO_CONTROL: Tracking position (73, 195) -> Target S2:110.0°, S3:106.0° -> Filtered S2:121°, S3:96°[0m
+[0;33mW (44077) OpenCV: Motion detection - 2.00 FPS[0m
+[0;32mI (44257) SERVO_CONTROL: Moved to random angle: 110°[0m
+Position detected: [118, 167]
+[0;32mI (44267) SERVO_CONTROL: Tracking position (118, 167) -> Target S2:123.0°, S3:98.0° -> Filtered S2:122°, S3:96°[0m
+[0;33mW (44277) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [156, 74]
+[0;32mI (44507) SERVO_CONTROL: Tracking position (156, 74) -> Target S2:133.0°, S3:71.0° -> Filtered S2:125°, S3:89°[0m
+[0;33mW (44627) OpenCV: Motion detection - 2.00 FPS[0m
+Position detected: [137, 106]
+[0;32mI (44827) SERVO_CONTROL: Tracking position (137, 106) -> Target S2:128.0°, S3:80.0° -> Filtered S2:126°, S3:86°[0m
+[0;33mW (44877) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [141, 142]
+[0;32mI (45067) SERVO_CONTROL: Tracking position (141, 142) -> Target S2:129.0°, S3:91.0° -> Filtered S2:127°, S3:88°[0m
+[0;32mI (45077) SERVO_CONTROL: Moved to random angle: 78°[0m
+[0;33mW (45077) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [146, 92]
+[0;32mI (45307) SERVO_CONTROL: Tracking position (146, 92) -> Target S2:131.0°, S3:76.0° -> Filtered S2:128°, S3:84°[0m
+[0;33mW (45347) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [97, 212]
+[0;32mI (45547) SERVO_CONTROL: Tracking position (97, 212) -> Target S2:117.0°, S3:111.0° -> Filtered S2:125°, S3:92°[0m
+[0;32mI (45637) SERVO_CONTROL: Random scan action completed with final angle: 72°[0m
+[0;33mW (45647) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [112, 188]
+[0;32mI (45867) SERVO_CONTROL: Tracking position (112, 188) -> Target S2:121.0°, S3:104.0° -> Filtered S2:124°, S3:96°[0m
+[0;33mW (45907) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [142, 160]
+[0;32mI (46107) SERVO_CONTROL: Tracking position (142, 160) -> Target S2:129.0°, S3:96.0° -> Filtered S2:125°, S3:96°[0m
+[0;33mW (46117) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [159, 135]
+[0;32mI (46347) SERVO_CONTROL: Tracking position (159, 135) -> Target S2:134.0°, S3:89.0° -> Filtered S2:128°, S3:94°[0m
+[0;33mW (46387) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [163, 128]
+[0;32mI (46587) SERVO_CONTROL: Tracking position (163, 128) -> Target S2:135.0°, S3:87.0° -> Filtered S2:130°, S3:92°[0m
+[0;33mW (46627) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [107, 159]
+[0;32mI (46827) SERVO_CONTROL: Tracking position (107, 159) -> Target S2:120.0°, S3:96.0° -> Filtered S2:127°, S3:93°[0m
+[0;33mW (46837) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [163, 105]
+[0;32mI (47067) SERVO_CONTROL: Tracking position (163, 105) -> Target S2:135.0°, S3:80.0° -> Filtered S2:129°, S3:89°[0m
+[0;33mW (47107) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [126, 168]
+[0;32mI (47307) SERVO_CONTROL: Tracking position (126, 168) -> Target S2:125.0°, S3:99.0° -> Filtered S2:128°, S3:92°[0m
+[0;33mW (47347) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [134, 126]
+[0;32mI (47547) SERVO_CONTROL: Tracking position (134, 126) -> Target S2:127.0°, S3:86.0° -> Filtered S2:128°, S3:90°[0m
+[0;33mW (47557) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (47787) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (48027) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (48267) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (48507) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [57, 195]
+[0;32mI (48747) SERVO_CONTROL: Tracking position (57, 195) -> Target S2:106.0°, S3:106.0° -> Filtered S2:121°, S3:95°[0m
+[0;33mW (48867) OpenCV: Motion detection - 2.00 FPS[0m
+Position detected: [113, 175]
+[0;32mI (49067) SERVO_CONTROL: Tracking position (113, 175) -> Target S2:121.0°, S3:101.0° -> Filtered S2:121°, S3:97°[0m
+[0;33mW (49077) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [129, 126]
+[0;32mI (49307) SERVO_CONTROL: Tracking position (129, 126) -> Target S2:126.0°, S3:86.0° -> Filtered S2:123°, S3:94°[0m
+[0;33mW (49317) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [157, 201]
+[0;32mI (49547) SERVO_CONTROL: Tracking position (157, 201) -> Target S2:134.0°, S3:108.0° -> Filtered S2:126°, S3:98°[0m
+[0;33mW (49647) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [85, 97]
+[0;32mI (49867) SERVO_CONTROL: Tracking position (85, 97) -> Target S2:113.0°, S3:78.0° -> Filtered S2:122°, S3:92°[0m
+[0;33mW (49967) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [103, 143]
+[0;32mI (50187) SERVO_CONTROL: Tracking position (103, 143) -> Target S2:118.0°, S3:91.0° -> Filtered S2:121°, S3:92°[0m
+[0;33mW (50197) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [89, 51]
+[0;32mI (50427) SERVO_CONTROL: Tracking position (89, 51) -> Target S2:115.0°, S3:64.0° -> Filtered S2:119°, S3:83°[0m
+[0;33mW (50567) OpenCV: Motion detection - 2.00 FPS[0m
+Position detected: [124, 136]
+[0;32mI (50827) SERVO_CONTROL: Tracking position (124, 136) -> Target S2:124.0°, S3:89.0° -> Filtered S2:121°, S3:85°[0m
+[0;33mW (50837) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [149, 98]
+[0;32mI (51067) SERVO_CONTROL: Tracking position (149, 98) -> Target S2:131.0°, S3:78.0° -> Filtered S2:124°, S3:83°[0m
+[0;33mW (51127) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [135, 131]
+[0;32mI (51387) SERVO_CONTROL: Tracking position (135, 131) -> Target S2:127.0°, S3:88.0° -> Filtered S2:125°, S3:84°[0m
+[0;33mW (51387) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [74, 158]
+[0;32mI (51627) SERVO_CONTROL: Tracking position (74, 158) -> Target S2:110.0°, S3:96.0° -> Filtered S2:120°, S3:88°[0m
+[0;33mW (51727) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [86, 132]
+[0;32mI (51947) SERVO_CONTROL: Tracking position (86, 132) -> Target S2:114.0°, S3:88.0° -> Filtered S2:118°, S3:88°[0m
+[0;33mW (51957) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [157, 178]
+[0;32mI (52187) SERVO_CONTROL: Tracking position (157, 178) -> Target S2:134.0°, S3:101.0° -> Filtered S2:123°, S3:92°[0m
+[0;33mW (52267) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [205, 163]
+[0;32mI (52507) SERVO_CONTROL: Tracking position (205, 163) -> Target S2:147.0°, S3:97.0° -> Filtered S2:130°, S3:93°[0m
+[0;33mW (52587) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [202, 154]
+[0;32mI (52827) SERVO_CONTROL: Tracking position (202, 154) -> Target S2:146.0°, S3:94.0° -> Filtered S2:135°, S3:94°[0m
+[0;33mW (52887) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [211, 173]
+[0;32mI (53147) SERVO_CONTROL: Tracking position (211, 173) -> Target S2:149.0°, S3:100.0° -> Filtered S2:139°, S3:96°[0m
+[0;33mW (53227) OpenCV: Motion detection - 2.00 FPS[0m
+Position detected: [198, 162]
+[0;32mI (53467) SERVO_CONTROL: Tracking position (198, 162) -> Target S2:145.0°, S3:97.0° -> Filtered S2:141°, S3:96°[0m
+[0;33mW (53467) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [229, 161]
+[0;32mI (53707) SERVO_CONTROL: Tracking position (229, 161) -> Target S2:154.0°, S3:96.0° -> Filtered S2:145°, S3:96°[0m
+[0;32mI (53757) SERVO_CONTROL: Executing random scan action[0m
+[0;33mW (53767) OpenCV: Motion detection - 3.00 FPS[0m
+[0;32mI (53937) SERVO_CONTROL: Moved to random angle: 54°[0m
+Position detected: [204, 223]
+[0;32mI (54027) SERVO_CONTROL: Tracking position (204, 223) -> Target S2:147.0°, S3:115.0° -> Filtered S2:145°, S3:102°[0m
+[0;33mW (54087) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [189, 168]
+[0;32mI (54347) SERVO_CONTROL: Tracking position (189, 168) -> Target S2:143.0°, S3:99.0° -> Filtered S2:145°, S3:101°[0m
+[0;33mW (54347) OpenCV: Motion detection - 3.00 FPS[0m
+[0;32mI (54557) SERVO_CONTROL: Moved to random angle: 65°[0m
+Position detected: [144, 139]
+[0;32mI (54587) SERVO_CONTROL: Tracking position (144, 139) -> Target S2:130.0°, S3:90.0° -> Filtered S2:140°, S3:98°[0m
+[0;33mW (54687) OpenCV: Motion detection - 2.00 FPS[0m
+Position detected: [206, 171]
+[0;32mI (54907) SERVO_CONTROL: Tracking position (206, 171) -> Target S2:147.0°, S3:99.0° -> Filtered S2:142°, S3:98°[0m
+[0;33mW (54907) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [125, 118]
+[0;32mI (55147) SERVO_CONTROL: Tracking position (125, 118) -> Target S2:125.0°, S3:84.0° -> Filtered S2:137°, S3:94°[0m
+[0;32mI (55157) SERVO_CONTROL: Random scan action completed with final angle: 55°[0m
+[0;33mW (55227) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [162, 174]
+[0;32mI (55467) SERVO_CONTROL: Tracking position (162, 174) -> Target S2:135.0°, S3:100.0° -> Filtered S2:136°, S3:96°[0m
+[0;33mW (55467) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [177, 170]
+[0;32mI (55707) SERVO_CONTROL: Tracking position (177, 170) -> Target S2:139.0°, S3:99.0° -> Filtered S2:137°, S3:97°[0m
+[0;33mW (55747) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [248, 189]
+[0;32mI (55947) SERVO_CONTROL: Tracking position (248, 189) -> Target S2:159.0°, S3:105.0° -> Filtered S2:144°, S3:99°[0m
+[0;33mW (56027) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [194, 169]
+[0;32mI (56267) SERVO_CONTROL: Tracking position (194, 169) -> Target S2:144.0°, S3:99.0° -> Filtered S2:144°, S3:99°[0m
+[0;33mW (56267) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [162, 174]
+[0;32mI (56507) SERVO_CONTROL: Tracking position (162, 174) -> Target S2:135.0°, S3:100.0° -> Filtered S2:141°, S3:99°[0m
+[0;33mW (56547) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [214, 206]
+[0;32mI (56747) SERVO_CONTROL: Tracking position (214, 206) -> Target S2:150.0°, S3:110.0° -> Filtered S2:144°, S3:103°[0m
+[0;33mW (56847) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [100, 160]
+[0;32mI (57067) SERVO_CONTROL: Tracking position (100, 160) -> Target S2:118.0°, S3:96.0° -> Filtered S2:136°, S3:101°[0m
+[0;33mW (57147) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [166, 140]
+[0;32mI (57387) SERVO_CONTROL: Tracking position (166, 140) -> Target S2:136.0°, S3:90.0° -> Filtered S2:136°, S3:97°[0m
+[0;33mW (57447) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [104, 132]
+[0;32mI (57707) SERVO_CONTROL: Tracking position (104, 132) -> Target S2:119.0°, S3:88.0° -> Filtered S2:131°, S3:95°[0m
+[0;33mW (57767) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [150, 148]
+[0;32mI (58027) SERVO_CONTROL: Tracking position (150, 148) -> Target S2:132.0°, S3:93.0° -> Filtered S2:131°, S3:94°[0m
+[0;33mW (58067) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [125, 166]
+[0;32mI (58267) SERVO_CONTROL: Tracking position (125, 166) -> Target S2:125.0°, S3:98.0° -> Filtered S2:129°, S3:95°[0m
+[0;33mW (58267) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [18, 95]
+[0;32mI (58507) SERVO_CONTROL: Tracking position (18, 95) -> Target S2:95.0°, S3:77.0° -> Filtered S2:119°, S3:90°[0m
+[0;33mW (58667) OpenCV: Motion detection - 2.00 FPS[0m
+Position detected: [135, 182]
+[0;32mI (58907) SERVO_CONTROL: Tracking position (135, 182) -> Target S2:127.0°, S3:103.0° -> Filtered S2:121°, S3:94°[0m
+[0;33mW (58947) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [218, 103]
+[0;32mI (59147) SERVO_CONTROL: Tracking position (218, 103) -> Target S2:151.0°, S3:80.0° -> Filtered S2:130°, S3:90°[0m
+[0;33mW (59307) OpenCV: Motion detection - 2.00 FPS[0m
+Position detected: [144, 223]
+[0;32mI (59547) SERVO_CONTROL: Tracking position (144, 223) -> Target S2:130.0°, S3:115.0° -> Filtered S2:130°, S3:97°[0m
+[0;33mW (59627) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [166, 198]
+[0;32mI (59867) SERVO_CONTROL: Tracking position (166, 198) -> Target S2:136.0°, S3:107.0° -> Filtered S2:132°, S3:100°[0m
+[0;33mW (59907) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [127, 182]
+[0;32mI (60107) SERVO_CONTROL: Tracking position (127, 182) -> Target S2:125.0°, S3:103.0° -> Filtered S2:130°, S3:101°[0m
+[0;33mW (60107) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [118, 146]
+[0;32mI (60347) SERVO_CONTROL: Tracking position (118, 146) -> Target S2:123.0°, S3:92.0° -> Filtered S2:128°, S3:98°[0m
+[0;33mW (60347) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [0, 40]
+[0;32mI (60587) SERVO_CONTROL: Tracking position (0, 40) -> Target S2:90.0°, S3:61.0° -> Filtered S2:116°, S3:87°[0m
+[0;33mW (60867) OpenCV: Motion detection - 1.00 FPS[0m
+Position detected: [118, 177]
+[0;32mI (61067) SERVO_CONTROL: Tracking position (118, 177) -> Target S2:123.0°, S3:101.0° -> Filtered S2:118°, S3:91°[0m
+[0;33mW (61107) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [243, 195]
+[0;32mI (61307) SERVO_CONTROL: Tracking position (243, 195) -> Target S2:158.0°, S3:106.0° -> Filtered S2:130°, S3:96°[0m
+[0;33mW (61507) OpenCV: Motion detection - 2.00 FPS[0m
+Position detected: [237, 143]
+[0;32mI (61707) SERVO_CONTROL: Tracking position (237, 143) -> Target S2:156.0°, S3:91.0° -> Filtered S2:138°, S3:94°[0m
+[0;33mW (61787) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [238, 173]
+[0;32mI (62027) SERVO_CONTROL: Tracking position (238, 173) -> Target S2:156.0°, S3:100.0° -> Filtered S2:143°, S3:96°[0m
+[0;33mW (62087) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [153, 177]
+[0;32mI (62347) SERVO_CONTROL: Tracking position (153, 177) -> Target S2:133.0°, S3:101.0° -> Filtered S2:140°, S3:98°[0m
+[0;33mW (62387) OpenCV: Motion detection - 3.00 FPS[0m
+[0;33mW (62587) OpenCV: Motion detection - 5.00 FPS[0m
+Position detected: [82, 182]
+[0;32mI (62827) SERVO_CONTROL: Tracking position (82, 182) -> Target S2:113.0°, S3:103.0° -> Filtered S2:132°, S3:99°[0m
+[0;33mW (62947) OpenCV: Motion detection - 2.00 FPS[0m
+Position detected: [232, 145]
+[0;32mI (63137) SERVO_CONTROL: Tracking position (232, 145) -> Target S2:155.0°, S3:92.0° -> Filtered S2:139°, S3:97°[0m
+[0;33mW (63227) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [138, 187]
+[0;32mI (63467) SERVO_CONTROL: Tracking position (138, 187) -> Target S2:128.0°, S3:104.0° -> Filtered S2:136°, S3:99°[0m
+[0;33mW (63507) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [106, 161]
+[0;32mI (63697) SERVO_CONTROL: Tracking position (106, 161) -> Target S2:119.0°, S3:96.0° -> Filtered S2:131°, S3:98°[0m
+[0;32mI (63757) SERVO_CONTROL: Executing random scan action[0m
+[0;33mW (63767) OpenCV: Motion detection - 3.00 FPS[0m
+[0;32mI (63997) SERVO_CONTROL: Moved to random angle: 78°[0m
+Position detected: [8, 117]
+[0;32mI (64027) SERVO_CONTROL: Tracking position (8, 117) -> Target S2:92.0°, S3:84.0° -> Filtered S2:119°, S3:94°[0m
+[0;33mW (64207) OpenCV: Motion detection - 2.00 FPS[0m
+Position detected: [199, 134]
+[0;32mI (64417) SERVO_CONTROL: Tracking position (199, 134) -> Target S2:145.0°, S3:89.0° -> Filtered S2:127°, S3:92°[0m
+[0;33mW (64507) OpenCV: Motion detection - 3.00 FPS[0m
+[0;32mI (64517) SERVO_CONTROL: Moved to random angle: 76°[0m
+Position detected: [152, 176]
+[0;32mI (64747) SERVO_CONTROL: Tracking position (152, 176) -> Target S2:132.0°, S3:101.0° -> Filtered S2:128°, S3:95°[0m
+[0;33mW (64747) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [90, 189]
+[0;32mI (64977) SERVO_CONTROL: Tracking position (90, 189) -> Target S2:115.0°, S3:105.0° -> Filtered S2:124°, S3:98°[0m
+[0;33mW (65067) OpenCV: Motion detection - 3.00 FPS[0m
+[0;32mI (65137) SERVO_CONTROL: Random scan action completed with final angle: 88°[0m
+Position detected: [109, 205]
+[0;32mI (65297) SERVO_CONTROL: Tracking position (109, 205) -> Target S2:120.0°, S3:109.0° -> Filtered S2:123°, S3:101°[0m
+[0;33mW (65347) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [119, 191]
+[0;32mI (65537) SERVO_CONTROL: Tracking position (119, 191) -> Target S2:123.0°, S3:105.0° -> Filtered S2:123°, S3:102°[0m
+[0;33mW (65547) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [119, 154]
+[0;32mI (65777) SERVO_CONTROL: Tracking position (119, 154) -> Target S2:123.0°, S3:94.0° -> Filtered S2:123°, S3:100°[0m
+[0;33mW (65787) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [96, 137]
+[0;32mI (66017) SERVO_CONTROL: Tracking position (96, 137) -> Target S2:117.0°, S3:89.0° -> Filtered S2:121°, S3:97°[0m
+[0;33mW (66107) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [81, 165]
+[0;32mI (66337) SERVO_CONTROL: Tracking position (81, 165) -> Target S2:112.0°, S3:98.0° -> Filtered S2:118°, S3:97°[0m
+[0;33mW (66387) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [49, 147]
+[0;32mI (66577) SERVO_CONTROL: Tracking position (49, 147) -> Target S2:103.0°, S3:92.0° -> Filtered S2:114°, S3:96°[0m
+[0;33mW (66627) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [205, 176]
+[0;32mI (66817) SERVO_CONTROL: Tracking position (205, 176) -> Target S2:147.0°, S3:101.0° -> Filtered S2:124°, S3:97°[0m
+[0;33mW (66927) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [156, 147]
+[0;32mI (67137) SERVO_CONTROL: Tracking position (156, 147) -> Target S2:133.0°, S3:92.0° -> Filtered S2:127°, S3:96°[0m
+[0;33mW (67187) OpenCV: Motion detection - 3.00 FPS[0m
+[0;33mW (67387) OpenCV: Motion detection - 5.00 FPS[0m
+[0;33mW (67627) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (67867) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (68107) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (68347) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (68587) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (68827) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (69067) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (69307) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (69547) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (69787) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (70027) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (70267) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (70507) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (70737) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (70977) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (71217) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (71457) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (71697) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (71937) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (72177) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (72417) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (72657) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (72897) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (73137) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (73377) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (73617) OpenCV: Motion detection - 4.00 FPS[0m
+[0;32mI (73757) SERVO_CONTROL: Executing random scan action[0m
+[0;33mW (73857) OpenCV: Motion detection - 4.00 FPS[0m
+[0;32mI (73877) SERVO_CONTROL: Moved to random angle: 76°[0m
+Position detected: [265, 132]
+[0;32mI (74097) SERVO_CONTROL: Tracking position (265, 132) -> Target S2:164.0°, S3:88.0° -> Filtered S2:138°, S3:93°[0m
+[0;33mW (74257) OpenCV: Motion detection - 2.00 FPS[0m
+Position detected: [127, 172]
+[0;32mI (74497) SERVO_CONTROL: Tracking position (127, 172) -> Target S2:125.0°, S3:100.0° -> Filtered S2:134°, S3:95°[0m
+[0;32mI (74517) SERVO_CONTROL: Moved to random angle: 90°[0m
+[0;33mW (74537) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [204, 169]
+[0;32mI (74737) SERVO_CONTROL: Tracking position (204, 169) -> Target S2:147.0°, S3:99.0° -> Filtered S2:138°, S3:96°[0m
+[0;33mW (74817) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [184, 150]
+[0;32mI (75057) SERVO_CONTROL: Tracking position (184, 150) -> Target S2:141.0°, S3:93.0° -> Filtered S2:139°, S3:95°[0m
+[0;33mW (75067) OpenCV: Motion detection - 4.00 FPS[0m
+[0;32mI (75117) SERVO_CONTROL: Random scan action completed with final angle: 81°[0m
+Position detected: [217, 103]
+[0;32mI (75297) SERVO_CONTROL: Tracking position (217, 103) -> Target S2:151.0°, S3:80.0° -> Filtered S2:142°, S3:91°[0m
+[0;33mW (75397) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [130, 191]
+[0;32mI (75617) SERVO_CONTROL: Tracking position (130, 191) -> Target S2:126.0°, S3:105.0° -> Filtered S2:138°, S3:95°[0m
+[0;33mW (75697) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [242, 116]
+[0;32mI (75937) SERVO_CONTROL: Tracking position (242, 116) -> Target S2:158.0°, S3:83.0° -> Filtered S2:144°, S3:91°[0m
+[0;33mW (76037) OpenCV: Motion detection - 2.00 FPS[0m
+Position detected: [189, 151]
+[0;32mI (76257) SERVO_CONTROL: Tracking position (189, 151) -> Target S2:143.0°, S3:94.0° -> Filtered S2:143°, S3:92°[0m
+[0;33mW (76257) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [0, 215]
+[0;32mI (76497) SERVO_CONTROL: Tracking position (0, 215) -> Target S2:90.0°, S3:112.0° -> Filtered S2:127°, S3:98°[0m
+[0;33mW (76757) OpenCV: Motion detection - 2.00 FPS[0m
+Position detected: [152, 204]
+[0;32mI (76977) SERVO_CONTROL: Tracking position (152, 204) -> Target S2:132.0°, S3:109.0° -> Filtered S2:129°, S3:101°[0m
+[0;33mW (77017) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [130, 186]
+[0;32mI (77217) SERVO_CONTROL: Tracking position (130, 186) -> Target S2:126.0°, S3:104.0° -> Filtered S2:128°, S3:102°[0m
+[0;33mW (77217) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [133, 139]
+[0;32mI (77457) SERVO_CONTROL: Tracking position (133, 139) -> Target S2:127.0°, S3:90.0° -> Filtered S2:128°, S3:99°[0m
+[0;33mW (77457) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [78, 93]
+[0;32mI (77697) SERVO_CONTROL: Tracking position (78, 93) -> Target S2:111.0°, S3:77.0° -> Filtered S2:123°, S3:92°[0m
+[0;33mW (77837) OpenCV: Motion detection - 2.00 FPS[0m
+Position detected: [92, 173]
+[0;32mI (78097) SERVO_CONTROL: Tracking position (92, 173) -> Target S2:115.0°, S3:100.0° -> Filtered S2:120°, S3:94°[0m
+[0;33mW (78137) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [118, 194]
+[0;32mI (78337) SERVO_CONTROL: Tracking position (118, 194) -> Target S2:123.0°, S3:106.0° -> Filtered S2:121°, S3:98°[0m
+[0;33mW (78397) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [107, 197]
+[0;32mI (78657) SERVO_CONTROL: Tracking position (107, 197) -> Target S2:120.0°, S3:107.0° -> Filtered S2:121°, S3:101°[0m
+[0;33mW (78697) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [110, 208]
+[0;32mI (78897) SERVO_CONTROL: Tracking position (110, 208) -> Target S2:120.0°, S3:110.0° -> Filtered S2:121°, S3:103°[0m
+[0;33mW (78897) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [149, 161]
+[0;32mI (79137) SERVO_CONTROL: Tracking position (149, 161) -> Target S2:131.0°, S3:96.0° -> Filtered S2:124°, S3:101°[0m
+[0;33mW (79177) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [115, 147]
+[0;32mI (79377) SERVO_CONTROL: Tracking position (115, 147) -> Target S2:122.0°, S3:92.0° -> Filtered S2:123°, S3:98°[0m
+[0;33mW (79417) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [80, 133]
+[0;32mI (79617) SERVO_CONTROL: Tracking position (80, 133) -> Target S2:112.0°, S3:88.0° -> Filtered S2:120°, S3:95°[0m
+[0;33mW (79697) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [83, 160]
+[0;32mI (79937) SERVO_CONTROL: Tracking position (83, 160) -> Target S2:113.0°, S3:96.0° -> Filtered S2:118°, S3:96°[0m
+[0;33mW (79937) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [66, 156]
+[0;32mI (80177) SERVO_CONTROL: Tracking position (66, 156) -> Target S2:108.0°, S3:95.0° -> Filtered S2:115°, S3:95°[0m
+[0;33mW (80237) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [61, 186]
+[0;32mI (80497) SERVO_CONTROL: Tracking position (61, 186) -> Target S2:107.0°, S3:104.0° -> Filtered S2:112°, S3:98°[0m
+[0;33mW (80577) OpenCV: Motion detection - 2.00 FPS[0m
+Position detected: [223, 136]
+[0;32mI (80817) SERVO_CONTROL: Tracking position (223, 136) -> Target S2:152.0°, S3:89.0° -> Filtered S2:124°, S3:95°[0m
+[0;33mW (80977) OpenCV: Motion detection - 2.00 FPS[0m
+Position detected: [202, 135]
+[0;32mI (81217) SERVO_CONTROL: Tracking position (202, 135) -> Target S2:146.0°, S3:89.0° -> Filtered S2:131°, S3:93°[0m
+[0;33mW (81297) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [270, 121]
+[0;32mI (81537) SERVO_CONTROL: Tracking position (270, 121) -> Target S2:165.0°, S3:85.0° -> Filtered S2:141°, S3:91°[0m
+[0;33mW (81677) OpenCV: Motion detection - 2.00 FPS[0m
+Position detected: [202, 150]
+[0;32mI (81937) SERVO_CONTROL: Tracking position (202, 150) -> Target S2:146.0°, S3:93.0° -> Filtered S2:143°, S3:92°[0m
+[0;33mW (81937) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [219, 153]
+[0;32mI (82177) SERVO_CONTROL: Tracking position (219, 153) -> Target S2:151.0°, S3:94.0° -> Filtered S2:145°, S3:92°[0m
+[0;33mW (82217) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [243, 138]
+[0;32mI (82417) SERVO_CONTROL: Tracking position (243, 138) -> Target S2:158.0°, S3:90.0° -> Filtered S2:149°, S3:92°[0m
+[0;33mW (82457) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [169, 168]
+[0;32mI (82657) SERVO_CONTROL: Tracking position (169, 168) -> Target S2:137.0°, S3:99.0° -> Filtered S2:145°, S3:94°[0m
+[0;33mW (82737) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [260, 111]
+[0;32mI (82977) SERVO_CONTROL: Tracking position (260, 111) -> Target S2:163.0°, S3:82.0° -> Filtered S2:151°, S3:90°[0m
+[0;33mW (83077) OpenCV: Motion detection - 2.00 FPS[0m
+Position detected: [229, 156]
+[0;32mI (83297) SERVO_CONTROL: Tracking position (229, 156) -> Target S2:154.0°, S3:95.0° -> Filtered S2:152°, S3:92°[0m
+[0;33mW (83297) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [205, 120]
+[0;32mI (83537) SERVO_CONTROL: Tracking position (205, 120) -> Target S2:147.0°, S3:85.0° -> Filtered S2:150°, S3:90°[0m
+[0;33mW (83537) OpenCV: Motion detection - 4.00 FPS[0m
+[0;32mI (83757) SERVO_CONTROL: Executing random scan action[0m
+[0;33mW (83777) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (84017) OpenCV: Motion detection - 4.00 FPS[0m
+[0;32mI (84097) SERVO_CONTROL: Moved to random angle: 114°[0m
+Position detected: [211, 141]
+[0;32mI (84257) SERVO_CONTROL: Tracking position (211, 141) -> Target S2:149.0°, S3:91.0° -> Filtered S2:150°, S3:90°[0m
+[0;33mW (84257) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [168, 45]
+[0;32mI (84497) SERVO_CONTROL: Tracking position (168, 45) -> Target S2:137.0°, S3:63.0° -> Filtered S2:146°, S3:82°[0m
+[0;33mW (84637) OpenCV: Motion detection - 2.00 FPS[0m
+Position detected: [196, 116]
+[0;32mI (84897) SERVO_CONTROL: Tracking position (196, 116) -> Target S2:145.0°, S3:83.0° -> Filtered S2:146°, S3:82°[0m
+[0;33mW (84897) OpenCV: Motion detection - 3.00 FPS[0m
+[0;32mI (85017) SERVO_CONTROL: Moved to random angle: 72°[0m
+Position detected: [168, 59]
+[0;32mI (85137) SERVO_CONTROL: Tracking position (168, 59) -> Target S2:137.0°, S3:67.0° -> Filtered S2:143°, S3:78°[0m
+[0;33mW (85217) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [203, 151]
+[0;32mI (85457) SERVO_CONTROL: Tracking position (203, 151) -> Target S2:147.0°, S3:94.0° -> Filtered S2:144°, S3:83°[0m
+[0;33mW (85517) OpenCV: Motion detection - 3.00 FPS[0m
+[0;32mI (85617) SERVO_CONTROL: Random scan action completed with final angle: 81°[0m
+Position detected: [179, 189]
+[0;32mI (85777) SERVO_CONTROL: Tracking position (179, 189) -> Target S2:140.0°, S3:105.0° -> Filtered S2:143°, S3:89°[0m
+[0;33mW (85837) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [212, 172]
+[0;32mI (86097) SERVO_CONTROL: Tracking position (212, 172) -> Target S2:149.0°, S3:100.0° -> Filtered S2:145°, S3:93°[0m
+[0;33mW (86137) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [216, 179]
+[0;32mI (86337) SERVO_CONTROL: Tracking position (216, 179) -> Target S2:150.0°, S3:102.0° -> Filtered S2:146°, S3:95°[0m
+[0;33mW (86377) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [194, 116]
+[0;32mI (86577) SERVO_CONTROL: Tracking position (194, 116) -> Target S2:144.0°, S3:83.0° -> Filtered S2:146°, S3:92°[0m
+[0;33mW (86577) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (86817) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (87057) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (87297) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (87537) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (87777) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (88017) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (88257) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (88497) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (88737) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (88977) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (89217) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (89457) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (89697) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (89937) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (90177) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (90417) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (90657) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (90897) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (91137) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (91377) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (91617) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (91857) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (92097) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (92337) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (92577) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (92817) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (93057) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (93297) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (93537) OpenCV: Motion detection - 4.00 FPS[0m
+[0;32mI (93757) SERVO_CONTROL: Executing random scan action[0m
+[0;33mW (93777) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [231, 234]
+[0;32mI (94007) SERVO_CONTROL: Tracking position (231, 234) -> Target S2:154.0°, S3:118.0° -> Filtered S2:148°, S3:100°[0m
+[0;33mW (94097) OpenCV: Motion detection - 3.00 FPS[0m
+[0;32mI (94117) SERVO_CONTROL: Moved to random angle: 116°[0m
+Position detected: [168, 67]
+[0;32mI (94327) SERVO_CONTROL: Tracking position (168, 67) -> Target S2:137.0°, S3:69.0° -> Filtered S2:145°, S3:90°[0m
+[0;33mW (94427) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [142, 106]
+[0;32mI (94647) SERVO_CONTROL: Tracking position (142, 106) -> Target S2:129.0°, S3:80.0° -> Filtered S2:140°, S3:87°[0m
+[0;32mI (94657) SERVO_CONTROL: Moved to random angle: 120°[0m
+[0;33mW (94757) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [131, 173]
+[0;32mI (94967) SERVO_CONTROL: Tracking position (131, 173) -> Target S2:126.0°, S3:100.0° -> Filtered S2:136°, S3:91°[0m
+[0;33mW (95057) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [195, 218]
+[0;32mI (95287) SERVO_CONTROL: Tracking position (195, 218) -> Target S2:144.0°, S3:113.0° -> Filtered S2:138°, S3:98°[0m
+[0;32mI (95297) SERVO_CONTROL: Random scan action completed with final angle: 106°[0m
+[0;33mW (95367) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [159, 130]
+[0;32mI (95607) SERVO_CONTROL: Tracking position (159, 130) -> Target S2:134.0°, S3:87.0° -> Filtered S2:137°, S3:94°[0m
+[0;33mW (95647) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [200, 168]
+[0;32mI (95847) SERVO_CONTROL: Tracking position (200, 168) -> Target S2:146.0°, S3:99.0° -> Filtered S2:140°, S3:96°[0m
+[0;33mW (95887) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [269, 76]
+[0;32mI (96087) SERVO_CONTROL: Tracking position (269, 76) -> Target S2:165.0°, S3:72.0° -> Filtered S2:147°, S3:89°[0m
+[0;33mW (96227) OpenCV: Motion detection - 2.00 FPS[0m
+Position detected: [216, 166]
+[0;32mI (96487) SERVO_CONTROL: Tracking position (216, 166) -> Target S2:150.0°, S3:98.0° -> Filtered S2:148°, S3:91°[0m
+[0;33mW (96497) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [250, 173]
+[0;32mI (96727) SERVO_CONTROL: Tracking position (250, 173) -> Target S2:160.0°, S3:100.0° -> Filtered S2:152°, S3:94°[0m
+[0;33mW (96847) OpenCV: Motion detection - 2.00 FPS[0m
+Position detected: [234, 198]
+[0;32mI (97047) SERVO_CONTROL: Tracking position (234, 198) -> Target S2:155.0°, S3:107.0° -> Filtered S2:153°, S3:98°[0m
+[0;33mW (97087) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [159, 86]
+[0;32mI (97287) SERVO_CONTROL: Tracking position (159, 86) -> Target S2:134.0°, S3:75.0° -> Filtered S2:147°, S3:91°[0m
+[0;33mW (97427) OpenCV: Motion detection - 2.00 FPS[0m
+Position detected: [254, 209]
+[0;32mI (97687) SERVO_CONTROL: Tracking position (254, 209) -> Target S2:161.0°, S3:110.0° -> Filtered S2:151°, S3:97°[0m
+[0;33mW (97787) OpenCV: Motion detection - 2.00 FPS[0m
+Position detected: [257, 188]
+[0;32mI (98007) SERVO_CONTROL: Tracking position (257, 188) -> Target S2:162.0°, S3:104.0° -> Filtered S2:154°, S3:99°[0m
+[0;33mW (98047) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [216, 187]
+[0;32mI (98247) SERVO_CONTROL: Tracking position (216, 187) -> Target S2:150.0°, S3:104.0° -> Filtered S2:153°, S3:100°[0m
+[0;33mW (98287) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [149, 180]
+[0;32mI (98487) SERVO_CONTROL: Tracking position (149, 180) -> Target S2:131.0°, S3:102.0° -> Filtered S2:146°, S3:101°[0m
+[0;33mW (98567) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [150, 144]
+[0;32mI (98807) SERVO_CONTROL: Tracking position (150, 144) -> Target S2:132.0°, S3:92.0° -> Filtered S2:142°, S3:98°[0m
+[0;33mW (98847) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [17, 113]
+[0;32mI (99047) SERVO_CONTROL: Tracking position (17, 113) -> Target S2:94.0°, S3:82.0° -> Filtered S2:128°, S3:93°[0m
+[0;33mW (99267) OpenCV: Motion detection - 2.00 FPS[0m
+Position detected: [148, 71]
+[0;32mI (99527) SERVO_CONTROL: Tracking position (148, 71) -> Target S2:131.0°, S3:70.0° -> Filtered S2:129°, S3:86°[0m
+[0;33mW (99607) OpenCV: Motion detection - 2.00 FPS[0m
+Position detected: [173, 98]
+[0;32mI (99847) SERVO_CONTROL: Tracking position (173, 98) -> Target S2:138.0°, S3:78.0° -> Filtered S2:131°, S3:84°[0m
+[0;33mW (99887) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [245, 151]
+[0;32mI (100087) SERVO_CONTROL: Tracking position (245, 151) -> Target S2:158.0°, S3:94.0° -> Filtered S2:139°, S3:87°[0m
+[0;33mW (100167) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [221, 112]
+[0;32mI (100407) SERVO_CONTROL: Tracking position (221, 112) -> Target S2:152.0°, S3:82.0° -> Filtered S2:143°, S3:85°[0m
+[0;33mW (100447) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [231, 167]
+[0;32mI (100647) SERVO_CONTROL: Tracking position (231, 167) -> Target S2:154.0°, S3:98.0° -> Filtered S2:146°, S3:89°[0m
+[0;33mW (100727) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [217, 159]
+[0;32mI (100967) SERVO_CONTROL: Tracking position (217, 159) -> Target S2:151.0°, S3:96.0° -> Filtered S2:148°, S3:91°[0m
+[0;33mW (100977) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [263, 122]
+[0;32mI (101207) SERVO_CONTROL: Tracking position (263, 122) -> Target S2:163.0°, S3:85.0° -> Filtered S2:152°, S3:89°[0m
+[0;33mW (101267) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [161, 70]
+[0;32mI (101527) SERVO_CONTROL: Tracking position (161, 70) -> Target S2:135.0°, S3:70.0° -> Filtered S2:147°, S3:84°[0m
+[0;33mW (101647) OpenCV: Motion detection - 2.00 FPS[0m
+Position detected: [232, 157]
+[0;32mI (101847) SERVO_CONTROL: Tracking position (232, 157) -> Target S2:155.0°, S3:95.0° -> Filtered S2:150°, S3:87°[0m
+[0;33mW (101927) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [217, 178]
+[0;32mI (102167) SERVO_CONTROL: Tracking position (217, 178) -> Target S2:151.0°, S3:101.0° -> Filtered S2:150°, S3:91°[0m
+[0;33mW (102207) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [211, 205]
+[0;32mI (102407) SERVO_CONTROL: Tracking position (211, 205) -> Target S2:149.0°, S3:109.0° -> Filtered S2:150°, S3:97°[0m
+[0;33mW (102467) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [178, 98]
+[0;32mI (102727) SERVO_CONTROL: Tracking position (178, 98) -> Target S2:140.0°, S3:78.0° -> Filtered S2:147°, S3:91°[0m
+[0;33mW (102827) OpenCV: Motion detection - 2.00 FPS[0m
+Position detected: [253, 142]
+[0;32mI (103047) SERVO_CONTROL: Tracking position (253, 142) -> Target S2:161.0°, S3:91.0° -> Filtered S2:151°, S3:91°[0m
+[0;33mW (103087) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [198, 218]
+[0;32mI (103287) SERVO_CONTROL: Tracking position (198, 218) -> Target S2:145.0°, S3:113.0° -> Filtered S2:149°, S3:98°[0m
+[0;33mW (103367) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [211, 203]
+[0;32mI (103607) SERVO_CONTROL: Tracking position (211, 203) -> Target S2:149.0°, S3:109.0° -> Filtered S2:149°, S3:101°[0m
+[0;33mW (103647) OpenCV: Motion detection - 3.00 FPS[0m
+[0;32mI (103757) SERVO_CONTROL: Executing random scan action[0m
+Position detected: [174, 197]
+[0;32mI (103847) SERVO_CONTROL: Tracking position (174, 197) -> Target S2:138.0°, S3:107.0° -> Filtered S2:146°, S3:103°[0m
+[0;33mW (103907) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [180, 73]
+[0;32mI (104167) SERVO_CONTROL: Tracking position (180, 73) -> Target S2:140.0°, S3:71.0° -> Filtered S2:144°, S3:93°[0m
+[0;32mI (104217) SERVO_CONTROL: Moved to random angle: 60°[0m
+[0;33mW (104247) OpenCV: Motion detection - 2.00 FPS[0m
+Position detected: [218, 135]
+[0;32mI (104487) SERVO_CONTROL: Tracking position (218, 135) -> Target S2:151.0°, S3:89.0° -> Filtered S2:146°, S3:92°[0m
+[0;33mW (104487) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [143, 155]
+[0;32mI (104727) SERVO_CONTROL: Tracking position (143, 155) -> Target S2:130.0°, S3:95.0° -> Filtered S2:141°, S3:93°[0m
+[0;33mW (104787) OpenCV: Motion detection - 3.00 FPS[0m
+[0;32mI (104817) SERVO_CONTROL: Moved to random angle: 51°[0m
+Position detected: [151, 171]
+[0;32mI (105047) SERVO_CONTROL: Tracking position (151, 171) -> Target S2:132.0°, S3:99.0° -> Filtered S2:139°, S3:95°[0m
+[0;33mW (105047) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [153, 175]
+[0;32mI (105287) SERVO_CONTROL: Tracking position (153, 175) -> Target S2:133.0°, S3:101.0° -> Filtered S2:137°, S3:97°[0m
+[0;33mW (105367) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [152, 220]
+[0;32mI (105607) SERVO_CONTROL: Tracking position (152, 220) -> Target S2:132.0°, S3:114.0° -> Filtered S2:135°, S3:102°[0m
+[0;33mW (105667) OpenCV: Motion detection - 3.00 FPS[0m
+[0;32mI (105797) SERVO_CONTROL: Random scan action completed with final angle: 99°[0m
+Position detected: [140, 174]
+[0;32mI (105927) SERVO_CONTROL: Tracking position (140, 174) -> Target S2:129.0°, S3:100.0° -> Filtered S2:133°, S3:101°[0m
+[0;33mW (105967) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [160, 158]
+[0;32mI (106167) SERVO_CONTROL: Tracking position (160, 158) -> Target S2:135.0°, S3:96.0° -> Filtered S2:134°, S3:100°[0m
+[0;33mW (106167) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [129, 140]
+[0;32mI (106407) SERVO_CONTROL: Tracking position (129, 140) -> Target S2:126.0°, S3:90.0° -> Filtered S2:132°, S3:97°[0m
+[0;33mW (106467) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [115, 155]
+[0;32mI (106727) SERVO_CONTROL: Tracking position (115, 155) -> Target S2:122.0°, S3:95.0° -> Filtered S2:129°, S3:96°[0m
+[0;33mW (106767) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [126, 145]
+[0;32mI (106967) SERVO_CONTROL: Tracking position (126, 145) -> Target S2:125.0°, S3:92.0° -> Filtered S2:128°, S3:95°[0m
+[0;33mW (106967) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [141, 161]
+[0;32mI (107207) SERVO_CONTROL: Tracking position (141, 161) -> Target S2:129.0°, S3:96.0° -> Filtered S2:128°, S3:95°[0m
+[0;33mW (107207) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (107447) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [136, 165]
+[0;32mI (107687) SERVO_CONTROL: Tracking position (136, 165) -> Target S2:128.0°, S3:98.0° -> Filtered S2:128°, S3:96°[0m
+[0;33mW (107687) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (107927) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [49, 131]
+[0;32mI (108167) SERVO_CONTROL: Tracking position (49, 131) -> Target S2:103.0°, S3:88.0° -> Filtered S2:121°, S3:94°[0m
+[0;33mW (108287) OpenCV: Motion detection - 2.00 FPS[0m
+Position detected: [184, 183]
+[0;32mI (108487) SERVO_CONTROL: Tracking position (184, 183) -> Target S2:141.0°, S3:103.0° -> Filtered S2:127°, S3:96°[0m
+[0;33mW (108547) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [159, 159]
+[0;32mI (108807) SERVO_CONTROL: Tracking position (159, 159) -> Target S2:134.0°, S3:96.0° -> Filtered S2:129°, S3:96°[0m
+[0;33mW (108807) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [95, 157]
+[0;32mI (109047) SERVO_CONTROL: Tracking position (95, 157) -> Target S2:116.0°, S3:95.0° -> Filtered S2:125°, S3:96°[0m
+[0;33mW (109047) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (109287) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (109527) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (109767) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (110007) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (110247) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (110487) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (110727) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (110967) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (111207) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (111447) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (111687) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (111927) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (112167) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (112407) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (112647) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (112887) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (113127) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (113367) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (113607) OpenCV: Motion detection - 4.00 FPS[0m
+[0;32mI (113757) SERVO_CONTROL: Executing random scan action[0m
+[0;33mW (113847) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [171, 191]
+[0;32mI (114087) SERVO_CONTROL: Tracking position (171, 191) -> Target S2:138.0°, S3:105.0° -> Filtered S2:129°, S3:99°[0m
+[0;33mW (114147) OpenCV: Motion detection - 3.00 FPS[0m
+[0;32mI (114197) SERVO_CONTROL: Moved to random angle: 56°[0m
+Position detected: [249, 139]
+[0;32mI (114397) SERVO_CONTROL: Tracking position (249, 139) -> Target S2:160.0°, S3:90.0° -> Filtered S2:138°, S3:96°[0m
+[0;33mW (114567) OpenCV: Motion detection - 2.00 FPS[0m
+Position detected: [98, 170]
+[0;32mI (114807) SERVO_CONTROL: Tracking position (98, 170) -> Target S2:117.0°, S3:99.0° -> Filtered S2:132°, S3:97°[0m
+[0;33mW (114867) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [176, 163]
+[0;32mI (115117) SERVO_CONTROL: Tracking position (176, 163) -> Target S2:139.0°, S3:97.0° -> Filtered S2:134°, S3:97°[0m
+[0;33mW (115127) OpenCV: Motion detection - 3.00 FPS[0m
+[0;32mI (115177) SERVO_CONTROL: Moved to random angle: 104°[0m
+Position detected: [206, 160]
+[0;32mI (115357) SERVO_CONTROL: Tracking position (206, 160) -> Target S2:147.0°, S3:96.0° -> Filtered S2:138°, S3:97°[0m
+[0;33mW (115427) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [184, 165]
+[0;32mI (115677) SERVO_CONTROL: Tracking position (184, 165) -> Target S2:141.0°, S3:98.0° -> Filtered S2:139°, S3:97°[0m
+[0;33mW (115687) OpenCV: Motion detection - 3.00 FPS[0m
+[0;32mI (115757) SERVO_CONTROL: Random scan action completed with final angle: 111°[0m
+Position detected: [318, 90]
+[0;32mI (115917) SERVO_CONTROL: Tracking position (318, 90) -> Target S2:179.0°, S3:76.0° -> Filtered S2:151°, S3:91°[0m
+[0;33mW (116127) OpenCV: Motion detection - 2.00 FPS[0m
+Position detected: [172, 40]
+[0;32mI (116317) SERVO_CONTROL: Tracking position (172, 40) -> Target S2:138.0°, S3:61.0° -> Filtered S2:147°, S3:82°[0m
+[0;33mW (116467) OpenCV: Motion detection - 2.00 FPS[0m
+Position detected: [177, 120]
+[0;32mI (116717) SERVO_CONTROL: Tracking position (177, 120) -> Target S2:139.0°, S3:85.0° -> Filtered S2:145°, S3:83°[0m
+[0;33mW (116727) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [225, 162]
+[0;32mI (116957) SERVO_CONTROL: Tracking position (225, 162) -> Target S2:153.0°, S3:97.0° -> Filtered S2:147°, S3:87°[0m
+[0;33mW (117027) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [213, 112]
+[0;32mI (117277) SERVO_CONTROL: Tracking position (213, 112) -> Target S2:149.0°, S3:82.0° -> Filtered S2:148°, S3:86°[0m
+[0;33mW (117287) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [207, 181]
+[0;32mI (117517) SERVO_CONTROL: Tracking position (207, 181) -> Target S2:148.0°, S3:102.0° -> Filtered S2:148°, S3:90°[0m
+[0;33mW (117567) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [233, 174]
+[0;32mI (117757) SERVO_CONTROL: Tracking position (233, 174) -> Target S2:155.0°, S3:100.0° -> Filtered S2:150°, S3:93°[0m
+[0;33mW (117847) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [228, 164]
+[0;32mI (118077) SERVO_CONTROL: Tracking position (228, 164) -> Target S2:154.0°, S3:97.0° -> Filtered S2:151°, S3:94°[0m
+[0;33mW (118087) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [195, 76]
+[0;32mI (118317) SERVO_CONTROL: Tracking position (195, 76) -> Target S2:144.0°, S3:72.0° -> Filtered S2:149°, S3:88°[0m
+[0;33mW (118377) OpenCV: Motion detection - 3.00 FPS[0m
+[0;33mW (118647) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [228, 238]
+[0;32mI (118877) SERVO_CONTROL: Tracking position (228, 238) -> Target S2:154.0°, S3:119.0° -> Filtered S2:151°, S3:97°[0m
+[0;33mW (118977) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [195, 152]
+[0;32mI (119197) SERVO_CONTROL: Tracking position (195, 152) -> Target S2:144.0°, S3:94.0° -> Filtered S2:149°, S3:96°[0m
+[0;33mW (119207) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [184, 159]
+[0;32mI (119437) SERVO_CONTROL: Tracking position (184, 159) -> Target S2:141.0°, S3:96.0° -> Filtered S2:146°, S3:96°[0m
+[0;33mW (119477) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [169, 188]
+[0;32mI (119677) SERVO_CONTROL: Tracking position (169, 188) -> Target S2:137.0°, S3:104.0° -> Filtered S2:144°, S3:98°[0m
+[0;33mW (119687) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [306, 230]
+[0;32mI (119917) SERVO_CONTROL: Tracking position (306, 230) -> Target S2:176.0°, S3:117.0° -> Filtered S2:153°, S3:104°[0m
+[0;33mW (120077) OpenCV: Motion detection - 2.00 FPS[0m
+Position detected: [138, 82]
+[0;32mI (120317) SERVO_CONTROL: Tracking position (138, 82) -> Target S2:128.0°, S3:73.0° -> Filtered S2:146°, S3:95°[0m
+[0;33mW (120497) OpenCV: Motion detection - 2.00 FPS[0m
+Position detected: [186, 144]
+[0;32mI (120717) SERVO_CONTROL: Tracking position (186, 144) -> Target S2:142.0°, S3:92.0° -> Filtered S2:145°, S3:94°[0m
+[0;33mW (120727) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [152, 153]
+[0;32mI (120957) SERVO_CONTROL: Tracking position (152, 153) -> Target S2:132.0°, S3:94.0° -> Filtered S2:141°, S3:94°[0m
+[0;33mW (121017) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [181, 166]
+[0;32mI (121277) SERVO_CONTROL: Tracking position (181, 166) -> Target S2:140.0°, S3:98.0° -> Filtered S2:141°, S3:95°[0m
+[0;33mW (121287) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [235, 118]
+[0;32mI (121517) SERVO_CONTROL: Tracking position (235, 118) -> Target S2:156.0°, S3:84.0° -> Filtered S2:145°, S3:92°[0m
+[0;33mW (121597) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [200, 223]
+[0;32mI (121837) SERVO_CONTROL: Tracking position (200, 223) -> Target S2:146.0°, S3:115.0° -> Filtered S2:145°, S3:99°[0m
+[0;33mW (121917) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [161, 185]
+[0;32mI (122157) SERVO_CONTROL: Tracking position (161, 185) -> Target S2:135.0°, S3:103.0° -> Filtered S2:142°, S3:100°[0m
+[0;33mW (122197) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [248, 77]
+[0;32mI (122397) SERVO_CONTROL: Tracking position (248, 77) -> Target S2:159.0°, S3:72.0° -> Filtered S2:147°, S3:92°[0m
+[0;33mW (122537) OpenCV: Motion detection - 2.00 FPS[0m
+Position detected: [161, 184]
+[0;32mI (122797) SERVO_CONTROL: Tracking position (161, 184) -> Target S2:135.0°, S3:103.0° -> Filtered S2:144°, S3:95°[0m
+[0;33mW (122877) OpenCV: Motion detection - 2.00 FPS[0m
+Position detected: [189, 166]
+[0;32mI (123117) SERVO_CONTROL: Tracking position (189, 166) -> Target S2:143.0°, S3:98.0° -> Filtered S2:143°, S3:96°[0m
+[0;33mW (123127) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [228, 70]
+[0;32mI (123357) SERVO_CONTROL: Tracking position (228, 70) -> Target S2:154.0°, S3:70.0° -> Filtered S2:147°, S3:88°[0m
+[0;33mW (123477) OpenCV: Motion detection - 2.00 FPS[0m
+Position detected: [203, 195]
+[0;32mI (123677) SERVO_CONTROL: Tracking position (203, 195) -> Target S2:147.0°, S3:106.0° -> Filtered S2:147°, S3:94°[0m
+[0;33mW (123737) OpenCV: Motion detection - 3.00 FPS[0m
+[0;32mI (123757) SERVO_CONTROL: Executing random scan action[0m
+Position detected: [211, 75]
+[0;32mI (123997) SERVO_CONTROL: Tracking position (211, 75) -> Target S2:149.0°, S3:71.0° -> Filtered S2:147°, S3:87°[0m
+[0;32mI (124037) SERVO_CONTROL: Moved to random angle: 83°[0m
+[0;33mW (124077) OpenCV: Motion detection - 2.00 FPS[0m
+Position detected: [182, 51]
+[0;32mI (124317) SERVO_CONTROL: Tracking position (182, 51) -> Target S2:141.0°, S3:64.0° -> Filtered S2:145°, S3:80°[0m
+[0;33mW (124397) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [209, 169]
+[0;32mI (124637) SERVO_CONTROL: Tracking position (209, 169) -> Target S2:148.0°, S3:99.0° -> Filtered S2:146°, S3:86°[0m
+[0;33mW (124697) OpenCV: Motion detection - 3.00 FPS[0m
+[0;32mI (124817) SERVO_CONTROL: Moved to random angle: 110°[0m
+Position detected: [204, 140]
+[0;32mI (124957) SERVO_CONTROL: Tracking position (204, 140) -> Target S2:147.0°, S3:90.0° -> Filtered S2:146°, S3:87°[0m
+[0;33mW (124967) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [236, 99]
+[0;32mI (125197) SERVO_CONTROL: Tracking position (236, 99) -> Target S2:156.0°, S3:78.0° -> Filtered S2:149°, S3:84°[0m
+[0;33mW (125207) OpenCV: Motion detection - 4.00 FPS[0m
+[0;32mI (125377) SERVO_CONTROL: Random scan action completed with final angle: 115°[0m
+Position detected: [206, 183]
+[0;32mI (125437) SERVO_CONTROL: Tracking position (206, 183) -> Target S2:147.0°, S3:103.0° -> Filtered S2:149°, S3:90°[0m
+[0;33mW (125477) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [167, 56]
+[0;32mI (125677) SERVO_CONTROL: Tracking position (167, 56) -> Target S2:136.0°, S3:66.0° -> Filtered S2:145°, S3:83°[0m
+[0;33mW (125757) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [160, 70]
+[0;32mI (125997) SERVO_CONTROL: Tracking position (160, 70) -> Target S2:135.0°, S3:70.0° -> Filtered S2:142°, S3:79°[0m
+[0;33mW (126097) OpenCV: Motion detection - 2.00 FPS[0m
+Position detected: [159, 125]
+[0;32mI (126317) SERVO_CONTROL: Tracking position (159, 125) -> Target S2:134.0°, S3:86.0° -> Filtered S2:140°, S3:81°[0m
+[0;33mW (126327) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [154, 184]
+[0;32mI (126557) SERVO_CONTROL: Tracking position (154, 184) -> Target S2:133.0°, S3:103.0° -> Filtered S2:138°, S3:88°[0m
+[0;33mW (126697) OpenCV: Motion detection - 2.00 FPS[0m
+Position detected: [154, 140]
+[0;32mI (126957) SERVO_CONTROL: Tracking position (154, 140) -> Target S2:133.0°, S3:90.0° -> Filtered S2:136°, S3:88°[0m
+[0;33mW (126957) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [212, 196]
+[0;32mI (127197) SERVO_CONTROL: Tracking position (212, 196) -> Target S2:149.0°, S3:107.0° -> Filtered S2:140°, S3:94°[0m
+[0;33mW (127257) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [191, 146]
+[0;32mI (127517) SERVO_CONTROL: Tracking position (191, 146) -> Target S2:143.0°, S3:92.0° -> Filtered S2:141°, S3:93°[0m
+[0;33mW (127557) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [253, 194]
+[0;32mI (127757) SERVO_CONTROL: Tracking position (253, 194) -> Target S2:161.0°, S3:106.0° -> Filtered S2:147°, S3:97°[0m
+[0;33mW (127857) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [236, 190]
+[0;32mI (128077) SERVO_CONTROL: Tracking position (236, 190) -> Target S2:156.0°, S3:105.0° -> Filtered S2:150°, S3:100°[0m
+[0;33mW (128157) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [205, 181]
+[0;32mI (128397) SERVO_CONTROL: Tracking position (205, 181) -> Target S2:147.0°, S3:102.0° -> Filtered S2:149°, S3:100°[0m
+[0;33mW (128397) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [170, 180]
+[0;32mI (128637) SERVO_CONTROL: Tracking position (170, 180) -> Target S2:137.0°, S3:102.0° -> Filtered S2:145°, S3:101°[0m
+[0;33mW (128697) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [140, 165]
+[0;32mI (128957) SERVO_CONTROL: Tracking position (140, 165) -> Target S2:129.0°, S3:98.0° -> Filtered S2:140°, S3:100°[0m
+[0;33mW (129017) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [260, 237]
+[0;32mI (129277) SERVO_CONTROL: Tracking position (260, 237) -> Target S2:163.0°, S3:119.0° -> Filtered S2:147°, S3:106°[0m
+[0;33mW (129417) OpenCV: Motion detection - 2.00 FPS[0m
+Position detected: [144, 110]
+[0;32mI (129677) SERVO_CONTROL: Tracking position (144, 110) -> Target S2:130.0°, S3:82.0° -> Filtered S2:142°, S3:99°[0m
+[0;33mW (129817) OpenCV: Motion detection - 2.00 FPS[0m
+Position detected: [150, 89]
+[0;32mI (130077) SERVO_CONTROL: Tracking position (150, 89) -> Target S2:132.0°, S3:75.0° -> Filtered S2:139°, S3:91°[0m
+[0;33mW (130197) OpenCV: Motion detection - 2.00 FPS[0m
+Position detected: [133, 122]
+[0;32mI (130397) SERVO_CONTROL: Tracking position (133, 122) -> Target S2:127.0°, S3:85.0° -> Filtered S2:135°, S3:90°[0m
+[0;33mW (130437) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [124, 161]
+[0;32mI (130637) SERVO_CONTROL: Tracking position (124, 161) -> Target S2:124.0°, S3:96.0° -> Filtered S2:132°, S3:91°[0m
+[0;33mW (130677) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [249, 205]
+[0;32mI (130877) SERVO_CONTROL: Tracking position (249, 205) -> Target S2:160.0°, S3:109.0° -> Filtered S2:140°, S3:97°[0m
+[0;33mW (131017) OpenCV: Motion detection - 2.00 FPS[0m
+Position detected: [174, 142]
+[0;32mI (131277) SERVO_CONTROL: Tracking position (174, 142) -> Target S2:138.0°, S3:91.0° -> Filtered S2:140°, S3:95°[0m
+[0;33mW (131277) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [163, 198]
+[0;32mI (131517) SERVO_CONTROL: Tracking position (163, 198) -> Target S2:135.0°, S3:107.0° -> Filtered S2:138°, S3:99°[0m
+[0;33mW (131517) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (131757) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [169, 211]
+[0;32mI (131997) SERVO_CONTROL: Tracking position (169, 211) -> Target S2:137.0°, S3:111.0° -> Filtered S2:138°, S3:102°[0m
+[0;33mW (132057) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [143, 145]
+[0;32mI (132317) SERVO_CONTROL: Tracking position (143, 145) -> Target S2:130.0°, S3:92.0° -> Filtered S2:136°, S3:99°[0m
+[0;33mW (132397) OpenCV: Motion detection - 2.00 FPS[0m
+Position detected: [135, 180]
+[0;32mI (132637) SERVO_CONTROL: Tracking position (135, 180) -> Target S2:127.0°, S3:102.0° -> Filtered S2:133°, S3:100°[0m
+[0;33mW (132677) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [82, 130]
+[0;32mI (132877) SERVO_CONTROL: Tracking position (82, 130) -> Target S2:113.0°, S3:87.0° -> Filtered S2:127°, S3:96°[0m
+[0;33mW (132977) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [151, 122]
+[0;32mI (133197) SERVO_CONTROL: Tracking position (151, 122) -> Target S2:132.0°, S3:85.0° -> Filtered S2:128°, S3:93°[0m
+[0;33mW (133237) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [148, 142]
+[0;32mI (133437) SERVO_CONTROL: Tracking position (148, 142) -> Target S2:131.0°, S3:91.0° -> Filtered S2:129°, S3:92°[0m
+[0;33mW (133437) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [131, 162]
+[0;32mI (133677) SERVO_CONTROL: Tracking position (131, 162) -> Target S2:126.0°, S3:97.0° -> Filtered S2:128°, S3:94°[0m
+[0;33mW (133677) OpenCV: Motion detection - 4.00 FPS[0m
+[0;32mI (133757) SERVO_CONTROL: Executing random scan action[0m
+Position detected: [143, 215]
+[0;32mI (133917) SERVO_CONTROL: Tracking position (143, 215) -> Target S2:130.0°, S3:112.0° -> Filtered S2:129°, S3:99°[0m
+[0;33mW (133977) OpenCV: Motion detection - 3.00 FPS[0m
+[0;32mI (134217) SERVO_CONTROL: Moved to random angle: 69°[0m
+Position detected: [163, 93]
+[0;32mI (134237) SERVO_CONTROL: Tracking position (163, 93) -> Target S2:135.0°, S3:77.0° -> Filtered S2:131°, S3:93°[0m
+[0;33mW (134337) OpenCV: Motion detection - 2.00 FPS[0m
+Position detected: [217, 179]
+[0;32mI (134557) SERVO_CONTROL: Tracking position (217, 179) -> Target S2:151.0°, S3:102.0° -> Filtered S2:137°, S3:95°[0m
+[0;33mW (134617) OpenCV: Motion detection - 3.00 FPS[0m
+[0;32mI (134857) SERVO_CONTROL: Moved to random angle: 56°[0m
+Position detected: [183, 210]
+[0;32mI (134877) SERVO_CONTROL: Tracking position (183, 210) -> Target S2:141.0°, S3:111.0° -> Filtered S2:138°, S3:100°[0m
+[0;33mW (134957) OpenCV: Motion detection - 2.00 FPS[0m
+Position detected: [89, 208]
+[0;32mI (135197) SERVO_CONTROL: Tracking position (89, 208) -> Target S2:115.0°, S3:110.0° -> Filtered S2:131°, S3:103°[0m
+[0;33mW (135297) OpenCV: Motion detection - 2.00 FPS[0m
+Position detected: [94, 158]
+[0;32mI (135517) SERVO_CONTROL: Tracking position (94, 158) -> Target S2:116.0°, S3:96.0° -> Filtered S2:127°, S3:101°[0m
+[0;33mW (135557) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [97, 151]
+[0;32mI (135757) SERVO_CONTROL: Tracking position (97, 151) -> Target S2:117.0°, S3:94.0° -> Filtered S2:124°, S3:99°[0m
+[0;33mW (135837) OpenCV: Motion detection - 3.00 FPS[0m
+[0;32mI (135857) SERVO_CONTROL: Random scan action completed with final angle: 105°[0m
+Position detected: [182, 115]
+[0;32mI (136077) SERVO_CONTROL: Tracking position (182, 115) -> Target S2:141.0°, S3:83.0° -> Filtered S2:129°, S3:94°[0m
+[0;33mW (136197) OpenCV: Motion detection - 2.00 FPS[0m
+Position detected: [157, 96]
+[0;32mI (136397) SERVO_CONTROL: Tracking position (157, 96) -> Target S2:134.0°, S3:78.0° -> Filtered S2:130°, S3:89°[0m
+[0;33mW (136457) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [158, 78]
+[0;32mI (136717) SERVO_CONTROL: Tracking position (158, 78) -> Target S2:134.0°, S3:72.0° -> Filtered S2:131°, S3:84°[0m
+[0;33mW (136777) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [188, 119]
+[0;32mI (137037) SERVO_CONTROL: Tracking position (188, 119) -> Target S2:142.0°, S3:84.0° -> Filtered S2:135°, S3:84°[0m
+[0;33mW (137097) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [241, 150]
+[0;32mI (137357) SERVO_CONTROL: Tracking position (241, 150) -> Target S2:157.0°, S3:93.0° -> Filtered S2:141°, S3:87°[0m
+[0;33mW (137457) OpenCV: Motion detection - 2.00 FPS[0m
+Position detected: [172, 191]
+[0;32mI (137677) SERVO_CONTROL: Tracking position (172, 191) -> Target S2:138.0°, S3:105.0° -> Filtered S2:140°, S3:92°[0m
+[0;33mW (137737) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [167, 79]
+[0;32mI (137997) SERVO_CONTROL: Tracking position (167, 79) -> Target S2:136.0°, S3:73.0° -> Filtered S2:139°, S3:86°[0m
+[0;33mW (138057) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [151, 114]
+[0;32mI (138317) SERVO_CONTROL: Tracking position (151, 114) -> Target S2:132.0°, S3:83.0° -> Filtered S2:137°, S3:85°[0m
+[0;33mW (138357) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [81, 149]
+[0;32mI (138547) SERVO_CONTROL: Tracking position (81, 149) -> Target S2:112.0°, S3:93.0° -> Filtered S2:129°, S3:88°[0m
+[0;33mW (138637) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [13, 161]
+[0;32mI (138867) SERVO_CONTROL: Tracking position (13, 161) -> Target S2:93.0°, S3:96.0° -> Filtered S2:119°, S3:90°[0m
+[0;33mW (139017) OpenCV: Motion detection - 2.00 FPS[0m
+Position detected: [245, 84]
+[0;32mI (139267) SERVO_CONTROL: Tracking position (245, 84) -> Target S2:158.0°, S3:74.0° -> Filtered S2:130°, S3:85°[0m
+[0;33mW (139457) OpenCV: Motion detection - 2.00 FPS[0m
+Position detected: [231, 64]
+[0;32mI (139667) SERVO_CONTROL: Tracking position (231, 64) -> Target S2:154.0°, S3:68.0° -> Filtered S2:137°, S3:80°[0m
+[0;33mW (139817) OpenCV: Motion detection - 2.00 FPS[0m
+Position detected: [182, 103]
+[0;32mI (140067) SERVO_CONTROL: Tracking position (182, 103) -> Target S2:141.0°, S3:80.0° -> Filtered S2:139°, S3:80°[0m
+[0;33mW (140077) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [187, 131]
+[0;32mI (140307) SERVO_CONTROL: Tracking position (187, 131) -> Target S2:142.0°, S3:88.0° -> Filtered S2:140°, S3:82°[0m
+[0;33mW (140357) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [158, 164]
+[0;32mI (140547) SERVO_CONTROL: Tracking position (158, 164) -> Target S2:134.0°, S3:97.0° -> Filtered S2:138°, S3:87°[0m
+[0;33mW (140637) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [186, 125]
+[0;32mI (140867) SERVO_CONTROL: Tracking position (186, 125) -> Target S2:142.0°, S3:86.0° -> Filtered S2:139°, S3:87°[0m
+[0;33mW (140877) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [197, 92]
+[0;32mI (141107) SERVO_CONTROL: Tracking position (197, 92) -> Target S2:145.0°, S3:76.0° -> Filtered S2:141°, S3:83°[0m
+[0;33mW (141157) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [180, 140]
+[0;32mI (141347) SERVO_CONTROL: Tracking position (180, 140) -> Target S2:140.0°, S3:90.0° -> Filtered S2:141°, S3:85°[0m
+[0;33mW (141357) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [118, 159]
+[0;32mI (141587) SERVO_CONTROL: Tracking position (118, 159) -> Target S2:123.0°, S3:96.0° -> Filtered S2:135°, S3:89°[0m
+[0;33mW (141717) OpenCV: Motion detection - 2.00 FPS[0m
+Position detected: [169, 148]
+[0;32mI (141907) SERVO_CONTROL: Tracking position (169, 148) -> Target S2:137.0°, S3:93.0° -> Filtered S2:136°, S3:90°[0m
+[0;33mW (141917) OpenCV: Motion detection - 5.00 FPS[0m
+Position detected: [163, 171]
+[0;32mI (142147) SERVO_CONTROL: Tracking position (163, 171) -> Target S2:135.0°, S3:99.0° -> Filtered S2:136°, S3:93°[0m
+[0;33mW (142197) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [164, 175]
+[0;32mI (142387) SERVO_CONTROL: Tracking position (164, 175) -> Target S2:136.0°, S3:101.0° -> Filtered S2:136°, S3:95°[0m
+[0;33mW (142397) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [184, 193]
+[0;32mI (142627) SERVO_CONTROL: Tracking position (184, 193) -> Target S2:141.0°, S3:106.0° -> Filtered S2:137°, S3:98°[0m
+[0;33mW (142697) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [148, 174]
+[0;32mI (142947) SERVO_CONTROL: Tracking position (148, 174) -> Target S2:131.0°, S3:100.0° -> Filtered S2:135°, S3:99°[0m
+[0;33mW (142957) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [131, 197]
+[0;32mI (143187) SERVO_CONTROL: Tracking position (131, 197) -> Target S2:126.0°, S3:107.0° -> Filtered S2:133°, S3:101°[0m
+[0;33mW (143237) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [141, 197]
+[0;32mI (143427) SERVO_CONTROL: Tracking position (141, 197) -> Target S2:129.0°, S3:107.0° -> Filtered S2:132°, S3:103°[0m
+[0;33mW (143467) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [108, 169]
+[0;32mI (143667) SERVO_CONTROL: Tracking position (108, 169) -> Target S2:120.0°, S3:99.0° -> Filtered S2:128°, S3:102°[0m
+[0;33mW (143717) OpenCV: Motion detection - 4.00 FPS[0m
+[0;32mI (143757) SERVO_CONTROL: Executing random scan action[0m
+[0;32mI (143877) SERVO_CONTROL: Moved to random angle: 94°[0m
+Position detected: [22, 210]
+[0;32mI (143907) SERVO_CONTROL: Tracking position (22, 210) -> Target S2:96.0°, S3:111.0° -> Filtered S2:118°, S3:105°[0m
+[0;33mW (144057) OpenCV: Motion detection - 2.00 FPS[0m
+Position detected: [173, 106]
+[0;32mI (144307) SERVO_CONTROL: Tracking position (173, 106) -> Target S2:138.0°, S3:80.0° -> Filtered S2:124°, S3:97°[0m
+[0;33mW (144447) OpenCV: Motion detection - 2.00 FPS[0m
+[0;32mI (144517) SERVO_CONTROL: Moved to random angle: 81°[0m
+Position detected: [154, 112]
+[0;32mI (144707) SERVO_CONTROL: Tracking position (154, 112) -> Target S2:133.0°, S3:82.0° -> Filtered S2:127°, S3:93°[0m
+[0;33mW (144787) OpenCV: Motion detection - 2.00 FPS[0m
+Position detected: [117, 163]
+[0;32mI (145027) SERVO_CONTROL: Tracking position (117, 163) -> Target S2:122.0°, S3:97.0° -> Filtered S2:125°, S3:94°[0m
+[0;33mW (145037) OpenCV: Motion detection - 4.00 FPS[0m
+[0;32mI (145197) SERVO_CONTROL: Random scan action completed with final angle: 98°[0m
+Position detected: [105, 149]
+[0;32mI (145267) SERVO_CONTROL: Tracking position (105, 149) -> Target S2:119.0°, S3:93.0° -> Filtered S2:124°, S3:94°[0m
+[0;33mW (145307) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [174, 60]
+[0;32mI (145507) SERVO_CONTROL: Tracking position (174, 60) -> Target S2:138.0°, S3:67.0° -> Filtered S2:128°, S3:86°[0m
+[0;33mW (145627) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [175, 172]
+[0;32mI (145827) SERVO_CONTROL: Tracking position (175, 172) -> Target S2:139.0°, S3:100.0° -> Filtered S2:131°, S3:90°[0m
+[0;33mW (145907) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [154, 212]
+[0;32mI (146147) SERVO_CONTROL: Tracking position (154, 212) -> Target S2:133.0°, S3:111.0° -> Filtered S2:132°, S3:96°[0m
+[0;33mW (146207) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [154, 202]
+[0;32mI (146467) SERVO_CONTROL: Tracking position (154, 202) -> Target S2:133.0°, S3:108.0° -> Filtered S2:132°, S3:100°[0m
+[0;33mW (146507) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [124, 209]
+[0;32mI (146707) SERVO_CONTROL: Tracking position (124, 209) -> Target S2:124.0°, S3:110.0° -> Filtered S2:130°, S3:103°[0m
+[0;33mW (146747) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [146, 209]
+[0;32mI (146947) SERVO_CONTROL: Tracking position (146, 209) -> Target S2:131.0°, S3:110.0° -> Filtered S2:130°, S3:105°[0m
+[0;33mW (146957) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [162, 213]
+[0;32mI (147187) SERVO_CONTROL: Tracking position (162, 213) -> Target S2:135.0°, S3:112.0° -> Filtered S2:132°, S3:107°[0m
+[0;33mW (147227) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [113, 198]
+[0;32mI (147427) SERVO_CONTROL: Tracking position (113, 198) -> Target S2:121.0°, S3:107.0° -> Filtered S2:128°, S3:107°[0m
+[0;33mW (147467) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [183, 177]
+[0;32mI (147667) SERVO_CONTROL: Tracking position (183, 177) -> Target S2:141.0°, S3:101.0° -> Filtered S2:132°, S3:105°[0m
+[0;33mW (147707) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [157, 168]
+[0;32mI (147907) SERVO_CONTROL: Tracking position (157, 168) -> Target S2:134.0°, S3:99.0° -> Filtered S2:133°, S3:103°[0m
+[0;33mW (147947) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [87, 196]
+[0;32mI (148147) SERVO_CONTROL: Tracking position (87, 196) -> Target S2:114.0°, S3:107.0° -> Filtered S2:127°, S3:104°[0m
+[0;33mW (148207) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [125, 216]
+[0;32mI (148467) SERVO_CONTROL: Tracking position (125, 216) -> Target S2:125.0°, S3:113.0° -> Filtered S2:126°, S3:107°[0m
+[0;33mW (148507) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [64, 227]
+[0;32mI (148707) SERVO_CONTROL: Tracking position (64, 227) -> Target S2:108.0°, S3:116.0° -> Filtered S2:121°, S3:110°[0m
+[0;33mW (148807) OpenCV: Motion detection - 3.00 FPS[0m
+[0;33mW (149027) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (149267) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (149507) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (149747) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (149987) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (150227) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (150467) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [46, 37]
+[0;32mI (150707) SERVO_CONTROL: Tracking position (46, 37) -> Target S2:102.0°, S3:60.0° -> Filtered S2:115°, S3:95°[0m
+[0;33mW (150927) OpenCV: Motion detection - 2.00 FPS[0m
+[0;33mW (151187) OpenCV: Motion detection - 3.00 FPS[0m
+[0;33mW (151427) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (151667) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (151907) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (152147) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (152387) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (152627) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (152867) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (153107) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (153347) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (153587) OpenCV: Motion detection - 4.00 FPS[0m
+[0;32mI (153757) SERVO_CONTROL: Executing random scan action[0m
+[0;33mW (153827) OpenCV: Motion detection - 4.00 FPS[0m
+[0;32mI (153997) SERVO_CONTROL: Moved to random angle: 75°[0m
+Position detected: [88, 229]
+[0;32mI (154067) SERVO_CONTROL: Tracking position (88, 229) -> Target S2:114.0°, S3:116.0° -> Filtered S2:115°, S3:101°[0m
+[0;33mW (154127) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [166, 196]
+[0;32mI (154387) SERVO_CONTROL: Tracking position (166, 196) -> Target S2:136.0°, S3:107.0° -> Filtered S2:121°, S3:103°[0m
+[0;33mW (154447) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [166, 177]
+[0;32mI (154707) SERVO_CONTROL: Tracking position (166, 177) -> Target S2:136.0°, S3:101.0° -> Filtered S2:126°, S3:102°[0m
+[0;32mI (154737) SERVO_CONTROL: Moved to random angle: 99°[0m
+[0;33mW (154767) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [155, 188]
+[0;32mI (155027) SERVO_CONTROL: Tracking position (155, 188) -> Target S2:133.0°, S3:104.0° -> Filtered S2:128°, S3:103°[0m
+[0;33mW (155027) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [49, 201]
+[0;32mI (155267) SERVO_CONTROL: Tracking position (49, 201) -> Target S2:103.0°, S3:108.0° -> Filtered S2:120°, S3:104°[0m
+[0;33mW (155367) OpenCV: Motion detection - 2.00 FPS[0m
+[0;32mI (155397) SERVO_CONTROL: Random scan action completed with final angle: 84°[0m
+Position detected: [181, 207]
+[0;32mI (155587) SERVO_CONTROL: Tracking position (181, 207) -> Target S2:140.0°, S3:110.0° -> Filtered S2:126°, S3:106°[0m
+[0;33mW (155647) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [68, 224]
+[0;32mI (155907) SERVO_CONTROL: Tracking position (68, 224) -> Target S2:109.0°, S3:115.0° -> Filtered S2:121°, S3:109°[0m
+[0;33mW (156027) OpenCV: Motion detection - 2.00 FPS[0m
+Position detected: [91, 223]
+[0;32mI (156227) SERVO_CONTROL: Tracking position (91, 223) -> Target S2:115.0°, S3:115.0° -> Filtered S2:119°, S3:111°[0m
+[0;33mW (156227) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (156467) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (156707) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (156947) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (157187) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (157427) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (157667) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (157907) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [125, 14]
+[0;32mI (158147) SERVO_CONTROL: Tracking position (125, 14) -> Target S2:125.0°, S3:54.0° -> Filtered S2:121°, S3:94°[0m
+[0;33mW (158307) OpenCV: Motion detection - 2.00 FPS[0m
+Position detected: [41, 231]
+[0;32mI (158547) SERVO_CONTROL: Tracking position (41, 231) -> Target S2:101.0°, S3:117.0° -> Filtered S2:115°, S3:101°[0m
+[0;33mW (158687) OpenCV: Motion detection - 2.00 FPS[0m
+Position detected: [10, 235]
+[0;32mI (158947) SERVO_CONTROL: Tracking position (10, 235) -> Target S2:92.0°, S3:118.0° -> Filtered S2:108°, S3:106°[0m
+[0;33mW (159087) OpenCV: Motion detection - 2.00 FPS[0m
+Position detected: [37, 236]
+[0;32mI (159347) SERVO_CONTROL: Tracking position (37, 236) -> Target S2:100.0°, S3:118.0° -> Filtered S2:106°, S3:109°[0m
+[0;33mW (159387) OpenCV: Motion detection - 3.00 FPS[0m
+[0;33mW (159587) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (159827) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (160067) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (160307) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (160547) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (160787) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (161027) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (161267) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [159, 163]
+[0;32mI (161507) SERVO_CONTROL: Tracking position (159, 163) -> Target S2:134.0°, S3:97.0° -> Filtered S2:114°, S3:106°[0m
+[0;33mW (161607) OpenCV: Motion detection - 2.00 FPS[0m
+Position detected: [158, 102]
+[0;32mI (161827) SERVO_CONTROL: Tracking position (158, 102) -> Target S2:134.0°, S3:79.0° -> Filtered S2:120°, S3:98°[0m
+[0;33mW (161967) OpenCV: Motion detection - 2.00 FPS[0m
+Position detected: [147, 153]
+[0;32mI (162227) SERVO_CONTROL: Tracking position (147, 153) -> Target S2:131.0°, S3:94.0° -> Filtered S2:123°, S3:97°[0m
+[0;33mW (162267) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [197, 184]
+[0;32mI (162467) SERVO_CONTROL: Tracking position (197, 184) -> Target S2:145.0°, S3:103.0° -> Filtered S2:130°, S3:99°[0m
+[0;33mW (162547) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [140, 136]
+[0;32mI (162787) SERVO_CONTROL: Tracking position (140, 136) -> Target S2:129.0°, S3:89.0° -> Filtered S2:130°, S3:96°[0m
+[0;33mW (162787) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [179, 101]
+[0;32mI (163027) SERVO_CONTROL: Tracking position (179, 101) -> Target S2:140.0°, S3:79.0° -> Filtered S2:133°, S3:91°[0m
+[0;33mW (163147) OpenCV: Motion detection - 2.00 FPS[0m
+Position detected: [189, 119]
+[0;32mI (163347) SERVO_CONTROL: Tracking position (189, 119) -> Target S2:143.0°, S3:84.0° -> Filtered S2:136°, S3:89°[0m
+[0;33mW (163387) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [152, 165]
+[0;32mI (163587) SERVO_CONTROL: Tracking position (152, 165) -> Target S2:132.0°, S3:98.0° -> Filtered S2:135°, S3:91°[0m
+[0;33mW (163587) OpenCV: Motion detection - 4.00 FPS[0m
+[0;32mI (163757) SERVO_CONTROL: Executing random scan action[0m
+Position detected: [146, 124]
+[0;32mI (163827) SERVO_CONTROL: Tracking position (146, 124) -> Target S2:131.0°, S3:86.0° -> Filtered S2:134°, S3:90°[0m
+[0;33mW (163827) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [221, 156]
+[0;32mI (164067) SERVO_CONTROL: Tracking position (221, 156) -> Target S2:152.0°, S3:95.0° -> Filtered S2:139°, S3:91°[0m
+[0;32mI (164097) SERVO_CONTROL: Moved to random angle: 51°[0m
+[0;33mW (164107) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [58, 152]
+[0;32mI (164297) SERVO_CONTROL: Tracking position (58, 152) -> Target S2:106.0°, S3:94.0° -> Filtered S2:129°, S3:92°[0m
+[0;33mW (164407) OpenCV: Motion detection - 3.00 FPS[0m
+[0;32mI (164617) SERVO_CONTROL: Moved to random angle: 53°[0m
+Position detected: [266, 154]
+[0;32mI (164617) SERVO_CONTROL: Tracking position (266, 154) -> Target S2:164.0°, S3:94.0° -> Filtered S2:140°, S3:93°[0m
+[0;33mW (164747) OpenCV: Motion detection - 2.00 FPS[0m
+Position detected: [130, 116]
+[0;32mI (164937) SERVO_CONTROL: Tracking position (130, 116) -> Target S2:126.0°, S3:83.0° -> Filtered S2:136°, S3:90°[0m
+[0;33mW (164987) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [127, 96]
+[0;32mI (165177) SERVO_CONTROL: Tracking position (127, 96) -> Target S2:125.0°, S3:78.0° -> Filtered S2:132°, S3:86°[0m
+[0;33mW (165287) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [149, 131]
+[0;32mI (165507) SERVO_CONTROL: Tracking position (149, 131) -> Target S2:131.0°, S3:88.0° -> Filtered S2:132°, S3:87°[0m
+[0;33mW (165507) OpenCV: Motion detection - 4.00 FPS[0m
+[0;32mI (165737) SERVO_CONTROL: Random scan action completed with final angle: 115°[0m
+Position detected: [95, 126]
+[0;32mI (165747) SERVO_CONTROL: Tracking position (95, 126) -> Target S2:116.0°, S3:86.0° -> Filtered S2:127°, S3:87°[0m
+[0;33mW (165807) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [150, 108]
+[0;32mI (166057) SERVO_CONTROL: Tracking position (150, 108) -> Target S2:132.0°, S3:81.0° -> Filtered S2:129°, S3:85°[0m
+[0;33mW (166067) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [133, 231]
+[0;32mI (166297) SERVO_CONTROL: Tracking position (133, 231) -> Target S2:127.0°, S3:117.0° -> Filtered S2:128°, S3:95°[0m
+[0;33mW (166407) OpenCV: Motion detection - 2.00 FPS[0m
+Position detected: [150, 237]
+[0;32mI (166617) SERVO_CONTROL: Tracking position (150, 237) -> Target S2:132.0°, S3:119.0° -> Filtered S2:129°, S3:102°[0m
+[0;33mW (166707) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [121, 234]
+[0;32mI (166937) SERVO_CONTROL: Tracking position (121, 234) -> Target S2:124.0°, S3:118.0° -> Filtered S2:128°, S3:107°[0m
+[0;33mW (167007) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [14, 234]
+[0;32mI (167257) SERVO_CONTROL: Tracking position (14, 234) -> Target S2:93.0°, S3:118.0° -> Filtered S2:117°, S3:110°[0m
+[0;33mW (167407) OpenCV: Motion detection - 2.00 FPS[0m
+Position detected: [33, 210]
+[0;32mI (167657) SERVO_CONTROL: Tracking position (33, 210) -> Target S2:99.0°, S3:111.0° -> Filtered S2:112°, S3:110°[0m
+[0;33mW (167727) OpenCV: Motion detection - 3.00 FPS[0m
+[0;33mW (167987) OpenCV: Motion detection - 3.00 FPS[0m
+[0;33mW (168227) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (168467) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (168707) OpenCV: Motion detection - 4.00 FPS[0m
+[0;33mW (168947) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [5, 218]
+[0;32mI (169177) SERVO_CONTROL: Tracking position (5, 218) -> Target S2:91.0°, S3:113.0° -> Filtered S2:106°, S3:111°[0m
+[0;33mW (169237) OpenCV: Motion detection - 3.00 FPS[0m
+[0;33mW (169507) OpenCV: Motion detection - 3.00 FPS[0m
+[0;33mW (169747) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [160, 140]
+[0;32mI (169977) SERVO_CONTROL: Tracking position (160, 140) -> Target S2:135.0°, S3:90.0° -> Filtered S2:114°, S3:105°[0m
+[0;33mW (170117) OpenCV: Motion detection - 2.00 FPS[0m
+[0;33mW (170377) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [112, 88]
+[0;32mI (170617) SERVO_CONTROL: Tracking position (112, 88) -> Target S2:121.0°, S3:75.0° -> Filtered S2:116°, S3:96°[0m
+[0;33mW (170717) OpenCV: Motion detection - 3.00 FPS[0m
+Position detected: [11, 88]
+[0;32mI (170937) SERVO_CONTROL: Tracking position (11, 88) -> Target S2:93.0°, S3:75.0° -> Filtered S2:109°, S3:90°[0m
+[0;33mW (171057) OpenCV: Motion detection - 2.00 FPS[0m
+[0;33mW (171257) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [121, 33]
+[0;32mI (171497) SERVO_CONTROL: Tracking position (121, 33) -> Target S2:124.0°, S3:59.0° -> Filtered S2:114°, S3:80°[0m
+[0;33mW (171657) OpenCV: Motion detection - 2.00 FPS[0m
+Position detected: [98, 128]
+[0;32mI (171897) SERVO_CONTROL: Tracking position (98, 128) -> Target S2:117.0°, S3:87.0° -> Filtered S2:115°, S3:82°[0m
+[0;33mW (171907) OpenCV: Motion detection - 4.00 FPS[0m
+Position detected: [111, 128]
+[0;32mI (172137) SERVO_CONTROL: Tracking position (111, 128) -> Target S2:121.0°, S3:87.0° -> Filtered S2:117°, S3:84°[0m
+[0;33mW (172217) OpenCV: Motion detection - 3.00 FPS[0m
+[0;33mW (172457) OpenCV: Motion detection - 4.00 FPS[0m

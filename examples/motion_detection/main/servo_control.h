@@ -67,6 +67,27 @@ esp_err_t servo_track_position(int pos_x, int pos_y, int frame_width, int frame_
  */
 esp_err_t servo_control_stop(void);
 
+/**
+ * @brief 启动追踪模式
+ * 
+ * @return esp_err_t ESP_OK表示成功
+ */
+esp_err_t servo_start_tracking(void);
+
+/**
+ * @brief 停止追踪模式
+ * 
+ * @return esp_err_t ESP_OK表示成功
+ */
+esp_err_t servo_stop_tracking(void);
+
+/**
+ * @brief 执行扫描动作（舵机1从120度到50度再回到120度）
+ * 
+ * @return esp_err_t ESP_OK表示成功
+ */
+esp_err_t servo_scan_action(void);
+
 #ifdef __cplusplus
 }
 #endif

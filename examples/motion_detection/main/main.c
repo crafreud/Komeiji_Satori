@@ -196,13 +196,21 @@ void app_main(void)
     }
     ESP_LOGI(TAG, "Servo control system initialized");
     
-    // 启动Web服务器
-    esp_err_t web_ret = start_web_server();
-    if (web_ret != ESP_OK) {
-        ESP_LOGE(TAG, "Web server start failed: %s", esp_err_to_name(web_ret));
+    // 启动追踪模式
+    esp_err_t tracking_ret = servo_start_tracking();
+    if (tracking_ret != ESP_OK) {
+        ESP_LOGE(TAG, "Failed to start tracking mode: %s", esp_err_to_name(tracking_ret));
         return;
     }
-    ESP_LOGI(TAG, "Web server started");
+    ESP_LOGI(TAG, "Tracking mode started");
+    
+    // 启动Web服务器 (已关闭)
+    // esp_err_t web_ret = start_web_server();
+    // if (web_ret != ESP_OK) {
+    //     ESP_LOGE(TAG, "Web server start failed: %s", esp_err_to_name(web_ret));
+    //     return;
+    // }
+    // ESP_LOGI(TAG, "Web server started");
 
 #ifdef CONFIG_IDF_TARGET_ARCH_XTENSA
     esp_err_t err = esp_camera_init(&camera_config);

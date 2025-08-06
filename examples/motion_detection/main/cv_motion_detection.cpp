@@ -80,8 +80,8 @@ void cv_motion_detection(uint8_t* data, int width, int heigth)
         if (posX >= 0 && posY >= 0)
         {
                 std::cout << "Position detected: " << Point(posX, posY) << std::endl;
-                // 调用舵机跟踪函数 (已禁用)
-                // servo_track_position(posX, posY, width, heigth);
+                // 调用舵机跟踪函数
+                servo_track_position(posX, posY, width, heigth);
         }
     }
     grayscale2.copyTo(grayscale1);
