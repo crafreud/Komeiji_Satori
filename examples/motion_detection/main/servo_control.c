@@ -323,47 +323,132 @@ static void scan_timer_callback(TimerHandle_t xTimer)
 
 esp_err_t servo_scan_action(void)
 {
-    ESP_LOGI(TAG, "Executing random scan action");
+    // 随机选择三种动作之一：0=害怕动作, 1=赞同动作, 2=原有随机动作
+    uint32_t action_type = esp_random() % 3;
+    esp_err_t ret = ESP_OK;
     
-    // 生成舵机1有效范围内的随机角度 (50-120度)
-    uint32_t min_angle = servo_min_angle[SERVO_1]; // 50度
-    uint32_t max_angle = servo_max_angle[SERVO_1]; // 120度
-    
-    // 生成第一个随机角度
-    uint32_t random_angle1 = min_angle + (esp_random() % (max_angle - min_angle + 1));
-    
-    esp_err_t ret = servo_smooth_move(SERVO_1, random_angle1);
-    if (ret != ESP_OK) {
-        ESP_LOGE(TAG, "Failed to move servo 1 to %lu°", random_angle1);
-        return ret;
+    switch (action_type) {
+        case 0: // 害怕动作：舵机3左右最小10度动作，伴随舵机1和3小幅度抖动
+            ESP_LOGI(TAG, "Executing fear action (servo 3 left-right 10° min, with servo 1&3 twitching)");
+            {
+                uint32_t base_angle_servo3 = 85;
+                uint32_t base_angle_servo1 = 85; // 舵机1的基准角度
+                uint32_t start_time = xTaskGetTickCount();
+                bool direction = true; // true=右移, false=左移
+                
+                // 持续3秒的害怕动作
+                while ((xTaskGetTickCount() - start_time) < pdMS_TO_TICKS(3000)) {
+                    // 舵机3左右移动，最小10度
+                    uint32_t move_angle = 10 + (esp_random() % 6); // 10-15度随机移动
+                    uint32_t target_angle_servo3;
+                    
+                    if (direction) {
+                        target_angle_servo3 = base_angle_servo3 + move_angle; // 向右
+                    } else {
+                        target_angle_servo3 = base_angle_servo3 - move_angle; // 向左
+                    }
+                    direction = !direction; // 切换方向
+                    
+                    // 确保舵机3角度在有效范围内
+                    if (target_angle_servo3 < servo_min_angle[SERVO_3]) target_angle_servo3 = servo_min_angle[SERVO_3];
+                    if (target_angle_servo3 > servo_max_angle[SERVO_3]) target_angle_servo3 = servo_max_angle[SERVO_3];
+                    
+                    // 舵机1小幅度抖动
+                    uint32_t twitch_angle_servo1 = base_angle_servo1 + (esp_random() % 7) - 3; // ±3度抖动
+                    if (twitch_angle_servo1 < servo_min_angle[SERVO_1]) twitch_angle_servo1 = servo_min_angle[SERVO_1];
+                    if (twitch_angle_servo1 > servo_max_angle[SERVO_1]) twitch_angle_servo1 = servo_max_angle[SERVO_1];
+                    
+                    // 舵机3小幅度抖动（在目标角度基础上）
+                    uint32_t twitch_offset = (esp_random() % 5) - 2; // ±2度抖动
+                    uint32_t final_angle_servo3 = target_angle_servo3 + twitch_offset;
+                    if (final_angle_servo3 < servo_min_angle[SERVO_3]) final_angle_servo3 = servo_min_angle[SERVO_3];
+                    if (final_angle_servo3 > servo_max_angle[SERVO_3]) final_angle_servo3 = servo_max_angle[SERVO_3];
+                    
+                    // 同时移动舵机1和3
+                    ret = servo_set_angle(SERVO_1, twitch_angle_servo1);
+                    if (ret != ESP_OK) {
+                        ESP_LOGE(TAG, "Failed to move servo 1 to %lu°", twitch_angle_servo1);
+                    }
+                    
+                    ret = servo_set_angle(SERVO_3, final_angle_servo3);
+                    if (ret != ESP_OK) {
+                        ESP_LOGE(TAG, "Failed to move servo 3 to %lu°", final_angle_servo3);
+                        break;
+                    }
+                    
+                    vTaskDelay(pdMS_TO_TICKS(150)); // 每150ms执行一次动作
+                }
+                ESP_LOGI(TAG, "Fear action completed");
+            }
+            break;
+            
+        case 1: // 赞同动作：舵机2在120-150度先快后慢
+            ESP_LOGI(TAG, "Executing approval action (servo 2 fast then slow 120-150°)");
+            {
+                uint32_t start_angle = 120;
+                uint32_t end_angle = 150;
+                
+                // 快速移动到150度
+                ret = servo_set_angle(SERVO_2, end_angle);
+                if (ret != ESP_OK) {
+                    ESP_LOGE(TAG, "Failed to move servo 2 to %lu°", end_angle);
+                    break;
+                }
+                vTaskDelay(pdMS_TO_TICKS(500)); // 停留0.5秒
+                
+                // 慢速移动回120度
+                ret = servo_smooth_move(SERVO_2, start_angle);
+                if (ret != ESP_OK) {
+                    ESP_LOGE(TAG, "Failed to move servo 2 to %lu°", start_angle);
+                    break;
+                }
+                
+                // 再次快速到150度
+                ret = servo_set_angle(SERVO_2, end_angle);
+                if (ret != ESP_OK) {
+                    ESP_LOGE(TAG, "Failed to move servo 2 to %lu°", end_angle);
+                    break;
+                }
+                vTaskDelay(pdMS_TO_TICKS(500)); // 停留0.5秒
+                
+                // 最后慢速回到中间位置
+                ret = servo_smooth_move(SERVO_2, 135);
+                if (ret != ESP_OK) {
+                    ESP_LOGE(TAG, "Failed to move servo 2 to 135°");
+                    break;
+                }
+                
+                ESP_LOGI(TAG, "Approval action completed");
+            }
+            break;
+            
+        case 2: // 原有随机动作：舵机1随机移动
+        default:
+            ESP_LOGI(TAG, "Executing random scan action (servo 1)");
+            {
+                uint32_t min_angle = servo_min_angle[SERVO_1]; // 50度
+                uint32_t max_angle = servo_max_angle[SERVO_1]; // 120度
+                uint32_t start_time = xTaskGetTickCount();
+                
+                // 持续3秒的随机动作
+                while ((xTaskGetTickCount() - start_time) < pdMS_TO_TICKS(3000)) {
+                    uint32_t random_angle = min_angle + (esp_random() % (max_angle - min_angle + 1));
+                    
+                    ret = servo_smooth_move(SERVO_1, random_angle);
+                    if (ret != ESP_OK) {
+                        ESP_LOGE(TAG, "Failed to move servo 1 to %lu°", random_angle);
+                        break;
+                    }
+                    
+                    ESP_LOGI(TAG, "Moved to random angle: %lu°", random_angle);
+                    vTaskDelay(pdMS_TO_TICKS(800)); // 停留0.8秒
+                }
+                ESP_LOGI(TAG, "Random scan action completed");
+            }
+            break;
     }
     
-    ESP_LOGI(TAG, "Moved to random angle: %lu°", random_angle1);
-    vTaskDelay(pdMS_TO_TICKS(500)); // 停留0.5秒
-    
-    // 生成第二个随机角度
-    uint32_t random_angle2 = min_angle + (esp_random() % (max_angle - min_angle + 1));
-    
-    ret = servo_smooth_move(SERVO_1, random_angle2);
-    if (ret != ESP_OK) {
-        ESP_LOGE(TAG, "Failed to move servo 1 to %lu°", random_angle2);
-        return ret;
-    }
-    
-    ESP_LOGI(TAG, "Moved to random angle: %lu°", random_angle2);
-    vTaskDelay(pdMS_TO_TICKS(500)); // 停留0.5秒
-    
-    // 生成第三个随机角度
-    uint32_t random_angle3 = min_angle + (esp_random() % (max_angle - min_angle + 1));
-    
-    ret = servo_smooth_move(SERVO_1, random_angle3);
-    if (ret != ESP_OK) {
-        ESP_LOGE(TAG, "Failed to move servo 1 to %lu°", random_angle3);
-        return ret;
-    }
-    
-    ESP_LOGI(TAG, "Random scan action completed with final angle: %lu°", random_angle3);
-    return ESP_OK;
+    return ret;
 }
 
 esp_err_t servo_start_tracking(void)

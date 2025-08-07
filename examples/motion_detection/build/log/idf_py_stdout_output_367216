@@ -1,0 +1,85 @@
+[1/10] Performing build step for 'bootloader'
+[1/1] cd /home/cra/workplace_esp32/Komeiji_Satori/examples/motion_detection/build/bootloader/esp-idf/esptool_py && /home/cra/.espressif/python_env/idf5.4_py3.12_env/bin/python /home/cra/esp/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x0 /home/cra/workplace_esp32/Komeiji_Satori/examples/motion_detection/build/bootloader/bootloader.bin
+Bootloader binary size 0x5220 bytes. 0x2de0 bytes (36%) free.
+[2/10] No install step for 'bootloader'
+[3/10] Completed 'bootloader'
+[4/10] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/servo_control.c.obj
+/home/cra/workplace_esp32/Komeiji_Satori/examples/motion_detection/main/servo_control.c:57:21: warning: 'tracking_task_handle' defined but not used [-Wunused-variable]
+   57 | static TaskHandle_t tracking_task_handle = NULL;
+      |                     ^~~~~~~~~~~~~~~~~~~~
+[5/10] Linking C static library esp-idf/main/libmain.a
+[6/10] Generating ld/sections.ld
+[7/10] Linking CXX executable motion_detection.elf
+[8/10] Generating binary image from built executable
+esptool.py v4.8.1
+Creating esp32s3 image...
+Merged 2 ELF sections
+Successfully created esp32s3 image.
+Generated /home/cra/workplace_esp32/Komeiji_Satori/examples/motion_detection/build/motion_detection.bin
+[9/10] cd /home/cra/workplace_esp32/Komeiji_Satori/examples/motion_detection/build/esp-idf/esptool_py && /home/cra/.espressif/python_env/idf5.4_py3.12_env/bin/python /home/cra/esp/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 partition --type app /home/cra/workplace_esp32/Komeiji_Satori/examples/motion_detection/build/partition_table/partition-table.bin /home/cra/workplace_esp32/Komeiji_Satori/examples/motion_detection/build/motion_detection.bin
+motion_detection.bin binary size 0x10f940 bytes. Smallest app partition is 0x300000 bytes. 0x1f06c0 bytes (65%) free.
+[9/10] cd /home/cra/esp/esp-idf/components/esptool_py && /usr/bin/cmake -D IDF_PATH=/home/cra/esp/esp-idf -D "SERIAL_TOOL=/home/cra/.espressif/python_env/idf5.4_py3.12_env/bin/python;;/home/cra/esp/esp-idf/components/esptool_py/esptool/esptool.py;--chip;esp32s3" -D "SERIAL_TOOL_ARGS=--before=default_reset;--after=hard_reset;write_flash;@flash_args" -D WORKING_DIRECTORY=/home/cra/workplace_esp32/Komeiji_Satori/examples/motion_detection/build -P /home/cra/esp/esp-idf/components/esptool_py/run_serial_tool.cmake
+esptool.py --chip esp32s3 -p /dev/ttyUSB0 -b 460800 --before=default_reset --after=hard_reset write_flash --flash_mode dio --flash_freq 80m --flash_size 8MB 0x0 bootloader/bootloader.bin 0x10000 motion_detection.bin 0x8000 partition_table/partition-table.bin
+esptool.py v4.8.1
+Serial port /dev/ttyUSB0
+Connecting....
+Chip is ESP32-S3 (QFN56) (revision v0.2)
+Features: WiFi, BLE, Embedded PSRAM 8MB (AP_3v3)
+Crystal is 40MHz
+MAC: cc:ba:97:22:1a:6c
+Uploading stub...
+Running stub...
+Stub running...
+Changing baud rate to 460800
+Changed.
+Configuring flash size...
+Flash will be erased from 0x00000000 to 0x00005fff...
+Flash will be erased from 0x00010000 to 0x0011ffff...
+Flash will be erased from 0x00008000 to 0x00008fff...
+SHA digest in image updated
+Compressed 21024 bytes to 13384...
+Writing at 0x00000000... (100 %)
+Wrote 21024 bytes (13384 compressed) at 0x00000000 in 0.6 seconds (effective 265.9 kbit/s)...
+Hash of data verified.
+Compressed 1112384 bytes to 522439...
+Writing at 0x00010000... (3 %)
+Writing at 0x00027510... (6 %)
+Writing at 0x000355a8... (9 %)
+Writing at 0x00041014... (12 %)
+Writing at 0x0004b091... (15 %)
+Writing at 0x000535ee... (18 %)
+Writing at 0x0005918b... (21 %)
+Writing at 0x0005f81f... (25 %)
+Writing at 0x00067300... (28 %)
+Writing at 0x0006f909... (31 %)
+Writing at 0x00078147... (34 %)
+Writing at 0x000812d7... (37 %)
+Writing at 0x00089ce5... (40 %)
+Writing at 0x00090e52... (43 %)
+Writing at 0x00098822... (46 %)
+Writing at 0x0009f1e6... (50 %)
+Writing at 0x000a568b... (53 %)
+Writing at 0x000adfac... (56 %)
+Writing at 0x000ba470... (59 %)
+Writing at 0x000c34e0... (62 %)
+Writing at 0x000c9e9a... (65 %)
+Writing at 0x000cf9c4... (68 %)
+Writing at 0x000d71b6... (71 %)
+Writing at 0x000de87d... (75 %)
+Writing at 0x000e640b... (78 %)
+Writing at 0x000eee48... (81 %)
+Writing at 0x000f4a49... (84 %)
+Writing at 0x000fc75e... (87 %)
+Writing at 0x00105ff6... (90 %)
+Writing at 0x0010e0a8... (93 %)
+Writing at 0x00114233... (96 %)
+Writing at 0x00119e3b... (100 %)
+Wrote 1112384 bytes (522439 compressed) at 0x00010000 in 13.1 seconds (effective 678.4 kbit/s)...
+Hash of data verified.
+Compressed 3072 bytes to 122...
+Writing at 0x00008000... (100 %)
+Wrote 3072 bytes (122 compressed) at 0x00008000 in 0.1 seconds (effective 484.8 kbit/s)...
+Hash of data verified.
+
+Leaving...
+Hard resetting via RTS pin...

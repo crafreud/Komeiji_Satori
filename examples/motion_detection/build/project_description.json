@@ -1,7 +1,7 @@
 {
     "version":            "1.2",
     "project_name":       "motion_detection",
-    "project_version":    "312921ff-dirty",
+    "project_version":    "cf110cd8-dirty",
     "project_path":       "/home/cra/workplace_esp32/Komeiji_Satori/examples/motion_detection",
     "idf_path":           "/home/cra/esp/esp-idf",
     "build_dir":          "/home/cra/workplace_esp32/Komeiji_Satori/examples/motion_detection/build",

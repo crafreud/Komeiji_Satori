@@ -17,22 +17,23 @@
 
 #include "esp_camera.h"
 #include "servo_control.h"
-#include "web_server.h"
-#include "esp_wifi.h"
-#include "esp_event.h"
-#include "nvs_flash.h"
-#include "esp_netif.h"
+// Web服务相关头文件已移除
+// #include "web_server.h"
+// #include "esp_wifi.h"
+// #include "esp_event.h"
+// #include "nvs_flash.h"
+// #include "esp_netif.h"
 
 #define CONFIG_IDF_TARGET_ARCH_XTENSA 1
 
-// WiFi配置
-#define WIFI_SSID "ESP32_Servo_Control"
-#define WIFI_PASS "12345678"
-#define WIFI_CHANNEL 1
-#define MAX_STA_CONN 4
+// WiFi配置已移除
+// #define WIFI_SSID "ESP32_Servo_Control"
+// #define WIFI_PASS "12345678"
+// #define WIFI_CHANNEL 1
+// #define MAX_STA_CONN 4
 
 static const char *TAG = "MAIN";
-static esp_netif_t *wifi_netif = NULL;
+// static esp_netif_t *wifi_netif = NULL;
 
 #define CAM_PIN_PWDN    -1
 #define CAM_PIN_RESET   -1
@@ -92,6 +93,8 @@ static camera_config_t camera_config = {
 
 int cv_motion_detection(uint8_t* data, int width, int heigth);
 
+// WiFi相关函数已完全移除
+/*
 // WiFi事件处理函数
 static void wifi_event_handler(void* arg, esp_event_base_t event_base,
                                int32_t event_id, void* event_data)
@@ -155,6 +158,7 @@ static esp_err_t wifi_init_ap(void)
 
     return ESP_OK;
 }
+*/
 
 #ifdef CONFIG_IDF_TARGET_ARCH_XTENSA
 esp_err_t camera_capture()
@@ -181,12 +185,12 @@ void app_main(void)
     printf("Init\n");
     cv_print_info();
     
-    // 初始化WiFi AP模式
-    esp_err_t wifi_ret = wifi_init_ap();
-    if (wifi_ret != ESP_OK) {
-        ESP_LOGE(TAG, "WiFi init failed: %s", esp_err_to_name(wifi_ret));
-        return;
-    }
+    // WiFi初始化已移除
+    // esp_err_t wifi_ret = wifi_init_ap();
+    // if (wifi_ret != ESP_OK) {
+    //     ESP_LOGE(TAG, "WiFi init failed: %s", esp_err_to_name(wifi_ret));
+    //     return;
+    // }
     
     // 初始化舵机控制系统
     esp_err_t servo_ret = servo_control_init();
