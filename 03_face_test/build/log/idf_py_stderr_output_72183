@@ -1,0 +1,61 @@
+[0;33m--- esp-idf-monitor 1.6.2 on /dev/ttyUSB0 115200[0m
+[0;33m--- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H[0m
+[0;33m--- 0x4201e1db: check_i2c_driver_conflict at /home/cra/esp/esp-idf/components/driver/i2c/i2c.c:1723
+[0m
+[0;33m--- 0x40379d0d: panic_abort at /home/cra/esp/esp-idf/components/esp_system/panic.c:454
+--- 0x4037fce1: esp_system_abort at /home/cra/esp/esp-idf/components/esp_system/port/esp_system_chip.c:87
+--- 0x403867f1: abort at /home/cra/esp/esp-idf/components/newlib/abort.c:38
+--- 0x4201e1db: check_i2c_driver_conflict at /home/cra/esp/esp-idf/components/driver/i2c/i2c.c:1723
+--- 0x42003f93: do_global_ctors at /home/cra/esp/esp-idf/components/esp_system/startup.c:104
+--- 0x4200407a: start_cpu0_default at /home/cra/esp/esp-idf/components/esp_system/startup.c:206
+--- 0x4037985e: call_start_cpu0 at /home/cra/esp/esp-idf/components/esp_system/port/cpu_start.c:849 (discriminator 1)
+--- 0x40045c01: ets_run_flash_bootloader in ROM
+--- 0x40043ab6: main in ROM
+--- 0x40034c45: .stack_ok in ROM
+[0m
+[0;33m--- 0x40379c4d: esp_restart_noos at /home/cra/esp/esp-idf/components/esp_system/port/soc/esp32s3/system_internal.c:160
+[0m
+[0;33m--- 0x4201e1db: check_i2c_driver_conflict at /home/cra/esp/esp-idf/components/driver/i2c/i2c.c:1723
+[0m
+[0;33m--- 0x40379d0d: panic_abort at /home/cra/esp/esp-idf/components/esp_system/panic.c:454
+--- 0x4037fce1: esp_system_abort at /home/cra/esp/esp-idf/components/esp_system/port/esp_system_chip.c:87
+--- 0x403867f1: abort at /home/cra/esp/esp-idf/components/newlib/abort.c:38
+--- 0x4201e1db: check_i2c_driver_conflict at /home/cra/esp/esp-idf/components/driver/i2c/i2c.c:1723
+--- 0x42003f93: do_global_ctors at /home/cra/esp/esp-idf/components/esp_system/startup.c:104
+--- 0x4200407a: start_cpu0_default at /home/cra/esp/esp-idf/components/esp_system/startup.c:206
+--- 0x4037985e: call_start_cpu0 at /home/cra/esp/esp-idf/components/esp_system/port/cpu_start.c:849 (discriminator 1)
+--- 0x40045c01: ets_run_flash_bootloader in ROM
+--- 0x40043ab6: main in ROM
+--- 0x40034c45: .stack_ok in ROM
+[0m
+[0;33m--- 0x40379c4d: esp_restart_noos at /home/cra/esp/esp-idf/components/esp_system/port/soc/esp32s3/system_internal.c:160
+[0m
+[0;33m--- 0x4201e1db: check_i2c_driver_conflict at /home/cra/esp/esp-idf/components/driver/i2c/i2c.c:1723
+[0m
+[0;33m--- 0x40379d0d: panic_abort at /home/cra/esp/esp-idf/components/esp_system/panic.c:454
+--- 0x4037fce1: esp_system_abort at /home/cra/esp/esp-idf/components/esp_system/port/esp_system_chip.c:87
+--- 0x403867f1: abort at /home/cra/esp/esp-idf/components/newlib/abort.c:38
+--- 0x4201e1db: check_i2c_driver_conflict at /home/cra/esp/esp-idf/components/driver/i2c/i2c.c:1723
+--- 0x42003f93: do_global_ctors at /home/cra/esp/esp-idf/components/esp_system/startup.c:104
+--- 0x4200407a: start_cpu0_default at /home/cra/esp/esp-idf/components/esp_system/startup.c:206
+--- 0x4037985e: call_start_cpu0 at /home/cra/esp/esp-idf/components/esp_system/port/cpu_start.c:849 (discriminator 1)
+--- 0x40045c01: ets_run_flash_bootloader in ROM
+--- 0x40043ab6: main in ROM
+--- 0x40034c45: .stack_ok in ROM
+[0m
+[0;33m--- 0x40379c4d: esp_restart_noos at /home/cra/esp/esp-idf/components/esp_system/port/soc/esp32s3/system_internal.c:160
+[0m
+[0;33m--- 0x4201e1db: check_i2c_driver_conflict at /home/cra/esp/esp-idf/components/driver/i2c/i2c.c:1723
+[0m
+[0;33m--- 0x40379d0d: panic_abort at /home/cra/esp/esp-idf/components/esp_system/panic.c:454
+--- 0x4037fce1: esp_system_abort at /home/cra/esp/esp-idf/components/esp_system/port/esp_system_chip.c:87
+--- 0x403867f1: abort at /home/cra/esp/esp-idf/components/newlib/abort.c:38
+--- 0x4201e1db: check_i2c_driver_conflict at /home/cra/esp/esp-idf/components/driver/i2c/i2c.c:1723
+--- 0x42003f93: do_global_ctors at /home/cra/esp/esp-idf/components/esp_system/startup.c:104
+--- 0x4200407a: start_cpu0_default at /home/cra/esp/esp-idf/components/esp_system/startup.c:206
+--- 0x4037985e: call_start_cpu0 at /home/cra/esp/esp-idf/components/esp_system/port/cpu_start.c:849 (discriminator 1)
+--- 0x40045c01: ets_run_flash_bootloader in ROM
+--- 0x40043ab6: main in ROM
+--- 0x40034c45: .stack_ok in ROM
+[0m
+[0m

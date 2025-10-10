@@ -1,0 +1,233 @@
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0x1 (POWERON),boot:0x8 (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2810,len:0x15a0
+load:0x403c8700,len:0x4
+load:0x403c8704,len:0xd20
+load:0x403cb700,len:0x2f00
+entry 0x403c8928
+[0;32mI (27) boot: ESP-IDF v5.4.1 2nd stage bootloader[0m
+[0;32mI (27) boot: compile time Aug 23 2025 17:57:25[0m
+[0;32mI (27) boot: Multicore bootloader[0m
+[0;32mI (27) boot: chip revision: v0.2[0m
+[0;32mI (30) boot: efuse block revision: v1.3[0m
+[0;32mI (33) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (37) boot.esp32s3: SPI Mode       : DIO[0m
+[0;32mI (41) boot.esp32s3: SPI Flash Size : 8MB[0m
+[0;32mI (45) boot: Enabling RNG early entropy source...[0m
+[0;32mI (49) boot: Partition Table:[0m
+[0;32mI (52) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (58) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (65) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (71) boot:  2 factory          factory app      00 00 00010000 00300000[0m
+[0;32mI (78) boot: End of partition table[0m
+[0;32mI (81) esp_image: segment 0: paddr=00010020 vaddr=3c100020 size=6793ch (424252) map[0m
+[0;32mI (163) esp_image: segment 1: paddr=00077964 vaddr=3fc9b400 size=075a4h ( 30116) load[0m
+[0;32mI (170) esp_image: segment 2: paddr=0007ef10 vaddr=40374000 size=01108h (  4360) load[0m
+[0;32mI (171) esp_image: segment 3: paddr=00080020 vaddr=42000020 size=f5000h (1003520) map[0m
+[0;32mI (352) esp_image: segment 4: paddr=00175028 vaddr=40375108 size=162c8h ( 90824) load[0m
+[0;32mI (371) esp_image: segment 5: paddr=0018b2f8 vaddr=600fe100 size=0001ch (    28) load[0m
+[0;32mI (381) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (381) boot: Disabling RNG early entropy source...[0m
+[0;32mI (392) octal_psram: vendor id    : 0x0d (AP)[0m
+[0;32mI (392) octal_psram: dev id       : 0x02 (generation 3)[0m
+[0;32mI (392) octal_psram: density      : 0x03 (64 Mbit)[0m
+[0;32mI (394) octal_psram: good-die     : 0x01 (Pass)[0m
+[0;32mI (398) octal_psram: Latency      : 0x01 (Fixed)[0m
+[0;32mI (403) octal_psram: VCC          : 0x01 (3V)[0m
+[0;32mI (407) octal_psram: SRF          : 0x01 (Fast Refresh)[0m
+[0;32mI (412) octal_psram: BurstType    : 0x01 (Hybrid Wrap)[0m
+[0;32mI (416) octal_psram: BurstLen     : 0x01 (32 Byte)[0m
+[0;32mI (421) octal_psram: Readlatency  : 0x02 (10 cycles@Fixed)[0m
+[0;32mI (426) octal_psram: DriveStrength: 0x00 (1/1)[0m
+[0;32mI (430) esp_psram: Found 8MB PSRAM device[0m
+[0;32mI (434) esp_psram: Speed: 40MHz[0m
+[0;32mI (437) cpu_start: Multicore app[0m
+[0;32mI (1171) esp_psram: SPI SRAM memory test OK[0m
+[0;32mI (1180) cpu_start: Pro cpu start user code[0m
+[0;32mI (1180) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (1180) app_init: Application information:[0m
+[0;32mI (1180) app_init: Project name:     04_final_test[0m
+[0;32mI (1185) app_init: App version:      56a26ca4-dirty[0m
+[0;32mI (1189) app_init: Compile time:     Aug 23 2025 17:57:21[0m
+[0;32mI (1194) app_init: ELF file SHA256:  b20768deb...[0m
+[0;32mI (1199) app_init: ESP-IDF:          v5.4.1[0m
+[0;32mI (1203) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (1207) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (1211) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (1215) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (1221) heap_init: At 3FCAB550 len 0003E1C0 (248 KiB): RAM[0m
+[0;32mI (1226) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (1231) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (1237) heap_init: At 600FE11C len 00001ECC (7 KiB): RTCRAM[0m
+[0;32mI (1242) esp_psram: Adding pool of 8192K of PSRAM memory to heap allocator[0m
+[0;32mI (1250) spi_flash: detected chip: boya[0m
+[0;32mI (1252) spi_flash: flash io: dio[0m
+[0;33mW (1255) spi_flash: Detected size(16384k) larger than the size in the binary image header(8192k). Using the size in the binary image header.[0m
+[0;32mI (1275) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (1276) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (1281) main_task: Started on CPU0[0m
+[0;32mI (1301) esp_psram: Reserving pool of 32K of internal memory for DMA/internal allocations[0m
+[0;32mI (1301) main_task: Calling app_main()[0m
+[0;32mI (1321) cam_http: Starting Wi-Fi...[0m
+[0;32mI (1331) pp: pp rom version: e7ae62f[0m
+[0;32mI (1331) net80211: net80211 rom version: e7ae62f[0m
+[0;32mI (1341) wifi:wifi driver task: 3fcbe4c0, prio:23, stack:6656, core=0[0m
+[0;32mI (1351) wifi:wifi firmware version: 79fa3f41ba[0m
+[0;32mI (1351) wifi:wifi certification version: v7.0[0m
+[0;32mI (1351) wifi:config NVS flash: enabled[0m
+[0;32mI (1351) wifi:config nano formatting: disabled[0m
+[0;32mI (1361) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (1361) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (1361) wifi:Init management short buffer num: 32[0m
+[0;32mI (1371) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (1371) wifi:Init static tx FG buffer num: 2[0m
+[0;32mI (1381) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (1381) wifi:Init static rx buffer num: 10[0m
+[0;32mI (1381) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (1391) wifi_init: rx ba win: 6[0m
+[0;32mI (1391) wifi_init: accept mbox: 6[0m
+[0;32mI (1401) wifi_init: tcpip mbox: 32[0m
+[0;32mI (1401) wifi_init: udp mbox: 6[0m
+[0;32mI (1401) wifi_init: tcp mbox: 6[0m
+[0;32mI (1401) wifi_init: tcp tx win: 5760[0m
+[0;32mI (1411) wifi_init: tcp rx win: 5760[0m
+[0;32mI (1411) wifi_init: tcp mss: 1440[0m
+[0;32mI (1411) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (1421) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (1421) phy_init: phy_version 700,8582a7fd,Feb 10 2025,20:13:11[0m
+[0;32mI (1461) wifi:mode : sta (cc:ba:97:22:1a:6c)[0m
+[0;32mI (1461) wifi:enable tsf[0m
+[0;32mI (1471) cam_http: wifi_init_sta finished.[0m
+[0;32mI (1471) wifi:new:<6,0>, old:<1,0>, ap:<255,255>, sta:<6,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (1471) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (1481) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (1481) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (1511) wifi:connected with myssid, aid = 7, channel 6, BW20, bssid = 42:c7:3c:0b:f6:85[0m
+[0;32mI (1511) wifi:security: WPA2-PSK, phy: bgn, rssi: -33[0m
+[0;32mI (1521) wifi:pm start, type: 1[0m
+
+[0;32mI (1521) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (1531) wifi:set rx beacon pti, rx_bcn_pti: 0, bcn_timeout: 25000, mt_pti: 0, mt_time: 10000[0m
+[0;32mI (1581) wifi:AP's beacon interval = 102400 us, DTIM period = 3[0m
+[0;32mI (2561) esp_netif_handlers: sta ip: 192.168.137.253, mask: 255.255.255.0, gw: 192.168.137.1[0m
+[0;32mI (2561) cam_http: got ip:192.168.137.253[0m
+[0;32mI (2561) cam_http: connected to ap SSID:myssid[0m
+[0;32mI (2561) cam_http: Init camera...[0m
+[0;32mI (2561) s3 ll_cam: DMA Channel=1[0m
+[0;32mI (2571) cam_hal: cam init ok[0m
+[0;32mI (2571) sccb-ng: pin_sda 20 pin_scl 19[0m
+[0;32mI (2571) sccb-ng: sccb_i2c_port=1[0m
+[0;32mI (2591) camera: Camera PID=0x26 VER=0x42 MIDL=0x7f MIDH=0xa2[0m
+[0;32mI (2591) camera: Detected OV2640 camera[0m
+[0;32mI (2591) camera: Detected camera at address=0x30[0m
+[0;32mI (2661) cam_hal: PSRAM DMA mode disabled[0m
+[0;32mI (2661) s3 ll_cam: node_size: 3840, nodes_per_line: 1, lines_per_node: 6[0m
+[0;32mI (2661) s3 ll_cam: dma_half_buffer_min:  3840, dma_half_buffer: 15360, lines_per_half_buffer: 24, dma_buffer_size: 30720[0m
+[0;32mI (2671) cam_hal: buffer_size: 30720, half_buffer_size: 15360, node_buffer_size: 3840, node_cnt: 8, total_cnt: 10[0m
+[0;32mI (2681) cam_hal: Allocating 153600 Byte frame buffer in PSRAM[0m
+[0;32mI (2691) cam_hal: cam config ok[0m
+[0;32mI (2691) ov2640: Set PLL: clk_2x: 1, clk_div: 3, pclk_auto: 1, pclk_div: 8[0m
+[0;32mI (2751) cam_http: Starting web server...[0m
+[0;32mI (8311) wifi:<ba-add>idx:0 (ifx:0, 42:c7:3c:0b:f6:85), tid:0, ssn:13, winSize:64[0m
+[0;32mI (10661) detection_result: [ 0]: ( 79,  61, 190, 208)[0m
+[0;32mI (10661) detection_result:       left eye: (103, 124), right eye: (152, 118), nose: (123, 142), mouth left: (109, 170), mouth right: (150, 167)[0m
+[0;32mI (29631) detection_result: [ 0]: ( 53,  40, 163, 180)[0m
+[0;32mI (29631) detection_result:       left eye: ( 77, 101), right eye: (120,  91), nose: ( 97, 114), mouth left: ( 88, 142), mouth right: (129, 133)[0m
+[0;32mI (31171) detection_result: [ 0]: (107,  43, 216, 181)[0m
+[0;32mI (31171) detection_result:       left eye: (130,  90), right eye: (178,  91), nose: (144, 109), mouth left: (130, 136), mouth right: (171, 138)[0m
+[0;32mI (41001) detection_result: [ 0]: (133,  33, 240, 160)[0m
+[0;32mI (41001) detection_result:       left eye: (156,  84), right eye: (200,  84), nose: (170, 102), mouth left: (159, 124), mouth right: (198, 125)[0m
+cam_hal: EV-VSYNC-OVF
+[0;32mI (54001) detection_result: [ 0]: (121,  36, 249, 208)[0m
+[0;32mI (54001) detection_result:       left eye: (152, 102), right eye: (215, 104), nose: (178, 135), mouth left: (157, 168), mouth right: (205, 172)[0m
+[0;33mW (54181) httpd_txrx: httpd_sock_err: error in send : 104[0m
+[0;33mW (54191) httpd_uri: httpd_uri: uri handler execution failed[0m
+[0;32mI (54401) detection_result: [ 0]: (108,  45, 243, 221)[0m
+[0;32mI (54401) detection_result:       left eye: (146, 114), right eye: (199, 115), nose: (168, 139), mouth left: (147, 161), mouth right: (191, 163)[0m
+[0;33mW (54601) httpd_txrx: httpd_sock_err: error in send : 104[0m
+[0;33mW (54601) httpd_uri: httpd_uri: uri handler execution failed[0m
+[0;32mI (55031) detection_result: [ 0]: (109,  49, 240, 218)[0m
+[0;32mI (55031) detection_result:       left eye: (149, 118), right eye: (202, 118), nose: (173, 140), mouth left: (152, 164), mouth right: (196, 165)[0m
+[0;33mW (55211) httpd_txrx: httpd_sock_err: error in send : 104[0m
+[0;33mW (55211) httpd_uri: httpd_uri: uri handler execution failed[0m
+[0;32mI (55441) detection_result: [ 0]: (106,  41, 245, 228)[0m
+[0;32mI (55441) detection_result:       left eye: (140, 114), right eye: (198, 118), nose: (161, 143), mouth left: (140, 166), mouth right: (190, 170)[0m
+[0;33mW (55621) httpd_txrx: httpd_sock_err: error in send : 104[0m
+[0;33mW (55621) httpd_uri: httpd_uri: uri handler execution failed[0m
+[0;32mI (56871) detection_result: [ 0]: (127,  84, 261, 256)[0m
+[0;32mI (56871) detection_result:       left eye: (165, 152), right eye: (217, 148), nose: (192, 174), mouth left: (169, 198), mouth right: (217, 195)[0m
+[0;33mW (57051) httpd_txrx: httpd_sock_err: error in send : 104[0m
+[0;33mW (57061) httpd_uri: httpd_uri: uri handler execution failed[0m
+[0;32mI (58311) detection_result: [ 0]: (121,  74, 258, 248)[0m
+[0;32mI (58311) detection_result:       left eye: (164, 151), right eye: (216, 146), nose: (194, 173), mouth left: (173, 198), mouth right: (217, 194)[0m
+[0;32mI (69191) detection_result: [ 0]: ( 79,  53, 206, 214)[0m
+[0;32mI (69191) detection_result:       left eye: ( 99, 111), right eye: (148, 111), nose: (109, 134), mouth left: ( 98, 162), mouth right: (140, 164)[0m
+[0;33mW (69341) httpd_txrx: httpd_sock_err: error in send : 104[0m
+[0;33mW (69341) httpd_uri: httpd_uri: uri handler execution failed[0m
+[0;32mI (71411) detection_result: [ 0]: ( 77,  50, 202, 213)[0m
+[0;32mI (71411) detection_result:       left eye: ( 94, 113), right eye: (143, 111), nose: (104, 133), mouth left: ( 97, 165), mouth right: (138, 164)[0m
+[0;32mI (75271) detection_result: [ 0]: ( 93,  83, 200, 222)[0m
+[0;32mI (75271) detection_result:       left eye: (105, 143), right eye: (145, 131), nose: (114, 155), mouth left: (114, 187), mouth right: (147, 178)[0m
+[0;33mW (75431) httpd_txrx: httpd_sock_err: error in send : 104[0m
+[0;33mW (75431) httpd_uri: httpd_uri: uri handler execution failed[0m
+[0;32mI (76791) detection_result: [ 0]: ( 98,  85, 207, 218)[0m
+[0;32mI (76791) detection_result:       left eye: (112, 135), right eye: (154, 127), nose: (122, 148), mouth left: (118, 181), mouth right: (154, 177)[0m
+[0;32mI (80011) detection_result: [ 0]: ( 93,  71, 213, 226)[0m
+[0;32mI (80011) detection_result:       left eye: (115, 134), right eye: (160, 128), nose: (129, 152), mouth left: (121, 180), mouth right: (162, 176)[0m
+[0;32mI (85101) detection_result: [ 0]: (102,  72, 206, 214)[0m
+[0;32mI (85101) detection_result:       left eye: (119, 134), right eye: (151, 131), nose: (122, 155), mouth left: (123, 176), mouth right: (155, 175)[0m
+[0;32mI (91101) detection_result: [ 0]: ( 89,  79, 209, 225)[0m
+[0;32mI (91101) detection_result:       left eye: (105, 138), right eye: (146, 126), nose: (117, 155), mouth left: (117, 184), mouth right: (150, 176)[0m
+[0;32mI (95501) detection_result: [ 0]: (104,  18, 283, 251)[0m
+[0;32mI (95501) detection_result:       left eye: (152, 114), right eye: (234, 112), nose: (190, 162), mouth left: (161, 195), mouth right: (227, 193)[0m
+[0;32mI (211211) detection_result: [ 0]: (140, 127, 203, 201)[0m
+[0;32mI (211211) detection_result:       left eye: (151, 158), right eye: (177, 150), nose: (163, 167), mouth left: (160, 186), mouth right: (182, 180)[0m
+[0;32mI (216411) detection_result: [ 0]: (141, 124, 205, 202)[0m
+[0;32mI (216411) detection_result:       left eye: (154, 158), right eye: (180, 151), nose: (165, 166), mouth left: (162, 185), mouth right: (185, 179)[0m
+[0;32mI (218811) detection_result: [ 0]: (144, 127, 197, 196)[0m
+[0;32mI (218811) detection_result:       left eye: (151, 151), right eye: (167, 152), nose: (151, 161), mouth left: (149, 175), mouth right: (162, 175)[0m
+[0;33mW (218971) httpd_txrx: httpd_sock_err: error in send : 104[0m
+[0;33mW (218971) httpd_uri: httpd_uri: uri handler execution failed[0m
+[0;32mI (222171) detection_result: [ 0]: (147, 124, 214, 207)[0m
+[0;32mI (222171) detection_result:       left eye: (160, 159), right eye: (189, 153), nose: (172, 170), mouth left: (167, 189), mouth right: (191, 185)[0m
+[0;32mI (232801) detection_result: [ 0]: (143, 125, 210, 202)[0m
+[0;32mI (232801) detection_result:       left eye: (155, 159), right eye: (181, 151), nose: (165, 168), mouth left: (164, 187), mouth right: (187, 180)[0m
+[0;33mW (233001) httpd_txrx: httpd_sock_err: error in send : 104[0m
+[0;33mW (233001) httpd_uri: httpd_uri: uri handler execution failed[0m
+[0;32mI (233211) detection_result: [ 0]: (143, 130, 212, 213)[0m
+[0;32mI (233211) detection_result:       left eye: (159, 162), right eye: (188, 156), nose: (173, 174), mouth left: (169, 193), mouth right: (192, 188)[0m
+[0;33mW (233411) httpd_txrx: httpd_sock_err: error in send : 104[0m
+[0;33mW (233411) httpd_uri: httpd_uri: uri handler execution failed[0m
+[0;32mI (234811) detection_result: [ 0]: (144, 127, 212, 210)[0m
+[0;32mI (234811) detection_result:       left eye: (155, 163), right eye: (181, 156), nose: (165, 174), mouth left: (164, 192), mouth right: (187, 187)[0m
+[0;33mW (234961) httpd_txrx: httpd_sock_err: error in send : 104[0m
+[0;33mW (234961) httpd_uri: httpd_uri: uri handler execution failed[0m
+[0;32mI (235211) detection_result: [ 0]: (146, 126, 215, 211)[0m
+[0;32mI (235211) detection_result:       left eye: (160, 160), right eye: (188, 153), nose: (174, 172), mouth left: (169, 191), mouth right: (193, 185)[0m
+[0;33mW (235371) httpd_txrx: httpd_sock_err: error in send : 104[0m
+[0;33mW (235381) httpd_uri: httpd_uri: uri handler execution failed[0m
+[0;32mI (236691) detection_result: [ 0]: (144, 125, 214, 209)[0m
+[0;32mI (236691) detection_result:       left eye: (160, 160), right eye: (187, 155), nose: (172, 172), mouth left: (167, 190), mouth right: (194, 186)[0m
+[0;32mI (242641) detection_result: [ 0]: (161, 127, 224, 201)[0m
+[0;32mI (242641) detection_result:       left eye: (170, 156), right eye: (197, 154), nose: (178, 168), mouth left: (173, 185), mouth right: (195, 185)[0m
+[0;33mW (242821) httpd_txrx: httpd_sock_err: error in send : 104[0m
+[0;33mW (242831) httpd_uri: httpd_uri: uri handler execution failed[0m
+[0;32mI (535301) detection_result: [ 0]: (152, 130, 222, 219)[0m
+[0;32mI (535301) detection_result:       left eye: (166, 164), right eye: (195, 162), nose: (178, 181), mouth left: (170, 196), mouth right: (195, 195)[0m
+[0;32mI (541641) detection_result: [ 0]: (188,  92, 263, 176)[0m
+[0;32mI (541641) detection_result:       left eye: (202, 126), right eye: (229, 117), nose: (214, 136), mouth left: (213, 155), mouth right: (239, 148)[0m
+[0;33mW (541831) httpd_txrx: httpd_sock_err: error in send : 104[0m
+[0;33mW (541831) httpd_uri: httpd_uri: uri handler execution failed[0m
+[0;32mI (543001) detection_result: [ 0]: (184,  97, 250, 176)[0m
+[0;32mI (543001) detection_result:       left eye: (195, 127), right eye: (214, 124), nose: (197, 141), mouth left: (197, 155), mouth right: (215, 154)[0m
+[0;33mW (543161) httpd_txrx: httpd_sock_err: error in send : 104[0m
+[0;33mW (543161) httpd_uri: httpd_uri: uri handler execution failed[0m
+[0;32mI (544821) detection_result: [ 0]: (185,  90, 259, 178)[0m
+[0;32mI (544821) detection_result:       left eye: (194, 127), right eye: (219, 118), nose: (203, 137), mouth left: (205, 157), mouth right: (226, 150)[0m
+[0;32mI (557791) detection_result: [ 0]: (186,  87, 260, 177)[0m
+[0;32mI (557791) detection_result:       left eye: (195, 121), right eye: (216, 120), nose: (195, 136), mouth left: (198, 151), mouth right: (215, 150)[0m
+[0;33mW (557941) httpd_txrx: httpd_sock_err: error in send : 104[0m
+[0;33mW (557951) httpd_uri: httpd_uri: uri handler execution failed[0m

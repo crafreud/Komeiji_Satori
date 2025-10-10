@@ -1,0 +1,102 @@
+[1/10] Performing build step for 'bootloader'
+[1/1] cd /home/cra/workplace_esp32/Komeiji_Satori/04_final_test/build/bootloader/esp-idf/esptool_py && /home/cra/.espressif/python_env/idf5.4_py3.12_env/bin/python /home/cra/esp/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x0 /home/cra/workplace_esp32/Komeiji_Satori/04_final_test/build/bootloader/bootloader.bin
+Bootloader binary size 0x5220 bytes. 0x2de0 bytes (36%) free.
+[2/10] No install step for 'bootloader'
+[3/10] Completed 'bootloader'
+[4/10] Building CXX object esp-idf/main/CMakeFiles/__idf_main.dir/04_final_test.cpp.obj
+/home/cra/workplace_esp32/Komeiji_Satori/04_final_test/main/04_final_test.cpp: In function 'void servo_init()':
+/home/cra/workplace_esp32/Komeiji_Satori/04_final_test/main/04_final_test.cpp:73:33: warning: missing initializer for member 'ledc_timer_config_t::deconfigure' [-Wmissing-field-initializers]
+   73 |         .clk_cfg = LEDC_AUTO_CLK};
+      |                                 ^
+/home/cra/workplace_esp32/Komeiji_Satori/04_final_test/main/04_final_test.cpp:85:22: warning: missing initializer for member 'ledc_channel_config_t::hpoint' [-Wmissing-field-initializers]
+   85 |             .duty = 0};
+      |                      ^
+/home/cra/workplace_esp32/Komeiji_Satori/04_final_test/main/04_final_test.cpp:85:22: warning: missing initializer for member 'ledc_channel_config_t::sleep_mode' [-Wmissing-field-initializers]
+/home/cra/workplace_esp32/Komeiji_Satori/04_final_test/main/04_final_test.cpp:85:22: warning: missing initializer for member 'ledc_channel_config_t::flags' [-Wmissing-field-initializers]
+/home/cra/workplace_esp32/Komeiji_Satori/04_final_test/main/04_final_test.cpp: In function 'void task_face_detect(void*)':
+/home/cra/workplace_esp32/Komeiji_Satori/04_final_test/main/04_final_test.cpp:114:9: warning: unused variable 'servo_h_angle' [-Wunused-variable]
+  114 |     int servo_h_angle = 90; // 初始水平角
+      |         ^~~~~~~~~~~~~
+/home/cra/workplace_esp32/Komeiji_Satori/04_final_test/main/04_final_test.cpp:115:9: warning: unused variable 'servo_v_angle' [-Wunused-variable]
+  115 |     int servo_v_angle = 90; // 初始垂直角
+      |         ^~~~~~~~~~~~~
+[5/10] Linking C static library esp-idf/main/libmain.a
+[6/10] Generating ld/sections.ld
+[7/10] Linking CXX executable 04_final_test.elf
+[8/10] Generating binary image from built executable
+esptool.py v4.8.1
+Creating esp32s3 image...
+Merged 2 ELF sections
+Successfully created esp32s3 image.
+Generated /home/cra/workplace_esp32/Komeiji_Satori/04_final_test/build/04_final_test.bin
+[9/10] cd /home/cra/workplace_esp32/Komeiji_Satori/04_final_test/build/esp-idf/esptool_py && /home/cra/.espressif/python_env/idf5.4_py3.12_env/bin/python /home/cra/esp/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 partition --type app /home/cra/workplace_esp32/Komeiji_Satori/04_final_test/build/partition_table/partition-table.bin /home/cra/workplace_esp32/Komeiji_Satori/04_final_test/build/04_final_test.bin
+04_final_test.bin binary size 0xf3ba0 bytes. Smallest app partition is 0x300000 bytes. 0x20c460 bytes (68%) free.
+[9/10] cd /home/cra/esp/esp-idf/components/esptool_py && /usr/bin/cmake -D IDF_PATH=/home/cra/esp/esp-idf -D "SERIAL_TOOL=/home/cra/.espressif/python_env/idf5.4_py3.12_env/bin/python;;/home/cra/esp/esp-idf/components/esptool_py/esptool/esptool.py;--chip;esp32s3" -D "SERIAL_TOOL_ARGS=--before=default_reset;--after=hard_reset;write_flash;@flash_args" -D WORKING_DIRECTORY=/home/cra/workplace_esp32/Komeiji_Satori/04_final_test/build -P /home/cra/esp/esp-idf/components/esptool_py/run_serial_tool.cmake
+esptool.py --chip esp32s3 -p /dev/ttyUSB0 -b 460800 --before=default_reset --after=hard_reset write_flash --flash_mode dio --flash_freq 80m --flash_size 8MB 0x0 bootloader/bootloader.bin 0x10000 04_final_test.bin 0x8000 partition_table/partition-table.bin
+esptool.py v4.8.1
+Serial port /dev/ttyUSB0
+Connecting....
+Chip is ESP32-S3 (QFN56) (revision v0.2)
+Features: WiFi, BLE, Embedded PSRAM 8MB (AP_3v3)
+Crystal is 40MHz
+MAC: cc:ba:97:22:1a:6c
+Uploading stub...
+Running stub...
+Stub running...
+Changing baud rate to 460800
+Changed.
+Configuring flash size...
+Flash will be erased from 0x00000000 to 0x00005fff...
+Flash will be erased from 0x00010000 to 0x00103fff...
+Flash will be erased from 0x00008000 to 0x00008fff...
+SHA digest in image updated
+Compressed 21024 bytes to 13384...
+Writing at 0x00000000... (100 %)
+Wrote 21024 bytes (13384 compressed) at 0x00000000 in 0.7 seconds (effective 241.4 kbit/s)...
+Hash of data verified.
+Compressed 998304 bytes to 573689...
+Writing at 0x00010000... (2 %)
+Writing at 0x0001c290... (5 %)
+Writing at 0x00022642... (8 %)
+Writing at 0x00026a84... (11 %)
+Writing at 0x0002ae2d... (13 %)
+Writing at 0x0002fbad... (16 %)
+Writing at 0x0003480e... (19 %)
+Writing at 0x000393a4... (22 %)
+Writing at 0x0003df66... (25 %)
+Writing at 0x00042d2e... (27 %)
+Writing at 0x00047660... (30 %)
+Writing at 0x0004ba6a... (33 %)
+Writing at 0x0004feb1... (36 %)
+Writing at 0x000541f7... (38 %)
+Writing at 0x000583fc... (41 %)
+Writing at 0x0005c810... (44 %)
+Writing at 0x00060b3a... (47 %)
+Writing at 0x0006a1da... (50 %)
+Writing at 0x00070909... (52 %)
+Writing at 0x00076e1d... (55 %)
+Writing at 0x0007d1a0... (58 %)
+Writing at 0x0008483c... (61 %)
+Writing at 0x0008b4dc... (63 %)
+Writing at 0x00091ad6... (66 %)
+Writing at 0x000991de... (69 %)
+Writing at 0x0009f451... (72 %)
+Writing at 0x000a591a... (75 %)
+Writing at 0x000afba8... (77 %)
+Writing at 0x000b6c95... (80 %)
+Writing at 0x000bf3e9... (83 %)
+Writing at 0x000c4ff3... (86 %)
+Writing at 0x000cd083... (88 %)
+Writing at 0x000d709c... (91 %)
+Writing at 0x000f6f3e... (94 %)
+Writing at 0x000fcf6a... (97 %)
+Writing at 0x00103a4d... (100 %)
+Wrote 998304 bytes (573689 compressed) at 0x00010000 in 14.6 seconds (effective 546.0 kbit/s)...
+Hash of data verified.
+Compressed 3072 bytes to 105...
+Writing at 0x00008000... (100 %)
+Wrote 3072 bytes (105 compressed) at 0x00008000 in 0.1 seconds (effective 403.3 kbit/s)...
+Hash of data verified.
+
+Leaving...
+Hard resetting via RTS pin...

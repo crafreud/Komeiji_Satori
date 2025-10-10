@@ -1,0 +1,139 @@
+[1/10] Performing build step for 'bootloader'
+[1/1] cd /home/cra/workplace_esp32/Komeiji_Satori/04_final_test/build/bootloader/esp-idf/esptool_py && /home/cra/.espressif/python_env/idf5.4_py3.12_env/bin/python /home/cra/esp/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x0 /home/cra/workplace_esp32/Komeiji_Satori/04_final_test/build/bootloader/bootloader.bin
+Bootloader binary size 0x5220 bytes. 0x2de0 bytes (36%) free.
+[2/10] No install step for 'bootloader'
+[3/10] Completed 'bootloader'
+[4/10] Building CXX object esp-idf/main/CMakeFiles/__idf_main.dir/04_final_test.cpp.obj
+/home/cra/workplace_esp32/Komeiji_Satori/04_final_test/main/04_final_test.cpp: In function 'void wifi_init_sta()':
+/home/cra/workplace_esp32/Komeiji_Satori/04_final_test/main/04_final_test.cpp:146:5: warning: missing initializer for member 'wifi_sta_config_t::scan_method' [-Wmissing-field-initializers]
+  146 |     };
+      |     ^
+/home/cra/workplace_esp32/Komeiji_Satori/04_final_test/main/04_final_test.cpp:146:5: warning: missing initializer for member 'wifi_sta_config_t::bssid_set' [-Wmissing-field-initializers]
+/home/cra/workplace_esp32/Komeiji_Satori/04_final_test/main/04_final_test.cpp:146:5: warning: missing initializer for member 'wifi_sta_config_t::bssid' [-Wmissing-field-initializers]
+/home/cra/workplace_esp32/Komeiji_Satori/04_final_test/main/04_final_test.cpp:146:5: warning: missing initializer for member 'wifi_sta_config_t::channel' [-Wmissing-field-initializers]
+/home/cra/workplace_esp32/Komeiji_Satori/04_final_test/main/04_final_test.cpp:146:5: warning: missing initializer for member 'wifi_sta_config_t::listen_interval' [-Wmissing-field-initializers]
+/home/cra/workplace_esp32/Komeiji_Satori/04_final_test/main/04_final_test.cpp:146:5: warning: missing initializer for member 'wifi_sta_config_t::sort_method' [-Wmissing-field-initializers]
+/home/cra/workplace_esp32/Komeiji_Satori/04_final_test/main/04_final_test.cpp:146:5: warning: missing initializer for member 'wifi_sta_config_t::threshold' [-Wmissing-field-initializers]
+/home/cra/workplace_esp32/Komeiji_Satori/04_final_test/main/04_final_test.cpp:146:5: warning: missing initializer for member 'wifi_sta_config_t::pmf_cfg' [-Wmissing-field-initializers]
+/home/cra/workplace_esp32/Komeiji_Satori/04_final_test/main/04_final_test.cpp:146:5: warning: missing initializer for member 'wifi_sta_config_t::rm_enabled' [-Wmissing-field-initializers]
+/home/cra/workplace_esp32/Komeiji_Satori/04_final_test/main/04_final_test.cpp:146:5: warning: missing initializer for member 'wifi_sta_config_t::btm_enabled' [-Wmissing-field-initializers]
+/home/cra/workplace_esp32/Komeiji_Satori/04_final_test/main/04_final_test.cpp:146:5: warning: missing initializer for member 'wifi_sta_config_t::mbo_enabled' [-Wmissing-field-initializers]
+/home/cra/workplace_esp32/Komeiji_Satori/04_final_test/main/04_final_test.cpp:146:5: warning: missing initializer for member 'wifi_sta_config_t::ft_enabled' [-Wmissing-field-initializers]
+/home/cra/workplace_esp32/Komeiji_Satori/04_final_test/main/04_final_test.cpp:146:5: warning: missing initializer for member 'wifi_sta_config_t::owe_enabled' [-Wmissing-field-initializers]
+/home/cra/workplace_esp32/Komeiji_Satori/04_final_test/main/04_final_test.cpp:146:5: warning: missing initializer for member 'wifi_sta_config_t::transition_disable' [-Wmissing-field-initializers]
+/home/cra/workplace_esp32/Komeiji_Satori/04_final_test/main/04_final_test.cpp:146:5: warning: missing initializer for member 'wifi_sta_config_t::reserved' [-Wmissing-field-initializers]
+/home/cra/workplace_esp32/Komeiji_Satori/04_final_test/main/04_final_test.cpp:146:5: warning: missing initializer for member 'wifi_sta_config_t::sae_pwe_h2e' [-Wmissing-field-initializers]
+/home/cra/workplace_esp32/Komeiji_Satori/04_final_test/main/04_final_test.cpp:146:5: warning: missing initializer for member 'wifi_sta_config_t::sae_pk_mode' [-Wmissing-field-initializers]
+/home/cra/workplace_esp32/Komeiji_Satori/04_final_test/main/04_final_test.cpp:146:5: warning: missing initializer for member 'wifi_sta_config_t::failure_retry_cnt' [-Wmissing-field-initializers]
+/home/cra/workplace_esp32/Komeiji_Satori/04_final_test/main/04_final_test.cpp:146:5: warning: missing initializer for member 'wifi_sta_config_t::he_dcm_set' [-Wmissing-field-initializers]
+/home/cra/workplace_esp32/Komeiji_Satori/04_final_test/main/04_final_test.cpp:146:5: warning: missing initializer for member 'wifi_sta_config_t::he_dcm_max_constellation_tx' [-Wmissing-field-initializers]
+/home/cra/workplace_esp32/Komeiji_Satori/04_final_test/main/04_final_test.cpp:146:5: warning: missing initializer for member 'wifi_sta_config_t::he_dcm_max_constellation_rx' [-Wmissing-field-initializers]
+/home/cra/workplace_esp32/Komeiji_Satori/04_final_test/main/04_final_test.cpp:146:5: warning: missing initializer for member 'wifi_sta_config_t::he_mcs9_enabled' [-Wmissing-field-initializers]
+/home/cra/workplace_esp32/Komeiji_Satori/04_final_test/main/04_final_test.cpp:146:5: warning: missing initializer for member 'wifi_sta_config_t::he_su_beamformee_disabled' [-Wmissing-field-initializers]
+/home/cra/workplace_esp32/Komeiji_Satori/04_final_test/main/04_final_test.cpp:146:5: warning: missing initializer for member 'wifi_sta_config_t::he_trig_su_bmforming_feedback_disabled' [-Wmissing-field-initializers]
+/home/cra/workplace_esp32/Komeiji_Satori/04_final_test/main/04_final_test.cpp:146:5: warning: missing initializer for member 'wifi_sta_config_t::he_trig_mu_bmforming_partial_feedback_disabled' [-Wmissing-field-initializers]
+/home/cra/workplace_esp32/Komeiji_Satori/04_final_test/main/04_final_test.cpp:146:5: warning: missing initializer for member 'wifi_sta_config_t::he_trig_cqi_feedback_disabled' [-Wmissing-field-initializers]
+/home/cra/workplace_esp32/Komeiji_Satori/04_final_test/main/04_final_test.cpp:146:5: warning: missing initializer for member 'wifi_sta_config_t::he_reserved' [-Wmissing-field-initializers]
+/home/cra/workplace_esp32/Komeiji_Satori/04_final_test/main/04_final_test.cpp:146:5: warning: missing initializer for member 'wifi_sta_config_t::sae_h2e_identifier' [-Wmissing-field-initializers]
+[5/10] Linking C static library esp-idf/main/libmain.a
+[6/10] Generating ld/sections.ld
+[7/10] Linking CXX executable 04_final_test.elf
+[8/10] Generating binary image from built executable
+esptool.py v4.8.1
+Creating esp32s3 image...
+Merged 2 ELF sections
+Successfully created esp32s3 image.
+Generated /home/cra/workplace_esp32/Komeiji_Satori/04_final_test/build/04_final_test.bin
+[9/10] cd /home/cra/workplace_esp32/Komeiji_Satori/04_final_test/build/esp-idf/esptool_py && /home/cra/.espressif/python_env/idf5.4_py3.12_env/bin/python /home/cra/esp/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 partition --type app /home/cra/workplace_esp32/Komeiji_Satori/04_final_test/build/partition_table/partition-table.bin /home/cra/workplace_esp32/Komeiji_Satori/04_final_test/build/04_final_test.bin
+04_final_test.bin binary size 0x17b340 bytes. Smallest app partition is 0x300000 bytes. 0x184cc0 bytes (51%) free.
+[9/10] cd /home/cra/esp/esp-idf/components/esptool_py && /usr/bin/cmake -D IDF_PATH=/home/cra/esp/esp-idf -D "SERIAL_TOOL=/home/cra/.espressif/python_env/idf5.4_py3.12_env/bin/python;;/home/cra/esp/esp-idf/components/esptool_py/esptool/esptool.py;--chip;esp32s3" -D "SERIAL_TOOL_ARGS=--before=default_reset;--after=hard_reset;write_flash;@flash_args" -D WORKING_DIRECTORY=/home/cra/workplace_esp32/Komeiji_Satori/04_final_test/build -P /home/cra/esp/esp-idf/components/esptool_py/run_serial_tool.cmake
+esptool.py --chip esp32s3 -p /dev/ttyUSB0 -b 460800 --before=default_reset --after=hard_reset write_flash --flash_mode dio --flash_freq 80m --flash_size 8MB 0x0 bootloader/bootloader.bin 0x10000 04_final_test.bin 0x8000 partition_table/partition-table.bin
+esptool.py v4.8.1
+Serial port /dev/ttyUSB0
+Connecting....
+Chip is ESP32-S3 (QFN56) (revision v0.2)
+Features: WiFi, BLE, Embedded PSRAM 8MB (AP_3v3)
+Crystal is 40MHz
+MAC: cc:ba:97:22:1a:6c
+Uploading stub...
+Running stub...
+Stub running...
+Changing baud rate to 460800
+Changed.
+Configuring flash size...
+Flash will be erased from 0x00000000 to 0x00005fff...
+Flash will be erased from 0x00010000 to 0x0018bfff...
+Flash will be erased from 0x00008000 to 0x00008fff...
+SHA digest in image updated
+Compressed 21024 bytes to 13384...
+Writing at 0x00000000... (100 %)
+Wrote 21024 bytes (13384 compressed) at 0x00000000 in 0.7 seconds (effective 242.7 kbit/s)...
+Hash of data verified.
+Compressed 1553216 bytes to 943633...
+Writing at 0x00010000... (1 %)
+Writing at 0x0001ccf0... (3 %)
+Writing at 0x00026e3c... (5 %)
+Writing at 0x0002e9f0... (6 %)
+Writing at 0x00032eb5... (8 %)
+Writing at 0x000372a1... (10 %)
+Writing at 0x0003bbea... (12 %)
+Writing at 0x0004084f... (13 %)
+Writing at 0x00045489... (15 %)
+Writing at 0x0004a07b... (17 %)
+Writing at 0x0004ecde... (18 %)
+Writing at 0x000539fb... (20 %)
+Writing at 0x00057e51... (22 %)
+Writing at 0x0005c298... (24 %)
+Writing at 0x000606b3... (25 %)
+Writing at 0x000648c2... (27 %)
+Writing at 0x00068c06... (29 %)
+Writing at 0x0006cf84... (31 %)
+Writing at 0x00073c28... (32 %)
+Writing at 0x0007e833... (34 %)
+Writing at 0x00084f94... (36 %)
+Writing at 0x0008b4b4... (37 %)
+Writing at 0x0009151f... (39 %)
+Writing at 0x00099391... (41 %)
+Writing at 0x0009f8b2... (43 %)
+Writing at 0x000a5bad... (44 %)
+Writing at 0x000abc6c... (46 %)
+Writing at 0x000b1a30... (48 %)
+Writing at 0x000b722d... (50 %)
+Writing at 0x000bc13b... (51 %)
+Writing at 0x000c14aa... (53 %)
+Writing at 0x000c685d... (55 %)
+Writing at 0x000cbad2... (56 %)
+Writing at 0x000d0c86... (58 %)
+Writing at 0x000d6594... (60 %)
+Writing at 0x000dc4b1... (62 %)
+Writing at 0x000e1d19... (63 %)
+Writing at 0x000e7924... (65 %)
+Writing at 0x000ed750... (67 %)
+Writing at 0x000f2ef4... (68 %)
+Writing at 0x000f8da9... (70 %)
+Writing at 0x000fef24... (72 %)
+Writing at 0x00104c26... (74 %)
+Writing at 0x0010b0d3... (75 %)
+Writing at 0x00111b95... (77 %)
+Writing at 0x00117bef... (79 %)
+Writing at 0x0011eae1... (81 %)
+Writing at 0x001286a1... (82 %)
+Writing at 0x001306d4... (84 %)
+Writing at 0x00138111... (86 %)
+Writing at 0x0013e606... (87 %)
+Writing at 0x00148a0f... (89 %)
+Writing at 0x00150479... (91 %)
+Writing at 0x0016fdf0... (93 %)
+Writing at 0x00175e29... (94 %)
+Writing at 0x0017bda4... (96 %)
+Writing at 0x0018228e... (98 %)
+Writing at 0x00187abd... (100 %)
+Wrote 1553216 bytes (943633 compressed) at 0x00010000 in 20.9 seconds (effective 595.9 kbit/s)...
+Hash of data verified.
+Compressed 3072 bytes to 105...
+Writing at 0x00008000... (100 %)
+Wrote 3072 bytes (105 compressed) at 0x00008000 in 0.1 seconds (effective 434.1 kbit/s)...
+Hash of data verified.
+
+Leaving...
+Hard resetting via RTS pin...

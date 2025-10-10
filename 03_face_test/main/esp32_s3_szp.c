@@ -1,24 +1,34 @@
 #include <stdio.h>
 #include "esp32_s3_szp.h"
+#include "sensor.h"  // 包含摄像头传感器定义
 
 
 static const char *TAG = "esp32_s3_szp";
 
 /******************************************************************************/
 /***************************  I2C ↓ *******************************************/
+// 使用新的driver/i2c_master.h API初始化I2C总线
+static i2c_master_bus_handle_t i2c_bus_handle = NULL;
+
 esp_err_t bsp_i2c_init(void)
 {
-    i2c_config_t i2c_conf = {
-        .mode = I2C_MODE_MASTER,
-        .sda_io_num = BSP_I2C_SDA,
-        .sda_pullup_en = GPIO_PULLUP_ENABLE,
+    i2c_master_bus_config_t i2c_bus_config = {
+        .clk_source = I2C_CLK_SRC_DEFAULT,
+        .i2c_port = BSP_I2C_NUM,
         .scl_io_num = BSP_I2C_SCL,
-        .scl_pullup_en = GPIO_PULLUP_ENABLE,
-        .master.clk_speed = BSP_I2C_FREQ_HZ
+        .sda_io_num = BSP_I2C_SDA,
+        .glitch_ignore_cnt = 7,
+        .flags.enable_internal_pullup = true,
     };
-    i2c_param_config(BSP_I2C_NUM, &i2c_conf);
-
-    return i2c_driver_install(BSP_I2C_NUM, i2c_conf.mode, 0, 0, 0);
+    
+    esp_err_t ret = i2c_new_master_bus(&i2c_bus_config, &i2c_bus_handle);
+    if (ret != ESP_OK) {
+        ESP_LOGE(TAG, "I2C master bus init failed: %s", esp_err_to_name(ret));
+        return ret;
+    }
+    
+    ESP_LOGI(TAG, "I2C master bus initialized successfully");
+    return ESP_OK;
 }
 /***************************  I2C ↑  *******************************************/
 /*******************************************************************************/
@@ -26,7 +36,8 @@ esp_err_t bsp_i2c_init(void)
 
 /*******************************************************************************/
 /***************************  姿态传感器 QMI8658 ↓   ****************************/
-
+// 注释掉QMI8658传感器相关函数以避免I2C驱动冲突
+/*
 // 读取QMI8658寄存器的值
 esp_err_t qmi8658_register_read(uint8_t reg_addr, uint8_t *data, size_t len)
 {
@@ -97,25 +108,57 @@ void qmi8658_fetch_angleFromAcc(t_sQMI8658 *p)
     temp = sqrt( ((float)p->acc_x * (float)p->acc_x + (float)p->acc_y * (float)p->acc_y) ) / (float)p->acc_z;
     p->AngleZ = atan(temp)*57.29578f; // 180/π=57.29578
 }
-/***************************  姿态传感器 QMI8658 ↑  ****************************/
+*/
+/***************************  姿态传感器 QMI8658 ↑  ***************************/
 /*******************************************************************************/
 
 
 /***********************************************************/
 /***************    IO扩展芯片 ↓   *************************/
+// PCA9557相关函数 - 使用新的I2C驱动API (driver/i2c_master.h)
+
+static i2c_master_dev_handle_t pca9557_dev_handle = NULL;
+
+// 初始化PCA9557设备句柄
+esp_err_t pca9557_device_init(void)
+{
+    if (i2c_bus_handle == NULL) {
+        ESP_LOGE(TAG, "I2C bus not initialized");
+        return ESP_ERR_INVALID_STATE;
+    }
+
+    i2c_device_config_t pca9557_cfg = {
+        .dev_addr_length = I2C_ADDR_BIT_LEN_7,
+        .device_address = PCA9557_SENSOR_ADDR,
+        .scl_speed_hz = BSP_I2C_FREQ_HZ,
+    };
+
+    return i2c_master_bus_add_device(i2c_bus_handle, &pca9557_cfg, &pca9557_dev_handle);
+}
 
 // 读取PCA9557寄存器的值
 esp_err_t pca9557_register_read(uint8_t reg_addr, uint8_t *data, size_t len)
 {
-    return i2c_master_write_read_device(BSP_I2C_NUM, PCA9557_SENSOR_ADDR,  &reg_addr, 1, data, len, 1000 / portTICK_PERIOD_MS);
+    if (pca9557_dev_handle == NULL) {
+        esp_err_t ret = pca9557_device_init();
+        if (ret != ESP_OK) {
+            return ret;
+        }
+    }
+    return i2c_master_transmit_receive(pca9557_dev_handle, &reg_addr, 1, data, len, 1000);
 }
 
 // 给PCA9557的寄存器写值
 esp_err_t pca9557_register_write_byte(uint8_t reg_addr, uint8_t data)
 {
+    if (pca9557_dev_handle == NULL) {
+        esp_err_t ret = pca9557_device_init();
+        if (ret != ESP_OK) {
+            return ret;
+        }
+    }
     uint8_t write_buf[2] = {reg_addr, data};
-
-    return i2c_master_write_to_device(BSP_I2C_NUM, PCA9557_SENSOR_ADDR, write_buf, sizeof(write_buf), 1000 / portTICK_PERIOD_MS);
+    return i2c_master_transmit(pca9557_dev_handle, write_buf, sizeof(write_buf), 1000);
 }
 
 // 初始化PCA9557 IO扩展芯片
@@ -157,13 +200,17 @@ void dvp_pwdn(uint8_t level)
     pca9557_set_output_state(DVP_PWDN_GPIO, level);
 }
 
+
+
 /***************    IO扩展芯片 ↑   *************************/
 /***********************************************************/
 
 
 /***********************************************************/
 /****************    LCD显示屏 ↓   *************************/
+// LCD相关函数已注释，避免与摄像头引脚冲突
 
+/*
 // 背光PWM初始化
 esp_err_t bsp_display_brightness_init(void)
 {
@@ -191,6 +238,7 @@ esp_err_t bsp_display_brightness_init(void)
 
     return ESP_OK;
 }
+
 
 // 背光亮度设置
 esp_err_t bsp_display_brightness_set(int brightness_percent)
@@ -221,7 +269,9 @@ esp_err_t bsp_display_backlight_on(void)
 {
     return bsp_display_brightness_set(100);
 }
+*/
 
+/*
 // 定义液晶屏句柄
 static esp_lcd_panel_handle_t panel_handle = NULL;
 esp_lcd_panel_io_handle_t io_handle = NULL; 
@@ -265,7 +315,7 @@ esp_err_t bsp_display_new(void)
     ESP_GOTO_ON_ERROR(esp_lcd_new_panel_st7789(io_handle, &panel_config, &panel_handle), err, TAG, "New panel failed");
     
     esp_lcd_panel_reset(panel_handle);  // 液晶屏复位
-    lcd_cs(0);  // 拉低CS引脚
+    // lcd_cs(0);  // 拉低CS引脚 - 已注释，因为LCD功能已禁用
     esp_lcd_panel_init(panel_handle);  // 初始化配置寄存器
     esp_lcd_panel_invert_color(panel_handle, true); // 颜色反转
     esp_lcd_panel_swap_xy(panel_handle, true);  // 显示翻转 
@@ -343,6 +393,7 @@ void lcd_draw_bitmap(int x_start, int y_start, int x_end, int y_end, const void 
 {
     esp_lcd_panel_draw_bitmap(panel_handle, x_start, y_start, x_end, y_end, color_data);
 }
+*/
 /***************    LCD显示屏 ↑   *************************/
 /***********************************************************/
 
@@ -351,52 +402,99 @@ void lcd_draw_bitmap(int x_start, int y_start, int x_end, int y_end, const void 
 /***********************************************************/
 /****************    摄像头 ↓   ****************************/
 
-// 摄像头硬件初始化
-void bsp_camera_init(void)
+// 静态摄像头配置
+static camera_config_t camera_config = {
+    .pin_pwdn = CAM_PIN_PWDN,
+    .pin_reset = CAM_PIN_RESET,
+    .pin_xclk = CAM_PIN_XCLK,
+    .pin_sccb_sda = CAM_PIN_SIOD,
+    .pin_sccb_scl = CAM_PIN_SIOC,
+    .pin_d7 = CAM_PIN_D7,
+    .pin_d6 = CAM_PIN_D6,
+    .pin_d5 = CAM_PIN_D5,
+    .pin_d4 = CAM_PIN_D4,
+    .pin_d3 = CAM_PIN_D3,
+    .pin_d2 = CAM_PIN_D2,
+    .pin_d1 = CAM_PIN_D1,
+    .pin_d0 = CAM_PIN_D0,
+    .pin_vsync = CAM_PIN_VSYNC,
+    .pin_href = CAM_PIN_HREF,
+    .pin_pclk = CAM_PIN_PCLK,
+    .xclk_freq_hz = 20000000,  // 提高时钟频率以改善帧率
+    .ledc_timer = LEDC_TIMER_0,
+    .ledc_channel = LEDC_CHANNEL_0,
+    .pixel_format = PIXFORMAT_RGB565,  // 使用RGB565格式，与ESP-DL人脸检测模型兼容
+    .frame_size = FRAMESIZE_QVGA,  // 320x240 - 适中分辨率
+    .jpeg_quality = 10,  // JPEG质量设置（RGB565模式下不使用）
+    .fb_count = 2,  // 双缓冲提高稳定性
+    .fb_location = CAMERA_FB_IN_PSRAM,
+    .grab_mode = CAMERA_GRAB_WHEN_EMPTY,  // 当缓冲区空时获取帧
+};
+
+/**
+ * @brief 初始化摄像头
+ */
+esp_err_t camera_init(void)
 {
-    dvp_pwdn(0); // 打开摄像头
-
-    camera_config_t config;
-    config.ledc_channel = LEDC_CHANNEL_1;  // LEDC通道选择  用于生成XCLK时钟 但是S3不用
-    config.ledc_timer = LEDC_TIMER_1; // LEDC timer选择  用于生成XCLK时钟 但是S3不用
-    config.pin_d0 = CAMERA_PIN_D0;
-    config.pin_d1 = CAMERA_PIN_D1;
-    config.pin_d2 = CAMERA_PIN_D2;
-    config.pin_d3 = CAMERA_PIN_D3;
-    config.pin_d4 = CAMERA_PIN_D4;
-    config.pin_d5 = CAMERA_PIN_D5;
-    config.pin_d6 = CAMERA_PIN_D6;
-    config.pin_d7 = CAMERA_PIN_D7;
-    config.pin_xclk = CAMERA_PIN_XCLK;
-    config.pin_pclk = CAMERA_PIN_PCLK;
-    config.pin_vsync = CAMERA_PIN_VSYNC;
-    config.pin_href = CAMERA_PIN_HREF;
-    config.pin_sccb_sda = -1;   // 这里写-1 表示使用已经初始化的I2C接口
-    config.pin_sccb_scl = CAMERA_PIN_SIOC;
-    config.sccb_i2c_port = 0;
-    config.pin_pwdn = CAMERA_PIN_PWDN;
-    config.pin_reset = CAMERA_PIN_RESET;
-    config.xclk_freq_hz = XCLK_FREQ_HZ;
-    config.pixel_format = PIXFORMAT_RGB565;
-    config.frame_size = FRAMESIZE_QVGA;
-    config.jpeg_quality = 12;
-    config.fb_count = 2;
-    config.fb_location = CAMERA_FB_IN_PSRAM;
-    config.grab_mode = CAMERA_GRAB_WHEN_EMPTY;
-
-    // camera init
-    esp_err_t err = esp_camera_init(&config); // 配置上面定义的参数
-    if (err != ESP_OK)
-    {
-        ESP_LOGE(TAG, "Camera init failed with error 0x%x", err);
-        return;
+    // 带重试机制的摄像头初始化
+    esp_err_t err;
+    int retry_count = 0;
+    const int max_retries = 5;
+    
+    while (retry_count < max_retries) {
+        err = esp_camera_init(&camera_config);
+        if (err == ESP_OK) {
+            ESP_LOGI(TAG, "摄像头初始化成功");
+            break;
+        }
+        
+        retry_count++;
+        ESP_LOGI(TAG, "摄像头初始化失败 (尝试 %d/%d): %s", retry_count, max_retries, esp_err_to_name(err));
+        
+        if (retry_count < max_retries) {
+            ESP_LOGI(TAG, "等待8秒后重试...");
+            vTaskDelay(pdMS_TO_TICKS(8000));
+        }
+    }
+    
+    if (err != ESP_OK) {
+        ESP_LOGE(TAG, "摄像头初始化最终失败: %s", esp_err_to_name(err));
+        return err;
     }
 
-    sensor_t *s = esp_camera_sensor_get(); // 获取摄像头型号
-
-    if (s->id.PID == GC0308_PID) {
-        s->set_hmirror(s, 1);  // 这里控制摄像头镜像 写1镜像 写0不镜像
+    // 获取传感器句柄
+    sensor_t *s = esp_camera_sensor_get();
+    if (s == NULL) {
+        ESP_LOGE(TAG, "获取摄像头传感器失败");
+        return ESP_FAIL;
     }
+
+    // 设置摄像头参数
+    s->set_brightness(s, 0);     // 亮度 (-2 到 2)
+    s->set_contrast(s, 0);       // 对比度 (-2 到 2)
+    s->set_saturation(s, 0);     // 饱和度 (-2 到 2)
+    s->set_special_effect(s, 0); // 特效 (0 到 6)
+    s->set_whitebal(s, 1);       // 白平衡开启
+    s->set_awb_gain(s, 1);       // 自动白平衡增益开启
+    s->set_wb_mode(s, 0);        // 白平衡模式 (0 到 4)
+    s->set_exposure_ctrl(s, 1);  // 曝光控制开启
+    s->set_aec2(s, 0);           // AEC2开启
+    s->set_ae_level(s, 0);       // AE等级 (-2 到 2)
+    s->set_aec_value(s, 300);    // AEC值 (0 到 1200)
+    s->set_gain_ctrl(s, 1);      // 增益控制开启
+    s->set_agc_gain(s, 0);       // AGC增益 (0 到 30)
+    s->set_gainceiling(s, (gainceiling_t)0); // 增益上限
+    s->set_bpc(s, 0);            // BPC开启
+    s->set_wpc(s, 1);            // WPC开启
+    s->set_raw_gma(s, 1);        // Raw GMA开启
+    s->set_lenc(s, 1);           // 镜头校正开启
+    s->set_hmirror(s, 0);        // 水平镜像
+    s->set_vflip(s, 0);          // 垂直翻转
+    s->set_dcw(s, 1);            // DCW开启
+    s->set_colorbar(s, 0);       // 彩条测试关闭
+
+    ESP_LOGI(TAG, "摄像头初始化成功");
+    return ESP_OK;
 }
 
 

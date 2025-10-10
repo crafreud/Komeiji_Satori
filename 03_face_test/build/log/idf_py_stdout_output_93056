@@ -1,0 +1,87 @@
+[1/12] Performing build step for 'bootloader'
+[1/1] cd /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/build/bootloader/esp-idf/esptool_py && /home/cra/.espressif/python_env/idf5.4_py3.12_env/bin/python /home/cra/esp/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x0 /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/build/bootloader/bootloader.bin
+Bootloader binary size 0x5220 bytes. 0x2de0 bytes (36%) free.
+[2/12] No install step for 'bootloader'
+[3/12] Completed 'bootloader'
+[4/12] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/esp32_s3_szp.c.obj
+[5/12] Building CXX object esp-idf/main/CMakeFiles/__idf_main.dir/main.cpp.obj
+[6/12] Building CXX object esp-idf/main/CMakeFiles/__idf_main.dir/who_human_face_detection.cpp.obj
+[7/12] Linking C static library esp-idf/main/libmain.a
+[8/12] Generating ld/sections.ld
+[9/12] Linking CXX executable human_face_detection.elf
+[10/12] Generating binary image from built executable
+esptool.py v4.8.1
+Creating esp32s3 image...
+Merged 2 ELF sections
+Successfully created esp32s3 image.
+Generated /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/build/human_face_detection.bin
+[11/12] cd /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/build/esp-idf/esptool_py && /home/cra/.espressif/python_env/idf5.4_py3.12_env/bin/python /home/cra/esp/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 partition --type app /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/build/partition_table/partition-table.bin /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/build/human_face_detection.bin
+human_face_detection.bin binary size 0xf0410 bytes. Smallest app partition is 0x300000 bytes. 0x20fbf0 bytes (69%) free.
+[11/12] cd /home/cra/esp/esp-idf/components/esptool_py && /usr/bin/cmake -D IDF_PATH=/home/cra/esp/esp-idf -D "SERIAL_TOOL=/home/cra/.espressif/python_env/idf5.4_py3.12_env/bin/python;;/home/cra/esp/esp-idf/components/esptool_py/esptool/esptool.py;--chip;esp32s3" -D "SERIAL_TOOL_ARGS=--before=default_reset;--after=hard_reset;write_flash;@flash_args" -D WORKING_DIRECTORY=/home/cra/workplace_esp32/Komeiji_Satori/03_face_test/build -P /home/cra/esp/esp-idf/components/esptool_py/run_serial_tool.cmake
+esptool.py --chip esp32s3 -p /dev/ttyUSB0 -b 460800 --before=default_reset --after=hard_reset write_flash --flash_mode dio --flash_freq 80m --flash_size 16MB 0x0 bootloader/bootloader.bin 0x10000 human_face_detection.bin 0x8000 partition_table/partition-table.bin
+esptool.py v4.8.1
+Serial port /dev/ttyUSB0
+Connecting....
+Chip is ESP32-S3 (QFN56) (revision v0.2)
+Features: WiFi, BLE, Embedded PSRAM 8MB (AP_3v3)
+Crystal is 40MHz
+MAC: cc:ba:97:22:1a:6c
+Uploading stub...
+Running stub...
+Stub running...
+Changing baud rate to 460800
+Changed.
+Configuring flash size...
+Flash will be erased from 0x00000000 to 0x00005fff...
+Flash will be erased from 0x00010000 to 0x00100fff...
+Flash will be erased from 0x00008000 to 0x00008fff...
+SHA digest in image updated
+Compressed 21024 bytes to 13385...
+Writing at 0x00000000... (100 %)
+Wrote 21024 bytes (13385 compressed) at 0x00000000 in 0.7 seconds (effective 243.6 kbit/s)...
+Hash of data verified.
+Compressed 984080 bytes to 564974...
+Writing at 0x00010000... (2 %)
+Writing at 0x0001bff7... (5 %)
+Writing at 0x00022180... (8 %)
+Writing at 0x000265e4... (11 %)
+Writing at 0x0002a978... (14 %)
+Writing at 0x0002f732... (17 %)
+Writing at 0x0003437b... (20 %)
+Writing at 0x00038f21... (22 %)
+Writing at 0x0003dae9... (25 %)
+Writing at 0x000428c1... (28 %)
+Writing at 0x000471b9... (31 %)
+Writing at 0x0004b5c8... (34 %)
+Writing at 0x0004fa0a... (37 %)
+Writing at 0x00053d42... (40 %)
+Writing at 0x00057f4f... (42 %)
+Writing at 0x0005c367... (45 %)
+Writing at 0x00060693... (48 %)
+Writing at 0x00069e52... (51 %)
+Writing at 0x00070538... (54 %)
+Writing at 0x000769bf... (57 %)
+Writing at 0x0007cf31... (60 %)
+Writing at 0x00084170... (62 %)
+Writing at 0x0008b16f... (65 %)
+Writing at 0x00092782... (68 %)
+Writing at 0x00099184... (71 %)
+Writing at 0x0009ed20... (74 %)
+Writing at 0x000a63a7... (77 %)
+Writing at 0x000affff... (80 %)
+Writing at 0x000b7f7a... (82 %)
+Writing at 0x000beebd... (85 %)
+Writing at 0x000c585b... (88 %)
+Writing at 0x000d0434... (91 %)
+Writing at 0x000ece96... (94 %)
+Writing at 0x000f6c53... (97 %)
+Writing at 0x000fd29a... (100 %)
+Wrote 984080 bytes (564974 compressed) at 0x00010000 in 11.7 seconds (effective 672.4 kbit/s)...
+Hash of data verified.
+Compressed 3072 bytes to 105...
+Writing at 0x00008000... (100 %)
+Wrote 3072 bytes (105 compressed) at 0x00008000 in 0.1 seconds (effective 439.6 kbit/s)...
+Hash of data verified.
+
+Leaving...
+Hard resetting via RTS pin...

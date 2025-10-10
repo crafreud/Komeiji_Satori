@@ -1,0 +1,381 @@
+[0;33m--- esp-idf-monitor 1.6.2 on /dev/ttyUSB0 115200[0m
+[0;33m--- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H[0m
+[0;33m--- 0x40379cf9: panic_abort at /home/cra/esp/esp-idf/components/esp_system/panic.c:454
+--- 0x4037fa71: esp_system_abort at /home/cra/esp/esp-idf/components/esp_system/port/esp_system_chip.c:87
+--- 0x40386699: __assert_func at /home/cra/esp/esp-idf/components/newlib/assert.c:80
+--- 0x42021f91: dl::layer::Conv2D<short, short>::build(dl::Tensor<short>&, bool) at /home/gansichen/Workspace/projects/aigit/master/dl/components/dl/layer/include/dl_layer_conv2d.hpp:106 (discriminator 1)
+--- 0x42023862: MSR01Model::build(dl::Tensor<short>&) at /home/gansichen/Workspace/projects/aigit/master/dl/components/human_face_detect/msr01/msr01_model.hpp:127
+--- 0x4202caae: dl::layer::Model<short>::forward(dl::Tensor<short>&) at /home/gansichen/Workspace/projects/aigit/master/dl/components/dl/layer/src/dl_layer_model.cpp:27
+--- 0x4201fa41: MSR01Detect::call() at /home/gansichen/Workspace/projects/aigit/master/dl/components/human_face_detect/msr01/msr01_detect.hpp:42
+--- 0x42026389: std::__cxx11::list<dl::detect::result_t, std::allocator<dl::detect::result_t> >& dl::detect::Detect<short, short>::infer<unsigned short>(unsigned short*, std::vector<int, std::allocator<int> >) at /home/gansichen/Workspace/projects/aigit/master/dl/components/dl/detect/dl_detect_base.hpp:184
+--- 0x420264e2: std::__cxx11::list<dl::detect::result_t, std::allocator<dl::detect::result_t> >& HumanFaceDetectMSR01::infer<unsigned short>(unsigned short*, std::vector<int, std::allocator<int> >) at /home/gansichen/Workspace/projects/aigit/master/dl/components/human_face_detect/msr01/human_face_detect_msr01.cpp:24
+--- 0x4200c40b: task_process_ai(void*) at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/who_human_face_detection.cpp:35 (discriminator 2)
+--- 0x403804e5: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x40379c39: esp_restart_noos at /home/cra/esp/esp-idf/components/esp_system/port/soc/esp32s3/system_internal.c:160
+[0m
+[0;33m--- 0x40379cf9: panic_abort at /home/cra/esp/esp-idf/components/esp_system/panic.c:454
+--- 0x4037fa71: esp_system_abort at /home/cra/esp/esp-idf/components/esp_system/port/esp_system_chip.c:87
+--- 0x40386699: __assert_func at /home/cra/esp/esp-idf/components/newlib/assert.c:80
+--- 0x42021f91: dl::layer::Conv2D<short, short>::build(dl::Tensor<short>&, bool) at /home/gansichen/Workspace/projects/aigit/master/dl/components/dl/layer/include/dl_layer_conv2d.hpp:106 (discriminator 1)
+--- 0x42023862: MSR01Model::build(dl::Tensor<short>&) at /home/gansichen/Workspace/projects/aigit/master/dl/components/human_face_detect/msr01/msr01_model.hpp:127
+--- 0x4202caae: dl::layer::Model<short>::forward(dl::Tensor<short>&) at /home/gansichen/Workspace/projects/aigit/master/dl/components/dl/layer/src/dl_layer_model.cpp:27
+--- 0x4201fa41: MSR01Detect::call() at /home/gansichen/Workspace/projects/aigit/master/dl/components/human_face_detect/msr01/msr01_detect.hpp:42
+--- 0x42026389: std::__cxx11::list<dl::detect::result_t, std::allocator<dl::detect::result_t> >& dl::detect::Detect<short, short>::infer<unsigned short>(unsigned short*, std::vector<int, std::allocator<int> >) at /home/gansichen/Workspace/projects/aigit/master/dl/components/dl/detect/dl_detect_base.hpp:184
+--- 0x420264e2: std::__cxx11::list<dl::detect::result_t, std::allocator<dl::detect::result_t> >& HumanFaceDetectMSR01::infer<unsigned short>(unsigned short*, std::vector<int, std::allocator<int> >) at /home/gansichen/Workspace/projects/aigit/master/dl/components/human_face_detect/msr01/human_face_detect_msr01.cpp:24
+--- 0x4200c40b: task_process_ai(void*) at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/who_human_face_detection.cpp:35 (discriminator 2)
+--- 0x403804e5: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x40379c39: esp_restart_noos at /home/cra/esp/esp-idf/components/esp_system/port/soc/esp32s3/system_internal.c:160
+[0m
+[0;33m--- 0x40379cf9: panic_abort at /home/cra/esp/esp-idf/components/esp_system/panic.c:454
+--- 0x4037fa71: esp_system_abort at /home/cra/esp/esp-idf/components/esp_system/port/esp_system_chip.c:87
+--- 0x40386699: __assert_func at /home/cra/esp/esp-idf/components/newlib/assert.c:80
+--- 0x42021f91: dl::layer::Conv2D<short, short>::build(dl::Tensor<short>&, bool) at /home/gansichen/Workspace/projects/aigit/master/dl/components/dl/layer/include/dl_layer_conv2d.hpp:106 (discriminator 1)
+--- 0x42023862: MSR01Model::build(dl::Tensor<short>&) at /home/gansichen/Workspace/projects/aigit/master/dl/components/human_face_detect/msr01/msr01_model.hpp:127
+--- 0x4202caae: dl::layer::Model<short>::forward(dl::Tensor<short>&) at /home/gansichen/Workspace/projects/aigit/master/dl/components/dl/layer/src/dl_layer_model.cpp:27
+--- 0x4201fa41: MSR01Detect::call() at /home/gansichen/Workspace/projects/aigit/master/dl/components/human_face_detect/msr01/msr01_detect.hpp:42
+--- 0x42026389: std::__cxx11::list<dl::detect::result_t, std::allocator<dl::detect::result_t> >& dl::detect::Detect<short, short>::infer<unsigned short>(unsigned short*, std::vector<int, std::allocator<int> >) at /home/gansichen/Workspace/projects/aigit/master/dl/components/dl/detect/dl_detect_base.hpp:184
+--- 0x420264e2: std::__cxx11::list<dl::detect::result_t, std::allocator<dl::detect::result_t> >& HumanFaceDetectMSR01::infer<unsigned short>(unsigned short*, std::vector<int, std::allocator<int> >) at /home/gansichen/Workspace/projects/aigit/master/dl/components/human_face_detect/msr01/human_face_detect_msr01.cpp:24
+--- 0x4200c40b: task_process_ai(void*) at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/who_human_face_detection.cpp:35 (discriminator 2)
+--- 0x403804e5: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x40379c39: esp_restart_noos at /home/cra/esp/esp-idf/components/esp_system/port/soc/esp32s3/system_internal.c:160
+[0m
+[0;33m--- 0x40379cf9: panic_abort at /home/cra/esp/esp-idf/components/esp_system/panic.c:454
+--- 0x4037fa71: esp_system_abort at /home/cra/esp/esp-idf/components/esp_system/port/esp_system_chip.c:87
+--- 0x40386699: __assert_func at /home/cra/esp/esp-idf/components/newlib/assert.c:80
+--- 0x42021f91: dl::layer::Conv2D<short, short>::build(dl::Tensor<short>&, bool) at /home/gansichen/Workspace/projects/aigit/master/dl/components/dl/layer/include/dl_layer_conv2d.hpp:106 (discriminator 1)
+--- 0x42023862: MSR01Model::build(dl::Tensor<short>&) at /home/gansichen/Workspace/projects/aigit/master/dl/components/human_face_detect/msr01/msr01_model.hpp:127
+--- 0x4202caae: dl::layer::Model<short>::forward(dl::Tensor<short>&) at /home/gansichen/Workspace/projects/aigit/master/dl/components/dl/layer/src/dl_layer_model.cpp:27
+--- 0x4201fa41: MSR01Detect::call() at /home/gansichen/Workspace/projects/aigit/master/dl/components/human_face_detect/msr01/msr01_detect.hpp:42
+--- 0x42026389: std::__cxx11::list<dl::detect::result_t, std::allocator<dl::detect::result_t> >& dl::detect::Detect<short, short>::infer<unsigned short>(unsigned short*, std::vector<int, std::allocator<int> >) at /home/gansichen/Workspace/projects/aigit/master/dl/components/dl/detect/dl_detect_base.hpp:184
+--- 0x420264e2: std::__cxx11::list<dl::detect::result_t, std::allocator<dl::detect::result_t> >& HumanFaceDetectMSR01::infer<unsigned short>(unsigned short*, std::vector<int, std::allocator<int> >) at /home/gansichen/Workspace/projects/aigit/master/dl/components/human_face_detect/msr01/human_face_detect_msr01.cpp:24
+--- 0x4200c40b: task_process_ai(void*) at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/who_human_face_detection.cpp:35 (discriminator 2)
+--- 0x403804e5: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x40379c39: esp_restart_noos at /home/cra/esp/esp-idf/components/esp_system/port/soc/esp32s3/system_internal.c:160
+[0m
+[0;33m--- 0x40379cf9: panic_abort at /home/cra/esp/esp-idf/components/esp_system/panic.c:454
+--- 0x4037fa71: esp_system_abort at /home/cra/esp/esp-idf/components/esp_system/port/esp_system_chip.c:87
+--- 0x40386699: __assert_func at /home/cra/esp/esp-idf/components/newlib/assert.c:80
+--- 0x42021f91: dl::layer::Conv2D<short, short>::build(dl::Tensor<short>&, bool) at /home/gansichen/Workspace/projects/aigit/master/dl/components/dl/layer/include/dl_layer_conv2d.hpp:106 (discriminator 1)
+--- 0x42023862: MSR01Model::build(dl::Tensor<short>&) at /home/gansichen/Workspace/projects/aigit/master/dl/components/human_face_detect/msr01/msr01_model.hpp:127
+--- 0x4202caae: dl::layer::Model<short>::forward(dl::Tensor<short>&) at /home/gansichen/Workspace/projects/aigit/master/dl/components/dl/layer/src/dl_layer_model.cpp:27
+--- 0x4201fa41: MSR01Detect::call() at /home/gansichen/Workspace/projects/aigit/master/dl/components/human_face_detect/msr01/msr01_detect.hpp:42
+--- 0x42026389: std::__cxx11::list<dl::detect::result_t, std::allocator<dl::detect::result_t> >& dl::detect::Detect<short, short>::infer<unsigned short>(unsigned short*, std::vector<int, std::allocator<int> >) at /home/gansichen/Workspace/projects/aigit/master/dl/components/dl/detect/dl_detect_base.hpp:184
+--- 0x420264e2: std::__cxx11::list<dl::detect::result_t, std::allocator<dl::detect::result_t> >& HumanFaceDetectMSR01::infer<unsigned short>(unsigned short*, std::vector<int, std::allocator<int> >) at /home/gansichen/Workspace/projects/aigit/master/dl/components/human_face_detect/msr01/human_face_detect_msr01.cpp:24
+--- 0x4200c40b: task_process_ai(void*) at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/who_human_face_detection.cpp:35 (discriminator 2)
+--- 0x403804e5: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x40379c39: esp_restart_noos at /home/cra/esp/esp-idf/components/esp_system/port/soc/esp32s3/system_internal.c:160
+[0m
+[0;33m--- 0x40379cf9: panic_abort at /home/cra/esp/esp-idf/components/esp_system/panic.c:454
+--- 0x4037fa71: esp_system_abort at /home/cra/esp/esp-idf/components/esp_system/port/esp_system_chip.c:87
+--- 0x40386699: __assert_func at /home/cra/esp/esp-idf/components/newlib/assert.c:80
+--- 0x42021f91: dl::layer::Conv2D<short, short>::build(dl::Tensor<short>&, bool) at /home/gansichen/Workspace/projects/aigit/master/dl/components/dl/layer/include/dl_layer_conv2d.hpp:106 (discriminator 1)
+--- 0x42023862: MSR01Model::build(dl::Tensor<short>&) at /home/gansichen/Workspace/projects/aigit/master/dl/components/human_face_detect/msr01/msr01_model.hpp:127
+--- 0x4202caae: dl::layer::Model<short>::forward(dl::Tensor<short>&) at /home/gansichen/Workspace/projects/aigit/master/dl/components/dl/layer/src/dl_layer_model.cpp:27
+--- 0x4201fa41: MSR01Detect::call() at /home/gansichen/Workspace/projects/aigit/master/dl/components/human_face_detect/msr01/msr01_detect.hpp:42
+--- 0x42026389: std::__cxx11::list<dl::detect::result_t, std::allocator<dl::detect::result_t> >& dl::detect::Detect<short, short>::infer<unsigned short>(unsigned short*, std::vector<int, std::allocator<int> >) at /home/gansichen/Workspace/projects/aigit/master/dl/components/dl/detect/dl_detect_base.hpp:184
+--- 0x420264e2: std::__cxx11::list<dl::detect::result_t, std::allocator<dl::detect::result_t> >& HumanFaceDetectMSR01::infer<unsigned short>(unsigned short*, std::vector<int, std::allocator<int> >) at /home/gansichen/Workspace/projects/aigit/master/dl/components/human_face_detect/msr01/human_face_detect_msr01.cpp:24
+--- 0x4200c40b: task_process_ai(void*) at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/who_human_face_detection.cpp:35 (discriminator 2)
+--- 0x403804e5: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x40379c39: esp_restart_noos at /home/cra/esp/esp-idf/components/esp_system/port/soc/esp32s3/system_internal.c:160
+[0m
+[0;33m--- 0x40379cf9: panic_abort at /home/cra/esp/esp-idf/components/esp_system/panic.c:454
+--- 0x4037fa71: esp_system_abort at /home/cra/esp/esp-idf/components/esp_system/port/esp_system_chip.c:87
+--- 0x40386699: __assert_func at /home/cra/esp/esp-idf/components/newlib/assert.c:80
+--- 0x42021f91: dl::layer::Conv2D<short, short>::build(dl::Tensor<short>&, bool) at /home/gansichen/Workspace/projects/aigit/master/dl/components/dl/layer/include/dl_layer_conv2d.hpp:106 (discriminator 1)
+--- 0x42023862: MSR01Model::build(dl::Tensor<short>&) at /home/gansichen/Workspace/projects/aigit/master/dl/components/human_face_detect/msr01/msr01_model.hpp:127
+--- 0x4202caae: dl::layer::Model<short>::forward(dl::Tensor<short>&) at /home/gansichen/Workspace/projects/aigit/master/dl/components/dl/layer/src/dl_layer_model.cpp:27
+--- 0x4201fa41: MSR01Detect::call() at /home/gansichen/Workspace/projects/aigit/master/dl/components/human_face_detect/msr01/msr01_detect.hpp:42
+--- 0x42026389: std::__cxx11::list<dl::detect::result_t, std::allocator<dl::detect::result_t> >& dl::detect::Detect<short, short>::infer<unsigned short>(unsigned short*, std::vector<int, std::allocator<int> >) at /home/gansichen/Workspace/projects/aigit/master/dl/components/dl/detect/dl_detect_base.hpp:184
+--- 0x420264e2: std::__cxx11::list<dl::detect::result_t, std::allocator<dl::detect::result_t> >& HumanFaceDetectMSR01::infer<unsigned short>(unsigned short*, std::vector<int, std::allocator<int> >) at /home/gansichen/Workspace/projects/aigit/master/dl/components/human_face_detect/msr01/human_face_detect_msr01.cpp:24
+--- 0x4200c40b: task_process_ai(void*) at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/who_human_face_detection.cpp:35 (discriminator 2)
+--- 0x403804e5: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x40379c39: esp_restart_noos at /home/cra/esp/esp-idf/components/esp_system/port/soc/esp32s3/system_internal.c:160
+[0m
+[0;33m--- 0x40379cf9: panic_abort at /home/cra/esp/esp-idf/components/esp_system/panic.c:454
+--- 0x4037fa71: esp_system_abort at /home/cra/esp/esp-idf/components/esp_system/port/esp_system_chip.c:87
+--- 0x40386699: __assert_func at /home/cra/esp/esp-idf/components/newlib/assert.c:80
+--- 0x42021f91: dl::layer::Conv2D<short, short>::build(dl::Tensor<short>&, bool) at /home/gansichen/Workspace/projects/aigit/master/dl/components/dl/layer/include/dl_layer_conv2d.hpp:106 (discriminator 1)
+--- 0x42023862: MSR01Model::build(dl::Tensor<short>&) at /home/gansichen/Workspace/projects/aigit/master/dl/components/human_face_detect/msr01/msr01_model.hpp:127
+--- 0x4202caae: dl::layer::Model<short>::forward(dl::Tensor<short>&) at /home/gansichen/Workspace/projects/aigit/master/dl/components/dl/layer/src/dl_layer_model.cpp:27
+--- 0x4201fa41: MSR01Detect::call() at /home/gansichen/Workspace/projects/aigit/master/dl/components/human_face_detect/msr01/msr01_detect.hpp:42
+--- 0x42026389: std::__cxx11::list<dl::detect::result_t, std::allocator<dl::detect::result_t> >& dl::detect::Detect<short, short>::infer<unsigned short>(unsigned short*, std::vector<int, std::allocator<int> >) at /home/gansichen/Workspace/projects/aigit/master/dl/components/dl/detect/dl_detect_base.hpp:184
+--- 0x420264e2: std::__cxx11::list<dl::detect::result_t, std::allocator<dl::detect::result_t> >& HumanFaceDetectMSR01::infer<unsigned short>(unsigned short*, std::vector<int, std::allocator<int> >) at /home/gansichen/Workspace/projects/aigit/master/dl/components/human_face_detect/msr01/human_face_detect_msr01.cpp:24
+--- 0x4200c40b: task_process_ai(void*) at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/who_human_face_detection.cpp:35 (discriminator 2)
+--- 0x403804e5: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x40379c39: esp_restart_noos at /home/cra/esp/esp-idf/components/esp_system/port/soc/esp32s3/system_internal.c:160
+[0m
+[0;33m--- 0x40379cf9: panic_abort at /home/cra/esp/esp-idf/components/esp_system/panic.c:454
+--- 0x4037fa71: esp_system_abort at /home/cra/esp/esp-idf/components/esp_system/port/esp_system_chip.c:87
+--- 0x40386699: __assert_func at /home/cra/esp/esp-idf/components/newlib/assert.c:80
+--- 0x42021f91: dl::layer::Conv2D<short, short>::build(dl::Tensor<short>&, bool) at /home/gansichen/Workspace/projects/aigit/master/dl/components/dl/layer/include/dl_layer_conv2d.hpp:106 (discriminator 1)
+--- 0x42023862: MSR01Model::build(dl::Tensor<short>&) at /home/gansichen/Workspace/projects/aigit/master/dl/components/human_face_detect/msr01/msr01_model.hpp:127
+--- 0x4202caae: dl::layer::Model<short>::forward(dl::Tensor<short>&) at /home/gansichen/Workspace/projects/aigit/master/dl/components/dl/layer/src/dl_layer_model.cpp:27
+--- 0x4201fa41: MSR01Detect::call() at /home/gansichen/Workspace/projects/aigit/master/dl/components/human_face_detect/msr01/msr01_detect.hpp:42
+--- 0x42026389: std::__cxx11::list<dl::detect::result_t, std::allocator<dl::detect::result_t> >& dl::detect::Detect<short, short>::infer<unsigned short>(unsigned short*, std::vector<int, std::allocator<int> >) at /home/gansichen/Workspace/projects/aigit/master/dl/components/dl/detect/dl_detect_base.hpp:184
+--- 0x420264e2: std::__cxx11::list<dl::detect::result_t, std::allocator<dl::detect::result_t> >& HumanFaceDetectMSR01::infer<unsigned short>(unsigned short*, std::vector<int, std::allocator<int> >) at /home/gansichen/Workspace/projects/aigit/master/dl/components/human_face_detect/msr01/human_face_detect_msr01.cpp:24
+--- 0x4200c40b: task_process_ai(void*) at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/who_human_face_detection.cpp:35 (discriminator 2)
+--- 0x403804e5: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x40379c39: esp_restart_noos at /home/cra/esp/esp-idf/components/esp_system/port/soc/esp32s3/system_internal.c:160
+[0m
+[0;33m--- 0x40379cf9: panic_abort at /home/cra/esp/esp-idf/components/esp_system/panic.c:454
+--- 0x4037fa71: esp_system_abort at /home/cra/esp/esp-idf/components/esp_system/port/esp_system_chip.c:87
+--- 0x40386699: __assert_func at /home/cra/esp/esp-idf/components/newlib/assert.c:80
+--- 0x42021f91: dl::layer::Conv2D<short, short>::build(dl::Tensor<short>&, bool) at /home/gansichen/Workspace/projects/aigit/master/dl/components/dl/layer/include/dl_layer_conv2d.hpp:106 (discriminator 1)
+--- 0x42023862: MSR01Model::build(dl::Tensor<short>&) at /home/gansichen/Workspace/projects/aigit/master/dl/components/human_face_detect/msr01/msr01_model.hpp:127
+--- 0x4202caae: dl::layer::Model<short>::forward(dl::Tensor<short>&) at /home/gansichen/Workspace/projects/aigit/master/dl/components/dl/layer/src/dl_layer_model.cpp:27
+--- 0x4201fa41: MSR01Detect::call() at /home/gansichen/Workspace/projects/aigit/master/dl/components/human_face_detect/msr01/msr01_detect.hpp:42
+--- 0x42026389: std::__cxx11::list<dl::detect::result_t, std::allocator<dl::detect::result_t> >& dl::detect::Detect<short, short>::infer<unsigned short>(unsigned short*, std::vector<int, std::allocator<int> >) at /home/gansichen/Workspace/projects/aigit/master/dl/components/dl/detect/dl_detect_base.hpp:184
+--- 0x420264e2: std::__cxx11::list<dl::detect::result_t, std::allocator<dl::detect::result_t> >& HumanFaceDetectMSR01::infer<unsigned short>(unsigned short*, std::vector<int, std::allocator<int> >) at /home/gansichen/Workspace/projects/aigit/master/dl/components/human_face_detect/msr01/human_face_detect_msr01.cpp:24
+--- 0x4200c40b: task_process_ai(void*) at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/who_human_face_detection.cpp:35 (discriminator 2)
+--- 0x403804e5: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x40379c39: esp_restart_noos at /home/cra/esp/esp-idf/components/esp_system/port/soc/esp32s3/system_internal.c:160
+[0m
+[0;33m--- 0x40379cf9: panic_abort at /home/cra/esp/esp-idf/components/esp_system/panic.c:454
+--- 0x4037fa71: esp_system_abort at /home/cra/esp/esp-idf/components/esp_system/port/esp_system_chip.c:87
+--- 0x40386699: __assert_func at /home/cra/esp/esp-idf/components/newlib/assert.c:80
+--- 0x42021f91: dl::layer::Conv2D<short, short>::build(dl::Tensor<short>&, bool) at /home/gansichen/Workspace/projects/aigit/master/dl/components/dl/layer/include/dl_layer_conv2d.hpp:106 (discriminator 1)
+--- 0x42023862: MSR01Model::build(dl::Tensor<short>&) at /home/gansichen/Workspace/projects/aigit/master/dl/components/human_face_detect/msr01/msr01_model.hpp:127
+--- 0x4202caae: dl::layer::Model<short>::forward(dl::Tensor<short>&) at /home/gansichen/Workspace/projects/aigit/master/dl/components/dl/layer/src/dl_layer_model.cpp:27
+--- 0x4201fa41: MSR01Detect::call() at /home/gansichen/Workspace/projects/aigit/master/dl/components/human_face_detect/msr01/msr01_detect.hpp:42
+--- 0x42026389: std::__cxx11::list<dl::detect::result_t, std::allocator<dl::detect::result_t> >& dl::detect::Detect<short, short>::infer<unsigned short>(unsigned short*, std::vector<int, std::allocator<int> >) at /home/gansichen/Workspace/projects/aigit/master/dl/components/dl/detect/dl_detect_base.hpp:184
+--- 0x420264e2: std::__cxx11::list<dl::detect::result_t, std::allocator<dl::detect::result_t> >& HumanFaceDetectMSR01::infer<unsigned short>(unsigned short*, std::vector<int, std::allocator<int> >) at /home/gansichen/Workspace/projects/aigit/master/dl/components/human_face_detect/msr01/human_face_detect_msr01.cpp:24
+--- 0x4200c40b: task_process_ai(void*) at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/who_human_face_detection.cpp:35 (discriminator 2)
+--- 0x403804e5: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x40379c39: esp_restart_noos at /home/cra/esp/esp-idf/components/esp_system/port/soc/esp32s3/system_internal.c:160
+[0m
+[0;33m--- 0x40379cf9: panic_abort at /home/cra/esp/esp-idf/components/esp_system/panic.c:454
+--- 0x4037fa71: esp_system_abort at /home/cra/esp/esp-idf/components/esp_system/port/esp_system_chip.c:87
+--- 0x40386699: __assert_func at /home/cra/esp/esp-idf/components/newlib/assert.c:80
+--- 0x42021f91: dl::layer::Conv2D<short, short>::build(dl::Tensor<short>&, bool) at /home/gansichen/Workspace/projects/aigit/master/dl/components/dl/layer/include/dl_layer_conv2d.hpp:106 (discriminator 1)
+--- 0x42023862: MSR01Model::build(dl::Tensor<short>&) at /home/gansichen/Workspace/projects/aigit/master/dl/components/human_face_detect/msr01/msr01_model.hpp:127
+--- 0x4202caae: dl::layer::Model<short>::forward(dl::Tensor<short>&) at /home/gansichen/Workspace/projects/aigit/master/dl/components/dl/layer/src/dl_layer_model.cpp:27
+--- 0x4201fa41: MSR01Detect::call() at /home/gansichen/Workspace/projects/aigit/master/dl/components/human_face_detect/msr01/msr01_detect.hpp:42
+--- 0x42026389: std::__cxx11::list<dl::detect::result_t, std::allocator<dl::detect::result_t> >& dl::detect::Detect<short, short>::infer<unsigned short>(unsigned short*, std::vector<int, std::allocator<int> >) at /home/gansichen/Workspace/projects/aigit/master/dl/components/dl/detect/dl_detect_base.hpp:184
+--- 0x420264e2: std::__cxx11::list<dl::detect::result_t, std::allocator<dl::detect::result_t> >& HumanFaceDetectMSR01::infer<unsigned short>(unsigned short*, std::vector<int, std::allocator<int> >) at /home/gansichen/Workspace/projects/aigit/master/dl/components/human_face_detect/msr01/human_face_detect_msr01.cpp:24
+--- 0x4200c40b: task_process_ai(void*) at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/who_human_face_detection.cpp:35 (discriminator 2)
+--- 0x403804e5: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x40379c39: esp_restart_noos at /home/cra/esp/esp-idf/components/esp_system/port/soc/esp32s3/system_internal.c:160
+[0m
+[0;33m--- 0x40379cf9: panic_abort at /home/cra/esp/esp-idf/components/esp_system/panic.c:454
+--- 0x4037fa71: esp_system_abort at /home/cra/esp/esp-idf/components/esp_system/port/esp_system_chip.c:87
+--- 0x40386699: __assert_func at /home/cra/esp/esp-idf/components/newlib/assert.c:80
+--- 0x42021f91: dl::layer::Conv2D<short, short>::build(dl::Tensor<short>&, bool) at /home/gansichen/Workspace/projects/aigit/master/dl/components/dl/layer/include/dl_layer_conv2d.hpp:106 (discriminator 1)
+--- 0x42023862: MSR01Model::build(dl::Tensor<short>&) at /home/gansichen/Workspace/projects/aigit/master/dl/components/human_face_detect/msr01/msr01_model.hpp:127
+--- 0x4202caae: dl::layer::Model<short>::forward(dl::Tensor<short>&) at /home/gansichen/Workspace/projects/aigit/master/dl/components/dl/layer/src/dl_layer_model.cpp:27
+--- 0x4201fa41: MSR01Detect::call() at /home/gansichen/Workspace/projects/aigit/master/dl/components/human_face_detect/msr01/msr01_detect.hpp:42
+--- 0x42026389: std::__cxx11::list<dl::detect::result_t, std::allocator<dl::detect::result_t> >& dl::detect::Detect<short, short>::infer<unsigned short>(unsigned short*, std::vector<int, std::allocator<int> >) at /home/gansichen/Workspace/projects/aigit/master/dl/components/dl/detect/dl_detect_base.hpp:184
+--- 0x420264e2: std::__cxx11::list<dl::detect::result_t, std::allocator<dl::detect::result_t> >& HumanFaceDetectMSR01::infer<unsigned short>(unsigned short*, std::vector<int, std::allocator<int> >) at /home/gansichen/Workspace/projects/aigit/master/dl/components/human_face_detect/msr01/human_face_detect_msr01.cpp:24
+--- 0x4200c40b: task_process_ai(void*) at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/who_human_face_detection.cpp:35 (discriminator 2)
+--- 0x403804e5: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x40379c39: esp_restart_noos at /home/cra/esp/esp-idf/components/esp_system/port/soc/esp32s3/system_internal.c:160
+[0m
+[0;33m--- 0x40379cf9: panic_abort at /home/cra/esp/esp-idf/components/esp_system/panic.c:454
+--- 0x4037fa71: esp_system_abort at /home/cra/esp/esp-idf/components/esp_system/port/esp_system_chip.c:87
+--- 0x40386699: __assert_func at /home/cra/esp/esp-idf/components/newlib/assert.c:80
+--- 0x42021f91: dl::layer::Conv2D<short, short>::build(dl::Tensor<short>&, bool) at /home/gansichen/Workspace/projects/aigit/master/dl/components/dl/layer/include/dl_layer_conv2d.hpp:106 (discriminator 1)
+--- 0x42023862: MSR01Model::build(dl::Tensor<short>&) at /home/gansichen/Workspace/projects/aigit/master/dl/components/human_face_detect/msr01/msr01_model.hpp:127
+--- 0x4202caae: dl::layer::Model<short>::forward(dl::Tensor<short>&) at /home/gansichen/Workspace/projects/aigit/master/dl/components/dl/layer/src/dl_layer_model.cpp:27
+--- 0x4201fa41: MSR01Detect::call() at /home/gansichen/Workspace/projects/aigit/master/dl/components/human_face_detect/msr01/msr01_detect.hpp:42
+--- 0x42026389: std::__cxx11::list<dl::detect::result_t, std::allocator<dl::detect::result_t> >& dl::detect::Detect<short, short>::infer<unsigned short>(unsigned short*, std::vector<int, std::allocator<int> >) at /home/gansichen/Workspace/projects/aigit/master/dl/components/dl/detect/dl_detect_base.hpp:184
+--- 0x420264e2: std::__cxx11::list<dl::detect::result_t, std::allocator<dl::detect::result_t> >& HumanFaceDetectMSR01::infer<unsigned short>(unsigned short*, std::vector<int, std::allocator<int> >) at /home/gansichen/Workspace/projects/aigit/master/dl/components/human_face_detect/msr01/human_face_detect_msr01.cpp:24
+--- 0x4200c40b: task_process_ai(void*) at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/who_human_face_detection.cpp:35 (discriminator 2)
+--- 0x403804e5: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x40379c39: esp_restart_noos at /home/cra/esp/esp-idf/components/esp_system/port/soc/esp32s3/system_internal.c:160
+[0m
+[0;33m--- 0x40379cf9: panic_abort at /home/cra/esp/esp-idf/components/esp_system/panic.c:454
+--- 0x4037fa71: esp_system_abort at /home/cra/esp/esp-idf/components/esp_system/port/esp_system_chip.c:87
+--- 0x40386699: __assert_func at /home/cra/esp/esp-idf/components/newlib/assert.c:80
+--- 0x42021f91: dl::layer::Conv2D<short, short>::build(dl::Tensor<short>&, bool) at /home/gansichen/Workspace/projects/aigit/master/dl/components/dl/layer/include/dl_layer_conv2d.hpp:106 (discriminator 1)
+--- 0x42023862: MSR01Model::build(dl::Tensor<short>&) at /home/gansichen/Workspace/projects/aigit/master/dl/components/human_face_detect/msr01/msr01_model.hpp:127
+--- 0x4202caae: dl::layer::Model<short>::forward(dl::Tensor<short>&) at /home/gansichen/Workspace/projects/aigit/master/dl/components/dl/layer/src/dl_layer_model.cpp:27
+--- 0x4201fa41: MSR01Detect::call() at /home/gansichen/Workspace/projects/aigit/master/dl/components/human_face_detect/msr01/msr01_detect.hpp:42
+--- 0x42026389: std::__cxx11::list<dl::detect::result_t, std::allocator<dl::detect::result_t> >& dl::detect::Detect<short, short>::infer<unsigned short>(unsigned short*, std::vector<int, std::allocator<int> >) at /home/gansichen/Workspace/projects/aigit/master/dl/components/dl/detect/dl_detect_base.hpp:184
+--- 0x420264e2: std::__cxx11::list<dl::detect::result_t, std::allocator<dl::detect::result_t> >& HumanFaceDetectMSR01::infer<unsigned short>(unsigned short*, std::vector<int, std::allocator<int> >) at /home/gansichen/Workspace/projects/aigit/master/dl/components/human_face_detect/msr01/human_face_detect_msr01.cpp:24
+--- 0x4200c40b: task_process_ai(void*) at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/who_human_face_detection.cpp:35 (discriminator 2)
+--- 0x403804e5: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x40379c39: esp_restart_noos at /home/cra/esp/esp-idf/components/esp_system/port/soc/esp32s3/system_internal.c:160
+[0m
+[0;33m--- 0x40379cf9: panic_abort at /home/cra/esp/esp-idf/components/esp_system/panic.c:454
+--- 0x4037fa71: esp_system_abort at /home/cra/esp/esp-idf/components/esp_system/port/esp_system_chip.c:87
+--- 0x40386699: __assert_func at /home/cra/esp/esp-idf/components/newlib/assert.c:80
+--- 0x42021f91: dl::layer::Conv2D<short, short>::build(dl::Tensor<short>&, bool) at /home/gansichen/Workspace/projects/aigit/master/dl/components/dl/layer/include/dl_layer_conv2d.hpp:106 (discriminator 1)
+--- 0x42023862: MSR01Model::build(dl::Tensor<short>&) at /home/gansichen/Workspace/projects/aigit/master/dl/components/human_face_detect/msr01/msr01_model.hpp:127
+--- 0x4202caae: dl::layer::Model<short>::forward(dl::Tensor<short>&) at /home/gansichen/Workspace/projects/aigit/master/dl/components/dl/layer/src/dl_layer_model.cpp:27
+--- 0x4201fa41: MSR01Detect::call() at /home/gansichen/Workspace/projects/aigit/master/dl/components/human_face_detect/msr01/msr01_detect.hpp:42
+--- 0x42026389: std::__cxx11::list<dl::detect::result_t, std::allocator<dl::detect::result_t> >& dl::detect::Detect<short, short>::infer<unsigned short>(unsigned short*, std::vector<int, std::allocator<int> >) at /home/gansichen/Workspace/projects/aigit/master/dl/components/dl/detect/dl_detect_base.hpp:184
+--- 0x420264e2: std::__cxx11::list<dl::detect::result_t, std::allocator<dl::detect::result_t> >& HumanFaceDetectMSR01::infer<unsigned short>(unsigned short*, std::vector<int, std::allocator<int> >) at /home/gansichen/Workspace/projects/aigit/master/dl/components/human_face_detect/msr01/human_face_detect_msr01.cpp:24
+--- 0x4200c40b: task_process_ai(void*) at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/who_human_face_detection.cpp:35 (discriminator 2)
+--- 0x403804e5: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x40379c39: esp_restart_noos at /home/cra/esp/esp-idf/components/esp_system/port/soc/esp32s3/system_internal.c:160
+[0m
+[0;33m--- 0x40379cf9: panic_abort at /home/cra/esp/esp-idf/components/esp_system/panic.c:454
+--- 0x4037fa71: esp_system_abort at /home/cra/esp/esp-idf/components/esp_system/port/esp_system_chip.c:87
+--- 0x40386699: __assert_func at /home/cra/esp/esp-idf/components/newlib/assert.c:80
+--- 0x42021f91: dl::layer::Conv2D<short, short>::build(dl::Tensor<short>&, bool) at /home/gansichen/Workspace/projects/aigit/master/dl/components/dl/layer/include/dl_layer_conv2d.hpp:106 (discriminator 1)
+--- 0x42023862: MSR01Model::build(dl::Tensor<short>&) at /home/gansichen/Workspace/projects/aigit/master/dl/components/human_face_detect/msr01/msr01_model.hpp:127
+--- 0x4202caae: dl::layer::Model<short>::forward(dl::Tensor<short>&) at /home/gansichen/Workspace/projects/aigit/master/dl/components/dl/layer/src/dl_layer_model.cpp:27
+--- 0x4201fa41: MSR01Detect::call() at /home/gansichen/Workspace/projects/aigit/master/dl/components/human_face_detect/msr01/msr01_detect.hpp:42
+--- 0x42026389: std::__cxx11::list<dl::detect::result_t, std::allocator<dl::detect::result_t> >& dl::detect::Detect<short, short>::infer<unsigned short>(unsigned short*, std::vector<int, std::allocator<int> >) at /home/gansichen/Workspace/projects/aigit/master/dl/components/dl/detect/dl_detect_base.hpp:184
+--- 0x420264e2: std::__cxx11::list<dl::detect::result_t, std::allocator<dl::detect::result_t> >& HumanFaceDetectMSR01::infer<unsigned short>(unsigned short*, std::vector<int, std::allocator<int> >) at /home/gansichen/Workspace/projects/aigit/master/dl/components/human_face_detect/msr01/human_face_detect_msr01.cpp:24
+--- 0x4200c40b: task_process_ai(void*) at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/who_human_face_detection.cpp:35 (discriminator 2)
+--- 0x403804e5: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x40379c39: esp_restart_noos at /home/cra/esp/esp-idf/components/esp_system/port/soc/esp32s3/system_internal.c:160
+[0m
+[0;33m--- 0x40379cf9: panic_abort at /home/cra/esp/esp-idf/components/esp_system/panic.c:454
+--- 0x4037fa71: esp_system_abort at /home/cra/esp/esp-idf/components/esp_system/port/esp_system_chip.c:87
+--- 0x40386699: __assert_func at /home/cra/esp/esp-idf/components/newlib/assert.c:80
+--- 0x42021f91: dl::layer::Conv2D<short, short>::build(dl::Tensor<short>&, bool) at /home/gansichen/Workspace/projects/aigit/master/dl/components/dl/layer/include/dl_layer_conv2d.hpp:106 (discriminator 1)
+--- 0x42023862: MSR01Model::build(dl::Tensor<short>&) at /home/gansichen/Workspace/projects/aigit/master/dl/components/human_face_detect/msr01/msr01_model.hpp:127
+--- 0x4202caae: dl::layer::Model<short>::forward(dl::Tensor<short>&) at /home/gansichen/Workspace/projects/aigit/master/dl/components/dl/layer/src/dl_layer_model.cpp:27
+--- 0x4201fa41: MSR01Detect::call() at /home/gansichen/Workspace/projects/aigit/master/dl/components/human_face_detect/msr01/msr01_detect.hpp:42
+--- 0x42026389: std::__cxx11::list<dl::detect::result_t, std::allocator<dl::detect::result_t> >& dl::detect::Detect<short, short>::infer<unsigned short>(unsigned short*, std::vector<int, std::allocator<int> >) at /home/gansichen/Workspace/projects/aigit/master/dl/components/dl/detect/dl_detect_base.hpp:184
+--- 0x420264e2: std::__cxx11::list<dl::detect::result_t, std::allocator<dl::detect::result_t> >& HumanFaceDetectMSR01::infer<unsigned short>(unsigned short*, std::vector<int, std::allocator<int> >) at /home/gansichen/Workspace/projects/aigit/master/dl/components/human_face_detect/msr01/human_face_detect_msr01.cpp:24
+--- 0x4200c40b: task_process_ai(void*) at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/who_human_face_detection.cpp:35 (discriminator 2)
+--- 0x403804e5: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x40379c39: esp_restart_noos at /home/cra/esp/esp-idf/components/esp_system/port/soc/esp32s3/system_internal.c:160
+[0m
+[0;33m--- 0x40379cf9: panic_abort at /home/cra/esp/esp-idf/components/esp_system/panic.c:454
+--- 0x4037fa71: esp_system_abort at /home/cra/esp/esp-idf/components/esp_system/port/esp_system_chip.c:87
+--- 0x40386699: __assert_func at /home/cra/esp/esp-idf/components/newlib/assert.c:80
+--- 0x42021f91: dl::layer::Conv2D<short, short>::build(dl::Tensor<short>&, bool) at /home/gansichen/Workspace/projects/aigit/master/dl/components/dl/layer/include/dl_layer_conv2d.hpp:106 (discriminator 1)
+--- 0x42023862: MSR01Model::build(dl::Tensor<short>&) at /home/gansichen/Workspace/projects/aigit/master/dl/components/human_face_detect/msr01/msr01_model.hpp:127
+--- 0x4202caae: dl::layer::Model<short>::forward(dl::Tensor<short>&) at /home/gansichen/Workspace/projects/aigit/master/dl/components/dl/layer/src/dl_layer_model.cpp:27
+--- 0x4201fa41: MSR01Detect::call() at /home/gansichen/Workspace/projects/aigit/master/dl/components/human_face_detect/msr01/msr01_detect.hpp:42
+--- 0x42026389: std::__cxx11::list<dl::detect::result_t, std::allocator<dl::detect::result_t> >& dl::detect::Detect<short, short>::infer<unsigned short>(unsigned short*, std::vector<int, std::allocator<int> >) at /home/gansichen/Workspace/projects/aigit/master/dl/components/dl/detect/dl_detect_base.hpp:184
+--- 0x420264e2: std::__cxx11::list<dl::detect::result_t, std::allocator<dl::detect::result_t> >& HumanFaceDetectMSR01::infer<unsigned short>(unsigned short*, std::vector<int, std::allocator<int> >) at /home/gansichen/Workspace/projects/aigit/master/dl/components/human_face_detect/msr01/human_face_detect_msr01.cpp:24
+--- 0x4200c40b: task_process_ai(void*) at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/who_human_face_detection.cpp:35 (discriminator 2)
+--- 0x403804e5: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x40379c39: esp_restart_noos at /home/cra/esp/esp-idf/components/esp_system/port/soc/esp32s3/system_internal.c:160
+[0m
+[0;33m--- 0x40379cf9: panic_abort at /home/cra/esp/esp-idf/components/esp_system/panic.c:454
+--- 0x4037fa71: esp_system_abort at /home/cra/esp/esp-idf/components/esp_system/port/esp_system_chip.c:87
+--- 0x40386699: __assert_func at /home/cra/esp/esp-idf/components/newlib/assert.c:80
+--- 0x42021f91: dl::layer::Conv2D<short, short>::build(dl::Tensor<short>&, bool) at /home/gansichen/Workspace/projects/aigit/master/dl/components/dl/layer/include/dl_layer_conv2d.hpp:106 (discriminator 1)
+--- 0x42023862: MSR01Model::build(dl::Tensor<short>&) at /home/gansichen/Workspace/projects/aigit/master/dl/components/human_face_detect/msr01/msr01_model.hpp:127
+--- 0x4202caae: dl::layer::Model<short>::forward(dl::Tensor<short>&) at /home/gansichen/Workspace/projects/aigit/master/dl/components/dl/layer/src/dl_layer_model.cpp:27
+--- 0x4201fa41: MSR01Detect::call() at /home/gansichen/Workspace/projects/aigit/master/dl/components/human_face_detect/msr01/msr01_detect.hpp:42
+--- 0x42026389: std::__cxx11::list<dl::detect::result_t, std::allocator<dl::detect::result_t> >& dl::detect::Detect<short, short>::infer<unsigned short>(unsigned short*, std::vector<int, std::allocator<int> >) at /home/gansichen/Workspace/projects/aigit/master/dl/components/dl/detect/dl_detect_base.hpp:184
+--- 0x420264e2: std::__cxx11::list<dl::detect::result_t, std::allocator<dl::detect::result_t> >& HumanFaceDetectMSR01::infer<unsigned short>(unsigned short*, std::vector<int, std::allocator<int> >) at /home/gansichen/Workspace/projects/aigit/master/dl/components/human_face_detect/msr01/human_face_detect_msr01.cpp:24
+--- 0x4200c40b: task_process_ai(void*) at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/who_human_face_detection.cpp:35 (discriminator 2)
+--- 0x403804e5: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x40379c39: esp_restart_noos at /home/cra/esp/esp-idf/components/esp_system/port/soc/esp32s3/system_internal.c:160
+[0m
+[0;33m--- 0x40379cf9: panic_abort at /home/cra/esp/esp-idf/components/esp_system/panic.c:454
+--- 0x4037fa71: esp_system_abort at /home/cra/esp/esp-idf/components/esp_system/port/esp_system_chip.c:87
+--- 0x40386699: __assert_func at /home/cra/esp/esp-idf/components/newlib/assert.c:80
+--- 0x42021f91: dl::layer::Conv2D<short, short>::build(dl::Tensor<short>&, bool) at /home/gansichen/Workspace/projects/aigit/master/dl/components/dl/layer/include/dl_layer_conv2d.hpp:106 (discriminator 1)
+--- 0x42023862: MSR01Model::build(dl::Tensor<short>&) at /home/gansichen/Workspace/projects/aigit/master/dl/components/human_face_detect/msr01/msr01_model.hpp:127
+--- 0x4202caae: dl::layer::Model<short>::forward(dl::Tensor<short>&) at /home/gansichen/Workspace/projects/aigit/master/dl/components/dl/layer/src/dl_layer_model.cpp:27
+--- 0x4201fa41: MSR01Detect::call() at /home/gansichen/Workspace/projects/aigit/master/dl/components/human_face_detect/msr01/msr01_detect.hpp:42
+--- 0x42026389: std::__cxx11::list<dl::detect::result_t, std::allocator<dl::detect::result_t> >& dl::detect::Detect<short, short>::infer<unsigned short>(unsigned short*, std::vector<int, std::allocator<int> >) at /home/gansichen/Workspace/projects/aigit/master/dl/components/dl/detect/dl_detect_base.hpp:184
+--- 0x420264e2: std::__cxx11::list<dl::detect::result_t, std::allocator<dl::detect::result_t> >& HumanFaceDetectMSR01::infer<unsigned short>(unsigned short*, std::vector<int, std::allocator<int> >) at /home/gansichen/Workspace/projects/aigit/master/dl/components/human_face_detect/msr01/human_face_detect_msr01.cpp:24
+--- 0x4200c40b: task_process_ai(void*) at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/who_human_face_detection.cpp:35 (discriminator 2)
+--- 0x403804e5: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x40379c39: esp_restart_noos at /home/cra/esp/esp-idf/components/esp_system/port/soc/esp32s3/system_internal.c:160
+[0m
+[0;33m--- 0x40379cf9: panic_abort at /home/cra/esp/esp-idf/components/esp_system/panic.c:454
+--- 0x4037fa71: esp_system_abort at /home/cra/esp/esp-idf/components/esp_system/port/esp_system_chip.c:87
+--- 0x40386699: __assert_func at /home/cra/esp/esp-idf/components/newlib/assert.c:80
+--- 0x42021f91: dl::layer::Conv2D<short, short>::build(dl::Tensor<short>&, bool) at /home/gansichen/Workspace/projects/aigit/master/dl/components/dl/layer/include/dl_layer_conv2d.hpp:106 (discriminator 1)
+--- 0x42023862: MSR01Model::build(dl::Tensor<short>&) at /home/gansichen/Workspace/projects/aigit/master/dl/components/human_face_detect/msr01/msr01_model.hpp:127
+--- 0x4202caae: dl::layer::Model<short>::forward(dl::Tensor<short>&) at /home/gansichen/Workspace/projects/aigit/master/dl/components/dl/layer/src/dl_layer_model.cpp:27
+--- 0x4201fa41: MSR01Detect::call() at /home/gansichen/Workspace/projects/aigit/master/dl/components/human_face_detect/msr01/msr01_detect.hpp:42
+--- 0x42026389: std::__cxx11::list<dl::detect::result_t, std::allocator<dl::detect::result_t> >& dl::detect::Detect<short, short>::infer<unsigned short>(unsigned short*, std::vector<int, std::allocator<int> >) at /home/gansichen/Workspace/projects/aigit/master/dl/components/dl/detect/dl_detect_base.hpp:184
+--- 0x420264e2: std::__cxx11::list<dl::detect::result_t, std::allocator<dl::detect::result_t> >& HumanFaceDetectMSR01::infer<unsigned short>(unsigned short*, std::vector<int, std::allocator<int> >) at /home/gansichen/Workspace/projects/aigit/master/dl/components/human_face_detect/msr01/human_face_detect_msr01.cpp:24
+--- 0x4200c40b: task_process_ai(void*) at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/who_human_face_detection.cpp:35 (discriminator 2)
+--- 0x403804e5: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x40379c39: esp_restart_noos at /home/cra/esp/esp-idf/components/esp_system/port/soc/esp32s3/system_internal.c:160
+[0m
+[0;33m--- 0x40379cf9: panic_abort at /home/cra/esp/esp-idf/components/esp_system/panic.c:454
+--- 0x4037fa71: esp_system_abort at /home/cra/esp/esp-idf/components/esp_system/port/esp_system_chip.c:87
+--- 0x40386699: __assert_func at /home/cra/esp/esp-idf/components/newlib/assert.c:80
+--- 0x42021f91: dl::layer::Conv2D<short, short>::build(dl::Tensor<short>&, bool) at /home/gansichen/Workspace/projects/aigit/master/dl/components/dl/layer/include/dl_layer_conv2d.hpp:106 (discriminator 1)
+--- 0x42023862: MSR01Model::build(dl::Tensor<short>&) at /home/gansichen/Workspace/projects/aigit/master/dl/components/human_face_detect/msr01/msr01_model.hpp:127
+--- 0x4202caae: dl::layer::Model<short>::forward(dl::Tensor<short>&) at /home/gansichen/Workspace/projects/aigit/master/dl/components/dl/layer/src/dl_layer_model.cpp:27
+--- 0x4201fa41: MSR01Detect::call() at /home/gansichen/Workspace/projects/aigit/master/dl/components/human_face_detect/msr01/msr01_detect.hpp:42
+--- 0x42026389: std::__cxx11::list<dl::detect::result_t, std::allocator<dl::detect::result_t> >& dl::detect::Detect<short, short>::infer<unsigned short>(unsigned short*, std::vector<int, std::allocator<int> >) at /home/gansichen/Workspace/projects/aigit/master/dl/components/dl/detect/dl_detect_base.hpp:184
+--- 0x420264e2: std::__cxx11::list<dl::detect::result_t, std::allocator<dl::detect::result_t> >& HumanFaceDetectMSR01::infer<unsigned short>(unsigned short*, std::vector<int, std::allocator<int> >) at /home/gansichen/Workspace/projects/aigit/master/dl/components/human_face_detect/msr01/human_face_detect_msr01.cpp:24
+--- 0x4200c40b: task_process_ai(void*) at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/who_human_face_detection.cpp:35 (discriminator 2)
+--- 0x403804e5: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x40379c39: esp_restart_noos at /home/cra/esp/esp-idf/components/esp_system/port/soc/esp32s3/system_internal.c:160
+[0m
+[0;33m--- 0x40379cf9: panic_abort at /home/cra/esp/esp-idf/components/esp_system/panic.c:454
+--- 0x4037fa71: esp_system_abort at /home/cra/esp/esp-idf/components/esp_system/port/esp_system_chip.c:87
+--- 0x40386699: __assert_func at /home/cra/esp/esp-idf/components/newlib/assert.c:80
+--- 0x42021f91: dl::layer::Conv2D<short, short>::build(dl::Tensor<short>&, bool) at /home/gansichen/Workspace/projects/aigit/master/dl/components/dl/layer/include/dl_layer_conv2d.hpp:106 (discriminator 1)
+--- 0x42023862: MSR01Model::build(dl::Tensor<short>&) at /home/gansichen/Workspace/projects/aigit/master/dl/components/human_face_detect/msr01/msr01_model.hpp:127
+--- 0x4202caae: dl::layer::Model<short>::forward(dl::Tensor<short>&) at /home/gansichen/Workspace/projects/aigit/master/dl/components/dl/layer/src/dl_layer_model.cpp:27
+--- 0x4201fa41: MSR01Detect::call() at /home/gansichen/Workspace/projects/aigit/master/dl/components/human_face_detect/msr01/msr01_detect.hpp:42
+--- 0x42026389: std::__cxx11::list<dl::detect::result_t, std::allocator<dl::detect::result_t> >& dl::detect::Detect<short, short>::infer<unsigned short>(unsigned short*, std::vector<int, std::allocator<int> >) at /home/gansichen/Workspace/projects/aigit/master/dl/components/dl/detect/dl_detect_base.hpp:184
+--- 0x420264e2: std::__cxx11::list<dl::detect::result_t, std::allocator<dl::detect::result_t> >& HumanFaceDetectMSR01::infer<unsigned short>(unsigned short*, std::vector<int, std::allocator<int> >) at /home/gansichen/Workspace/projects/aigit/master/dl/components/human_face_detect/msr01/human_face_detect_msr01.cpp:24
+--- 0x4200c40b: task_process_ai(void*) at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/who_human_face_detection.cpp:35 (discriminator 2)
+--- 0x403804e5: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x40379c39: esp_restart_noos at /home/cra/esp/esp-idf/components/esp_system/port/soc/esp32s3/system_internal.c:160
+[0m
+[0;33m--- 0x40379cf9: panic_abort at /home/cra/esp/esp-idf/components/esp_system/panic.c:454
+--- 0x4037fa71: esp_system_abort at /home/cra/esp/esp-idf/components/esp_system/port/esp_system_chip.c:87
+--- 0x40386699: __assert_func at /home/cra/esp/esp-idf/components/newlib/assert.c:80
+--- 0x42021f91: dl::layer::Conv2D<short, short>::build(dl::Tensor<short>&, bool) at /home/gansichen/Workspace/projects/aigit/master/dl/components/dl/layer/include/dl_layer_conv2d.hpp:106 (discriminator 1)
+--- 0x42023862: MSR01Model::build(dl::Tensor<short>&) at /home/gansichen/Workspace/projects/aigit/master/dl/components/human_face_detect/msr01/msr01_model.hpp:127
+--- 0x4202caae: dl::layer::Model<short>::forward(dl::Tensor<short>&) at /home/gansichen/Workspace/projects/aigit/master/dl/components/dl/layer/src/dl_layer_model.cpp:27
+--- 0x4201fa41: MSR01Detect::call() at /home/gansichen/Workspace/projects/aigit/master/dl/components/human_face_detect/msr01/msr01_detect.hpp:42
+--- 0x42026389: std::__cxx11::list<dl::detect::result_t, std::allocator<dl::detect::result_t> >& dl::detect::Detect<short, short>::infer<unsigned short>(unsigned short*, std::vector<int, std::allocator<int> >) at /home/gansichen/Workspace/projects/aigit/master/dl/components/dl/detect/dl_detect_base.hpp:184
+--- 0x420264e2: std::__cxx11::list<dl::detect::result_t, std::allocator<dl::detect::result_t> >& HumanFaceDetectMSR01::infer<unsigned short>(unsigned short*, std::vector<int, std::allocator<int> >) at /home/gansichen/Workspace/projects/aigit/master/dl/components/human_face_detect/msr01/human_face_detect_msr01.cpp:24
+--- 0x4200c40b: task_process_ai(void*) at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/who_human_face_detection.cpp:35 (discriminator 2)
+--- 0x403804e5: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x40379c39: esp_restart_noos at /home/cra/esp/esp-idf/components/esp_system/port/soc/esp32s3/system_internal.c:160
+[0m
+[0;33m--- 0x40379cf9: panic_abort at /home/cra/esp/esp-idf/components/esp_system/panic.c:454
+--- 0x4037fa71: esp_system_abort at /home/cra/esp/esp-idf/components/esp_system/port/esp_system_chip.c:87
+--- 0x40386699: __assert_func at /home/cra/esp/esp-idf/components/newlib/assert.c:80
+--- 0x42021f91: dl::layer::Conv2D<short, short>::build(dl::Tensor<short>&, bool) at /home/gansichen/Workspace/projects/aigit/master/dl/components/dl/layer/include/dl_layer_conv2d.hpp:106 (discriminator 1)
+--- 0x42023862: MSR01Model::build(dl::Tensor<short>&) at /home/gansichen/Workspace/projects/aigit/master/dl/components/human_face_detect/msr01/msr01_model.hpp:127
+--- 0x4202caae: dl::layer::Model<short>::forward(dl::Tensor<short>&) at /home/gansichen/Workspace/projects/aigit/master/dl/components/dl/layer/src/dl_layer_model.cpp:27
+--- 0x4201fa41: MSR01Detect::call() at /home/gansichen/Workspace/projects/aigit/master/dl/components/human_face_detect/msr01/msr01_detect.hpp:42
+--- 0x42026389: std::__cxx11::list<dl::detect::result_t, std::allocator<dl::detect::result_t> >& dl::detect::Detect<short, short>::infer<unsigned short>(unsigned short*, std::vector<int, std::allocator<int> >) at /home/gansichen/Workspace/projects/aigit/master/dl/components/dl/detect/dl_detect_base.hpp:184
+--- 0x420264e2: std::__cxx11::list<dl::detect::result_t, std::allocator<dl::detect::result_t> >& HumanFaceDetectMSR01::infer<unsigned short>(unsigned short*, std::vector<int, std::allocator<int> >) at /home/gansichen/Workspace/projects/aigit/master/dl/components/human_face_detect/msr01/human_face_detect_msr01.cpp:24
+--- 0x4200c40b: task_process_ai(void*) at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/who_human_face_detection.cpp:35 (discriminator 2)
+--- 0x403804e5: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x40379c39: esp_restart_noos at /home/cra/esp/esp-idf/components/esp_system/port/soc/esp32s3/system_internal.c:160
+[0m
+[0;33m--- 0x40379cf9: panic_abort at /home/cra/esp/esp-idf/components/esp_system/panic.c:454
+--- 0x4037fa71: esp_system_abort at /home/cra/esp/esp-idf/components/esp_system/port/esp_system_chip.c:87
+--- 0x40386699: __assert_func at /home/cra/esp/esp-idf/components/newlib/assert.c:80
+--- 0x42021f91: dl::layer::Conv2D<short, short>::build(dl::Tensor<short>&, bool) at /home/gansichen/Workspace/projects/aigit/master/dl/components/dl/layer/include/dl_layer_conv2d.hpp:106 (discriminator 1)
+--- 0x42023862: MSR01Model::build(dl::Tensor<short>&) at /home/gansichen/Workspace/projects/aigit/master/dl/components/human_face_detect/msr01/msr01_model.hpp:127
+--- 0x4202caae: dl::layer::Model<short>::forward(dl::Tensor<short>&) at /home/gansichen/Workspace/projects/aigit/master/dl/components/dl/layer/src/dl_layer_model.cpp:27
+--- 0x4201fa41: MSR01Detect::call() at /home/gansichen/Workspace/projects/aigit/master/dl/components/human_face_detect/msr01/msr01_detect.hpp:42
+--- 0x42026389: std::__cxx11::list<dl::detect::result_t, std::allocator<dl::detect::result_t> >& dl::detect::Detect<short, short>::infer<unsigned short>(unsigned short*, std::vector<int, std::allocator<int> >) at /home/gansichen/Workspace/projects/aigit/master/dl/components/dl/detect/dl_detect_base.hpp:184
+--- 0x420264e2: std::__cxx11::list<dl::detect::result_t, std::allocator<dl::detect::result_t> >& HumanFaceDetectMSR01::infer<unsigned short>(unsigned short*, std::vector<int, std::allocator<int> >) at /home/gansichen/Workspace/projects/aigit/master/dl/components/human_face_detect/msr01/human_face_detect_msr01.cpp:24
+--- 0x4200c40b: task_process_ai(void*) at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/who_human_face_detection.cpp:35 (discriminator 2)
+--- 0x403804e5: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x40379c39: esp_restart_noos at /home/cra/esp/esp-idf/components/esp_system/port/soc/esp32s3/system_internal.c:160
+[0m
+[0m

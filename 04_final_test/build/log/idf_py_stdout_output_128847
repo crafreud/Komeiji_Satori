@@ -1,0 +1,235 @@
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0x1 (POWERON),boot:0x8 (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2810,len:0x15a0
+load:0x403c8700,len:0x4
+load:0x403c8704,len:0xd20
+load:0x403cb700,len:0x2f00
+entry 0x403c8928
+[0;32mI (27) boot: ESP-IDF v5.4.1 2nd stage bootloader[0m
+[0;32mI (27) boot: compile time Aug 23 2025 17:57:25[0m
+[0;32mI (27) boot: Multicore bootloader[0m
+[0;32mI (27) boot: chip revision: v0.2[0m
+[0;32mI (30) boot: efuse block revision: v1.3[0m
+[0;32mI (33) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (37) boot.esp32s3: SPI Mode       : DIO[0m
+[0;32mI (41) boot.esp32s3: SPI Flash Size : 8MB[0m
+[0;32mI (45) boot: Enabling RNG early entropy source...[0m
+[0;32mI (49) boot: Partition Table:[0m
+[0;32mI (52) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (58) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (65) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (71) boot:  2 factory          factory app      00 00 00010000 00300000[0m
+[0;32mI (78) boot: End of partition table[0m
+[0;32mI (81) esp_image: segment 0: paddr=00010020 vaddr=3c090020 size=560c0h (352448) map[0m
+[0;32mI (151) esp_image: segment 1: paddr=000660e8 vaddr=3fc94700 size=056e8h ( 22248) load[0m
+[0;32mI (155) esp_image: segment 2: paddr=0006b7d8 vaddr=40374000 size=04840h ( 18496) load[0m
+[0;32mI (160) esp_image: segment 3: paddr=00070020 vaddr=42000020 size=87cf0h (556272) map[0m
+[0;32mI (260) esp_image: segment 4: paddr=000f7d18 vaddr=40378840 size=0be2ch ( 48684) load[0m
+[0;32mI (271) esp_image: segment 5: paddr=00103b4c vaddr=600fe100 size=0001ch (    28) load[0m
+[0;32mI (278) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (278) boot: Disabling RNG early entropy source...[0m
+[0;32mI (289) octal_psram: vendor id    : 0x0d (AP)[0m
+[0;32mI (289) octal_psram: dev id       : 0x02 (generation 3)[0m
+[0;32mI (289) octal_psram: density      : 0x03 (64 Mbit)[0m
+[0;32mI (291) octal_psram: good-die     : 0x01 (Pass)[0m
+[0;32mI (295) octal_psram: Latency      : 0x01 (Fixed)[0m
+[0;32mI (300) octal_psram: VCC          : 0x01 (3V)[0m
+[0;32mI (304) octal_psram: SRF          : 0x01 (Fast Refresh)[0m
+[0;32mI (309) octal_psram: BurstType    : 0x01 (Hybrid Wrap)[0m
+[0;32mI (313) octal_psram: BurstLen     : 0x01 (32 Byte)[0m
+[0;32mI (318) octal_psram: Readlatency  : 0x02 (10 cycles@Fixed)[0m
+[0;32mI (323) octal_psram: DriveStrength: 0x00 (1/1)[0m
+[0;32mI (327) esp_psram: Found 8MB PSRAM device[0m
+[0;32mI (331) esp_psram: Speed: 40MHz[0m
+[0;32mI (334) cpu_start: Multicore app[0m
+[0;32mI (1068) esp_psram: SPI SRAM memory test OK[0m
+[0;32mI (1077) cpu_start: Pro cpu start user code[0m
+[0;32mI (1077) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (1077) app_init: Application information:[0m
+[0;32mI (1077) app_init: Project name:     04_final_test[0m
+[0;32mI (1082) app_init: App version:      56a26ca4-dirty[0m
+[0;32mI (1086) app_init: Compile time:     Aug 23 2025 17:57:21[0m
+[0;32mI (1091) app_init: ELF file SHA256:  5de372c04...[0m
+[0;32mI (1096) app_init: ESP-IDF:          v5.4.1[0m
+[0;32mI (1100) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (1104) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (1108) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (1112) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (1118) heap_init: At 3FC9D6D0 len 0004C040 (304 KiB): RAM[0m
+[0;32mI (1123) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (1128) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (1134) heap_init: At 600FE11C len 00001ECC (7 KiB): RTCRAM[0m
+[0;32mI (1139) esp_psram: Adding pool of 8192K of PSRAM memory to heap allocator[0m
+[0;32mI (1147) spi_flash: detected chip: boya[0m
+[0;32mI (1149) spi_flash: flash io: dio[0m
+[0;33mW (1152) spi_flash: Detected size(16384k) larger than the size in the binary image header(8192k). Using the size in the binary image header.[0m
+[0;32mI (1172) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (1172) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (1178) main_task: Started on CPU0[0m
+[0;32mI (1198) esp_psram: Reserving pool of 32K of internal memory for DMA/internal allocations[0m
+[0;32mI (1198) main_task: Calling app_main()[0m
+[0;32mI (1218) s3 ll_cam: DMA Channel=0[0m
+[0;32mI (1228) cam_hal: cam init ok[0m
+[0;32mI (1228) sccb-ng: pin_sda 20 pin_scl 19[0m
+[0;32mI (1228) sccb-ng: sccb_i2c_port=1[0m
+[0;32mI (1238) camera: Camera PID=0x26 VER=0x42 MIDL=0x7f MIDH=0xa2[0m
+[0;32mI (1238) camera: Detected OV2640 camera[0m
+[0;32mI (1238) camera: Detected camera at address=0x30[0m
+[0;32mI (1308) cam_hal: PSRAM DMA mode disabled[0m
+[0;32mI (1308) s3 ll_cam: node_size: 3840, nodes_per_line: 1, lines_per_node: 6[0m
+[0;32mI (1308) s3 ll_cam: dma_half_buffer_min:  3840, dma_half_buffer: 15360, lines_per_half_buffer: 24, dma_buffer_size: 30720[0m
+[0;32mI (1318) cam_hal: buffer_size: 30720, half_buffer_size: 15360, node_buffer_size: 3840, node_cnt: 8, total_cnt: 10[0m
+[0;32mI (1328) cam_hal: Allocating 153600 Byte frame buffer in PSRAM[0m
+[0;32mI (1338) cam_hal: cam config ok[0m
+[0;32mI (1338) ov2640: Set PLL: clk_2x: 1, clk_div: 3, pclk_auto: 1, pclk_div: 8[0m
+[0;32mI (1408) main_task: Returned from app_main()[0m
+[0;32mI (18648) face_servo: Face center: (182,109) -> servo H: 38, V: 195[0m
+[0;32mI (20568) face_servo: Face center: (194,138) -> servo H: 35, V: 207[0m
+[0;32mI (21048) face_servo: Face center: (182,114) -> servo H: 38, V: 197[0m
+[0;32mI (21208) face_servo: Face center: (183,120) -> servo H: 38, V: 200[0m
+[0;32mI (21368) face_servo: Face center: (168,136) -> servo H: 42, V: 206[0m
+[0;32mI (21528) face_servo: Face center: (169,143) -> servo H: 42, V: 209[0m
+[0;32mI (21688) face_servo: Face center: (164,142) -> servo H: 43, V: 209[0m
+[0;32mI (21848) face_servo: Face center: (164,137) -> servo H: 43, V: 207[0m
+[0;32mI (21998) face_servo: Face center: (168,134) -> servo H: 42, V: 205[0m
+[0;32mI (22168) face_servo: Face center: (185,131) -> servo H: 37, V: 204[0m
+[0;32mI (22328) face_servo: Face center: (206,130) -> servo H: 32, V: 204[0m
+[0;32mI (22958) face_servo: Face center: (111,150) -> servo H: 58, V: 212[0m
+[0;32mI (23278) face_servo: Face center: (193,142) -> servo H: 35, V: 209[0m
+[0;32mI (23918) face_servo: Face center: (171,138) -> servo H: 41, V: 207[0m
+[0;32mI (24078) face_servo: Face center: (159,135) -> servo H: 45, V: 206[0m
+[0;32mI (24398) face_servo: Face center: (88,149) -> servo H: 65, V: 212[0m
+[0;32mI (24718) face_servo: Face center: (115,150) -> servo H: 57, V: 212[0m
+[0;32mI (29358) face_servo: Face center: (109,153) -> servo H: 59, V: 213[0m
+[0;32mI (29518) face_servo: Face center: (115,151) -> servo H: 57, V: 212[0m
+[0;32mI (29838) face_servo: Face center: (133,153) -> servo H: 52, V: 213[0m
+[0;32mI (29998) face_servo: Face center: (126,153) -> servo H: 54, V: 213[0m
+[0;32mI (30158) face_servo: Face center: (120,150) -> servo H: 56, V: 212[0m
+[0;32mI (30318) face_servo: Face center: (108,153) -> servo H: 59, V: 213[0m
+[0;32mI (30478) face_servo: Face center: (114,142) -> servo H: 57, V: 209[0m
+[0;32mI (31278) face_servo: Face center: (220,154) -> servo H: 28, V: 214[0m
+[0;32mI (34318) face_servo: Face center: (110,136) -> servo H: 59, V: 206[0m
+[0;32mI (34638) face_servo: Face center: (130,109) -> servo H: 53, V: 195[0m
+[0;32mI (34798) face_servo: Face center: (134,110) -> servo H: 52, V: 195[0m
+[0;32mI (35118) face_servo: Face center: (117,146) -> servo H: 57, V: 210[0m
+[0;32mI (35278) face_servo: Face center: (116,141) -> servo H: 57, V: 208[0m
+[0;32mI (36238) face_servo: Face center: (119,107) -> servo H: 56, V: 194[0m
+[0;32mI (36398) face_servo: Face center: (128,109) -> servo H: 54, V: 195[0m
+[0;32mI (36558) face_servo: Face center: (114,147) -> servo H: 57, V: 211[0m
+[0;32mI (36718) face_servo: Face center: (97,164) -> servo H: 62, V: 218[0m
+[0;32mI (36878) face_servo: Face center: (96,170) -> servo H: 63, V: 220[0m
+[0;32mI (37038) face_servo: Face center: (98,166) -> servo H: 62, V: 219[0m
+[0;32mI (37198) face_servo: Face center: (90,167) -> servo H: 64, V: 219[0m
+[0;32mI (37358) face_servo: Face center: (82,170) -> servo H: 66, V: 220[0m
+[0;32mI (38158) face_servo: Face center: (129,119) -> servo H: 53, V: 199[0m
+[0;32mI (38318) face_servo: Face center: (139,113) -> servo H: 50, V: 197[0m
+[0;32mI (38478) face_servo: Face center: (137,120) -> servo H: 51, V: 200[0m
+[0;32mI (38638) face_servo: Face center: (128,134) -> servo H: 54, V: 205[0m
+[0;32mI (38798) face_servo: Face center: (106,158) -> servo H: 60, V: 215[0m
+[0;32mI (38958) face_servo: Face center: (91,176) -> servo H: 64, V: 223[0m
+[0;32mI (39118) face_servo: Face center: (87,180) -> servo H: 65, V: 225[0m
+[0;32mI (39278) face_servo: Face center: (87,178) -> servo H: 65, V: 224[0m
+[0;32mI (39598) face_servo: Face center: (97,170) -> servo H: 62, V: 220[0m
+[0;32mI (39758) face_servo: Face center: (96,170) -> servo H: 63, V: 220[0m
+[0;32mI (39918) face_servo: Face center: (96,169) -> servo H: 63, V: 220[0m
+[0;32mI (40078) face_servo: Face center: (104,167) -> servo H: 60, V: 219[0m
+[0;32mI (40238) face_servo: Face center: (114,155) -> servo H: 57, V: 214[0m
+[0;32mI (40398) face_servo: Face center: (117,151) -> servo H: 57, V: 212[0m
+[0;32mI (40558) face_servo: Face center: (112,152) -> servo H: 58, V: 213[0m
+[0;32mI (40718) face_servo: Face center: (109,152) -> servo H: 59, V: 213[0m
+[0;32mI (40878) face_servo: Face center: (101,154) -> servo H: 61, V: 214[0m
+[0;32mI (41518) face_servo: Face center: (67,171) -> servo H: 71, V: 221[0m
+[0;32mI (41678) face_servo: Face center: (74,173) -> servo H: 69, V: 222[0m
+[0;32mI (41838) face_servo: Face center: (76,170) -> servo H: 68, V: 220[0m
+[0;32mI (41998) face_servo: Face center: (80,165) -> servo H: 67, V: 218[0m
+[0;32mI (42158) face_servo: Face center: (82,169) -> servo H: 66, V: 220[0m
+[0;32mI (42318) face_servo: Face center: (74,173) -> servo H: 69, V: 222[0m
+[0;32mI (42798) face_servo: Face center: (71,173) -> servo H: 70, V: 222[0m
+[0;32mI (42958) face_servo: Face center: (79,172) -> servo H: 67, V: 221[0m
+[0;32mI (43118) face_servo: Face center: (83,169) -> servo H: 66, V: 220[0m
+[0;32mI (43278) face_servo: Face center: (78,169) -> servo H: 68, V: 220[0m
+[0;32mI (43598) face_servo: Face center: (76,172) -> servo H: 68, V: 221[0m
+[0;32mI (43758) face_servo: Face center: (75,173) -> servo H: 68, V: 222[0m
+[0;32mI (43918) face_servo: Face center: (78,168) -> servo H: 68, V: 220[0m
+[0;32mI (44078) face_servo: Face center: (73,171) -> servo H: 69, V: 221[0m
+[0;32mI (44558) face_servo: Face center: (80,167) -> servo H: 67, V: 219[0m
+[0;32mI (44878) face_servo: Face center: (103,163) -> servo H: 61, V: 217[0m
+[0;32mI (45038) face_servo: Face center: (104,155) -> servo H: 60, V: 214[0m
+[0;32mI (49188) face_servo: Face center: (187,149) -> servo H: 37, V: 212[0m
+[0;32mI (49348) face_servo: Face center: (189,155) -> servo H: 36, V: 214[0m
+[0;32mI (49828) face_servo: Face center: (84,157) -> servo H: 66, V: 215[0m
+[0;32mI (50468) face_servo: Face center: (120,129) -> servo H: 56, V: 203[0m
+[0;32mI (50628) face_servo: Face center: (130,139) -> servo H: 53, V: 207[0m
+[0;32mI (50788) face_servo: Face center: (132,150) -> servo H: 52, V: 212[0m
+[0;32mI (50948) face_servo: Face center: (139,151) -> servo H: 50, V: 212[0m
+[0;32mI (51108) face_servo: Face center: (136,155) -> servo H: 51, V: 214[0m
+[0;32mI (51268) face_servo: Face center: (140,155) -> servo H: 50, V: 214[0m
+[0;32mI (51428) face_servo: Face center: (143,156) -> servo H: 49, V: 215[0m
+[0;32mI (51588) face_servo: Face center: (141,157) -> servo H: 50, V: 215[0m
+[0;32mI (51908) face_servo: Face center: (111,165) -> servo H: 58, V: 218[0m
+[0;32mI (52068) face_servo: Face center: (98,165) -> servo H: 62, V: 218[0m
+[0;32mI (53348) face_servo: Face center: (94,149) -> servo H: 63, V: 212[0m
+[0;32mI (53508) face_servo: Face center: (99,155) -> servo H: 62, V: 214[0m
+[0;32mI (53668) face_servo: Face center: (104,154) -> servo H: 60, V: 214[0m
+[0;32mI (57188) face_servo: Face center: (93,188) -> servo H: 63, V: 228[0m
+[0;32mI (58148) face_servo: Face center: (122,155) -> servo H: 55, V: 214[0m
+[0;32mI (58308) face_servo: Face center: (117,154) -> servo H: 57, V: 214[0m
+[0;32mI (58788) face_servo: Face center: (114,156) -> servo H: 57, V: 215[0m
+[0;32mI (59108) face_servo: Face center: (137,150) -> servo H: 51, V: 212[0m
+[0;32mI (67748) face_servo: Face center: (190,112) -> servo H: 36, V: 196[0m
+[0;32mI (67908) face_servo: Face center: (187,95) -> servo H: 37, V: 189[0m
+[0;32mI (68068) face_servo: Face center: (186,92) -> servo H: 37, V: 188[0m
+[0;32mI (68228) face_servo: Face center: (191,113) -> servo H: 36, V: 197[0m
+[0;32mI (68388) face_servo: Face center: (194,113) -> servo H: 35, V: 197[0m
+[0;32mI (68548) face_servo: Face center: (200,112) -> servo H: 33, V: 196[0m
+[0;32mI (68708) face_servo: Face center: (203,113) -> servo H: 32, V: 197[0m
+[0;32mI (68868) face_servo: Face center: (198,116) -> servo H: 34, V: 198[0m
+[0;32mI (69028) face_servo: Face center: (197,116) -> servo H: 34, V: 198[0m
+[0;32mI (69188) face_servo: Face center: (193,116) -> servo H: 35, V: 198[0m
+[0;32mI (69348) face_servo: Face center: (196,120) -> servo H: 34, V: 200[0m
+[0;32mI (69508) face_servo: Face center: (190,117) -> servo H: 36, V: 198[0m
+[0;32mI (69668) face_servo: Face center: (185,122) -> servo H: 37, V: 200[0m
+[0;32mI (69828) face_servo: Face center: (176,124) -> servo H: 40, V: 201[0m
+[0;32mI (69988) face_servo: Face center: (168,122) -> servo H: 42, V: 200[0m
+[0;32mI (70148) face_servo: Face center: (166,128) -> servo H: 43, V: 203[0m
+[0;32mI (70308) face_servo: Face center: (160,127) -> servo H: 45, V: 202[0m
+[0;32mI (70468) face_servo: Face center: (147,126) -> servo H: 48, V: 202[0m
+[0;32mI (73978) face_servo: Face center: (68,137) -> servo H: 70, V: 207[0m
+[0;32mI (74138) face_servo: Face center: (72,130) -> servo H: 69, V: 204[0m
+[0;32mI (74298) face_servo: Face center: (117,119) -> servo H: 57, V: 199[0m
+[0;32mI (74458) face_servo: Face center: (103,120) -> servo H: 61, V: 200[0m
+[0;32mI (74778) face_servo: Face center: (90,110) -> servo H: 64, V: 195[0m
+[0;32mI (74938) face_servo: Face center: (90,110) -> servo H: 64, V: 195[0m
+[0;32mI (75098) face_servo: Face center: (95,106) -> servo H: 63, V: 194[0m
+[0;32mI (75738) face_servo: Face center: (145,172) -> servo H: 49, V: 221[0m
+[0;32mI (76858) face_servo: Face center: (102,166) -> servo H: 61, V: 219[0m
+[0;32mI (77018) face_servo: Face center: (93,156) -> servo H: 63, V: 215[0m
+[0;32mI (77178) face_servo: Face center: (97,164) -> servo H: 62, V: 218[0m
+[0;32mI (77498) face_servo: Face center: (101,154) -> servo H: 61, V: 214[0m
+[0;32mI (77818) face_servo: Face center: (92,157) -> servo H: 64, V: 215[0m
+[0;32mI (77978) face_servo: Face center: (80,153) -> servo H: 67, V: 213[0m
+[0;32mI (78298) face_servo: Face center: (79,156) -> servo H: 67, V: 215[0m
+[0;32mI (78458) face_servo: Face center: (76,160) -> servo H: 68, V: 216[0m
+[0;32mI (79898) face_servo: Face center: (65,134) -> servo H: 71, V: 205[0m
+[0;32mI (80218) face_servo: Face center: (107,154) -> servo H: 59, V: 214[0m
+[0;32mI (80378) face_servo: Face center: (90,157) -> servo H: 64, V: 215[0m
+[0;32mI (80538) face_servo: Face center: (58,150) -> servo H: 73, V: 212[0m
+[0;32mI (80858) face_servo: Face center: (97,152) -> servo H: 62, V: 213[0m
+[0;32mI (81018) face_servo: Face center: (97,151) -> servo H: 62, V: 212[0m
+[0;32mI (81178) face_servo: Face center: (76,148) -> servo H: 68, V: 211[0m
+[0;32mI (81338) face_servo: Face center: (76,149) -> servo H: 68, V: 212[0m
+[0;32mI (81498) face_servo: Face center: (76,149) -> servo H: 68, V: 212[0m
+[0;32mI (81658) face_servo: Face center: (73,148) -> servo H: 69, V: 211[0m
+[0;32mI (81818) face_servo: Face center: (73,149) -> servo H: 69, V: 212[0m
+[0;32mI (81978) face_servo: Face center: (76,141) -> servo H: 68, V: 208[0m
+[0;32mI (82138) face_servo: Face center: (83,147) -> servo H: 66, V: 211[0m
+[0;32mI (82298) face_servo: Face center: (88,151) -> servo H: 65, V: 212[0m
+[0;32mI (82458) face_servo: Face center: (88,151) -> servo H: 65, V: 212[0m
+[0;32mI (82618) face_servo: Face center: (89,154) -> servo H: 64, V: 214[0m
+[0;32mI (82778) face_servo: Face center: (86,151) -> servo H: 65, V: 212[0m
+[0;32mI (82938) face_servo: Face center: (84,153) -> servo H: 66, V: 213[0m
+[0;32mI (83098) face_servo: Face center: (85,154) -> servo H: 66, V: 214[0m
+[0;32mI (83258) face_servo: Face center: (79,153) -> servo H: 67, V: 213[0m

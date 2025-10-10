@@ -1,7 +1,7 @@
 {
     "version":            "1.2",
     "project_name":       "01_camera_for_trac",
-    "project_version":    "78dcb4f",
+    "project_version":    "56a26ca4-dirty",
     "project_path":       "/home/cra/workplace_esp32/Komeiji_Satori/01_camera_for_trac",
     "idf_path":           "/home/cra/esp/esp-idf",
     "build_dir":          "/home/cra/workplace_esp32/Komeiji_Satori/01_camera_for_trac/build",

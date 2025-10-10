@@ -1,0 +1,2 @@
+source /home/cra/workplace_esp32/Komeiji_Satori/04_final_test/build/bootloader/gdbinit/symbols
+source /home/cra/workplace_esp32/Komeiji_Satori/04_final_test/build/bootloader/gdbinit/connect

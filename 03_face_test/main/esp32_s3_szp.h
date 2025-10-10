@@ -5,15 +5,16 @@
 #include "esp_err.h"
 #include "esp_log.h"
 #include "esp_check.h"
-#include "driver/i2c.h"
+// #include "driver/i2c.h"  // 注释掉旧I2C驱动，避免与新驱动冲突
+#include "driver/i2c_master.h"  // 新的I2C主机驱动
 #include "driver/spi_master.h"
 #include "driver/ledc.h"
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
-#include "esp_lcd_types.h"
-#include "esp_lcd_panel_io.h"
-#include "esp_lcd_panel_vendor.h"
-#include "esp_lcd_panel_ops.h"
+// #include "esp_lcd_types.h"
+// #include "esp_lcd_panel_io.h"
+// #include "esp_lcd_panel_vendor.h"
+// #include "esp_lcd_panel_ops.h"
 #include "esp_camera.h"
 
 #ifdef __cplusplus
@@ -170,60 +171,98 @@ void dvp_pwdn(uint8_t level);
 
 /***********************************************************/
 /****************    LCD显示屏 ↓   *************************/
-#define BSP_LCD_PIXEL_CLOCK_HZ     (80 * 1000 * 1000)
-#define BSP_LCD_SPI_NUM            (SPI3_HOST)
-#define LCD_CMD_BITS               (8)
-#define LCD_PARAM_BITS             (8)
-#define BSP_LCD_BITS_PER_PIXEL     (16)
-#define LCD_LEDC_CH          LEDC_CHANNEL_0
+// LCD相关代码已注释，避免与摄像头引脚冲突
+// #define BSP_LCD_PIXEL_CLOCK_HZ     (80 * 1000 * 1000)
+// #define BSP_LCD_SPI_NUM            (SPI3_HOST)
+// #define LCD_CMD_BITS               (8)
+// #define LCD_PARAM_BITS             (8)
+// #define BSP_LCD_BITS_PER_PIXEL     (16)
+// #define LCD_LEDC_CH          LEDC_CHANNEL_0
 
-#define BSP_LCD_H_RES              (320)
-#define BSP_LCD_V_RES              (240)
+// #define BSP_LCD_H_RES              (320)
+// #define BSP_LCD_V_RES              (240)
 
-#define BSP_LCD_SPI_MOSI      (GPIO_NUM_40)
-#define BSP_LCD_SPI_CLK       (GPIO_NUM_41)
-#define BSP_LCD_SPI_CS        (GPIO_NUM_NC)
-#define BSP_LCD_DC            (GPIO_NUM_39)
-#define BSP_LCD_RST           (GPIO_NUM_NC)
-#define BSP_LCD_BACKLIGHT     (GPIO_NUM_42)  
+// #define BSP_LCD_SPI_MOSI      (GPIO_NUM_40)
+// #define BSP_LCD_SPI_CLK       (GPIO_NUM_41)
+// #define BSP_LCD_SPI_CS        (GPIO_NUM_NC)
+// #define BSP_LCD_DC            (GPIO_NUM_39)
+// #define BSP_LCD_RST           (GPIO_NUM_NC)
+// #define BSP_LCD_BACKLIGHT     (GPIO_NUM_42)  
 
 
-esp_err_t bsp_display_brightness_init(void);
-esp_err_t bsp_display_brightness_set(int brightness_percent);
-esp_err_t bsp_display_backlight_off(void);
-esp_err_t bsp_display_backlight_on(void);
-esp_err_t bsp_lcd_init(void);
-void lcd_set_color(uint16_t color);
-void lcd_draw_pictrue(int x_start, int y_start, int x_end, int y_end, const unsigned char *gImage);
-void lcd_draw_bitmap(int x_start, int y_start, int x_end, int y_end, const void *color_data);
+// LCD相关函数声明已注释
+// esp_err_t bsp_display_brightness_init(void);
+// esp_err_t bsp_display_brightness_set(int brightness_percent);
+// esp_err_t bsp_display_backlight_off(void);
+// esp_err_t bsp_display_backlight_on(void);
+// esp_err_t bsp_lcd_init(void);
+// void lcd_set_color(uint16_t color);
+// void lcd_draw_pictrue(int x_start, int y_start, int x_end, int y_end, const unsigned char *gImage);
+// void lcd_draw_bitmap(int x_start, int y_start, int x_end, int y_end, const void *color_data);
 /***************    LCD显示屏 ↑   *************************/
 /***********************************************************/
 
 
 /***********************************************************/
 /****************    摄像头 ↓   ****************************/
-#define CAMERA_PIN_PWDN -1
-#define CAMERA_PIN_RESET -1
-#define CAMERA_PIN_XCLK 5
-#define CAMERA_PIN_SIOD 1
-#define CAMERA_PIN_SIOC 2
+// #define CAMERA_PIN_PWDN -1
+// #define CAMERA_PIN_RESET -1
+// #define CAMERA_PIN_XCLK 5
+// #define CAMERA_PIN_SIOD 1
+// #define CAMERA_PIN_SIOC 2
 
-#define CAMERA_PIN_D7 9
-#define CAMERA_PIN_D6 4
-#define CAMERA_PIN_D5 6
-#define CAMERA_PIN_D4 15
-#define CAMERA_PIN_D3 17
-#define CAMERA_PIN_D2 8
-#define CAMERA_PIN_D1 18
-#define CAMERA_PIN_D0 16
-#define CAMERA_PIN_VSYNC 3
-#define CAMERA_PIN_HREF 46
-#define CAMERA_PIN_PCLK 7
+// #define CAMERA_PIN_D7 9
+// #define CAMERA_PIN_D6 4
+// #define CAMERA_PIN_D5 6
+// #define CAMERA_PIN_D4 15
+// #define CAMERA_PIN_D3 17
+// #define CAMERA_PIN_D2 8
+// #define CAMERA_PIN_D1 18
+// #define CAMERA_PIN_D0    16
+// #define CAMERA_PIN_VSYNC 3
+// #define CAMERA_PIN_HREF  46
+// #define CAMERA_PIN_PCLK 7
+
+// 使用实际摄像头引脚配置
+#define CAM_PIN_PWDN  -1
+#define CAM_PIN_RESET -1
+#define CAM_PIN_XCLK  17
+#define CAM_PIN_SIOD  20
+#define CAM_PIN_SIOC  19
+
+#define CAM_PIN_D7    42
+#define CAM_PIN_D6    41
+#define CAM_PIN_D5    40
+#define CAM_PIN_D4    39
+#define CAM_PIN_D3    38
+#define CAM_PIN_D2    13
+#define CAM_PIN_D1    12
+#define CAM_PIN_D0    11
+#define CAM_PIN_VSYNC 8
+#define CAM_PIN_HREF  18
+#define CAM_PIN_PCLK  16
+
+// #define CAM_PIN_PWDN    -1
+// #define CAM_PIN_RESET   -1
+// #define CAM_PIN_XCLK    17
+// #define CAM_PIN_SIOD    20
+// #define CAM_PIN_SIOC    19
+// #define CAM_PIN_D7      42
+// #define CAM_PIN_D6      41
+// #define CAM_PIN_D5      40
+// #define CAM_PIN_D4      39
+// #define CAM_PIN_D3      38
+// #define CAM_PIN_D2      13
+// #define CAM_PIN_D1      12
+// #define CAM_PIN_D0      11
+// #define CAM_PIN_VSYNC   8
+// #define CAM_PIN_HREF    18
+// #define CAM_PIN_PCLK    16
 
 
 #define XCLK_FREQ_HZ 24000000
 
-void bsp_camera_init(void);
+esp_err_t camera_init(void);
 /********************    摄像头 ↑   *************************/
 /***********************************************************/
 

@@ -1,0 +1,75 @@
+[1/5] cd /home/cra/workplace_esp32/Komeiji_Satori/01_camera_for_trac/build/esp-idf/esptool_py && /home/cra/.espressif/python_env/idf5.4_py3.12_env/bin/python /home/cra/esp/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 partition --type app /home/cra/workplace_esp32/Komeiji_Satori/01_camera_for_trac/build/partition_table/partition-table.bin /home/cra/workplace_esp32/Komeiji_Satori/01_camera_for_trac/build/01_camera_for_trac.bin
+01_camera_for_trac.bin binary size 0xe0c50 bytes. Smallest app partition is 0x100000 bytes. 0x1f3b0 bytes (12%) free.
+[2/5] Performing build step for 'bootloader'
+[1/1] cd /home/cra/workplace_esp32/Komeiji_Satori/01_camera_for_trac/build/bootloader/esp-idf/esptool_py && /home/cra/.espressif/python_env/idf5.4_py3.12_env/bin/python /home/cra/esp/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x0 /home/cra/workplace_esp32/Komeiji_Satori/01_camera_for_trac/build/bootloader/bootloader.bin
+Bootloader binary size 0x5220 bytes. 0x2de0 bytes (36%) free.
+[3/5] No install step for 'bootloader'
+[4/5] Completed 'bootloader'
+[4/5] cd /home/cra/esp/esp-idf/components/esptool_py && /usr/bin/cmake -D IDF_PATH=/home/cra/esp/esp-idf -D "SERIAL_TOOL=/home/cra/.espressif/python_env/idf5.4_py3.12_env/bin/python;;/home/cra/esp/esp-idf/components/esptool_py/esptool/esptool.py;--chip;esp32s3" -D "SERIAL_TOOL_ARGS=--before=default_reset;--after=hard_reset;write_flash;@flash_args" -D WORKING_DIRECTORY=/home/cra/workplace_esp32/Komeiji_Satori/01_camera_for_trac/build -P /home/cra/esp/esp-idf/components/esptool_py/run_serial_tool.cmake
+esptool.py --chip esp32s3 -p /dev/ttyUSB0 -b 460800 --before=default_reset --after=hard_reset write_flash --flash_mode dio --flash_freq 80m --flash_size 8MB 0x0 bootloader/bootloader.bin 0x10000 01_camera_for_trac.bin 0x8000 partition_table/partition-table.bin
+esptool.py v4.8.1
+Serial port /dev/ttyUSB0
+Connecting....
+Chip is ESP32-S3 (QFN56) (revision v0.2)
+Features: WiFi, BLE, Embedded PSRAM 8MB (AP_3v3)
+Crystal is 40MHz
+MAC: cc:ba:97:22:1a:6c
+Uploading stub...
+Running stub...
+Stub running...
+Changing baud rate to 460800
+Changed.
+Configuring flash size...
+Flash will be erased from 0x00000000 to 0x00005fff...
+Flash will be erased from 0x00010000 to 0x000f0fff...
+Flash will be erased from 0x00008000 to 0x00008fff...
+SHA digest in image updated
+Compressed 21024 bytes to 13386...
+Writing at 0x00000000... (100 %)
+Wrote 21024 bytes (13386 compressed) at 0x00000000 in 0.7 seconds (effective 244.3 kbit/s)...
+Hash of data verified.
+Compressed 920656 bytes to 566398...
+Writing at 0x00010000... (2 %)
+Writing at 0x0001c261... (5 %)
+Writing at 0x00026d5b... (8 %)
+Writing at 0x0002ed36... (11 %)
+Writing at 0x00039e69... (14 %)
+Writing at 0x0003fb6a... (17 %)
+Writing at 0x00045aa8... (20 %)
+Writing at 0x0004c46d... (22 %)
+Writing at 0x00051fff... (25 %)
+Writing at 0x00059e45... (28 %)
+Writing at 0x000605dc... (31 %)
+Writing at 0x00066984... (34 %)
+Writing at 0x0006c894... (37 %)
+Writing at 0x000725e1... (40 %)
+Writing at 0x00078166... (42 %)
+Writing at 0x0007d058... (45 %)
+Writing at 0x000821ef... (48 %)
+Writing at 0x0008766a... (51 %)
+Writing at 0x0008c7a0... (54 %)
+Writing at 0x000919c8... (57 %)
+Writing at 0x00096e29... (60 %)
+Writing at 0x0009ce44... (62 %)
+Writing at 0x000a2801... (65 %)
+Writing at 0x000a8489... (68 %)
+Writing at 0x000ae15f... (71 %)
+Writing at 0x000b3996... (74 %)
+Writing at 0x000b970d... (77 %)
+Writing at 0x000bf603... (80 %)
+Writing at 0x000c52e1... (82 %)
+Writing at 0x000ca90e... (85 %)
+Writing at 0x000d47b0... (88 %)
+Writing at 0x000db521... (91 %)
+Writing at 0x000e198e... (94 %)
+Writing at 0x000e7e14... (97 %)
+Writing at 0x000ed5f1... (100 %)
+Wrote 920656 bytes (566398 compressed) at 0x00010000 in 11.8 seconds (effective 623.1 kbit/s)...
+Hash of data verified.
+Compressed 3072 bytes to 103...
+Writing at 0x00008000... (100 %)
+Wrote 3072 bytes (103 compressed) at 0x00008000 in 0.1 seconds (effective 438.1 kbit/s)...
+Hash of data verified.
+
+Leaving...
+Hard resetting via RTS pin...

@@ -1,0 +1,1265 @@
+[0;33m--- esp-idf-monitor 1.6.2 on /dev/ttyUSB0 115200[0m
+[0;33m--- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H[0m
+[0;33m--- 0x4202c722: task_wdt_timeout_handling at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:434
+--- 0x4202cb38: task_wdt_isr at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:507
+--- 0x4037bd4d: _xt_lowint1 at /home/cra/esp/esp-idf/components/xtensa/xtensa_vectors.S:1240
+--- 0x42031a92: i2c_ll_is_bus_busy at /home/cra/esp/esp-idf/components/hal/esp32s3/include/hal/i2c_ll.h:577
+---  (inlined by) s_i2c_send_commands at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:526
+--- 0x42031c98: s_i2c_transaction_start at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:631
+--- 0x42031d78: s_i2c_synchronous_transaction at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:924
+--- 0x420329fe: i2c_master_multi_buffer_transmit at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:1186
+--- 0x42032ada: i2c_master_transmit at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:1201
+--- 0x42029fcf: SCCB_Write at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/sccb-ng.c:250
+--- 0x42020c4a: ov2640_detect at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/sensors/ov2640.c:551
+--- 0x4201eddc: camera_probe at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:251
+--- 0x4201ef38: esp_camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:310
+--- 0x4200e278: camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/esp32_s3_szp.c:445
+--- 0x4200da44: app_main at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/main.cpp:92
+--- 0x420f52ef: main_task at /home/cra/esp/esp-idf/components/freertos/app_startup.c:208
+--- 0x40383151: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x40379e8d: panic_abort at /home/cra/esp/esp-idf/components/esp_system/panic.c:454
+[0m
+[0;33m--- 0x4038aa69: __assert_func at /home/cra/esp/esp-idf/components/newlib/assert.c:80
+[0m
+[0;33m--- 0x40382e52: xQueueReceive at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/queue.c:1531 (discriminator 1)
+[0m
+[0;33m--- 0x42020035: cam_take at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/cam_hal.c:704
+[0m
+[0;33m--- 0x4201f0c1: esp_camera_fb_get at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:394
+[0m
+[0;33m--- 0x4200dc28: stream_handler at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/web_server.cpp:162
+[0m
+[0;33m--- 0x42037cd9: httpd_uri at /home/cra/esp/esp-idf/components/esp_http_server/src/httpd_uri.c:331
+[0m
+[0;33m--- 0x420385e0: httpd_req_new at /home/cra/esp/esp-idf/components/esp_http_server/src/httpd_parse.c:791
+[0m
+[0;33m--- 0x42037134: httpd_sess_process at /home/cra/esp/esp-idf/components/esp_http_server/src/httpd_sess.c:427
+[0m
+[0;33m--- 0x420ec50b: httpd_sess_enum at /home/cra/esp/esp-idf/components/esp_http_server/src/httpd_sess.c:50 (discriminator 1)
+[0m
+[0;33m--- 0x42036b1e: httpd_server at /home/cra/esp/esp-idf/components/esp_http_server/src/httpd_main.c:317
+[0m
+[0;33m--- 0x40383151: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x40379dcd: esp_restart_noos at /home/cra/esp/esp-idf/components/esp_system/port/soc/esp32s3/system_internal.c:160
+[0m
+[0;33m--- 0x40379e8d: panic_abort at /home/cra/esp/esp-idf/components/esp_system/panic.c:454
+--- 0x40382679: esp_system_abort at /home/cra/esp/esp-idf/components/esp_system/port/esp_system_chip.c:87
+--- 0x4038aa69: __assert_func at /home/cra/esp/esp-idf/components/newlib/assert.c:80
+--- 0x40382e52: xQueueReceive at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/queue.c:1531 (discriminator 1)
+--- 0x42020035: cam_take at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/cam_hal.c:704
+--- 0x4201f0c1: esp_camera_fb_get at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:394
+--- 0x4200dc28: stream_handler at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/web_server.cpp:162
+--- 0x42037cd9: httpd_uri at /home/cra/esp/esp-idf/components/esp_http_server/src/httpd_uri.c:331
+--- 0x42038541: httpd_parse_req at /home/cra/esp/esp-idf/components/esp_http_server/src/httpd_parse.c:663
+--- 0x420385e0: httpd_req_new at /home/cra/esp/esp-idf/components/esp_http_server/src/httpd_parse.c:791
+--- 0x42037134: httpd_sess_process at /home/cra/esp/esp-idf/components/esp_http_server/src/httpd_sess.c:427
+--- 0x4203631a: httpd_process_session at /home/cra/esp/esp-idf/components/esp_http_server/src/httpd_main.c:267
+--- 0x420ec50b: httpd_sess_enum at /home/cra/esp/esp-idf/components/esp_http_server/src/httpd_sess.c:50 (discriminator 1)
+--- 0x42036b1e: httpd_server at /home/cra/esp/esp-idf/components/esp_http_server/src/httpd_main.c:317
+--- 0x42036b8a: httpd_thread at /home/cra/esp/esp-idf/components/esp_http_server/src/httpd_main.c:339
+--- 0x40383151: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x40379dcd: esp_restart_noos at /home/cra/esp/esp-idf/components/esp_system/port/soc/esp32s3/system_internal.c:160
+[0m
+[0;33m--- 0x4202c722: task_wdt_timeout_handling at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:434
+--- 0x4202cb38: task_wdt_isr at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:507
+--- 0x4037bd4d: _xt_lowint1 at /home/cra/esp/esp-idf/components/xtensa/xtensa_vectors.S:1240
+--- 0x42031a87: s_i2c_send_commands at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:522
+--- 0x42031c98: s_i2c_transaction_start at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:631
+--- 0x42031d78: s_i2c_synchronous_transaction at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:924
+--- 0x42032c33: i2c_master_transmit_receive at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:1220
+--- 0x42029f7b: SCCB_Read at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/sccb-ng.c:232
+--- 0x42020c63: ov2640_detect at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/sensors/ov2640.c:555
+--- 0x4201eddc: camera_probe at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:251
+--- 0x4201ef38: esp_camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:310
+--- 0x4200e278: camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/esp32_s3_szp.c:445
+--- 0x4200da44: app_main at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/main.cpp:92
+--- 0x420f52ef: main_task at /home/cra/esp/esp-idf/components/freertos/app_startup.c:208
+--- 0x40383151: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x4202c722: task_wdt_timeout_handling at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:434
+--- 0x4202cb38: task_wdt_isr at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:507
+--- 0x4037bd4d: _xt_lowint1 at /home/cra/esp/esp-idf/components/xtensa/xtensa_vectors.S:1240
+--- 0x42031a87: s_i2c_send_commands at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:522
+--- 0x42031c98: s_i2c_transaction_start at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:631
+--- 0x42031d78: s_i2c_synchronous_transaction at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:924
+--- 0x42032c33: i2c_master_transmit_receive at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:1220
+--- 0x42029f7b: SCCB_Read at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/sccb-ng.c:232
+--- 0x42020c63: ov2640_detect at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/sensors/ov2640.c:555
+--- 0x4201eddc: camera_probe at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:251
+--- 0x4201ef38: esp_camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:310
+--- 0x4200e278: camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/esp32_s3_szp.c:445
+--- 0x4200da44: app_main at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/main.cpp:92
+--- 0x420f52ef: main_task at /home/cra/esp/esp-idf/components/freertos/app_startup.c:208
+--- 0x40383151: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x4202c722: task_wdt_timeout_handling at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:434
+--- 0x4202cb38: task_wdt_isr at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:507
+--- 0x4037bd4d: _xt_lowint1 at /home/cra/esp/esp-idf/components/xtensa/xtensa_vectors.S:1240
+--- 0x42031a87: s_i2c_send_commands at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:522
+--- 0x42031c98: s_i2c_transaction_start at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:631
+--- 0x42031d78: s_i2c_synchronous_transaction at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:924
+--- 0x42032c33: i2c_master_transmit_receive at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:1220
+--- 0x42029f7b: SCCB_Read at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/sccb-ng.c:232
+--- 0x42020c63: ov2640_detect at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/sensors/ov2640.c:555
+--- 0x4201eddc: camera_probe at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:251
+--- 0x4201ef38: esp_camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:310
+--- 0x4200e278: camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/esp32_s3_szp.c:445
+--- 0x4200da44: app_main at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/main.cpp:92
+--- 0x420f52ef: main_task at /home/cra/esp/esp-idf/components/freertos/app_startup.c:208
+--- 0x40383151: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x4202c722: task_wdt_timeout_handling at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:434
+--- 0x4202cb38: task_wdt_isr at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:507
+--- 0x4037bd4d: _xt_lowint1 at /home/cra/esp/esp-idf/components/xtensa/xtensa_vectors.S:1240
+--- 0x42031a87: s_i2c_send_commands at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:522
+--- 0x42031c98: s_i2c_transaction_start at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:631
+--- 0x42031d78: s_i2c_synchronous_transaction at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:924
+--- 0x42032c33: i2c_master_transmit_receive at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:1220
+--- 0x42029f7b: SCCB_Read at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/sccb-ng.c:232
+--- 0x42020c63: ov2640_detect at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/sensors/ov2640.c:555
+--- 0x4201eddc: camera_probe at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:251
+--- 0x4201ef38: esp_camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:310
+--- 0x4200e278: camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/esp32_s3_szp.c:445
+--- 0x4200da44: app_main at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/main.cpp:92
+--- 0x420f52ef: main_task at /home/cra/esp/esp-idf/components/freertos/app_startup.c:208
+--- 0x40383151: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x4202c722: task_wdt_timeout_handling at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:434
+--- 0x4202cb38: task_wdt_isr at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:507
+--- 0x4037bd4d: _xt_lowint1 at /home/cra/esp/esp-idf/components/xtensa/xtensa_vectors.S:1240
+--- 0x42031a87: s_i2c_send_commands at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:522
+--- 0x42031c98: s_i2c_transaction_start at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:631
+--- 0x42031d78: s_i2c_synchronous_transaction at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:924
+--- 0x42032c33: i2c_master_transmit_receive at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:1220
+--- 0x42029f7b: SCCB_Read at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/sccb-ng.c:232
+--- 0x42020c63: ov2640_detect at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/sensors/ov2640.c:555
+--- 0x4201eddc: camera_probe at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:251
+--- 0x4201ef38: esp_camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:310
+--- 0x4200e278: camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/esp32_s3_szp.c:445
+--- 0x4200da44: app_main at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/main.cpp:92
+--- 0x420f52ef: main_task at /home/cra/esp/esp-idf/components/freertos/app_startup.c:208
+--- 0x40383151: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x4202c722: task_wdt_timeout_handling at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:434
+--- 0x4202cb38: task_wdt_isr at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:507
+--- 0x4037bd4d: _xt_lowint1 at /home/cra/esp/esp-idf/components/xtensa/xtensa_vectors.S:1240
+--- 0x42031a87: s_i2c_send_commands at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:522
+--- 0x42031c98: s_i2c_transaction_start at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:631
+--- 0x42031d78: s_i2c_synchronous_transaction at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:924
+--- 0x42032c33: i2c_master_transmit_receive at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:1220
+--- 0x42029f7b: SCCB_Read at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/sccb-ng.c:232
+--- 0x42020c63: ov2640_detect at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/sensors/ov2640.c:555
+--- 0x4201eddc: camera_probe at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:251
+--- 0x4201ef38: esp_camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:310
+--- 0x4200e278: camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/esp32_s3_szp.c:445
+--- 0x4200da44: app_main at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/main.cpp:92
+--- 0x420f52ef: main_task at /home/cra/esp/esp-idf/components/freertos/app_startup.c:208
+--- 0x40383151: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x4202c722: task_wdt_timeout_handling at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:434
+--- 0x4202cb38: task_wdt_isr at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:507
+--- 0x4037bd4d: _xt_lowint1 at /home/cra/esp/esp-idf/components/xtensa/xtensa_vectors.S:1240
+--- 0x42031a92: i2c_ll_is_bus_busy at /home/cra/esp/esp-idf/components/hal/esp32s3/include/hal/i2c_ll.h:577
+---  (inlined by) s_i2c_send_commands at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:526
+--- 0x42031c98: s_i2c_transaction_start at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:631
+--- 0x42031d78: s_i2c_synchronous_transaction at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:924
+--- 0x42032c33: i2c_master_transmit_receive at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:1220
+--- 0x42029f7b: SCCB_Read at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/sccb-ng.c:232
+--- 0x42020c63: ov2640_detect at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/sensors/ov2640.c:555
+--- 0x4201eddc: camera_probe at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:251
+--- 0x4201ef38: esp_camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:310
+--- 0x4200e278: camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/esp32_s3_szp.c:445
+--- 0x4200da44: app_main at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/main.cpp:92
+--- 0x420f52ef: main_task at /home/cra/esp/esp-idf/components/freertos/app_startup.c:208
+--- 0x40383151: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x4202c722: task_wdt_timeout_handling at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:434
+--- 0x4202cb38: task_wdt_isr at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:507
+--- 0x4037bd4d: _xt_lowint1 at /home/cra/esp/esp-idf/components/xtensa/xtensa_vectors.S:1240
+--- 0x42031a92: i2c_ll_is_bus_busy at /home/cra/esp/esp-idf/components/hal/esp32s3/include/hal/i2c_ll.h:577
+---  (inlined by) s_i2c_send_commands at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:526
+--- 0x42031c98: s_i2c_transaction_start at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:631
+--- 0x42031d78: s_i2c_synchronous_transaction at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:924
+--- 0x42032c33: i2c_master_transmit_receive at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:1220
+--- 0x42029f7b: SCCB_Read at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/sccb-ng.c:232
+--- 0x42020c63: ov2640_detect at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/sensors/ov2640.c:555
+--- 0x4201eddc: camera_probe at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:251
+--- 0x4201ef38: esp_camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:310
+--- 0x4200e278: camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/esp32_s3_szp.c:445
+--- 0x4200da44: app_main at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/main.cpp:92
+--- 0x420f52ef: main_task at /home/cra/esp/esp-idf/components/freertos/app_startup.c:208
+--- 0x40383151: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x4202c722: task_wdt_timeout_handling at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:434
+--- 0x4202cb38: task_wdt_isr at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:507
+--- 0x4037bd4d: _xt_lowint1 at /home/cra/esp/esp-idf/components/xtensa/xtensa_vectors.S:1240
+--- 0x42031a92: i2c_ll_is_bus_busy at /home/cra/esp/esp-idf/components/hal/esp32s3/include/hal/i2c_ll.h:577
+---  (inlined by) s_i2c_send_commands at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:526
+--- 0x42031c98: s_i2c_transaction_start at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:631
+--- 0x42031d78: s_i2c_synchronous_transaction at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:924
+--- 0x42032c33: i2c_master_transmit_receive at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:1220
+--- 0x42029f7b: SCCB_Read at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/sccb-ng.c:232
+--- 0x42020c63: ov2640_detect at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/sensors/ov2640.c:555
+--- 0x4201eddc: camera_probe at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:251
+--- 0x4201ef38: esp_camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:310
+--- 0x4200e278: camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/esp32_s3_szp.c:445
+--- 0x4200da44: app_main at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/main.cpp:92
+--- 0x420f52ef: main_task at /home/cra/esp/esp-idf/components/freertos/app_startup.c:208
+--- 0x40383151: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x4202c722: task_wdt_timeout_handling at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:434
+--- 0x4202cb38: task_wdt_isr at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:507
+--- 0x4037bd4d: _xt_lowint1 at /home/cra/esp/esp-idf/components/xtensa/xtensa_vectors.S:1240
+--- 0x42031a92: i2c_ll_is_bus_busy at /home/cra/esp/esp-idf/components/hal/esp32s3/include/hal/i2c_ll.h:577
+---  (inlined by) s_i2c_send_commands at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:526
+--- 0x42031c98: s_i2c_transaction_start at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:631
+--- 0x42031d78: s_i2c_synchronous_transaction at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:924
+--- 0x42032c33: i2c_master_transmit_receive at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:1220
+--- 0x42029f7b: SCCB_Read at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/sccb-ng.c:232
+--- 0x42020c63: ov2640_detect at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/sensors/ov2640.c:555
+--- 0x4201eddc: camera_probe at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:251
+--- 0x4201ef38: esp_camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:310
+--- 0x4200e278: camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/esp32_s3_szp.c:445
+--- 0x4200da44: app_main at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/main.cpp:92
+--- 0x420f52ef: main_task at /home/cra/esp/esp-idf/components/freertos/app_startup.c:208
+--- 0x40383151: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x4202c722: task_wdt_timeout_handling at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:434
+--- 0x4202cb38: task_wdt_isr at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:507
+--- 0x4037bd4d: _xt_lowint1 at /home/cra/esp/esp-idf/components/xtensa/xtensa_vectors.S:1240
+--- 0x42031a92: i2c_ll_is_bus_busy at /home/cra/esp/esp-idf/components/hal/esp32s3/include/hal/i2c_ll.h:577
+---  (inlined by) s_i2c_send_commands at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:526
+--- 0x42031c98: s_i2c_transaction_start at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:631
+--- 0x42031d78: s_i2c_synchronous_transaction at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:924
+--- 0x42032c33: i2c_master_transmit_receive at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:1220
+--- 0x42029f7b: SCCB_Read at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/sccb-ng.c:232
+--- 0x42020c63: ov2640_detect at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/sensors/ov2640.c:555
+--- 0x4201eddc: camera_probe at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:251
+--- 0x4201ef38: esp_camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:310
+--- 0x4200e278: camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/esp32_s3_szp.c:445
+--- 0x4200da44: app_main at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/main.cpp:92
+--- 0x420f52ef: main_task at /home/cra/esp/esp-idf/components/freertos/app_startup.c:208
+--- 0x40383151: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x4202c722: task_wdt_timeout_handling at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:434
+--- 0x4202cb38: task_wdt_isr at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:507
+--- 0x4037bd4d: _xt_lowint1 at /home/cra/esp/esp-idf/components/xtensa/xtensa_vectors.S:1240
+--- 0x42031a92: i2c_ll_is_bus_busy at /home/cra/esp/esp-idf/components/hal/esp32s3/include/hal/i2c_ll.h:577
+---  (inlined by) s_i2c_send_commands at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:526
+--- 0x42031c98: s_i2c_transaction_start at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:631
+--- 0x42031d78: s_i2c_synchronous_transaction at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:924
+--- 0x42032c33: i2c_master_transmit_receive at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:1220
+--- 0x42029f7b: SCCB_Read at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/sccb-ng.c:232
+--- 0x42020c63: ov2640_detect at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/sensors/ov2640.c:555
+--- 0x4201eddc: camera_probe at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:251
+--- 0x4201ef38: esp_camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:310
+--- 0x4200e278: camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/esp32_s3_szp.c:445
+--- 0x4200da44: app_main at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/main.cpp:92
+--- 0x420f52ef: main_task at /home/cra/esp/esp-idf/components/freertos/app_startup.c:208
+--- 0x40383151: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x4202c722: task_wdt_timeout_handling at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:434
+--- 0x4202cb38: task_wdt_isr at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:507
+--- 0x4037bd4d: _xt_lowint1 at /home/cra/esp/esp-idf/components/xtensa/xtensa_vectors.S:1240
+--- 0x42031a87: s_i2c_send_commands at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:522
+--- 0x42031c98: s_i2c_transaction_start at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:631
+--- 0x42031d78: s_i2c_synchronous_transaction at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:924
+--- 0x42032c33: i2c_master_transmit_receive at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:1220
+--- 0x42029f7b: SCCB_Read at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/sccb-ng.c:232
+--- 0x42020c63: ov2640_detect at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/sensors/ov2640.c:555
+--- 0x4201eddc: camera_probe at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:251
+--- 0x4201ef38: esp_camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:310
+--- 0x4200e278: camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/esp32_s3_szp.c:445
+--- 0x4200da44: app_main at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/main.cpp:92
+--- 0x420f52ef: main_task at /home/cra/esp/esp-idf/components/freertos/app_startup.c:208
+--- 0x40383151: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x4202c722: task_wdt_timeout_handling at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:434
+--- 0x4202cb38: task_wdt_isr at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:507
+--- 0x4037bd4d: _xt_lowint1 at /home/cra/esp/esp-idf/components/xtensa/xtensa_vectors.S:1240
+--- 0x42031a87: s_i2c_send_commands at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:522
+--- 0x42031c98: s_i2c_transaction_start at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:631
+--- 0x42031d78: s_i2c_synchronous_transaction at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:924
+--- 0x42032c33: i2c_master_transmit_receive at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:1220
+--- 0x42029f7b: SCCB_Read at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/sccb-ng.c:232
+--- 0x42020c63: ov2640_detect at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/sensors/ov2640.c:555
+--- 0x4201eddc: camera_probe at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:251
+--- 0x4201ef38: esp_camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:310
+--- 0x4200e278: camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/esp32_s3_szp.c:445
+--- 0x4200da44: app_main at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/main.cpp:92
+--- 0x420f52ef: main_task at /home/cra/esp/esp-idf/components/freertos/app_startup.c:208
+--- 0x40383151: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x4202c722: task_wdt_timeout_handling at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:434
+--- 0x4202cb38: task_wdt_isr at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:507
+--- 0x4037bd4d: _xt_lowint1 at /home/cra/esp/esp-idf/components/xtensa/xtensa_vectors.S:1240
+--- 0x42031a87: s_i2c_send_commands at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:522
+--- 0x42031c98: s_i2c_transaction_start at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:631
+--- 0x42031d78: s_i2c_synchronous_transaction at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:924
+--- 0x42032c33: i2c_master_transmit_receive at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:1220
+--- 0x42029f7b: SCCB_Read at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/sccb-ng.c:232
+--- 0x42020c63: ov2640_detect at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/sensors/ov2640.c:555
+--- 0x4201eddc: camera_probe at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:251
+--- 0x4201ef38: esp_camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:310
+--- 0x4200e278: camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/esp32_s3_szp.c:445
+--- 0x4200da44: app_main at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/main.cpp:92
+--- 0x420f52ef: main_task at /home/cra/esp/esp-idf/components/freertos/app_startup.c:208
+--- 0x40383151: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x4202c722: task_wdt_timeout_handling at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:434
+--- 0x4202cb38: task_wdt_isr at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:507
+--- 0x4037bd4d: _xt_lowint1 at /home/cra/esp/esp-idf/components/xtensa/xtensa_vectors.S:1240
+--- 0x42031a87: s_i2c_send_commands at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:522
+--- 0x42031c98: s_i2c_transaction_start at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:631
+--- 0x42031d78: s_i2c_synchronous_transaction at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:924
+--- 0x42032c33: i2c_master_transmit_receive at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:1220
+--- 0x42029f7b: SCCB_Read at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/sccb-ng.c:232
+--- 0x42020c63: ov2640_detect at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/sensors/ov2640.c:555
+--- 0x4201eddc: camera_probe at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:251
+--- 0x4201ef38: esp_camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:310
+--- 0x4200e278: camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/esp32_s3_szp.c:445
+--- 0x4200da44: app_main at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/main.cpp:92
+--- 0x420f52ef: main_task at /home/cra/esp/esp-idf/components/freertos/app_startup.c:208
+--- 0x40383151: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x4202c722: task_wdt_timeout_handling at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:434
+--- 0x4202cb38: task_wdt_isr at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:507
+--- 0x4037bd4d: _xt_lowint1 at /home/cra/esp/esp-idf/components/xtensa/xtensa_vectors.S:1240
+--- 0x42031a87: s_i2c_send_commands at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:522
+--- 0x42031c98: s_i2c_transaction_start at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:631
+--- 0x42031d78: s_i2c_synchronous_transaction at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:924
+--- 0x42032c33: i2c_master_transmit_receive at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:1220
+--- 0x42029f7b: SCCB_Read at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/sccb-ng.c:232
+--- 0x42020c63: ov2640_detect at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/sensors/ov2640.c:555
+--- 0x4201eddc: camera_probe at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:251
+--- 0x4201ef38: esp_camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:310
+--- 0x4200e278: camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/esp32_s3_szp.c:445
+--- 0x4200da44: app_main at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/main.cpp:92
+--- 0x420f52ef: main_task at /home/cra/esp/esp-idf/components/freertos/app_startup.c:208
+--- 0x40383151: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x4202c722: task_wdt_timeout_handling at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:434
+--- 0x4202cb38: task_wdt_isr at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:507
+--- 0x4037bd4d: _xt_lowint1 at /home/cra/esp/esp-idf/components/xtensa/xtensa_vectors.S:1240
+--- 0x42031a87: s_i2c_send_commands at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:522
+--- 0x42031c98: s_i2c_transaction_start at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:631
+--- 0x42031d78: s_i2c_synchronous_transaction at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:924
+--- 0x42032c33: i2c_master_transmit_receive at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:1220
+--- 0x42029f7b: SCCB_Read at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/sccb-ng.c:232
+--- 0x42020c63: ov2640_detect at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/sensors/ov2640.c:555
+--- 0x4201eddc: camera_probe at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:251
+--- 0x4201ef38: esp_camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:310
+--- 0x4200e278: camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/esp32_s3_szp.c:445
+--- 0x4200da44: app_main at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/main.cpp:92
+--- 0x420f52ef: main_task at /home/cra/esp/esp-idf/components/freertos/app_startup.c:208
+--- 0x40383151: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x4202c722: task_wdt_timeout_handling at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:434
+--- 0x4202cb38: task_wdt_isr at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:507
+--- 0x4037bd4d: _xt_lowint1 at /home/cra/esp/esp-idf/components/xtensa/xtensa_vectors.S:1240
+--- 0x42031a87: s_i2c_send_commands at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:522
+--- 0x42031c98: s_i2c_transaction_start at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:631
+--- 0x42031d78: s_i2c_synchronous_transaction at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:924
+--- 0x42032c33: i2c_master_transmit_receive at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:1220
+--- 0x42029f7b: SCCB_Read at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/sccb-ng.c:232
+--- 0x42020c63: ov2640_detect at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/sensors/ov2640.c:555
+--- 0x4201eddc: camera_probe at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:251
+--- 0x4201ef38: esp_camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:310
+--- 0x4200e278: camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/esp32_s3_szp.c:445
+--- 0x4200da44: app_main at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/main.cpp:92
+--- 0x420f52ef: main_task at /home/cra/esp/esp-idf/components/freertos/app_startup.c:208
+--- 0x40383151: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x4202c722: task_wdt_timeout_handling at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:434
+--- 0x4202cb38: task_wdt_isr at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:507
+--- 0x4037bd4d: _xt_lowint1 at /home/cra/esp/esp-idf/components/xtensa/xtensa_vectors.S:1240
+--- 0x42031a87: s_i2c_send_commands at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:522
+--- 0x42031c98: s_i2c_transaction_start at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:631
+--- 0x42031d78: s_i2c_synchronous_transaction at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:924
+--- 0x42032c33: i2c_master_transmit_receive at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:1220
+--- 0x42029f7b: SCCB_Read at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/sccb-ng.c:232
+--- 0x42020c63: ov2640_detect at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/sensors/ov2640.c:555
+--- 0x4201eddc: camera_probe at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:251
+--- 0x4201ef38: esp_camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:310
+--- 0x4200e278: camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/esp32_s3_szp.c:445
+--- 0x4200da44: app_main at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/main.cpp:92
+--- 0x420f52ef: main_task at /home/cra/esp/esp-idf/components/freertos/app_startup.c:208
+--- 0x40383151: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x4202c722: task_wdt_timeout_handling at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:434
+--- 0x4202cb38: task_wdt_isr at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:507
+--- 0x4037bd4d: _xt_lowint1 at /home/cra/esp/esp-idf/components/xtensa/xtensa_vectors.S:1240
+--- 0x42031a92: i2c_ll_is_bus_busy at /home/cra/esp/esp-idf/components/hal/esp32s3/include/hal/i2c_ll.h:577
+---  (inlined by) s_i2c_send_commands at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:526
+--- 0x42031c98: s_i2c_transaction_start at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:631
+--- 0x42031d78: s_i2c_synchronous_transaction at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:924
+--- 0x42032c33: i2c_master_transmit_receive at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:1220
+--- 0x42029f7b: SCCB_Read at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/sccb-ng.c:232
+--- 0x42020c63: ov2640_detect at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/sensors/ov2640.c:555
+--- 0x4201eddc: camera_probe at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:251
+--- 0x4201ef38: esp_camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:310
+--- 0x4200e278: camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/esp32_s3_szp.c:445
+--- 0x4200da44: app_main at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/main.cpp:92
+--- 0x420f52ef: main_task at /home/cra/esp/esp-idf/components/freertos/app_startup.c:208
+--- 0x40383151: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x4202c722: task_wdt_timeout_handling at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:434
+--- 0x4202cb38: task_wdt_isr at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:507
+--- 0x4037bd4d: _xt_lowint1 at /home/cra/esp/esp-idf/components/xtensa/xtensa_vectors.S:1240
+--- 0x42031a92: i2c_ll_is_bus_busy at /home/cra/esp/esp-idf/components/hal/esp32s3/include/hal/i2c_ll.h:577
+---  (inlined by) s_i2c_send_commands at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:526
+--- 0x42031c98: s_i2c_transaction_start at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:631
+--- 0x42031d78: s_i2c_synchronous_transaction at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:924
+--- 0x42032c33: i2c_master_transmit_receive at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:1220
+--- 0x42029f7b: SCCB_Read at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/sccb-ng.c:232
+--- 0x42020c63: ov2640_detect at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/sensors/ov2640.c:555
+--- 0x4201eddc: camera_probe at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:251
+--- 0x4201ef38: esp_camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:310
+--- 0x4200e278: camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/esp32_s3_szp.c:445
+--- 0x4200da44: app_main at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/main.cpp:92
+--- 0x420f52ef: main_task at /home/cra/esp/esp-idf/components/freertos/app_startup.c:208
+--- 0x40383151: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x4202c722: task_wdt_timeout_handling at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:434
+--- 0x4202cb38: task_wdt_isr at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:507
+--- 0x4037bd4d: _xt_lowint1 at /home/cra/esp/esp-idf/components/xtensa/xtensa_vectors.S:1240
+--- 0x42031a92: i2c_ll_is_bus_busy at /home/cra/esp/esp-idf/components/hal/esp32s3/include/hal/i2c_ll.h:577
+---  (inlined by) s_i2c_send_commands at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:526
+--- 0x42031c98: s_i2c_transaction_start at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:631
+--- 0x42031d78: s_i2c_synchronous_transaction at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:924
+--- 0x42032c33: i2c_master_transmit_receive at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:1220
+--- 0x42029f7b: SCCB_Read at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/sccb-ng.c:232
+--- 0x42020c63: ov2640_detect at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/sensors/ov2640.c:555
+--- 0x4201eddc: camera_probe at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:251
+--- 0x4201ef38: esp_camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:310
+--- 0x4200e278: camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/esp32_s3_szp.c:445
+--- 0x4200da44: app_main at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/main.cpp:92
+--- 0x420f52ef: main_task at /home/cra/esp/esp-idf/components/freertos/app_startup.c:208
+--- 0x40383151: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x4202c722: task_wdt_timeout_handling at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:434
+--- 0x4202cb38: task_wdt_isr at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:507
+--- 0x4037bd4d: _xt_lowint1 at /home/cra/esp/esp-idf/components/xtensa/xtensa_vectors.S:1240
+--- 0x42031a92: i2c_ll_is_bus_busy at /home/cra/esp/esp-idf/components/hal/esp32s3/include/hal/i2c_ll.h:577
+---  (inlined by) s_i2c_send_commands at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:526
+--- 0x42031c98: s_i2c_transaction_start at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:631
+--- 0x42031d78: s_i2c_synchronous_transaction at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:924
+--- 0x42032c33: i2c_master_transmit_receive at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:1220
+--- 0x42029f7b: SCCB_Read at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/sccb-ng.c:232
+--- 0x42020c63: ov2640_detect at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/sensors/ov2640.c:555
+--- 0x4201eddc: camera_probe at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:251
+--- 0x4201ef38: esp_camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:310
+--- 0x4200e278: camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/esp32_s3_szp.c:445
+--- 0x4200da44: app_main at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/main.cpp:92
+--- 0x420f52ef: main_task at /home/cra/esp/esp-idf/components/freertos/app_startup.c:208
+--- 0x40383151: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x4202c722: task_wdt_timeout_handling at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:434
+--- 0x4202cb38: task_wdt_isr at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:507
+--- 0x4037bd4d: _xt_lowint1 at /home/cra/esp/esp-idf/components/xtensa/xtensa_vectors.S:1240
+--- 0x42031a92: i2c_ll_is_bus_busy at /home/cra/esp/esp-idf/components/hal/esp32s3/include/hal/i2c_ll.h:577
+---  (inlined by) s_i2c_send_commands at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:526
+--- 0x42031c98: s_i2c_transaction_start at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:631
+--- 0x42031d78: s_i2c_synchronous_transaction at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:924
+--- 0x42032c33: i2c_master_transmit_receive at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:1220
+--- 0x42029f7b: SCCB_Read at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/sccb-ng.c:232
+--- 0x42020c63: ov2640_detect at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/sensors/ov2640.c:555
+--- 0x4201eddc: camera_probe at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:251
+--- 0x4201ef38: esp_camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:310
+--- 0x4200e278: camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/esp32_s3_szp.c:445
+--- 0x4200da44: app_main at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/main.cpp:92
+--- 0x420f52ef: main_task at /home/cra/esp/esp-idf/components/freertos/app_startup.c:208
+--- 0x40383151: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x4202c722: task_wdt_timeout_handling at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:434
+--- 0x4202cb38: task_wdt_isr at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:507
+--- 0x4037bd4d: _xt_lowint1 at /home/cra/esp/esp-idf/components/xtensa/xtensa_vectors.S:1240
+--- 0x42031a92: i2c_ll_is_bus_busy at /home/cra/esp/esp-idf/components/hal/esp32s3/include/hal/i2c_ll.h:577
+---  (inlined by) s_i2c_send_commands at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:526
+--- 0x42031c98: s_i2c_transaction_start at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:631
+--- 0x42031d78: s_i2c_synchronous_transaction at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:924
+--- 0x42032c33: i2c_master_transmit_receive at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:1220
+--- 0x42029f7b: SCCB_Read at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/sccb-ng.c:232
+--- 0x42020c63: ov2640_detect at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/sensors/ov2640.c:555
+--- 0x4201eddc: camera_probe at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:251
+--- 0x4201ef38: esp_camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:310
+--- 0x4200e278: camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/esp32_s3_szp.c:445
+--- 0x4200da44: app_main at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/main.cpp:92
+--- 0x420f52ef: main_task at /home/cra/esp/esp-idf/components/freertos/app_startup.c:208
+--- 0x40383151: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x4202c722: task_wdt_timeout_handling at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:434
+--- 0x4202cb38: task_wdt_isr at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:507
+--- 0x4037bd4d: _xt_lowint1 at /home/cra/esp/esp-idf/components/xtensa/xtensa_vectors.S:1240
+--- 0x42031a92: i2c_ll_is_bus_busy at /home/cra/esp/esp-idf/components/hal/esp32s3/include/hal/i2c_ll.h:577
+---  (inlined by) s_i2c_send_commands at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:526
+--- 0x42031c98: s_i2c_transaction_start at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:631
+--- 0x42031d78: s_i2c_synchronous_transaction at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:924
+--- 0x42032c33: i2c_master_transmit_receive at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:1220
+--- 0x42029f7b: SCCB_Read at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/sccb-ng.c:232
+--- 0x42020c63: ov2640_detect at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/sensors/ov2640.c:555
+--- 0x4201eddc: camera_probe at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:251
+--- 0x4201ef38: esp_camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:310
+--- 0x4200e278: camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/esp32_s3_szp.c:445
+--- 0x4200da44: app_main at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/main.cpp:92
+--- 0x420f52ef: main_task at /home/cra/esp/esp-idf/components/freertos/app_startup.c:208
+--- 0x40383151: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x4202c722: task_wdt_timeout_handling at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:434
+--- 0x4202cb38: task_wdt_isr at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:507
+--- 0x4037bd4d: _xt_lowint1 at /home/cra/esp/esp-idf/components/xtensa/xtensa_vectors.S:1240
+--- 0x42031a87: s_i2c_send_commands at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:522
+--- 0x42031c98: s_i2c_transaction_start at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:631
+--- 0x42031d78: s_i2c_synchronous_transaction at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:924
+--- 0x42032c33: i2c_master_transmit_receive at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:1220
+--- 0x42029f7b: SCCB_Read at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/sccb-ng.c:232
+--- 0x42020c63: ov2640_detect at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/sensors/ov2640.c:555
+--- 0x4201eddc: camera_probe at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:251
+--- 0x4201ef38: esp_camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:310
+--- 0x4200e278: camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/esp32_s3_szp.c:445
+--- 0x4200da44: app_main at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/main.cpp:92
+--- 0x420f52ef: main_task at /home/cra/esp/esp-idf/components/freertos/app_startup.c:208
+--- 0x40383151: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x4202c722: task_wdt_timeout_handling at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:434
+--- 0x4202cb38: task_wdt_isr at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:507
+--- 0x4037bd4d: _xt_lowint1 at /home/cra/esp/esp-idf/components/xtensa/xtensa_vectors.S:1240
+--- 0x42031a92: i2c_ll_is_bus_busy at /home/cra/esp/esp-idf/components/hal/esp32s3/include/hal/i2c_ll.h:577
+---  (inlined by) s_i2c_send_commands at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:526
+--- 0x42031c98: s_i2c_transaction_start at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:631
+--- 0x42031d78: s_i2c_synchronous_transaction at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:924
+--- 0x42032c33: i2c_master_transmit_receive at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:1220
+--- 0x42029f7b: SCCB_Read at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/sccb-ng.c:232
+--- 0x42020c63: ov2640_detect at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/sensors/ov2640.c:555
+--- 0x4201eddc: camera_probe at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:251
+--- 0x4201ef38: esp_camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:310
+--- 0x4200e278: camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/esp32_s3_szp.c:445
+--- 0x4200da44: app_main at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/main.cpp:92
+--- 0x420f52ef: main_task at /home/cra/esp/esp-idf/components/freertos/app_startup.c:208
+--- 0x40383151: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x4202c722: task_wdt_timeout_handling at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:434
+--- 0x4202cb38: task_wdt_isr at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:507
+--- 0x4037bd4d: _xt_lowint1 at /home/cra/esp/esp-idf/components/xtensa/xtensa_vectors.S:1240
+--- 0x42031a87: s_i2c_send_commands at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:522
+--- 0x42031c98: s_i2c_transaction_start at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:631
+--- 0x42031d78: s_i2c_synchronous_transaction at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:924
+--- 0x42032c33: i2c_master_transmit_receive at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:1220
+--- 0x42029f7b: SCCB_Read at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/sccb-ng.c:232
+--- 0x42020c63: ov2640_detect at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/sensors/ov2640.c:555
+--- 0x4201eddc: camera_probe at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:251
+--- 0x4201ef38: esp_camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:310
+--- 0x4200e278: camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/esp32_s3_szp.c:445
+--- 0x4200da44: app_main at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/main.cpp:92
+--- 0x420f52ef: main_task at /home/cra/esp/esp-idf/components/freertos/app_startup.c:208
+--- 0x40383151: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x4202c722: task_wdt_timeout_handling at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:434
+--- 0x4202cb38: task_wdt_isr at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:507
+--- 0x4037bd4d: _xt_lowint1 at /home/cra/esp/esp-idf/components/xtensa/xtensa_vectors.S:1240
+--- 0x42031a87: s_i2c_send_commands at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:522
+--- 0x42031c98: s_i2c_transaction_start at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:631
+--- 0x42031d78: s_i2c_synchronous_transaction at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:924
+--- 0x42032c33: i2c_master_transmit_receive at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:1220
+--- 0x42029f7b: SCCB_Read at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/sccb-ng.c:232
+--- 0x42020c63: ov2640_detect at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/sensors/ov2640.c:555
+--- 0x4201eddc: camera_probe at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:251
+--- 0x4201ef38: esp_camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:310
+--- 0x4200e278: camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/esp32_s3_szp.c:445
+--- 0x4200da44: app_main at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/main.cpp:92
+--- 0x420f52ef: main_task at /home/cra/esp/esp-idf/components/freertos/app_startup.c:208
+--- 0x40383151: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x4202c722: task_wdt_timeout_handling at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:434
+--- 0x4202cb38: task_wdt_isr at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:507
+--- 0x4037bd4d: _xt_lowint1 at /home/cra/esp/esp-idf/components/xtensa/xtensa_vectors.S:1240
+--- 0x42031a87: s_i2c_send_commands at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:522
+--- 0x42031c98: s_i2c_transaction_start at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:631
+--- 0x42031d78: s_i2c_synchronous_transaction at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:924
+--- 0x42032c33: i2c_master_transmit_receive at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:1220
+--- 0x42029f7b: SCCB_Read at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/sccb-ng.c:232
+--- 0x42020c63: ov2640_detect at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/sensors/ov2640.c:555
+--- 0x4201eddc: camera_probe at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:251
+--- 0x4201ef38: esp_camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:310
+--- 0x4200e278: camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/esp32_s3_szp.c:445
+--- 0x4200da44: app_main at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/main.cpp:92
+--- 0x420f52ef: main_task at /home/cra/esp/esp-idf/components/freertos/app_startup.c:208
+--- 0x40383151: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x4202c722: task_wdt_timeout_handling at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:434
+--- 0x4202cb38: task_wdt_isr at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:507
+--- 0x4037bd4d: _xt_lowint1 at /home/cra/esp/esp-idf/components/xtensa/xtensa_vectors.S:1240
+--- 0x42031a87: s_i2c_send_commands at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:522
+--- 0x42031c98: s_i2c_transaction_start at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:631
+--- 0x42031d78: s_i2c_synchronous_transaction at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:924
+--- 0x42032c33: i2c_master_transmit_receive at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:1220
+--- 0x42029f7b: SCCB_Read at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/sccb-ng.c:232
+--- 0x42020c63: ov2640_detect at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/sensors/ov2640.c:555
+--- 0x4201eddc: camera_probe at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:251
+--- 0x4201ef38: esp_camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:310
+--- 0x4200e278: camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/esp32_s3_szp.c:445
+--- 0x4200da44: app_main at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/main.cpp:92
+--- 0x420f52ef: main_task at /home/cra/esp/esp-idf/components/freertos/app_startup.c:208
+--- 0x40383151: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x4202c722: task_wdt_timeout_handling at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:434
+--- 0x4202cb38: task_wdt_isr at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:507
+--- 0x4037bd4d: _xt_lowint1 at /home/cra/esp/esp-idf/components/xtensa/xtensa_vectors.S:1240
+--- 0x42031a87: s_i2c_send_commands at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:522
+--- 0x42031c98: s_i2c_transaction_start at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:631
+--- 0x42031d78: s_i2c_synchronous_transaction at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:924
+--- 0x42032c33: i2c_master_transmit_receive at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:1220
+--- 0x42029f7b: SCCB_Read at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/sccb-ng.c:232
+--- 0x42020c63: ov2640_detect at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/sensors/ov2640.c:555
+--- 0x4201eddc: camera_probe at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:251
+--- 0x4201ef38: esp_camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:310
+--- 0x4200e278: camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/esp32_s3_szp.c:445
+--- 0x4200da44: app_main at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/main.cpp:92
+--- 0x420f52ef: main_task at /home/cra/esp/esp-idf/components/freertos/app_startup.c:208
+--- 0x40383151: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x4202c722: task_wdt_timeout_handling at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:434
+--- 0x4202cb38: task_wdt_isr at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:507
+--- 0x4037bd4d: _xt_lowint1 at /home/cra/esp/esp-idf/components/xtensa/xtensa_vectors.S:1240
+--- 0x42031a87: s_i2c_send_commands at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:522
+--- 0x42031c98: s_i2c_transaction_start at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:631
+--- 0x42031d78: s_i2c_synchronous_transaction at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:924
+--- 0x42032c33: i2c_master_transmit_receive at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:1220
+--- 0x42029f7b: SCCB_Read at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/sccb-ng.c:232
+--- 0x42020c63: ov2640_detect at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/sensors/ov2640.c:555
+--- 0x4201eddc: camera_probe at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:251
+--- 0x4201ef38: esp_camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:310
+--- 0x4200e278: camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/esp32_s3_szp.c:445
+--- 0x4200da44: app_main at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/main.cpp:92
+--- 0x420f52ef: main_task at /home/cra/esp/esp-idf/components/freertos/app_startup.c:208
+--- 0x40383151: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x4202c722: task_wdt_timeout_handling at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:434
+--- 0x4202cb38: task_wdt_isr at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:507
+--- 0x4037bd4d: _xt_lowint1 at /home/cra/esp/esp-idf/components/xtensa/xtensa_vectors.S:1240
+--- 0x42031a87: s_i2c_send_commands at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:522
+--- 0x42031c98: s_i2c_transaction_start at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:631
+--- 0x42031d78: s_i2c_synchronous_transaction at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:924
+--- 0x42032c33: i2c_master_transmit_receive at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:1220
+--- 0x42029f7b: SCCB_Read at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/sccb-ng.c:232
+--- 0x42020c63: ov2640_detect at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/sensors/ov2640.c:555
+--- 0x4201eddc: camera_probe at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:251
+--- 0x4201ef38: esp_camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:310
+--- 0x4200e278: camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/esp32_s3_szp.c:445
+--- 0x4200da44: app_main at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/main.cpp:92
+--- 0x420f52ef: main_task at /home/cra/esp/esp-idf/components/freertos/app_startup.c:208
+--- 0x40383151: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x4202c722: task_wdt_timeout_handling at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:434
+--- 0x4202cb38: task_wdt_isr at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:507
+--- 0x4037bd4d: _xt_lowint1 at /home/cra/esp/esp-idf/components/xtensa/xtensa_vectors.S:1240
+--- 0x42031a87: s_i2c_send_commands at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:522
+--- 0x42031c98: s_i2c_transaction_start at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:631
+--- 0x42031d78: s_i2c_synchronous_transaction at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:924
+--- 0x42032c33: i2c_master_transmit_receive at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:1220
+--- 0x42029f7b: SCCB_Read at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/sccb-ng.c:232
+--- 0x42020c63: ov2640_detect at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/sensors/ov2640.c:555
+--- 0x4201eddc: camera_probe at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:251
+--- 0x4201ef38: esp_camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:310
+--- 0x4200e278: camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/esp32_s3_szp.c:445
+--- 0x4200da44: app_main at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/main.cpp:92
+--- 0x420f52ef: main_task at /home/cra/esp/esp-idf/components/freertos/app_startup.c:208
+--- 0x40383151: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x4202c722: task_wdt_timeout_handling at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:434
+--- 0x4202cb38: task_wdt_isr at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:507
+--- 0x4037bd4d: _xt_lowint1 at /home/cra/esp/esp-idf/components/xtensa/xtensa_vectors.S:1240
+--- 0x42031a92: i2c_ll_is_bus_busy at /home/cra/esp/esp-idf/components/hal/esp32s3/include/hal/i2c_ll.h:577
+---  (inlined by) s_i2c_send_commands at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:526
+--- 0x42031c98: s_i2c_transaction_start at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:631
+--- 0x42031d78: s_i2c_synchronous_transaction at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:924
+--- 0x42032c33: i2c_master_transmit_receive at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:1220
+--- 0x42029f7b: SCCB_Read at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/sccb-ng.c:232
+--- 0x42020c63: ov2640_detect at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/sensors/ov2640.c:555
+--- 0x4201eddc: camera_probe at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:251
+--- 0x4201ef38: esp_camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:310
+--- 0x4200e278: camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/esp32_s3_szp.c:445
+--- 0x4200da44: app_main at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/main.cpp:92
+--- 0x420f52ef: main_task at /home/cra/esp/esp-idf/components/freertos/app_startup.c:208
+--- 0x40383151: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x4202c722: task_wdt_timeout_handling at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:434
+--- 0x4202cb38: task_wdt_isr at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:507
+--- 0x4037bd4d: _xt_lowint1 at /home/cra/esp/esp-idf/components/xtensa/xtensa_vectors.S:1240
+--- 0x42031a87: s_i2c_send_commands at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:522
+--- 0x42031c98: s_i2c_transaction_start at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:631
+--- 0x42031d78: s_i2c_synchronous_transaction at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:924
+--- 0x42032c33: i2c_master_transmit_receive at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:1220
+--- 0x42029f7b: SCCB_Read at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/sccb-ng.c:232
+--- 0x42020c63: ov2640_detect at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/sensors/ov2640.c:555
+--- 0x4201eddc: camera_probe at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:251
+--- 0x4201ef38: esp_camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:310
+--- 0x4200e278: camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/esp32_s3_szp.c:445
+--- 0x4200da44: app_main at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/main.cpp:92
+--- 0x420f52ef: main_task at /home/cra/esp/esp-idf/components/freertos/app_startup.c:208
+--- 0x40383151: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x4202c722: task_wdt_timeout_handling at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:434
+--- 0x4202cb38: task_wdt_isr at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:507
+--- 0x4037bd4d: _xt_lowint1 at /home/cra/esp/esp-idf/components/xtensa/xtensa_vectors.S:1240
+--- 0x42031a92: i2c_ll_is_bus_busy at /home/cra/esp/esp-idf/components/hal/esp32s3/include/hal/i2c_ll.h:577
+---  (inlined by) s_i2c_send_commands at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:526
+--- 0x42031c98: s_i2c_transaction_start at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:631
+--- 0x42031d78: s_i2c_synchronous_transaction at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:924
+--- 0x42032c33: i2c_master_transmit_receive at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:1220
+--- 0x42029f7b: SCCB_Read at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/sccb-ng.c:232
+--- 0x42020c63: ov2640_detect at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/sensors/ov2640.c:555
+--- 0x4201eddc: camera_probe at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:251
+--- 0x4201ef38: esp_camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:310
+--- 0x4200e278: camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/esp32_s3_szp.c:445
+--- 0x4200da44: app_main at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/main.cpp:92
+--- 0x420f52ef: main_task at /home/cra/esp/esp-idf/components/freertos/app_startup.c:208
+--- 0x40383151: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x4202c722: task_wdt_timeout_handling at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:434
+--- 0x4202cb38: task_wdt_isr at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:507
+--- 0x4037bd4d: _xt_lowint1 at /home/cra/esp/esp-idf/components/xtensa/xtensa_vectors.S:1240
+--- 0x42031a92: i2c_ll_is_bus_busy at /home/cra/esp/esp-idf/components/hal/esp32s3/include/hal/i2c_ll.h:577
+---  (inlined by) s_i2c_send_commands at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:526
+--- 0x42031c98: s_i2c_transaction_start at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:631
+--- 0x42031d78: s_i2c_synchronous_transaction at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:924
+--- 0x42032c33: i2c_master_transmit_receive at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:1220
+--- 0x42029f7b: SCCB_Read at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/sccb-ng.c:232
+--- 0x42020c63: ov2640_detect at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/sensors/ov2640.c:555
+--- 0x4201eddc: camera_probe at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:251
+--- 0x4201ef38: esp_camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:310
+--- 0x4200e278: camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/esp32_s3_szp.c:445
+--- 0x4200da44: app_main at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/main.cpp:92
+--- 0x420f52ef: main_task at /home/cra/esp/esp-idf/components/freertos/app_startup.c:208
+--- 0x40383151: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x4202c722: task_wdt_timeout_handling at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:434
+--- 0x4202cb38: task_wdt_isr at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:507
+--- 0x4037bd4d: _xt_lowint1 at /home/cra/esp/esp-idf/components/xtensa/xtensa_vectors.S:1240
+--- 0x42031a92: i2c_ll_is_bus_busy at /home/cra/esp/esp-idf/components/hal/esp32s3/include/hal/i2c_ll.h:577
+---  (inlined by) s_i2c_send_commands at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:526
+--- 0x42031c98: s_i2c_transaction_start at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:631
+--- 0x42031d78: s_i2c_synchronous_transaction at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:924
+--- 0x42032c33: i2c_master_transmit_receive at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:1220
+--- 0x42029f7b: SCCB_Read at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/sccb-ng.c:232
+--- 0x42020c63: ov2640_detect at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/sensors/ov2640.c:555
+--- 0x4201eddc: camera_probe at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:251
+--- 0x4201ef38: esp_camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:310
+--- 0x4200e278: camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/esp32_s3_szp.c:445
+--- 0x4200da44: app_main at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/main.cpp:92
+--- 0x420f52ef: main_task at /home/cra/esp/esp-idf/components/freertos/app_startup.c:208
+--- 0x40383151: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x4202c722: task_wdt_timeout_handling at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:434
+--- 0x4202cb38: task_wdt_isr at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:507
+--- 0x4037bd4d: _xt_lowint1 at /home/cra/esp/esp-idf/components/xtensa/xtensa_vectors.S:1240
+--- 0x42031a87: s_i2c_send_commands at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:522
+--- 0x42031c98: s_i2c_transaction_start at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:631
+--- 0x42031d78: s_i2c_synchronous_transaction at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:924
+--- 0x42032c33: i2c_master_transmit_receive at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:1220
+--- 0x42029f7b: SCCB_Read at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/sccb-ng.c:232
+--- 0x42020c63: ov2640_detect at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/sensors/ov2640.c:555
+--- 0x4201eddc: camera_probe at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:251
+--- 0x4201ef38: esp_camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:310
+--- 0x4200e278: camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/esp32_s3_szp.c:445
+--- 0x4200da44: app_main at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/main.cpp:92
+--- 0x420f52ef: main_task at /home/cra/esp/esp-idf/components/freertos/app_startup.c:208
+--- 0x40383151: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x4202c722: task_wdt_timeout_handling at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:434
+--- 0x4202cb38: task_wdt_isr at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:507
+--- 0x4037bd4d: _xt_lowint1 at /home/cra/esp/esp-idf/components/xtensa/xtensa_vectors.S:1240
+--- 0x42031a92: i2c_ll_is_bus_busy at /home/cra/esp/esp-idf/components/hal/esp32s3/include/hal/i2c_ll.h:577
+---  (inlined by) s_i2c_send_commands at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:526
+--- 0x42031c98: s_i2c_transaction_start at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:631
+--- 0x42031d78: s_i2c_synchronous_transaction at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:924
+--- 0x42032c33: i2c_master_transmit_receive at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:1220
+--- 0x42029f7b: SCCB_Read at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/sccb-ng.c:232
+--- 0x42020c63: ov2640_detect at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/sensors/ov2640.c:555
+--- 0x4201eddc: camera_probe at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:251
+--- 0x4201ef38: esp_camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:310
+--- 0x4200e278: camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/esp32_s3_szp.c:445
+--- 0x4200da44: app_main at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/main.cpp:92
+--- 0x420f52ef: main_task at /home/cra/esp/esp-idf/components/freertos/app_startup.c:208
+--- 0x40383151: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x4202c722: task_wdt_timeout_handling at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:434
+--- 0x4202cb38: task_wdt_isr at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:507
+--- 0x4037bd4d: _xt_lowint1 at /home/cra/esp/esp-idf/components/xtensa/xtensa_vectors.S:1240
+--- 0x42031a92: i2c_ll_is_bus_busy at /home/cra/esp/esp-idf/components/hal/esp32s3/include/hal/i2c_ll.h:577
+---  (inlined by) s_i2c_send_commands at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:526
+--- 0x42031c98: s_i2c_transaction_start at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:631
+--- 0x42031d78: s_i2c_synchronous_transaction at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:924
+--- 0x42032c33: i2c_master_transmit_receive at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:1220
+--- 0x42029f7b: SCCB_Read at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/sccb-ng.c:232
+--- 0x42020c63: ov2640_detect at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/sensors/ov2640.c:555
+--- 0x4201eddc: camera_probe at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:251
+--- 0x4201ef38: esp_camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:310
+--- 0x4200e278: camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/esp32_s3_szp.c:445
+--- 0x4200da44: app_main at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/main.cpp:92
+--- 0x420f52ef: main_task at /home/cra/esp/esp-idf/components/freertos/app_startup.c:208
+--- 0x40383151: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x4202c722: task_wdt_timeout_handling at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:434
+--- 0x4202cb38: task_wdt_isr at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:507
+--- 0x4037bd4d: _xt_lowint1 at /home/cra/esp/esp-idf/components/xtensa/xtensa_vectors.S:1240
+--- 0x42031a87: s_i2c_send_commands at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:522
+--- 0x42031c98: s_i2c_transaction_start at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:631
+--- 0x42031d78: s_i2c_synchronous_transaction at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:924
+--- 0x42032c33: i2c_master_transmit_receive at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:1220
+--- 0x42029f7b: SCCB_Read at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/sccb-ng.c:232
+--- 0x42020c63: ov2640_detect at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/sensors/ov2640.c:555
+--- 0x4201eddc: camera_probe at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:251
+--- 0x4201ef38: esp_camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:310
+--- 0x4200e278: camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/esp32_s3_szp.c:445
+--- 0x4200da44: app_main at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/main.cpp:92
+--- 0x420f52ef: main_task at /home/cra/esp/esp-idf/components/freertos/app_startup.c:208
+--- 0x40383151: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x4202c722: task_wdt_timeout_handling at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:434
+--- 0x4202cb38: task_wdt_isr at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:507
+--- 0x4037bd4d: _xt_lowint1 at /home/cra/esp/esp-idf/components/xtensa/xtensa_vectors.S:1240
+--- 0x42031a87: s_i2c_send_commands at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:522
+--- 0x42031c98: s_i2c_transaction_start at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:631
+--- 0x42031d78: s_i2c_synchronous_transaction at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:924
+--- 0x42032c33: i2c_master_transmit_receive at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:1220
+--- 0x42029f7b: SCCB_Read at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/sccb-ng.c:232
+--- 0x42020c63: ov2640_detect at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/sensors/ov2640.c:555
+--- 0x4201eddc: camera_probe at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:251
+--- 0x4201ef38: esp_camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:310
+--- 0x4200e278: camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/esp32_s3_szp.c:445
+--- 0x4200da44: app_main at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/main.cpp:92
+--- 0x420f52ef: main_task at /home/cra/esp/esp-idf/components/freertos/app_startup.c:208
+--- 0x40383151: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x4202c722: task_wdt_timeout_handling at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:434
+--- 0x4202cb38: task_wdt_isr at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:507
+--- 0x4037bd4d: _xt_lowint1 at /home/cra/esp/esp-idf/components/xtensa/xtensa_vectors.S:1240
+--- 0x42031a87: s_i2c_send_commands at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:522
+--- 0x42031c98: s_i2c_transaction_start at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:631
+--- 0x42031d78: s_i2c_synchronous_transaction at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:924
+--- 0x42032c33: i2c_master_transmit_receive at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:1220
+--- 0x42029f7b: SCCB_Read at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/sccb-ng.c:232
+--- 0x42020c63: ov2640_detect at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/sensors/ov2640.c:555
+--- 0x4201eddc: camera_probe at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:251
+--- 0x4201ef38: esp_camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:310
+--- 0x4200e278: camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/esp32_s3_szp.c:445
+--- 0x4200da44: app_main at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/main.cpp:92
+--- 0x420f52ef: main_task at /home/cra/esp/esp-idf/components/freertos/app_startup.c:208
+--- 0x40383151: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x4202c722: task_wdt_timeout_handling at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:434
+--- 0x4202cb38: task_wdt_isr at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:507
+--- 0x4037bd4d: _xt_lowint1 at /home/cra/esp/esp-idf/components/xtensa/xtensa_vectors.S:1240
+--- 0x42031a87: s_i2c_send_commands at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:522
+--- 0x42031c98: s_i2c_transaction_start at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:631
+--- 0x42031d78: s_i2c_synchronous_transaction at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:924
+--- 0x42032c33: i2c_master_transmit_receive at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:1220
+--- 0x42029f7b: SCCB_Read at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/sccb-ng.c:232
+--- 0x42020c63: ov2640_detect at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/sensors/ov2640.c:555
+--- 0x4201eddc: camera_probe at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:251
+--- 0x4201ef38: esp_camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:310
+--- 0x4200e278: camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/esp32_s3_szp.c:445
+--- 0x4200da44: app_main at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/main.cpp:92
+--- 0x420f52ef: main_task at /home/cra/esp/esp-idf/components/freertos/app_startup.c:208
+--- 0x40383151: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x4202c722: task_wdt_timeout_handling at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:434
+--- 0x4202cb38: task_wdt_isr at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:507
+--- 0x4037bd4d: _xt_lowint1 at /home/cra/esp/esp-idf/components/xtensa/xtensa_vectors.S:1240
+--- 0x42031a92: i2c_ll_is_bus_busy at /home/cra/esp/esp-idf/components/hal/esp32s3/include/hal/i2c_ll.h:577
+---  (inlined by) s_i2c_send_commands at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:526
+--- 0x42031c98: s_i2c_transaction_start at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:631
+--- 0x42031d78: s_i2c_synchronous_transaction at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:924
+--- 0x42032c33: i2c_master_transmit_receive at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:1220
+--- 0x42029f7b: SCCB_Read at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/sccb-ng.c:232
+--- 0x42020c63: ov2640_detect at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/sensors/ov2640.c:555
+--- 0x4201eddc: camera_probe at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:251
+--- 0x4201ef38: esp_camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:310
+--- 0x4200e278: camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/esp32_s3_szp.c:445
+--- 0x4200da44: app_main at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/main.cpp:92
+--- 0x420f52ef: main_task at /home/cra/esp/esp-idf/components/freertos/app_startup.c:208
+--- 0x40383151: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x4202c722: task_wdt_timeout_handling at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:434
+--- 0x4202cb38: task_wdt_isr at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:507
+--- 0x4037bd4d: _xt_lowint1 at /home/cra/esp/esp-idf/components/xtensa/xtensa_vectors.S:1240
+--- 0x42031a87: s_i2c_send_commands at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:522
+--- 0x42031c98: s_i2c_transaction_start at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:631
+--- 0x42031d78: s_i2c_synchronous_transaction at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:924
+--- 0x42032c33: i2c_master_transmit_receive at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:1220
+--- 0x42029f7b: SCCB_Read at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/sccb-ng.c:232
+--- 0x42020c63: ov2640_detect at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/sensors/ov2640.c:555
+--- 0x4201eddc: camera_probe at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:251
+--- 0x4201ef38: esp_camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:310
+--- 0x4200e278: camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/esp32_s3_szp.c:445
+--- 0x4200da44: app_main at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/main.cpp:92
+--- 0x420f52ef: main_task at /home/cra/esp/esp-idf/components/freertos/app_startup.c:208
+--- 0x40383151: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x4202c722: task_wdt_timeout_handling at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:434
+--- 0x4202cb38: task_wdt_isr at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:507
+--- 0x4037bd4d: _xt_lowint1 at /home/cra/esp/esp-idf/components/xtensa/xtensa_vectors.S:1240
+--- 0x42031a87: s_i2c_send_commands at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:522
+--- 0x42031c98: s_i2c_transaction_start at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:631
+--- 0x42031d78: s_i2c_synchronous_transaction at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:924
+--- 0x42032c33: i2c_master_transmit_receive at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:1220
+--- 0x42029f7b: SCCB_Read at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/sccb-ng.c:232
+--- 0x42020c63: ov2640_detect at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/sensors/ov2640.c:555
+--- 0x4201eddc: camera_probe at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:251
+--- 0x4201ef38: esp_camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:310
+--- 0x4200e278: camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/esp32_s3_szp.c:445
+--- 0x4200da44: app_main at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/main.cpp:92
+--- 0x420f52ef: main_task at /home/cra/esp/esp-idf/components/freertos/app_startup.c:208
+--- 0x40383151: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x4202c722: task_wdt_timeout_handling at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:434
+--- 0x4202cb38: task_wdt_isr at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:507
+--- 0x4037bd4d: _xt_lowint1 at /home/cra/esp/esp-idf/components/xtensa/xtensa_vectors.S:1240
+--- 0x42031a87: s_i2c_send_commands at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:522
+--- 0x42031c98: s_i2c_transaction_start at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:631
+--- 0x42031d78: s_i2c_synchronous_transaction at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:924
+--- 0x42032c33: i2c_master_transmit_receive at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:1220
+--- 0x42029f7b: SCCB_Read at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/sccb-ng.c:232
+--- 0x42020c63: ov2640_detect at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/sensors/ov2640.c:555
+--- 0x4201eddc: camera_probe at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:251
+--- 0x4201ef38: esp_camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:310
+--- 0x4200e278: camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/esp32_s3_szp.c:445
+--- 0x4200da44: app_main at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/main.cpp:92
+--- 0x420f52ef: main_task at /home/cra/esp/esp-idf/components/freertos/app_startup.c:208
+--- 0x40383151: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x4202c722: task_wdt_timeout_handling at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:434
+--- 0x4202cb38: task_wdt_isr at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:507
+--- 0x4037bd4d: _xt_lowint1 at /home/cra/esp/esp-idf/components/xtensa/xtensa_vectors.S:1240
+--- 0x42031a92: i2c_ll_is_bus_busy at /home/cra/esp/esp-idf/components/hal/esp32s3/include/hal/i2c_ll.h:577
+---  (inlined by) s_i2c_send_commands at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:526
+--- 0x42031c98: s_i2c_transaction_start at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:631
+--- 0x42031d78: s_i2c_synchronous_transaction at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:924
+--- 0x42032c33: i2c_master_transmit_receive at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:1220
+--- 0x42029f7b: SCCB_Read at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/sccb-ng.c:232
+--- 0x42020c63: ov2640_detect at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/sensors/ov2640.c:555
+--- 0x4201eddc: camera_probe at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:251
+--- 0x4201ef38: esp_camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:310
+--- 0x4200e278: camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/esp32_s3_szp.c:445
+--- 0x4200da44: app_main at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/main.cpp:92
+--- 0x420f52ef: main_task at /home/cra/esp/esp-idf/components/freertos/app_startup.c:208
+--- 0x40383151: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x4202c722: task_wdt_timeout_handling at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:434
+--- 0x4202cb38: task_wdt_isr at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:507
+--- 0x4037bd4d: _xt_lowint1 at /home/cra/esp/esp-idf/components/xtensa/xtensa_vectors.S:1240
+--- 0x42031a92: i2c_ll_is_bus_busy at /home/cra/esp/esp-idf/components/hal/esp32s3/include/hal/i2c_ll.h:577
+---  (inlined by) s_i2c_send_commands at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:526
+--- 0x42031c98: s_i2c_transaction_start at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:631
+--- 0x42031d78: s_i2c_synchronous_transaction at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:924
+--- 0x42032c33: i2c_master_transmit_receive at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:1220
+--- 0x42029f7b: SCCB_Read at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/sccb-ng.c:232
+--- 0x42020c63: ov2640_detect at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/sensors/ov2640.c:555
+--- 0x4201eddc: camera_probe at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:251
+--- 0x4201ef38: esp_camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:310
+--- 0x4200e278: camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/esp32_s3_szp.c:445
+--- 0x4200da44: app_main at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/main.cpp:92
+--- 0x420f52ef: main_task at /home/cra/esp/esp-idf/components/freertos/app_startup.c:208
+--- 0x40383151: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x4202c722: task_wdt_timeout_handling at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:434
+--- 0x4202cb38: task_wdt_isr at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:507
+--- 0x4037bd4d: _xt_lowint1 at /home/cra/esp/esp-idf/components/xtensa/xtensa_vectors.S:1240
+--- 0x42031a92: i2c_ll_is_bus_busy at /home/cra/esp/esp-idf/components/hal/esp32s3/include/hal/i2c_ll.h:577
+---  (inlined by) s_i2c_send_commands at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:526
+--- 0x42031c98: s_i2c_transaction_start at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:631
+--- 0x42031d78: s_i2c_synchronous_transaction at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:924
+--- 0x42032c33: i2c_master_transmit_receive at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:1220
+--- 0x42029f7b: SCCB_Read at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/sccb-ng.c:232
+--- 0x42020c63: ov2640_detect at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/sensors/ov2640.c:555
+--- 0x4201eddc: camera_probe at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:251
+--- 0x4201ef38: esp_camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:310
+--- 0x4200e278: camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/esp32_s3_szp.c:445
+--- 0x4200da44: app_main at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/main.cpp:92
+--- 0x420f52ef: main_task at /home/cra/esp/esp-idf/components/freertos/app_startup.c:208
+--- 0x40383151: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x4202c722: task_wdt_timeout_handling at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:434
+--- 0x4202cb38: task_wdt_isr at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:507
+--- 0x4037bd4d: _xt_lowint1 at /home/cra/esp/esp-idf/components/xtensa/xtensa_vectors.S:1240
+--- 0x42031a92: i2c_ll_is_bus_busy at /home/cra/esp/esp-idf/components/hal/esp32s3/include/hal/i2c_ll.h:577
+---  (inlined by) s_i2c_send_commands at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:526
+--- 0x42031c98: s_i2c_transaction_start at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:631
+--- 0x42031d78: s_i2c_synchronous_transaction at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:924
+--- 0x42032c33: i2c_master_transmit_receive at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:1220
+--- 0x42029f7b: SCCB_Read at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/sccb-ng.c:232
+--- 0x42020c63: ov2640_detect at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/sensors/ov2640.c:555
+--- 0x4201eddc: camera_probe at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:251
+--- 0x4201ef38: esp_camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:310
+--- 0x4200e278: camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/esp32_s3_szp.c:445
+--- 0x4200da44: app_main at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/main.cpp:92
+--- 0x420f52ef: main_task at /home/cra/esp/esp-idf/components/freertos/app_startup.c:208
+--- 0x40383151: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x4202c722: task_wdt_timeout_handling at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:434
+--- 0x4202cb38: task_wdt_isr at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:507
+--- 0x4037bd4d: _xt_lowint1 at /home/cra/esp/esp-idf/components/xtensa/xtensa_vectors.S:1240
+--- 0x42031a87: s_i2c_send_commands at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:522
+--- 0x42031c98: s_i2c_transaction_start at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:631
+--- 0x42031d78: s_i2c_synchronous_transaction at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:924
+--- 0x42032c33: i2c_master_transmit_receive at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:1220
+--- 0x42029f7b: SCCB_Read at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/sccb-ng.c:232
+--- 0x42020c63: ov2640_detect at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/sensors/ov2640.c:555
+--- 0x4201eddc: camera_probe at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:251
+--- 0x4201ef38: esp_camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:310
+--- 0x4200e278: camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/esp32_s3_szp.c:445
+--- 0x4200da44: app_main at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/main.cpp:92
+--- 0x420f52ef: main_task at /home/cra/esp/esp-idf/components/freertos/app_startup.c:208
+--- 0x40383151: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x4202c722: task_wdt_timeout_handling at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:434
+--- 0x4202cb38: task_wdt_isr at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:507
+--- 0x4037bd4d: _xt_lowint1 at /home/cra/esp/esp-idf/components/xtensa/xtensa_vectors.S:1240
+--- 0x42031a92: i2c_ll_is_bus_busy at /home/cra/esp/esp-idf/components/hal/esp32s3/include/hal/i2c_ll.h:577
+---  (inlined by) s_i2c_send_commands at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:526
+--- 0x42031c98: s_i2c_transaction_start at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:631
+--- 0x42031d78: s_i2c_synchronous_transaction at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:924
+--- 0x42032c33: i2c_master_transmit_receive at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:1220
+--- 0x42029f7b: SCCB_Read at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/sccb-ng.c:232
+--- 0x42020c63: ov2640_detect at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/sensors/ov2640.c:555
+--- 0x4201eddc: camera_probe at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:251
+--- 0x4201ef38: esp_camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:310
+--- 0x4200e278: camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/esp32_s3_szp.c:445
+--- 0x4200da44: app_main at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/main.cpp:92
+--- 0x420f52ef: main_task at /home/cra/esp/esp-idf/components/freertos/app_startup.c:208
+--- 0x40383151: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x4202c722: task_wdt_timeout_handling at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:434
+--- 0x4202cb38: task_wdt_isr at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:507
+--- 0x4037bd4d: _xt_lowint1 at /home/cra/esp/esp-idf/components/xtensa/xtensa_vectors.S:1240
+--- 0x42031a92: i2c_ll_is_bus_busy at /home/cra/esp/esp-idf/components/hal/esp32s3/include/hal/i2c_ll.h:577
+---  (inlined by) s_i2c_send_commands at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:526
+--- 0x42031c98: s_i2c_transaction_start at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:631
+--- 0x42031d78: s_i2c_synchronous_transaction at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:924
+--- 0x42032c33: i2c_master_transmit_receive at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:1220
+--- 0x42029f7b: SCCB_Read at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/sccb-ng.c:232
+--- 0x42020c63: ov2640_detect at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/sensors/ov2640.c:555
+--- 0x4201eddc: camera_probe at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:251
+--- 0x4201ef38: esp_camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:310
+--- 0x4200e278: camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/esp32_s3_szp.c:445
+--- 0x4200da44: app_main at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/main.cpp:92
+--- 0x420f52ef: main_task at /home/cra/esp/esp-idf/components/freertos/app_startup.c:208
+--- 0x40383151: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x4202c722: task_wdt_timeout_handling at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:434
+--- 0x4202cb38: task_wdt_isr at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:507
+--- 0x4037bd4d: _xt_lowint1 at /home/cra/esp/esp-idf/components/xtensa/xtensa_vectors.S:1240
+--- 0x42031a92: i2c_ll_is_bus_busy at /home/cra/esp/esp-idf/components/hal/esp32s3/include/hal/i2c_ll.h:577
+---  (inlined by) s_i2c_send_commands at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:526
+--- 0x42031c98: s_i2c_transaction_start at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:631
+--- 0x42031d78: s_i2c_synchronous_transaction at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:924
+--- 0x42032c33: i2c_master_transmit_receive at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:1220
+--- 0x42029f7b: SCCB_Read at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/sccb-ng.c:232
+--- 0x42020c63: ov2640_detect at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/sensors/ov2640.c:555
+--- 0x4201eddc: camera_probe at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:251
+--- 0x4201ef38: esp_camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:310
+--- 0x4200e278: camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/esp32_s3_szp.c:445
+--- 0x4200da44: app_main at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/main.cpp:92
+--- 0x420f52ef: main_task at /home/cra/esp/esp-idf/components/freertos/app_startup.c:208
+--- 0x40383151: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x4202c722: task_wdt_timeout_handling at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:434
+--- 0x4202cb38: task_wdt_isr at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:507
+--- 0x4037bd4d: _xt_lowint1 at /home/cra/esp/esp-idf/components/xtensa/xtensa_vectors.S:1240
+--- 0x42031a87: s_i2c_send_commands at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:522
+--- 0x42031c98: s_i2c_transaction_start at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:631
+--- 0x42031d78: s_i2c_synchronous_transaction at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:924
+--- 0x42032c33: i2c_master_transmit_receive at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:1220
+--- 0x42029f7b: SCCB_Read at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/sccb-ng.c:232
+--- 0x42020c63: ov2640_detect at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/sensors/ov2640.c:555
+--- 0x4201eddc: camera_probe at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:251
+--- 0x4201ef38: esp_camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:310
+--- 0x4200e278: camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/esp32_s3_szp.c:445
+--- 0x4200da44: app_main at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/main.cpp:92
+--- 0x420f52ef: main_task at /home/cra/esp/esp-idf/components/freertos/app_startup.c:208
+--- 0x40383151: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x4202c722: task_wdt_timeout_handling at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:434
+--- 0x4202cb38: task_wdt_isr at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:507
+--- 0x4037bd4d: _xt_lowint1 at /home/cra/esp/esp-idf/components/xtensa/xtensa_vectors.S:1240
+--- 0x42031a87: s_i2c_send_commands at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:522
+--- 0x42031c98: s_i2c_transaction_start at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:631
+--- 0x42031d78: s_i2c_synchronous_transaction at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:924
+--- 0x42032c33: i2c_master_transmit_receive at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:1220
+--- 0x42029f7b: SCCB_Read at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/sccb-ng.c:232
+--- 0x42020c63: ov2640_detect at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/sensors/ov2640.c:555
+--- 0x4201eddc: camera_probe at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:251
+--- 0x4201ef38: esp_camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:310
+--- 0x4200e278: camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/esp32_s3_szp.c:445
+--- 0x4200da44: app_main at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/main.cpp:92
+--- 0x420f52ef: main_task at /home/cra/esp/esp-idf/components/freertos/app_startup.c:208
+--- 0x40383151: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x4202c722: task_wdt_timeout_handling at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:434
+--- 0x4202cb38: task_wdt_isr at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:507
+--- 0x4037bd4d: _xt_lowint1 at /home/cra/esp/esp-idf/components/xtensa/xtensa_vectors.S:1240
+--- 0x42031a87: s_i2c_send_commands at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:522
+--- 0x42031c98: s_i2c_transaction_start at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:631
+--- 0x42031d78: s_i2c_synchronous_transaction at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:924
+--- 0x42032c33: i2c_master_transmit_receive at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:1220
+--- 0x42029f7b: SCCB_Read at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/sccb-ng.c:232
+--- 0x42020c63: ov2640_detect at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/sensors/ov2640.c:555
+--- 0x4201eddc: camera_probe at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:251
+--- 0x4201ef38: esp_camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:310
+--- 0x4200e278: camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/esp32_s3_szp.c:445
+--- 0x4200da44: app_main at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/main.cpp:92
+--- 0x420f52ef: main_task at /home/cra/esp/esp-idf/components/freertos/app_startup.c:208
+--- 0x40383151: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x4202c722: task_wdt_timeout_handling at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:434
+--- 0x4202cb38: task_wdt_isr at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:507
+--- 0x4037bd4d: _xt_lowint1 at /home/cra/esp/esp-idf/components/xtensa/xtensa_vectors.S:1240
+--- 0x42031a87: s_i2c_send_commands at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:522
+--- 0x42031c98: s_i2c_transaction_start at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:631
+--- 0x42031d78: s_i2c_synchronous_transaction at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:924
+--- 0x42032c33: i2c_master_transmit_receive at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:1220
+--- 0x42029f7b: SCCB_Read at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/sccb-ng.c:232
+--- 0x42020c63: ov2640_detect at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/sensors/ov2640.c:555
+--- 0x4201eddc: camera_probe at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:251
+--- 0x4201ef38: esp_camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:310
+--- 0x4200e278: camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/esp32_s3_szp.c:445
+--- 0x4200da44: app_main at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/main.cpp:92
+--- 0x420f52ef: main_task at /home/cra/esp/esp-idf/components/freertos/app_startup.c:208
+--- 0x40383151: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x4202c722: task_wdt_timeout_handling at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:434
+--- 0x4202cb38: task_wdt_isr at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:507
+--- 0x4037bd4d: _xt_lowint1 at /home/cra/esp/esp-idf/components/xtensa/xtensa_vectors.S:1240
+--- 0x42031a87: s_i2c_send_commands at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:522
+--- 0x42031c98: s_i2c_transaction_start at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:631
+--- 0x42031d78: s_i2c_synchronous_transaction at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:924
+--- 0x42032c33: i2c_master_transmit_receive at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:1220
+--- 0x42029f7b: SCCB_Read at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/sccb-ng.c:232
+--- 0x42020c63: ov2640_detect at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/sensors/ov2640.c:555
+--- 0x4201eddc: camera_probe at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:251
+--- 0x4201ef38: esp_camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:310
+--- 0x4200e278: camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/esp32_s3_szp.c:445
+--- 0x4200da44: app_main at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/main.cpp:92
+--- 0x420f52ef: main_task at /home/cra/esp/esp-idf/components/freertos/app_startup.c:208
+--- 0x40383151: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x4202c722: task_wdt_timeout_handling at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:434
+--- 0x4202cb38: task_wdt_isr at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:507
+--- 0x4037bd4d: _xt_lowint1 at /home/cra/esp/esp-idf/components/xtensa/xtensa_vectors.S:1240
+--- 0x42031a87: s_i2c_send_commands at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:522
+--- 0x42031c98: s_i2c_transaction_start at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:631
+--- 0x42031d78: s_i2c_synchronous_transaction at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:924
+--- 0x42032c33: i2c_master_transmit_receive at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:1220
+--- 0x42029f7b: SCCB_Read at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/sccb-ng.c:232
+--- 0x42020c63: ov2640_detect at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/sensors/ov2640.c:555
+--- 0x4201eddc: camera_probe at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:251
+--- 0x4201ef38: esp_camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:310
+--- 0x4200e278: camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/esp32_s3_szp.c:445
+--- 0x4200da44: app_main at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/main.cpp:92
+--- 0x420f52ef: main_task at /home/cra/esp/esp-idf/components/freertos/app_startup.c:208
+--- 0x40383151: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x4202c722: task_wdt_timeout_handling at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:434
+--- 0x4202cb38: task_wdt_isr at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:507
+--- 0x4037bd4d: _xt_lowint1 at /home/cra/esp/esp-idf/components/xtensa/xtensa_vectors.S:1240
+--- 0x42031a89: s_i2c_send_commands at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:522
+--- 0x42031c98: s_i2c_transaction_start at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:631
+--- 0x42031d78: s_i2c_synchronous_transaction at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:924
+--- 0x42032c33: i2c_master_transmit_receive at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:1220
+--- 0x42029f7b: SCCB_Read at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/sccb-ng.c:232
+--- 0x42020c63: ov2640_detect at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/sensors/ov2640.c:555
+--- 0x4201eddc: camera_probe at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:251
+--- 0x4201ef38: esp_camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:310
+--- 0x4200e278: camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/esp32_s3_szp.c:445
+--- 0x4200da44: app_main at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/main.cpp:92
+--- 0x420f52ef: main_task at /home/cra/esp/esp-idf/components/freertos/app_startup.c:208
+--- 0x40383151: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x4202c722: task_wdt_timeout_handling at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:434
+--- 0x4202cb38: task_wdt_isr at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:507
+--- 0x4037bd4d: _xt_lowint1 at /home/cra/esp/esp-idf/components/xtensa/xtensa_vectors.S:1240
+--- 0x42031a87: s_i2c_send_commands at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:522
+--- 0x42031c98: s_i2c_transaction_start at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:631
+--- 0x42031d78: s_i2c_synchronous_transaction at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:924
+--- 0x42032c33: i2c_master_transmit_receive at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:1220
+--- 0x42029f7b: SCCB_Read at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/sccb-ng.c:232
+--- 0x42020c63: ov2640_detect at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/sensors/ov2640.c:555
+--- 0x4201eddc: camera_probe at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:251
+--- 0x4201ef38: esp_camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:310
+--- 0x4200e278: camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/esp32_s3_szp.c:445
+--- 0x4200da44: app_main at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/main.cpp:92
+--- 0x420f52ef: main_task at /home/cra/esp/esp-idf/components/freertos/app_startup.c:208
+--- 0x40383151: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x4202c722: task_wdt_timeout_handling at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:434
+--- 0x4202cb38: task_wdt_isr at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:507
+--- 0x4037bd4d: _xt_lowint1 at /home/cra/esp/esp-idf/components/xtensa/xtensa_vectors.S:1240
+--- 0x42031a92: i2c_ll_is_bus_busy at /home/cra/esp/esp-idf/components/hal/esp32s3/include/hal/i2c_ll.h:577
+---  (inlined by) s_i2c_send_commands at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:526
+--- 0x42031c98: s_i2c_transaction_start at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:631
+--- 0x42031d78: s_i2c_synchronous_transaction at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:924
+--- 0x42032c33: i2c_master_transmit_receive at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:1220
+--- 0x42029f7b: SCCB_Read at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/sccb-ng.c:232
+--- 0x42020c63: ov2640_detect at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/sensors/ov2640.c:555
+--- 0x4201eddc: camera_probe at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:251
+--- 0x4201ef38: esp_camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:310
+--- 0x4200e278: camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/esp32_s3_szp.c:445
+--- 0x4200da44: app_main at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/main.cpp:92
+--- 0x420f52ef: main_task at /home/cra/esp/esp-idf/components/freertos/app_startup.c:208
+--- 0x40383151: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x4202c722: task_wdt_timeout_handling at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:434
+--- 0x4202cb38: task_wdt_isr at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:507
+--- 0x4037bd4d: _xt_lowint1 at /home/cra/esp/esp-idf/components/xtensa/xtensa_vectors.S:1240
+--- 0x42031a92: i2c_ll_is_bus_busy at /home/cra/esp/esp-idf/components/hal/esp32s3/include/hal/i2c_ll.h:577
+---  (inlined by) s_i2c_send_commands at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:526
+--- 0x42031c98: s_i2c_transaction_start at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:631
+--- 0x42031d78: s_i2c_synchronous_transaction at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:924
+--- 0x42032c33: i2c_master_transmit_receive at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:1220
+--- 0x42029f7b: SCCB_Read at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/sccb-ng.c:232
+--- 0x42020c63: ov2640_detect at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/sensors/ov2640.c:555
+--- 0x4201eddc: camera_probe at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:251
+--- 0x4201ef38: esp_camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:310
+--- 0x4200e278: camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/esp32_s3_szp.c:445
+--- 0x4200da44: app_main at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/main.cpp:92
+--- 0x420f52ef: main_task at /home/cra/esp/esp-idf/components/freertos/app_startup.c:208
+--- 0x40383151: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x4202c722: task_wdt_timeout_handling at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:434
+--- 0x4202cb38: task_wdt_isr at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:507
+--- 0x4037bd4d: _xt_lowint1 at /home/cra/esp/esp-idf/components/xtensa/xtensa_vectors.S:1240
+--- 0x42031a92: i2c_ll_is_bus_busy at /home/cra/esp/esp-idf/components/hal/esp32s3/include/hal/i2c_ll.h:577
+---  (inlined by) s_i2c_send_commands at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:526
+--- 0x42031c98: s_i2c_transaction_start at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:631
+--- 0x42031d78: s_i2c_synchronous_transaction at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:924
+--- 0x42032c33: i2c_master_transmit_receive at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:1220
+--- 0x42029f7b: SCCB_Read at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/sccb-ng.c:232
+--- 0x42020c63: ov2640_detect at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/sensors/ov2640.c:555
+--- 0x4201eddc: camera_probe at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:251
+--- 0x4201ef38: esp_camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:310
+--- 0x4200e278: camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/esp32_s3_szp.c:445
+--- 0x4200da44: app_main at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/main.cpp:92
+--- 0x420f52ef: main_task at /home/cra/esp/esp-idf/components/freertos/app_startup.c:208
+--- 0x40383151: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x4202c722: task_wdt_timeout_handling at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:434
+--- 0x4202cb38: task_wdt_isr at /home/cra/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:507
+--- 0x4037bd4d: _xt_lowint1 at /home/cra/esp/esp-idf/components/xtensa/xtensa_vectors.S:1240
+--- 0x42031a87: s_i2c_send_commands at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:522
+--- 0x42031c98: s_i2c_transaction_start at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:631
+--- 0x42031d78: s_i2c_synchronous_transaction at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:924
+--- 0x42032c33: i2c_master_transmit_receive at /home/cra/esp/esp-idf/components/esp_driver_i2c/i2c_master.c:1220
+--- 0x42029f7b: SCCB_Read at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/sccb-ng.c:232
+--- 0x42020c63: ov2640_detect at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/sensors/ov2640.c:555
+--- 0x4201eddc: camera_probe at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:251
+--- 0x4201ef38: esp_camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/managed_components/espressif__esp32-camera/driver/esp_camera.c:310
+--- 0x4200e278: camera_init at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/esp32_s3_szp.c:445
+--- 0x4200da44: app_main at /home/cra/workplace_esp32/Komeiji_Satori/03_face_test/main/main.cpp:92
+--- 0x420f52ef: main_task at /home/cra/esp/esp-idf/components/freertos/app_startup.c:208
+--- 0x40383151: vPortTaskWrapper at /home/cra/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x4202c722: task_wdt_timeout_handling at /ho

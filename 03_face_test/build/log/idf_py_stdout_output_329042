@@ -1,0 +1,163 @@
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0x1 (POWERON),boot:0x8 (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2810,len:0x15a0
+load:0x403c8700,len:0x4
+load:0x403c8704,len:0xd20
+load:0x403cb700,len:0x2f00
+entry 0x403c8928
+[0;32mI (27) boot: ESP-IDF v5.4.1 2nd stage bootloader[0m
+[0;32mI (27) boot: compile time Aug 19 2025 01:09:55[0m
+[0;32mI (27) boot: Multicore bootloader[0m
+[0;32mI (27) boot: chip revision: v0.2[0m
+[0;32mI (30) boot: efuse block revision: v1.3[0m
+[0;32mI (33) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (37) boot.esp32s3: SPI Mode       : DIO[0m
+[0;32mI (41) boot.esp32s3: SPI Flash Size : 16MB[0m
+[0;32mI (45) boot: Enabling RNG early entropy source...[0m
+[0;32mI (49) boot: Partition Table:[0m
+[0;32mI (52) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (58) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (65) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (71) boot:  2 factory          factory app      00 00 00010000 00300000[0m
+[0;32mI (78) boot: End of partition table[0m
+[0;32mI (81) esp_image: segment 0: paddr=00010020 vaddr=3c100020 size=68634h (427572) map[0m
+[0;32mI (164) esp_image: segment 1: paddr=0007865c vaddr=3fc9fe00 size=076e4h ( 30436) load[0m
+[0;32mI (170) esp_image: segment 2: paddr=0007fd48 vaddr=40378000 size=002d0h (   720) load[0m
+[0;32mI (171) esp_image: segment 3: paddr=00080020 vaddr=42000020 size=f60f8h (1007864) map[0m
+[0;32mI (353) esp_image: segment 4: paddr=00176120 vaddr=403782d0 size=17a84h ( 96900) load[0m
+[0;32mI (374) esp_image: segment 5: paddr=0018dbac vaddr=600fe100 size=0001ch (    28) load[0m
+[0;32mI (384) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (384) boot: Disabling RNG early entropy source...[0m
+[0;32mI (395) octal_psram: vendor id    : 0x0d (AP)[0m
+[0;32mI (395) octal_psram: dev id       : 0x02 (generation 3)[0m
+[0;32mI (395) octal_psram: density      : 0x03 (64 Mbit)[0m
+[0;32mI (397) octal_psram: good-die     : 0x01 (Pass)[0m
+[0;32mI (401) octal_psram: Latency      : 0x01 (Fixed)[0m
+[0;32mI (406) octal_psram: VCC          : 0x01 (3V)[0m
+[0;32mI (410) octal_psram: SRF          : 0x01 (Fast Refresh)[0m
+[0;32mI (415) octal_psram: BurstType    : 0x01 (Hybrid Wrap)[0m
+[0;32mI (419) octal_psram: BurstLen     : 0x01 (32 Byte)[0m
+[0;32mI (424) octal_psram: Readlatency  : 0x02 (10 cycles@Fixed)[0m
+[0;32mI (429) octal_psram: DriveStrength: 0x00 (1/1)[0m
+[0;32mI (434) MSPI Timing: PSRAM timing tuning index: 4[0m
+[0;32mI (438) esp_psram: Found 8MB PSRAM device[0m
+[0;32mI (441) esp_psram: Speed: 80MHz[0m
+[0;32mI (444) cpu_start: Multicore app[0m
+[0;32mI (746) esp_psram: SPI SRAM memory test OK[0m
+[0;32mI (755) cpu_start: Pro cpu start user code[0m
+[0;32mI (755) cpu_start: cpu freq: 240000000 Hz[0m
+[0;32mI (755) app_init: Application information:[0m
+[0;32mI (755) app_init: Project name:     human_face_detection[0m
+[0;32mI (760) app_init: App version:      56a26ca4-dirty[0m
+[0;32mI (764) app_init: Compile time:     Aug 23 2025 06:30:32[0m
+[0;32mI (769) app_init: ELF file SHA256:  f86572069...[0m
+[0;32mI (774) app_init: ESP-IDF:          v5.4.1[0m
+[0;32mI (777) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (781) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (785) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (789) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (795) heap_init: At 3FCB00D0 len 00039640 (229 KiB): RAM[0m
+[0;32mI (800) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (806) heap_init: At 600FE11C len 00001ECC (7 KiB): RTCRAM[0m
+[0;32mI (811) esp_psram: Adding pool of 8192K of PSRAM memory to heap allocator[0m
+[0;32mI (818) spi_flash: detected chip: boya[0m
+[0;32mI (821) spi_flash: flash io: dio[0m
+[0;32mI (829) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (830) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (837) main_task: Started on CPU0[0m
+[0;32mI (867) esp_psram: Reserving pool of 32K of internal memory for DMA/internal allocations[0m
+[0;32mI (867) main_task: Calling app_main()[0m
+[0;32mI (877) main: ESP32 人脸检测Web服务器启动中...[0m
+[0;32mI (1377) pp: pp rom version: e7ae62f[0m
+[0;32mI (1377) net80211: net80211 rom version: e7ae62f[0m
+[0;32mI (1387) wifi:wifi driver task: 3fcc2eec, prio:23, stack:6656, core=0[0m
+[0;32mI (1387) wifi:wifi firmware version: 79fa3f41ba[0m
+[0;32mI (1387) wifi:wifi certification version: v7.0[0m
+[0;32mI (1387) wifi:config NVS flash: enabled[0m
+[0;32mI (1387) wifi:config nano formatting: disabled[0m
+[0;32mI (1397) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (1397) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (1407) wifi:Init management short buffer num: 32[0m
+[0;32mI (1407) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (1407) wifi:Init static tx FG buffer num: 2[0m
+[0;32mI (1417) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (1417) wifi:Init static rx buffer num: 10[0m
+[0;32mI (1427) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (1427) wifi_init: rx ba win: 6[0m
+[0;32mI (1427) wifi_init: accept mbox: 6[0m
+[0;32mI (1437) wifi_init: tcpip mbox: 32[0m
+[0;32mI (1437) wifi_init: udp mbox: 6[0m
+[0;32mI (1437) wifi_init: tcp mbox: 6[0m
+[0;32mI (1447) wifi_init: tcp tx win: 5760[0m
+[0;32mI (1447) wifi_init: tcp rx win: 5760[0m
+[0;32mI (1447) wifi_init: tcp mss: 1440[0m
+[0;32mI (1447) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (1457) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (1567) phy_init: phy_version 700,8582a7fd,Feb 10 2025,20:13:11[0m
+[0;32mI (1597) wifi:mode : sta (cc:ba:97:22:1a:6c)[0m
+[0;32mI (1597) wifi:enable tsf[0m
+[0;32mI (1597) main: WiFi初始化完成，正在连接到 myssid...[0m
+[0;32mI (1597) s3 ll_cam: DMA Channel=0[0m
+[0;32mI (1607) cam_hal: cam init ok[0m
+[0;32mI (1607) sccb-ng: pin_sda 20 pin_scl 19[0m
+[0;32mI (1607) sccb-ng: sccb_i2c_port=1[0m
+[0;32mI (1627) camera: Camera PID=0x26 VER=0x42 MIDL=0x7f MIDH=0xa2[0m
+[0;32mI (1627) camera: Detected OV2640 camera[0m
+[0;32mI (1627) camera: Detected camera at address=0x30[0m
+[0;32mI (1697) cam_hal: PSRAM DMA mode enabled[0m
+[0;32mI (1697) s3 ll_cam: node_size: 3840, nodes_per_line: 1, lines_per_node: 6[0m
+[0;32mI (1697) s3 ll_cam: dma_half_buffer_min:  3840, dma_half_buffer: 15360, lines_per_half_buffer: 24, dma_buffer_size: 153600[0m
+[0;32mI (1707) cam_hal: buffer_size: 153600, half_buffer_size: 15360, node_buffer_size: 3840, node_cnt: 40, total_cnt: 11[0m
+[0;32mI (1717) cam_hal: Allocating 168976 Byte frame buffer in PSRAM[0m
+[0;32mI (1717) cam_hal: Frame[0]: Offset: 16, Addr: 0x3C170ED0[0m
+[0;32mI (1727) cam_hal: cam config ok[0m
+[0;32mI (1727) ov2640: Set PLL: clk_2x: 1, clk_div: 3, pclk_auto: 1, pclk_div: 8[0m
+[0;32mI (1797) esp32_s3_szp: 摄像头初始化成功[0m
+[0;32mI (1827) esp32_s3_szp: 摄像头初始化成功[0m
+[0;32mI (1827) human_face_detection: 启动人脸检测系统 - 控制台输出模式[0m
+[0;32mI (1827) main: 系统初始化完成！[0m
+[0;32mI (1827) main_task: Returned from app_main()[0m
+[0;32mI (4007) main: WiFi连接断开，重新连接...[0m
+[0;32mI (6417) main: WiFi连接断开，重新连接...[0m
+[0;32mI (8827) main: WiFi连接断开，重新连接...[0m
+[0;32mI (11237) main: WiFi连接断开，重新连接...[0m
+[0;32mI (13647) main: WiFi连接断开，重新连接...[0m
+[0;32mI (16047) main: WiFi连接断开，重新连接...[0m
+[0;32mI (18457) main: WiFi连接断开，重新连接...[0m
+[0;32mI (20017) wifi:new:<11,0>, old:<1,0>, ap:<255,255>, sta:<11,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (20017) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (20027) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (20027) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (20047) wifi:connected with myssid, aid = 1, channel 11, BW20, bssid = 42:c7:3c:0b:f6:85[0m
+[0;32mI (20047) wifi:security: WPA2-PSK, phy: bgn, rssi: -50[0m
+[0;32mI (20057) wifi:pm start, type: 1[0m
+
+[0;32mI (20057) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (20067) wifi:set rx beacon pti, rx_bcn_pti: 0, bcn_timeout: 25000, mt_pti: 0, mt_time: 10000[0m
+[0;32mI (20097) wifi:AP's beacon interval = 102400 us, DTIM period = 3[0m
+[0;32mI (24577) esp_netif_handlers: sta ip: 192.168.137.169, mask: 255.255.255.0, gw: 192.168.137.1[0m
+[0;32mI (24577) main: 获得IP地址:192.168.137.169[0m
+[0;32mI (24577) main: 请在浏览器中访问: http://192.168.137.169[0m
+[0;32mI (24577) web_server: 启动HTTP服务器，端口: 80[0m
+[0;32mI (24587) web_server: Web服务器启动成功！[0m
+[0;32mI (24587) web_server: 访问 http://ESP32_IP_ADDRESS 查看摄像头画面[0m
+[0;32mI (38307) wifi:<ba-add>idx:0 (ifx:0, 42:c7:3c:0b:f6:85), tid:0, ssn:12, winSize:64[0m
+[0;33mW (42237) cam_hal: Failed to get frame: timeout[0m
+[1;31mE (42237) web_server: 摄像头捕获失败[0m
+[0;33mW (42237) httpd_uri: httpd_uri: uri handler execution failed[0m
+[0;33mW (42237) httpd_parse: parse_block: request URI/header too long[0m
+[0;33mW (42237) httpd_txrx: httpd_resp_send_err: 431 Request Header Fields Too Large - Header fields are too long[0m
+[0;33mW (46297) cam_hal: Failed to get frame: timeout[0m
+[1;31mE (46297) web_server: 摄像头捕获失败[0m
+[0;33mW (46297) httpd_uri: httpd_uri: uri handler execution failed[0m
+[0;33mW (46297) httpd_parse: parse_block: request URI/header too long[0m
+[0;33mW (46297) httpd_txrx: httpd_resp_send_err: 431 Request Header Fields Too Large - Header fields are too long[0m
+[0;33mW (47447) httpd_parse: parse_block: request URI/header too long[0m
+[0;33mW (47447) httpd_txrx: httpd_resp_send_err: 431 Request Header Fields Too Large - Header fields are too long[0m
+[0;33mW (47527) httpd_uri: httpd_uri: URI '/favicon.ico' not found[0m
+[0;33mW (47527) httpd_txrx: httpd_resp_send_err: 404 Not Found - Nothing matches the given URI[0m
+[0;33mW (49897) httpd_parse: parse_block: request URI/header too long[0m
+[0;33mW (49897) httpd_txrx: httpd_resp_send_err: 431 Request Header Fields Too Large - Header fields are too long[0m
