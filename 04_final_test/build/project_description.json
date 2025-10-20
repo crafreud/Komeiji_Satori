@@ -1,7 +1,7 @@
 {
     "version":            "1.2",
     "project_name":       "04_final_test",
-    "project_version":    "56a26ca4-dirty",
+    "project_version":    "6755a136-dirty",
     "project_path":       "/home/cra/workplace_esp32/Komeiji_Satori/04_final_test",
     "idf_path":           "/home/cra/esp/esp-idf",
     "build_dir":          "/home/cra/workplace_esp32/Komeiji_Satori/04_final_test/build",

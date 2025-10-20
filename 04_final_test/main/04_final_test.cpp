@@ -7,6 +7,7 @@
 #include "esp_system.h"
 #include "esp_wifi.h"
 #include "esp_event.h"
+#include "esp_random.h"
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 #include "freertos/event_groups.h"
@@ -19,6 +20,8 @@
 #include "who_ai_utils.hpp"
 #include "dl_image.hpp"
 #include <list> // ✅ std::list
+#include <algorithm> // 用于std::abs
+#include <vector>
 
 #include "driver/ledc.h"
 #include "esp_log.h"
@@ -43,6 +46,11 @@ static const char *TAG = "face_servo";
 #define SERVO_MIN_US 500 // 微秒
 #define SERVO_MAX_US 2500
 #define SERVO_FREQ 50 // 50Hz
+
+// ---------------- 移动检测配置 ----------------
+#define MOTION_THRESHOLD 10     // 像素差异阈值 (降低以提高敏感度)
+#define MOTION_MIN_AREA 200     // 最小移动区域像素数 (降低以检测更小的移动)
+#define MOTION_DETECT_INTERVAL 20 // 每隔几帧检测一次移动 (降低检测频率)
 
 // // ---------------- 摄像头引脚定义 ----------------
 #define CAM_PIN_PWDN -1
@@ -70,7 +78,8 @@ void servo_init()
         .duty_resolution = LEDC_TIMER_14_BIT,
         .timer_num = LEDC_TIMER_0,
         .freq_hz = SERVO_FREQ,
-        .clk_cfg = LEDC_AUTO_CLK};
+        .clk_cfg = LEDC_AUTO_CLK,
+        .deconfigure = false};
     ledc_timer_config(&timer_conf);
 
     int pins[4] = {SERVO1_PIN, SERVO2_PIN, SERVO3_PIN, SERVO4_PIN};
@@ -82,7 +91,9 @@ void servo_init()
             .channel = (ledc_channel_t)i,
             .intr_type = LEDC_INTR_DISABLE,
             .timer_sel = LEDC_TIMER_0,
-            .duty = 0};
+            .duty = 0,
+            .hpoint = 0,
+            .flags = {0}};
         ledc_channel_config(&ch_conf);
     }
 }
@@ -97,14 +108,32 @@ void servo_set_angle(int id, int angle)
     int duty16 = (duty * (1 << 14) / 20000); // 50Hz -> 20ms
     ledc_set_duty(LEDC_LOW_SPEED_MODE, (ledc_channel_t)(id - 1), duty16);
     ledc_update_duty(LEDC_LOW_SPEED_MODE, (ledc_channel_t)(id - 1));
+    
+    ESP_LOGI(TAG, "Servo %d: angle=%d°, duty_us=%d, duty16=%d", id, angle, duty, duty16);
+}
+
+// 打印所有舵机的PWM状态
+void servo_print_all_pwm()
+{
+    ESP_LOGI(TAG, "=== 舵机PWM状态 ===");
+    for (int i = 0; i < 4; i++) {
+        uint32_t duty = ledc_get_duty(LEDC_LOW_SPEED_MODE, (ledc_channel_t)i);
+        // 将duty转换回角度进行验证
+        int duty_us = (duty * 20000) / (1 << 14);
+        int angle = ((duty_us - SERVO_MIN_US) * 180) / (SERVO_MAX_US - SERVO_MIN_US);
+        ESP_LOGI(TAG, "Servo %d: duty16=%lu, duty_us=%d, angle=%d°", i+1, duty, duty_us, angle);
+    }
+    ESP_LOGI(TAG, "==================");
 }
 
 // ---------------- 人脸检测任务 ----------------
 // 舵机角度范围
 #define SERVO_H_MIN 50
 #define SERVO_H_MAX 120
-#define SERVO_V_MIN 90
-#define SERVO_V_MAX 180
+#define SERVO_V_MIN 100
+#define SERVO_V_MAX 130
+#define SERVO_1_MIN 30
+#define SERVO_1_MAX 100
 
 // void task_face_detect(void *arg)
 // {
@@ -162,8 +191,10 @@ void servo_set_angle(int id, int angle)
 // ---------------- 舵机角度范围 ----------------
 #define SERVO_H_MIN 50
 #define SERVO_H_MAX 120
-#define SERVO_V_MIN 90
-#define SERVO_V_MAX 180
+#define SERVO_V_MIN 100
+#define SERVO_V_MAX 130
+#define SERVO_1_MIN 30
+#define SERVO_1_MAX 100
 
 // static const char *TAG = "face_pid";
 
@@ -176,6 +207,26 @@ typedef struct {
     float integral;
 } PID_t;
 
+// ---------------- 移动检测结构体 ----------------
+typedef struct {
+    uint16_t* prev_frame;  // 上一帧图像
+    int width;             // 图像宽度
+    int height;            // 图像高度
+    int frame_count;       // 帧计数器
+    bool has_motion;       // 是否检测到移动
+    int motion_cx;         // 移动物体中心x坐标
+    int motion_cy;         // 移动物体中心y坐标
+} MotionDetect_t;
+
+// --------------- 目标仲裁类型与结果结构 ----------------
+enum TargetType { TARGET_NONE, TARGET_FACE, TARGET_MOTION };
+typedef struct {
+    bool detected;
+    TargetType type;
+    int cx;
+    int cy;
+} TargetInfo;
+
 // ---------------- PID 计算函数 ----------------
 float pid_compute(PID_t* pid, float setpoint, float measurement)
 {
@@ -187,77 +238,463 @@ float pid_compute(PID_t* pid, float setpoint, float measurement)
     return output;
 }
 
+// ---------------- 移动检测初始化 ----------------
+MotionDetect_t* motion_detect_init(int width, int height)
+{
+    MotionDetect_t* md = (MotionDetect_t*)malloc(sizeof(MotionDetect_t));
+    if (!md) return NULL;
+    
+    md->width = width;
+    md->height = height;
+    md->prev_frame = (uint16_t*)malloc(width * height * sizeof(uint16_t));
+    if (!md->prev_frame) {
+        free(md);
+        return NULL;
+    }
+    
+    memset(md->prev_frame, 0, width * height * sizeof(uint16_t));
+    md->frame_count = 0;
+    md->has_motion = false;
+    md->motion_cx = width / 2;
+    md->motion_cy = height / 2;
+    
+    return md;
+}
+
+// ---------------- 移动检测释放 ----------------
+void motion_detect_free(MotionDetect_t* md)
+{
+    if (md) {
+        if (md->prev_frame) free(md->prev_frame);
+        free(md);
+    }
+}
+
+// ---------------- 移动检测处理 ----------------
+bool motion_detect_process(MotionDetect_t* md, uint16_t* current_frame)
+{
+    // 每隔几帧检测一次移动
+    md->frame_count++;
+    if (md->frame_count % MOTION_DETECT_INTERVAL != 0) {
+        return md->has_motion;
+    }
+    
+    int diff_count = 0;
+    int sum_x = 0;
+    int sum_y = 0;
+    
+    // 计算帧差并找出移动区域中心
+    for (int y = 0; y < md->height; y++) {
+        for (int x = 0; x < md->width; x++) {
+            int idx = y * md->width + x;
+            
+            // RGB565格式，提取亮度信息
+            uint16_t curr_pixel = current_frame[idx];
+            uint16_t prev_pixel = md->prev_frame[idx];
+            
+            // 简单的亮度差异计算
+            uint8_t curr_r = (curr_pixel >> 11) & 0x1F;
+            uint8_t curr_g = (curr_pixel >> 5) & 0x3F;
+            uint8_t curr_b = curr_pixel & 0x1F;
+            uint8_t prev_r = (prev_pixel >> 11) & 0x1F;
+            uint8_t prev_g = (prev_pixel >> 5) & 0x3F;
+            uint8_t prev_b = prev_pixel & 0x1F;
+            
+            int diff = abs(curr_r - prev_r) + abs(curr_g - prev_g) + abs(curr_b - prev_b);
+            
+            if (diff > MOTION_THRESHOLD) {
+                diff_count++;
+                sum_x += x;
+                sum_y += y;
+            }
+            
+            // 更新上一帧
+            md->prev_frame[idx] = curr_pixel;
+        }
+    }
+    
+    // 判断是否有足够大的移动区域
+    if (diff_count > MOTION_MIN_AREA) {
+        md->has_motion = true;
+        md->motion_cx = sum_x / diff_count;
+        md->motion_cy = sum_y / diff_count;
+    } else {
+        md->has_motion = false;
+    }
+    
+    return md->has_motion;
+}
+
 // ---------------- 舵机控制函数接口 ----------------
 // 这里假设你已有函数：void servo_set_angle(int servo_id, int angle);
 
+// --------------- 目标仲裁与日志函数 ----------------
+static TargetInfo arbitrate_target(const std::list<dl::detect::result_t>& face_results,
+                                  MotionDetect_t* motion_detector,
+                                  uint16_t* frame_buf)
+{
+    TargetInfo info{false, TARGET_NONE, 0, 0};
+    if (!face_results.empty())
+    {
+        const auto& face = face_results.front();
+        int xmin = face.box[0];
+        int ymin = face.box[1];
+        int xmax = face.box[2];
+        int ymax = face.box[3];
+        info.cx = (xmin + xmax) / 2;
+        info.cy = (ymin + ymax) / 2;
+        info.detected = true;
+        info.type = TARGET_FACE;
+        return info;
+    }
+    if (motion_detector)
+    {
+        bool has_motion = motion_detect_process(motion_detector, frame_buf);
+        if (has_motion) {
+            info.detected = true;
+            info.type = TARGET_MOTION;
+            info.cx = motion_detector->motion_cx;
+            info.cy = motion_detector->motion_cy;
+        }
+    }
+    return info;
+}
+
+static inline void log_target(const TargetInfo& t)
+{
+    if (!t.detected) {
+        ESP_LOGI(TAG, "No target detected");
+    } else if (t.type == TARGET_FACE) {
+        ESP_LOGI(TAG, "Face detected at: (%d,%d)", t.cx, t.cy);
+    } else {
+        ESP_LOGI(TAG, "Motion detected at: (%d,%d)", t.cx, t.cy);
+    }
+}
+
+// 全局变量声明 (在函数外部)
+// 全局舵机角度变量
+int current_servo_h = 110; // 水平初始角度110度
+int current_servo_v = 115; // 垂直初始角度115度
+int current_servo_1 = 60; // 1号舵机初始角度60度
+
+// 日志控制变量
+static int last_logged_servo_h = -1;
+static int last_logged_servo_v = -1;
+static int last_logged_servo_1 = -1;
+static int64_t last_log_time = 0;
+static const int64_t LOG_INTERVAL_US = 2000000; // 2秒间隔 (微秒)
+
+// 函数声明
+void perform_horizontal_swing(int delay_ms);
+void perform_vertical_swing(int delay_ms);
+void perform_servo1_action(int delay_ms);
+
+// 随机动作系统 - 3个基本动作的7种组合
+void perform_random_action_sequence()
+{
+    // 随机选择动作组合 (1-7)
+    int action_combo = 1 + (esp_random() % 7);
+    
+    // 随机选择速度 (0=慢速, 1=快速)
+    bool fast_speed = (esp_random() % 2) == 1;
+    int delay_ms = fast_speed ? 50 : 100; // 快速50ms, 慢速100ms
+    
+    ESP_LOGI(TAG, "执行随机动作组合 %d (%s速度)", action_combo, fast_speed ? "快" : "慢");
+    
+    // 记录初始位置
+    int initial_h = 110;  // 水平舵机初始位置
+    int initial_v = 120;  // 垂直舵机初始位置  
+    int initial_1 = 60;   // 1号舵机初始位置
+    
+    // 执行对应的动作组合
+    switch(action_combo) {
+        case 1: // 仅水平摆动
+            perform_horizontal_swing(delay_ms);
+            break;
+        case 2: // 仅垂直摆动
+            perform_vertical_swing(delay_ms);
+            break;
+        case 3: // 仅1号舵机到60度
+            perform_servo1_action(delay_ms);
+            break;
+        case 4: // 水平摆动 + 垂直摆动
+            perform_horizontal_swing(delay_ms);
+            perform_vertical_swing(delay_ms);
+            break;
+        case 5: // 水平摆动 + 1号舵机
+            perform_horizontal_swing(delay_ms);
+            perform_servo1_action(delay_ms);
+            break;
+        case 6: // 垂直摆动 + 1号舵机
+            perform_vertical_swing(delay_ms);
+            perform_servo1_action(delay_ms);
+            break;
+        case 7: // 全部动作
+            perform_horizontal_swing(delay_ms);
+            perform_vertical_swing(delay_ms);
+            perform_servo1_action(delay_ms);
+            break;
+    }
+    
+    // 所有动作完成后返回初始位置
+    ESP_LOGI(TAG, "动作完成，返回初始位置");
+    current_servo_h = initial_h;
+    current_servo_v = initial_v;
+    current_servo_1 = initial_1;
+    
+    servo_set_angle(3, current_servo_h);
+    servo_set_angle(2, current_servo_v);
+    servo_set_angle(1, current_servo_1);
+    
+    vTaskDelay(pdMS_TO_TICKS(500)); // 等待返回初始位置
+}
+
+// 水平舵机摆动 (初始位置±20度，3-5次)
+void perform_horizontal_swing(int delay_ms)
+{
+    int swing_count = 3 + (esp_random() % 3); // 3-5次
+    int center = 110; // 水平舵机初始位置
+    
+    ESP_LOGI(TAG, "水平舵机摆动 %d 次", swing_count);
+    
+    for(int i = 0; i < swing_count; i++) {
+        // 向左摆动 (center - 40)
+        current_servo_h = center - 40;
+        servo_set_angle(3, current_servo_h);
+        vTaskDelay(pdMS_TO_TICKS(delay_ms));
+        
+        // 向右摆动 (center + 40)
+        current_servo_h = center + 40;
+        servo_set_angle(3, current_servo_h);
+        vTaskDelay(pdMS_TO_TICKS(delay_ms));
+    }
+}
+
+// 垂直舵机摆动 (初始位置±40度，3-5次)
+void perform_vertical_swing(int delay_ms)
+{
+    int swing_count = 3 + (esp_random() % 3); // 3-5次
+    int center = 120; // 垂直舵机初始位置
+    
+    ESP_LOGI(TAG, "垂直舵机摆动 %d 次", swing_count);
+    
+    for(int i = 0; i < swing_count; i++) {
+        // 向上摆动 (center - 40)
+        current_servo_v = center - 40;
+        servo_set_angle(2, current_servo_v);
+        vTaskDelay(pdMS_TO_TICKS(delay_ms));
+        
+        // 向下摆动 (center + 40)
+        current_servo_v = center + 40;
+        servo_set_angle(2, current_servo_v);
+        vTaskDelay(pdMS_TO_TICKS(delay_ms));
+    }
+}
+
+// 1号舵机到60度位置
+void perform_servo1_action(int delay_ms)
+{
+    ESP_LOGI(TAG, "1号舵机移动到60度");
+    
+    current_servo_1 = 60;
+    servo_set_angle(1, current_servo_1);
+    vTaskDelay(pdMS_TO_TICKS(delay_ms * 3)); // 在60度位置停留更长时间
+}
+
+// 舵机校准任务 - 暂停检测功能，专注于位置校准
 void task_face_detect(void *arg)
 {
+    ESP_LOGI(TAG, "=== 人脸检测任务启动 ===");
+    
+    // 初始化人脸检测器
     HumanFaceDetectMSR01 detector(0.3F, 0.3F, 10, 0.3F);
     HumanFaceDetectMNP01 detector2(0.4F, 0.3F, 10);
-
-    // PID 初始化
-    PID_t pid_h = {0.6f, 0.01f, 0.1f, 0.0f, 0.0f};
-    PID_t pid_v = {0.6f, 0.01f, 0.1f, 0.0f, 0.0f};
-
-    int servo_h_angle = 120; // 初始水平角
-    int servo_v_angle = 70; // 初始垂直角
-
+    
+    // 初始化移动检测器
+    MotionDetect_t* motion_detector = motion_detect_init(320, 240);
+    if (!motion_detector) {
+        ESP_LOGE(TAG, "移动检测器初始化失败");
+        vTaskDelete(NULL);
+        return;
+    }
+    ESP_LOGI(TAG, "Motion detector initialized: 320x240");
+    
+    // PID控制器初始化
+    PID_t pid_h = {0.8f, 0.0f, 0.1f, 0.0f, 0.0f}; // 水平PID
+    PID_t pid_v = {0.8f, 0.0f, 0.1f, 0.0f, 0.0f}; // 垂直PID
+    
+    // 图像中心点 (320x240)
+    const int img_center_x = 160;
+    const int img_center_y = 120;
+    
+    // 当前舵机角度 (使用新的初始角度) - 已移动到全局变量
+    // int current_servo_h = 110; // 水平初始角度110度
+    // int current_servo_v = 120; // 垂直初始角度120度
+    // int current_servo_1 = 120; // 1号舵机初始角度120度
+    
+    // 随机动作相关变量
+    int64_t last_action_time = esp_timer_get_time(); // 上次动作时间 (微秒)
+    const int64_t IDLE_TIMEOUT = 20 * 1000 * 1000; // 20秒超时 (微秒)
+    
+    // 1号舵机边界触发阈值
+    const int SERVO_V_BOUNDARY_THRESHOLD = 15; // 距离边界15度时触发 (减小阈值)
+    
+    // 初始化舵机并进行测试动作
+    servo_set_angle(2, 115);  // 垂直舵机初始角度115度
+    servo_set_angle(3, 110);  // 水平舵机初始角度110度
+    servo_set_angle(1, current_servo_1); // 1号舵机使用ID 1
+    
+    // 舵机测试动作 - 让用户确认哪个是1号哪个是2号
+    ESP_LOGI(TAG, "开始舵机测试 - 1号舵机和2号舵机(垂直)测试");
+    
+    // 测试2号舵机(垂直舵机) - ID 2
+    ESP_LOGI(TAG, "测试2号舵机(垂直) - 向上移动");
+    servo_set_angle(2, 150);  // 向上
+    vTaskDelay(pdMS_TO_TICKS(1000));
+    ESP_LOGI(TAG, "测试2号舵机(垂直) - 向下移动");
+    servo_set_angle(2, 100);  // 向下
+    vTaskDelay(pdMS_TO_TICKS(1000));
+    ESP_LOGI(TAG, "测试2号舵机(垂直) - 回到中位");
+    servo_set_angle(2, 115);  // 回到初始位置
+    vTaskDelay(pdMS_TO_TICKS(500));
+    
+    // 测试1号舵机 - ID 1
+    ESP_LOGI(TAG, "测试1号舵机 - 移动到90度");
+    servo_set_angle(1, 90);  // 移动到90度
+    vTaskDelay(pdMS_TO_TICKS(1000));
+    ESP_LOGI(TAG, "测试1号舵机 - 移动到60度");
+    servo_set_angle(1, 60);   // 移动到60度
+    vTaskDelay(pdMS_TO_TICKS(1000));
+    ESP_LOGI(TAG, "测试1号舵机 - 回到60度位置");
+    servo_set_angle(1, 60);  // 回到60度位置
+    vTaskDelay(pdMS_TO_TICKS(500));
+    
+    ESP_LOGI(TAG, "舵机测试完成，开始正常运行");
+    
     while (1)
     {
         camera_fb_t *fb = esp_camera_fb_get();
         if (!fb)
         {
+            ESP_LOGW(TAG, "获取摄像头帧失败");
             vTaskDelay(pdMS_TO_TICKS(100));
             continue;
         }
-
-        std::list<dl::detect::result_t> &candidates = detector.infer(
+        
+        // 人脸检测
+        std::list<dl::detect::result_t> candidates = detector.infer(
             (uint16_t *)fb->buf, {(int)fb->height, (int)fb->width, 3});
-        std::list<dl::detect::result_t> &results = detector2.infer(
+        std::list<dl::detect::result_t> face_results = detector2.infer(
             (uint16_t *)fb->buf, {(int)fb->height, (int)fb->width, 3}, candidates);
-
-        if (!results.empty())
+        
+        // 移动检测
+        motion_detect_process(motion_detector, (uint16_t *)fb->buf);
+        
+        // 目标仲裁：优先人脸，其次移动物体
+        TargetInfo target = arbitrate_target(face_results, motion_detector, (uint16_t *)fb->buf);
+        
+        // 记录目标信息
+        log_target(target);
+        
+        if (target.detected)
         {
-            auto face = results.front(); // 取第一个人脸
-            int xmin = face.box[0];
-            int ymin = face.box[1];
-            int xmax = face.box[2];
-            int ymax = face.box[3];
-
-            int cx = (xmin + xmax) / 2;
-            int cy = (ymin + ymax) / 2;
-
-            int img_w = fb->width;
-            int img_h = fb->height;
-
-            // ---------------- 目标角度映射 ----------------
-            float target_h_angle = SERVO_H_MIN + (1.0f - (float)cx / img_w) * (SERVO_H_MAX - SERVO_H_MIN);
-            float target_v_angle = SERVO_V_MIN + ((float)cy / img_h) * (SERVO_V_MAX - SERVO_V_MIN);
-
-            // ---------------- PID 输出增量 ----------------
-            float delta_h = pid_compute(&pid_h, target_h_angle, servo_h_angle);
-            float delta_v = pid_compute(&pid_v, target_v_angle, servo_v_angle);
-
-            // 更新舵机角度
-            servo_h_angle += (int)delta_h;
-            servo_v_angle += (int)delta_v;
-
-            // 限制舵机角度在范围内
-            if(servo_h_angle < SERVO_H_MIN) servo_h_angle = SERVO_H_MIN;
-            if(servo_h_angle > SERVO_H_MAX) servo_h_angle = SERVO_H_MAX;
-            if(servo_v_angle < SERVO_V_MIN) servo_v_angle = SERVO_V_MIN;
-            if(servo_v_angle > SERVO_V_MAX) servo_v_angle = SERVO_V_MAX;
-
-            // ---------------- 发送舵机 ----------------
-            servo_set_angle(3, servo_h_angle); // 水平舵机
-            servo_set_angle(2, servo_v_angle); // 垂直舵机
-
-            ESP_LOGI(TAG, "Face center: (%d,%d) -> servo H: %d, V: %d", cx, cy, servo_h_angle, servo_v_angle);
+            // 更新上次动作时间
+            last_action_time = esp_timer_get_time();
+            
+            // 计算目标偏移量
+            int error_x = target.cx - img_center_x;
+            int error_y = target.cy - img_center_y;
+            
+            // PID控制计算
+            float pid_output_h = pid_compute(&pid_h, 0, error_x);
+            float pid_output_v = pid_compute(&pid_v, 0, error_y);
+            
+            // 更新舵机角度 (修正移动方向，增大动作幅度)
+            current_servo_h += (int)(pid_output_h * 0.3f); // 水平方向调整 (增大幅度)
+            current_servo_v -= (int)(pid_output_v * 0.3f); // 垂直方向调整 (增大幅度)
+            
+            // 限制舵机角度范围
+            current_servo_h = std::max(SERVO_H_MIN, std::min(SERVO_H_MAX, current_servo_h));
+            current_servo_v = std::max(SERVO_V_MIN, std::min(SERVO_V_MAX, current_servo_v));
+            
+            // 检查垂直舵机是否接近边界，触发1号舵机相关动作
+            bool near_v_boundary = false;
+            int servo1_target_angle = current_servo_1;
+            
+            if (current_servo_v <= SERVO_V_MIN + SERVO_V_BOUNDARY_THRESHOLD) {
+                // 接近下边界，1号舵机向一个方向移动
+                near_v_boundary = true;
+                servo1_target_angle = 50; // 调整为50度（60度以内）
+                ESP_LOGI(TAG, "垂直舵机接近下边界 (%d), 1号舵机调整到 %d", current_servo_v, servo1_target_angle);
+            } else if (current_servo_v >= SERVO_V_MAX - SERVO_V_BOUNDARY_THRESHOLD) {
+                // 接近上边界，1号舵机向另一个方向移动
+                near_v_boundary = true;
+                servo1_target_angle = 50; // 调整为50度（60度以内）
+                ESP_LOGI(TAG, "垂直舵机接近上边界 (%d), 1号舵机调整到 %d", current_servo_v, servo1_target_angle);
+            } else {
+                // 不在边界附近，1号舵机缓慢回到60度位置
+                servo1_target_angle = 60;
+            }
+            
+            // 平滑调整1号舵机角度 (避免突然跳跃)
+            if (current_servo_1 != servo1_target_angle) {
+                int diff = servo1_target_angle - current_servo_1;
+                int step = (diff > 0) ? std::min(3, diff) : std::max(-3, diff); // 每次最多移动3度
+                current_servo_1 += step;
+                
+                // 限制1号舵机角度范围
+                current_servo_1 = std::max(SERVO_1_MIN, std::min(SERVO_1_MAX, current_servo_1));
+                
+                servo_set_angle(1, current_servo_1); // 1号舵机
+            }
+            
+            // 设置舵机角度
+            servo_set_angle(3, current_servo_h); // 水平舵机
+            servo_set_angle(2, current_servo_v); // 垂直舵机
+            
+            // 优化日志输出 - 只在角度变化或时间间隔足够时输出
+            int64_t current_time = esp_timer_get_time();
+            bool should_log = (current_time - last_log_time > LOG_INTERVAL_US) ||
+                             (current_servo_h != last_logged_servo_h) ||
+                             (current_servo_v != last_logged_servo_v) ||
+                             (current_servo_1 != last_logged_servo_1);
+            
+            if (should_log) {
+                ESP_LOGI(TAG, "Target center: (%d,%d) -> servo H: %d, V: %d, Servo1: %d", 
+                         target.cx, target.cy, current_servo_h, current_servo_v, current_servo_1);
+                
+                // 更新记录的值
+                last_logged_servo_h = current_servo_h;
+                last_logged_servo_v = current_servo_v;
+                last_logged_servo_1 = current_servo_1;
+                last_log_time = current_time;
+            }
         }
-
+        else
+        {
+            // 检查是否超过20秒无动作
+            int64_t current_time = esp_timer_get_time();
+            if (current_time - last_action_time > IDLE_TIMEOUT)
+            {
+                // 添加随机动作触发的特殊提醒日志
+                ESP_LOGI(TAG, "🎭 随机动作触发！20秒无目标检测，开始执行随机动作序列");
+                
+                // 触发复杂随机动作组合
+                perform_random_action_sequence();
+                
+                // 更新上次动作时间
+                last_action_time = current_time;
+                
+                ESP_LOGI(TAG, "🎭 随机动作序列执行完成，恢复正常检测模式");
+            }
+        }
+        
         esp_camera_fb_return(fb);
-        vTaskDelay(pdMS_TO_TICKS(50));
+        vTaskDelay(pdMS_TO_TICKS(300)); // 降低处理频率到约3FPS
     }
+    
+    // 清理资源
+    motion_detect_free(motion_detector);
 }
 
 static camera_config_t camera_config = {
@@ -317,11 +754,20 @@ extern "C" void app_main(void)
 
     // 初始化舵机
     servo_init();
-    servo_set_angle(2, 90);
-    servo_set_angle(3, 90);
+    
+    // 设置舵机初始位置并打印PWM状态
+    ESP_LOGI(TAG, "Setting initial servo positions...");
+    servo_set_angle(2, 115);  // 垂直舵机初始角度115度
+    servo_set_angle(3, 110);  // 水平舵机初始角度110度
+    
+    // 等待舵机到位
+    vTaskDelay(pdMS_TO_TICKS(500));
+    
+    // 打印所有舵机的PWM状态
+    servo_print_all_pwm();
 
     // 启动人脸检测任务
-    xTaskCreate(task_face_detect, "face_detect", 8 * 1024, NULL, 5, NULL);
+    xTaskCreate(task_face_detect, "face_detect", 4 * 1024, NULL, 5, NULL);
 }
 
 // ---------------- Wi-Fi 配置 ----------------
