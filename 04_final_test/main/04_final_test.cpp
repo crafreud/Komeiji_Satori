@@ -37,6 +37,14 @@
 
 static const char *TAG = "face_servo";
 
+// ---------------- 工具函数 ----------------
+// 限制数值在指定范围内
+int constrain(int value, int min_val, int max_val) {
+    if (value < min_val) return min_val;
+    if (value > max_val) return max_val;
+    return value;
+}
+
 // ---------------- 舵机配置 ----------------
 #define SERVO1_PIN 1
 #define SERVO2_PIN 2
@@ -384,26 +392,63 @@ static int last_logged_servo_1 = -1;
 static int64_t last_log_time = 0;
 static const int64_t LOG_INTERVAL_US = 2000000; // 2秒间隔 (微秒)
 
-// 函数声明
+// 速度控制枚举
+enum SpeedMode {
+    SPEED_VERY_SLOW = 400,
+    SPEED_SLOW = 300,
+    SPEED_NORMAL = 200,
+    SPEED_FAST = 100,
+    SPEED_VERY_FAST = 50
+};
+
+// 随机动作函数声明
 void perform_horizontal_swing(int delay_ms);
 void perform_vertical_swing(int delay_ms);
 void perform_servo1_action(int delay_ms);
+void perform_wave_action(int delay_ms);
+void perform_circle_scan(int delay_ms);
+void perform_vibration_mode(int delay_ms);
+void perform_focus_action(int delay_ms);
+void perform_star_trajectory(int delay_ms);
+void perform_search_mode(int delay_ms);
+void perform_spiral_action(int delay_ms);
+// 新增10种随机动作函数声明
+void perform_zigzag_action(int delay_ms);
+void perform_figure_eight(int delay_ms);
+void perform_pendulum_action(int delay_ms);
+void perform_random_walk(int delay_ms);
+void perform_pulse_action(int delay_ms);
+void perform_smooth_curve(int delay_ms);
+void perform_corner_scan(int delay_ms);
+void perform_cross_pattern(int delay_ms);
+void perform_diamond_scan(int delay_ms);
+void perform_breathing_action(int delay_ms);
 
-// 随机动作系统 - 3个基本动作的7种组合
+// 随机动作系统 - 扩展为24种动作组合
 void perform_random_action_sequence()
 {
-    // 随机选择动作组合 (1-7)
-    int action_combo = 1 + (esp_random() % 7);
+    // 随机选择动作组合 (1-24)
+    int action_combo = 1 + (esp_random() % 24);
     
-    // 随机选择速度 (0=慢速, 1=快速)
-    bool fast_speed = (esp_random() % 2) == 1;
-    int delay_ms = fast_speed ? 50 : 100; // 快速50ms, 慢速100ms
+    // 随机选择速度模式 (5种速度)
+    SpeedMode speed_modes[] = {SPEED_VERY_SLOW, SPEED_SLOW, SPEED_NORMAL, SPEED_FAST, SPEED_VERY_FAST};
+    SpeedMode selected_speed = speed_modes[esp_random() % 5];
+    int delay_ms = (int)selected_speed;
     
-    ESP_LOGI(TAG, "执行随机动作组合 %d (%s速度)", action_combo, fast_speed ? "快" : "慢");
+    const char* speed_names[] = {"超慢速", "慢速", "正常", "快速", "超快速"};
+    int speed_index = 0;
+    for (int i = 0; i < 5; i++) {
+        if (speed_modes[i] == selected_speed) {
+            speed_index = i;
+            break;
+        }
+    }
+    
+    ESP_LOGI(TAG, "🎭 执行随机动作组合 %d (%s)", action_combo, speed_names[speed_index]);
     
     // 记录初始位置
     int initial_h = 110;  // 水平舵机初始位置
-    int initial_v = 120;  // 垂直舵机初始位置  
+    int initial_v = 115;  // 垂直舵机初始位置  
     int initial_1 = 60;   // 1号舵机初始位置
     
     // 执行对应的动作组合
@@ -434,10 +479,63 @@ void perform_random_action_sequence()
             perform_vertical_swing(delay_ms);
             perform_servo1_action(delay_ms);
             break;
+        // 原有7种动作
+        case 8: // 🌊 波浪动作
+            perform_wave_action(delay_ms);
+            break;
+        case 9: // 🔄 圆形扫描
+            perform_circle_scan(delay_ms);
+            break;
+        case 10: // ⚡ 震动模式
+            perform_vibration_mode(delay_ms);
+            break;
+        case 11: // 🎯 聚焦动作
+            perform_focus_action(delay_ms);
+            break;
+        case 12: // 🌟 星形轨迹
+            perform_star_trajectory(delay_ms);
+            break;
+        case 13: // 🔍 搜索模式
+            perform_search_mode(delay_ms);
+            break;
+        case 14: // 💫 螺旋动作
+            perform_spiral_action(delay_ms);
+            break;
+        // 新增10种动作
+        case 15: // ⚡ Z字形扫描
+            perform_zigzag_action(delay_ms);
+            break;
+        case 16: // ∞ 8字形轨迹
+            perform_figure_eight(delay_ms);
+            break;
+        case 17: // 🕰️ 钟摆动作
+            perform_pendulum_action(delay_ms);
+            break;
+        case 18: // 🚶 随机游走
+            perform_random_walk(delay_ms);
+            break;
+        case 19: // 💓 脉冲动作
+            perform_pulse_action(delay_ms);
+            break;
+        case 20: // 🌊 平滑曲线
+            perform_smooth_curve(delay_ms);
+            break;
+        case 21: // 📐 角落扫描
+            perform_corner_scan(delay_ms);
+            break;
+        case 22: // ➕ 十字形扫描
+            perform_cross_pattern(delay_ms);
+            break;
+        case 23: // 💎 菱形扫描
+            perform_diamond_scan(delay_ms);
+            break;
+        case 24: // 🫁 呼吸动作
+            perform_breathing_action(delay_ms);
+            break;
     }
     
     // 所有动作完成后返回初始位置
-    ESP_LOGI(TAG, "动作完成，返回初始位置");
+    ESP_LOGI(TAG, "🎭 动作完成，返回初始位置");
     current_servo_h = initial_h;
     current_servo_v = initial_v;
     current_servo_1 = initial_1;
@@ -458,19 +556,19 @@ void perform_horizontal_swing(int delay_ms)
     ESP_LOGI(TAG, "水平舵机摆动 %d 次", swing_count);
     
     for(int i = 0; i < swing_count; i++) {
-        // 向左摆动 (center - 40)
-        current_servo_h = center - 40;
+        // 向左摆动 (center - 20) - 减少幅度
+        current_servo_h = center - 20;
         servo_set_angle(3, current_servo_h);
         vTaskDelay(pdMS_TO_TICKS(delay_ms));
         
-        // 向右摆动 (center + 40)
-        current_servo_h = center + 40;
+        // 向右摆动 (center + 20) - 减少幅度
+        current_servo_h = center + 20;
         servo_set_angle(3, current_servo_h);
         vTaskDelay(pdMS_TO_TICKS(delay_ms));
     }
 }
 
-// 垂直舵机摆动 (初始位置±40度，3-5次)
+// 垂直舵机摆动 (初始位置±20度，3-5次) - 减少幅度
 void perform_vertical_swing(int delay_ms)
 {
     int swing_count = 3 + (esp_random() % 3); // 3-5次
@@ -479,26 +577,544 @@ void perform_vertical_swing(int delay_ms)
     ESP_LOGI(TAG, "垂直舵机摆动 %d 次", swing_count);
     
     for(int i = 0; i < swing_count; i++) {
-        // 向上摆动 (center - 40)
-        current_servo_v = center - 40;
+        // 向上摆动 (center - 20) - 减少幅度
+        current_servo_v = center - 20;
         servo_set_angle(2, current_servo_v);
         vTaskDelay(pdMS_TO_TICKS(delay_ms));
         
-        // 向下摆动 (center + 40)
-        current_servo_v = center + 40;
+        // 向下摆动 (center + 20) - 减少幅度
+        current_servo_v = center + 20;
         servo_set_angle(2, current_servo_v);
         vTaskDelay(pdMS_TO_TICKS(delay_ms));
     }
 }
 
-// 1号舵机到60度位置
+// 1号舵机动作 (初始位置±15度，3-5次) - 减少幅度
 void perform_servo1_action(int delay_ms)
 {
-    ESP_LOGI(TAG, "1号舵机移动到60度");
+    int swing_count = 3 + (esp_random() % 3); // 3-5次
+    int center = 60; // 1号舵机初始位置
     
-    current_servo_1 = 60;
-    servo_set_angle(1, current_servo_1);
-    vTaskDelay(pdMS_TO_TICKS(delay_ms * 3)); // 在60度位置停留更长时间
+    ESP_LOGI(TAG, "1号舵机动作 %d 次", swing_count);
+    
+    for(int i = 0; i < swing_count; i++) {
+        // 向一侧摆动 (center - 15) - 减少幅度
+        current_servo_1 = center - 15;
+        servo_set_angle(1, current_servo_1);
+        vTaskDelay(pdMS_TO_TICKS(delay_ms));
+        
+        // 向另一侧摆动 (center + 15) - 减少幅度
+        current_servo_1 = center + 15;
+        servo_set_angle(1, current_servo_1);
+        vTaskDelay(pdMS_TO_TICKS(delay_ms));
+    }
+}
+
+// 🌊 波浪动作 - 水平和垂直舵机协调运动，模拟波浪起伏 - 减少幅度
+void perform_wave_action(int delay_ms)
+{
+    ESP_LOGI(TAG, "🌊 执行波浪动作");
+    
+    int h_center = 110, v_center = 115;
+    int wave_cycles = 3; // 3个波浪周期
+    
+    for(int cycle = 0; cycle < wave_cycles; cycle++) {
+        // 波浪上升阶段
+        for(int step = 0; step <= 10; step++) {
+            float angle = (step * 36.0) * M_PI / 180.0; // 0-360度转弧度
+            current_servo_h = h_center + (int)(10 * sin(angle)); // 减少幅度：20->10
+            current_servo_v = v_center + (int)(8 * cos(angle));  // 减少幅度：15->8
+            
+            servo_set_angle(3, current_servo_h);
+            servo_set_angle(2, current_servo_v);
+            vTaskDelay(pdMS_TO_TICKS(delay_ms));
+        }
+        
+        // 减速效果：逐渐增加延时
+        delay_ms += 10;
+    }
+}
+
+// 🔄 圆形扫描 - 三个舵机协调做圆形运动 - 减少幅度
+void perform_circle_scan(int delay_ms)
+{
+    ESP_LOGI(TAG, "🔄 执行圆形扫描");
+    
+    int h_center = 110, v_center = 115, s1_center = 60;
+    int steps = 16; // 16步完成一个圆
+    
+    for(int step = 0; step < steps; step++) {
+        float angle = (step * 22.5) * M_PI / 180.0; // 每步22.5度
+        
+        current_servo_h = h_center + (int)(12 * cos(angle)); // 减少幅度：25->12
+        current_servo_v = v_center + (int)(8 * sin(angle));  // 减少幅度：15->8
+        current_servo_1 = s1_center + (int)(10 * sin(angle * 2)); // 减少幅度：20->10
+        
+        servo_set_angle(3, current_servo_h);
+        servo_set_angle(2, current_servo_v);
+        servo_set_angle(1, current_servo_1);
+        
+        vTaskDelay(pdMS_TO_TICKS(delay_ms));
+        
+        // 减速效果：后半段逐渐减速
+        if(step > steps/2) {
+            delay_ms += 5;
+        }
+    }
+}
+
+// ⚡ 震动模式 - 快速小幅度震动后逐渐减速 - 减少幅度
+void perform_vibration_mode(int delay_ms)
+{
+    ESP_LOGI(TAG, "⚡ 执行震动模式");
+    
+    int h_center = 110, v_center = 115, s1_center = 60;
+    int vibration_count = 20; // 20次震动
+    int amplitude = 4; // 初始震动幅度 - 减少：8->4
+    
+    for(int i = 0; i < vibration_count; i++) {
+        // 随机方向震动
+        int h_offset = (esp_random() % (amplitude * 2)) - amplitude;
+        int v_offset = (esp_random() % (amplitude * 2)) - amplitude;
+        int s1_offset = (esp_random() % (amplitude * 2)) - amplitude;
+        
+        current_servo_h = h_center + h_offset;
+        current_servo_v = v_center + v_offset;
+        current_servo_1 = s1_center + s1_offset;
+        
+        servo_set_angle(3, current_servo_h);
+        servo_set_angle(2, current_servo_v);
+        servo_set_angle(1, current_servo_1);
+        
+        vTaskDelay(pdMS_TO_TICKS(delay_ms));
+        
+        // 减速效果：逐渐减小震动幅度和增加延时
+        if(i > vibration_count/2) {
+            amplitude = amplitude > 1 ? amplitude - 1 : 1; // 最小幅度改为1
+            delay_ms += 3;
+        }
+    }
+}
+
+// 🎯 聚焦动作 - 从外围逐渐聚焦到中心点 - 减少幅度
+void perform_focus_action(int delay_ms)
+{
+    ESP_LOGI(TAG, "🎯 执行聚焦动作");
+    
+    int h_center = 110, v_center = 115, s1_center = 60;
+    int focus_steps = 8; // 8步聚焦
+    
+    for(int step = focus_steps; step >= 0; step--) {
+        // 从外围逐渐收缩到中心
+        int radius = step * 3; // 半径逐渐减小 - 减少：5->3
+        
+        // 四个方向的聚焦点
+        int positions[][2] = {{radius, 0}, {0, radius}, {-radius, 0}, {0, -radius}};
+        
+        for(int pos = 0; pos < 4; pos++) {
+            current_servo_h = h_center + positions[pos][0];
+            current_servo_v = v_center + positions[pos][1];
+            current_servo_1 = s1_center + (radius / 3); // 减少：radius/2 -> radius/3
+            
+            servo_set_angle(3, current_servo_h);
+            servo_set_angle(2, current_servo_v);
+            servo_set_angle(1, current_servo_1);
+            
+            vTaskDelay(pdMS_TO_TICKS(delay_ms));
+        }
+        
+        // 减速效果：越接近中心越慢
+        delay_ms += 15;
+    }
+}
+
+// 🌟 星形轨迹 - 画五角星轨迹 - 减少幅度
+void perform_star_trajectory(int delay_ms)
+{
+    ESP_LOGI(TAG, "🌟 执行星形轨迹");
+    
+    int h_center = 110, v_center = 115;
+    int radius = 10; // 减少半径：20->10
+    
+    // 五角星的5个顶点角度 (度)
+    float star_angles[] = {0, 144, 288, 72, 216}; // 每个点间隔144度
+    
+    for(int point = 0; point < 5; point++) {
+        float angle = star_angles[point] * M_PI / 180.0;
+        
+        current_servo_h = h_center + (int)(radius * cos(angle));
+        current_servo_v = v_center + (int)(radius * sin(angle));
+        current_servo_1 = 60 + (int)(8 * sin(angle * 2)); // 减少幅度：15->8
+        
+        servo_set_angle(3, current_servo_h);
+        servo_set_angle(2, current_servo_v);
+        servo_set_angle(1, current_servo_1);
+        
+        vTaskDelay(pdMS_TO_TICKS(delay_ms));
+        
+        // 减速效果：后面的点移动更慢
+        delay_ms += 20;
+    }
+    
+    // 回到中心点
+    current_servo_h = h_center;
+    current_servo_v = v_center;
+    servo_set_angle(3, current_servo_h);
+    servo_set_angle(2, current_servo_v);
+    vTaskDelay(pdMS_TO_TICKS(delay_ms + 50));
+}
+
+// 🔍 搜索模式 - 模拟雷达扫描搜索 - 减少幅度
+void perform_search_mode(int delay_ms)
+{
+    ESP_LOGI(TAG, "🔍 执行搜索模式");
+    
+    int h_center = 110, v_center = 115;
+    int search_rounds = 2; // 2轮搜索
+    
+    for(int round = 0; round < search_rounds; round++) {
+        // 水平扫描 - 减少幅度：±30->±15
+        for(int h = h_center - 15; h <= h_center + 15; h += 5) {
+            current_servo_h = h;
+            servo_set_angle(3, current_servo_h);
+            vTaskDelay(pdMS_TO_TICKS(delay_ms));
+        }
+        
+        // 垂直扫描 - 减少幅度：±20->±10
+        for(int v = v_center - 10; v <= v_center + 10; v += 4) {
+            current_servo_v = v;
+            servo_set_angle(2, current_servo_v);
+            vTaskDelay(pdMS_TO_TICKS(delay_ms));
+        }
+        
+        // 1号舵机辅助搜索 - 减少幅度：20->10
+        current_servo_1 = 60 + (round * 10);
+        servo_set_angle(1, current_servo_1);
+        
+        // 减速效果：第二轮搜索更慢更仔细
+        delay_ms += 25;
+    }
+}
+
+// 💫 螺旋动作 - 从中心向外螺旋运动 - 减少幅度
+void perform_spiral_action(int delay_ms)
+{
+    ESP_LOGI(TAG, "💫 执行螺旋动作");
+    
+    int h_center = 110, v_center = 115, s1_center = 60;
+    int spiral_steps = 20; // 20步完成螺旋
+    
+    for(int step = 0; step < spiral_steps; step++) {
+        float angle = (step * 36.0) * M_PI / 180.0; // 每步36度，多圈螺旋
+        float radius = step * 0.8; // 半径逐渐增大 - 减少：1.5->0.8
+        
+        current_servo_h = h_center + (int)(radius * cos(angle));
+        current_servo_v = v_center + (int)(radius * sin(angle));
+        current_servo_1 = s1_center + (int)(5 * sin(angle * 3)); // 减少幅度：10->5
+        
+        servo_set_angle(3, current_servo_h);
+        servo_set_angle(2, current_servo_v);
+        servo_set_angle(1, current_servo_1);
+        
+        vTaskDelay(pdMS_TO_TICKS(delay_ms));
+        
+        // 减速效果：螺旋越大越慢
+        if(step > spiral_steps/2) {
+            delay_ms += 8;
+        }
+    }
+}
+
+// 新增10种随机动作函数实现
+
+// 1. Z字形扫描动作
+void perform_zigzag_action(int delay_ms)
+{
+    int h_center = 110, v_center = 115, s1_center = 60;
+    int zigzag_steps = 8;
+    
+    for(int i = 0; i < zigzag_steps; i++) {
+        // Z字形路径
+        int h_offset = (i % 2 == 0) ? -15 : 15;
+        int v_offset = -10 + (i * 3);
+        
+        current_servo_h = h_center + h_offset;
+        current_servo_v = v_center + v_offset;
+        current_servo_1 = s1_center + (i % 3 - 1) * 8;
+        
+        servo_set_angle(3, current_servo_h);
+        servo_set_angle(2, current_servo_v);
+        servo_set_angle(1, current_servo_1);
+        
+        vTaskDelay(pdMS_TO_TICKS(delay_ms));
+    }
+}
+
+// 2. 8字形轨迹动作
+void perform_figure_eight(int delay_ms)
+{
+    int h_center = 110, v_center = 115, s1_center = 60;
+    int steps = 16;
+    
+    for(int i = 0; i < steps; i++) {
+        float t = (float)i / steps * 4 * M_PI;
+        
+        // 8字形参数方程
+        current_servo_h = h_center + (int)(12 * sin(t));
+        current_servo_v = v_center + (int)(8 * sin(t/2));
+        current_servo_1 = s1_center + (int)(6 * cos(t));
+        
+        servo_set_angle(3, current_servo_h);
+        servo_set_angle(2, current_servo_v);
+        servo_set_angle(1, current_servo_1);
+        
+        vTaskDelay(pdMS_TO_TICKS(delay_ms));
+    }
+}
+
+// 3. 钟摆动作
+void perform_pendulum_action(int delay_ms)
+{
+    int h_center = 110, v_center = 115, s1_center = 60;
+    int pendulum_cycles = 6;
+    
+    for(int cycle = 0; cycle < pendulum_cycles; cycle++) {
+        for(int i = 0; i <= 20; i++) {
+            float angle = (float)i / 20 * M_PI - M_PI/2;
+            
+            current_servo_h = h_center + (int)(18 * sin(angle));
+            current_servo_v = v_center + (int)(5 * cos(angle * 2));
+            current_servo_1 = s1_center + (int)(8 * sin(angle));
+            
+            servo_set_angle(3, current_servo_h);
+            servo_set_angle(2, current_servo_v);
+            servo_set_angle(1, current_servo_1);
+            
+            vTaskDelay(pdMS_TO_TICKS(delay_ms));
+        }
+    }
+}
+
+// 4. 随机游走动作
+void perform_random_walk(int delay_ms)
+{
+    int h_pos = 110, v_pos = 115, s1_pos = 60;
+    int walk_steps = 12;
+    
+    for(int i = 0; i < walk_steps; i++) {
+        // 随机步长和方向
+        int h_step = (esp_random() % 11) - 5; // -5到5
+        int v_step = (esp_random() % 7) - 3;  // -3到3
+        int s1_step = (esp_random() % 9) - 4; // -4到4
+        
+        h_pos = constrain(h_pos + h_step, 95, 125);
+        v_pos = constrain(v_pos + v_step, 108, 122);
+        s1_pos = constrain(s1_pos + s1_step, 52, 68);
+        
+        current_servo_h = h_pos;
+        current_servo_v = v_pos;
+        current_servo_1 = s1_pos;
+        
+        servo_set_angle(3, current_servo_h);
+        servo_set_angle(2, current_servo_v);
+        servo_set_angle(1, current_servo_1);
+        
+        vTaskDelay(pdMS_TO_TICKS(delay_ms * 1.5));
+    }
+}
+
+// 5. 脉冲动作
+void perform_pulse_action(int delay_ms)
+{
+    int h_center = 110, v_center = 115, s1_center = 60;
+    int pulse_count = 8;
+    
+    for(int pulse = 0; pulse < pulse_count; pulse++) {
+        // 快速扩张
+        for(int i = 0; i <= 5; i++) {
+            float scale = (float)i / 5;
+            
+            current_servo_h = h_center + (int)(12 * scale);
+            current_servo_v = v_center + (int)(8 * scale);
+            current_servo_1 = s1_center + (int)(10 * scale);
+            
+            servo_set_angle(3, current_servo_h);
+            servo_set_angle(2, current_servo_v);
+            servo_set_angle(1, current_servo_1);
+            
+            vTaskDelay(pdMS_TO_TICKS(delay_ms / 2));
+        }
+        
+        // 快速收缩
+        for(int i = 5; i >= 0; i--) {
+            float scale = (float)i / 5;
+            
+            current_servo_h = h_center + (int)(12 * scale);
+            current_servo_v = v_center + (int)(8 * scale);
+            current_servo_1 = s1_center + (int)(10 * scale);
+            
+            servo_set_angle(3, current_servo_h);
+            servo_set_angle(2, current_servo_v);
+            servo_set_angle(1, current_servo_1);
+            
+            vTaskDelay(pdMS_TO_TICKS(delay_ms / 2));
+        }
+        
+        vTaskDelay(pdMS_TO_TICKS(delay_ms));
+    }
+}
+
+// 6. 平滑曲线动作
+void perform_smooth_curve(int delay_ms)
+{
+    int h_center = 110, v_center = 115, s1_center = 60;
+    int curve_steps = 20;
+    
+    for(int i = 0; i < curve_steps; i++) {
+        float t = (float)i / curve_steps * 2 * M_PI;
+        
+        // 平滑的三角函数组合
+        current_servo_h = h_center + (int)(15 * sin(t) * cos(t/2));
+        current_servo_v = v_center + (int)(10 * cos(t) * sin(t/3));
+        current_servo_1 = s1_center + (int)(8 * sin(t * 1.5));
+        
+        servo_set_angle(3, current_servo_h);
+        servo_set_angle(2, current_servo_v);
+        servo_set_angle(1, current_servo_1);
+        
+        vTaskDelay(pdMS_TO_TICKS(delay_ms));
+    }
+}
+
+// 7. 角落扫描动作
+void perform_corner_scan(int delay_ms)
+{
+    int corners[][3] = {
+        {95, 108, 52},   // 左上角
+        {125, 108, 52},  // 右上角
+        {125, 122, 68},  // 右下角
+        {95, 122, 68},   // 左下角
+        {110, 115, 60}   // 中心
+    };
+    
+    for(int corner = 0; corner < 5; corner++) {
+        current_servo_h = corners[corner][0];
+        current_servo_v = corners[corner][1];
+        current_servo_1 = corners[corner][2];
+        
+        servo_set_angle(3, current_servo_h);
+        servo_set_angle(2, current_servo_v);
+        servo_set_angle(1, current_servo_1);
+        
+        vTaskDelay(pdMS_TO_TICKS(delay_ms * 2));
+        
+        // 在每个角落做小幅摆动
+        for(int i = 0; i < 3; i++) {
+            servo_set_angle(3, current_servo_h + (i % 2 ? 3 : -3));
+            vTaskDelay(pdMS_TO_TICKS(delay_ms / 2));
+        }
+    }
+}
+
+// 8. 十字形扫描动作
+void perform_cross_pattern(int delay_ms)
+{
+    int h_center = 110, v_center = 115, s1_center = 60;
+    
+    // 水平线扫描
+    for(int h = 95; h <= 125; h += 3) {
+        current_servo_h = h;
+        current_servo_v = v_center;
+        current_servo_1 = s1_center + (h - h_center) / 5;
+        
+        servo_set_angle(3, current_servo_h);
+        servo_set_angle(2, current_servo_v);
+        servo_set_angle(1, current_servo_1);
+        
+        vTaskDelay(pdMS_TO_TICKS(delay_ms));
+    }
+    
+    // 垂直线扫描
+    for(int v = 108; v <= 122; v += 2) {
+        current_servo_h = h_center;
+        current_servo_v = v;
+        current_servo_1 = s1_center + (v - v_center) / 3;
+        
+        servo_set_angle(3, current_servo_h);
+        servo_set_angle(2, current_servo_v);
+        servo_set_angle(1, current_servo_1);
+        
+        vTaskDelay(pdMS_TO_TICKS(delay_ms));
+    }
+}
+
+// 9. 菱形扫描动作
+void perform_diamond_scan(int delay_ms)
+{
+    int h_center = 110, v_center = 115, s1_center = 60;
+    int diamond_steps = 16;
+    
+    for(int i = 0; i < diamond_steps; i++) {
+        float angle = (float)i / diamond_steps * 2 * M_PI;
+        
+        // 菱形轨迹（使用绝对值函数）
+        float h_offset = 15 * (cos(angle) > 0 ? 1 : -1) * (1 - abs(sin(angle)));
+        float v_offset = 10 * (sin(angle) > 0 ? 1 : -1) * (1 - abs(cos(angle)));
+        
+        current_servo_h = h_center + (int)h_offset;
+        current_servo_v = v_center + (int)v_offset;
+        current_servo_1 = s1_center + (int)(6 * sin(angle * 2));
+        
+        servo_set_angle(3, current_servo_h);
+        servo_set_angle(2, current_servo_v);
+        servo_set_angle(1, current_servo_1);
+        
+        vTaskDelay(pdMS_TO_TICKS(delay_ms));
+    }
+}
+
+// 10. 呼吸动作
+void perform_breathing_action(int delay_ms)
+{
+    int h_center = 110, v_center = 115, s1_center = 60;
+    int breath_cycles = 4;
+    
+    for(int cycle = 0; cycle < breath_cycles; cycle++) {
+        // 吸气阶段 - 缓慢扩张
+        for(int i = 0; i <= 15; i++) {
+            float scale = (float)i / 15;
+            float breath_factor = sin(scale * M_PI / 2); // 平滑的呼吸曲线
+            
+            current_servo_h = h_center + (int)(12 * breath_factor);
+            current_servo_v = v_center + (int)(8 * breath_factor);
+            current_servo_1 = s1_center + (int)(10 * breath_factor);
+            
+            servo_set_angle(3, current_servo_h);
+            servo_set_angle(2, current_servo_v);
+            servo_set_angle(1, current_servo_1);
+            
+            vTaskDelay(pdMS_TO_TICKS(delay_ms * 1.2));
+        }
+        
+        // 呼气阶段 - 缓慢收缩
+        for(int i = 15; i >= 0; i--) {
+            float scale = (float)i / 15;
+            float breath_factor = sin(scale * M_PI / 2);
+            
+            current_servo_h = h_center + (int)(12 * breath_factor);
+            current_servo_v = v_center + (int)(8 * breath_factor);
+            current_servo_1 = s1_center + (int)(10 * breath_factor);
+            
+            servo_set_angle(3, current_servo_h);
+            servo_set_angle(2, current_servo_v);
+            servo_set_angle(1, current_servo_1);
+            
+            vTaskDelay(pdMS_TO_TICKS(delay_ms * 1.5));
+        }
+        
+        // 暂停
+        vTaskDelay(pdMS_TO_TICKS(delay_ms * 2));
+    }
 }
 
 // 舵机校准任务 - 暂停检测功能，专注于位置校准
@@ -527,15 +1143,15 @@ void task_face_detect(void *arg)
     const int img_center_x = 160;
     const int img_center_y = 120;
     
-    // 当前舵机角度 (使用新的初始角度) - 已移动到全局变量
-    // int current_servo_h = 110; // 水平初始角度110度
-    // int current_servo_v = 120; // 垂直初始角度120度
-    // int current_servo_1 = 120; // 1号舵机初始角度120度
-    
     // 随机动作相关变量
     int64_t last_action_time = esp_timer_get_time(); // 上次动作时间 (微秒)
-    const int64_t IDLE_TIMEOUT = 20 * 1000 * 1000; // 20秒超时 (微秒)
+    const int64_t IDLE_TIMEOUT = 30 * 1000 * 1000; // 30秒超时 (微秒) - 增加触发时间
     
+    // 随机动作优先级控制
+    bool random_action_in_progress = false; // 随机动作执行标志
+    int64_t last_random_action_time = 0; // 上次随机动作时间
+    const int64_t RANDOM_ACTION_INTERVAL = 120 * 1000 * 1000; // 120秒(2分钟)强制触发间隔
+
     // 1号舵机边界触发阈值
     const int SERVO_V_BOUNDARY_THRESHOLD = 15; // 距离边界15度时触发 (减小阈值)
     
@@ -573,6 +1189,38 @@ void task_face_detect(void *arg)
     
     while (1)
     {
+        // 优先检查随机动作触发条件 - 最高优先级
+        int64_t current_time = esp_timer_get_time();
+        
+        // 检查强制触发条件（2分钟间隔）或无目标检测触发条件（30秒）
+        bool should_trigger_random = false;
+        if (current_time - last_random_action_time > RANDOM_ACTION_INTERVAL) {
+            // 强制触发：2分钟间隔
+            should_trigger_random = true;
+            ESP_LOGI(TAG, "🎭 强制随机动作触发！2分钟间隔到达");
+        } else if (current_time - last_action_time > IDLE_TIMEOUT) {
+            // 无目标触发：30秒无检测
+            should_trigger_random = true;
+            ESP_LOGI(TAG, "🎭 随机动作触发！30秒无目标检测");
+        }
+        
+        if (should_trigger_random && !random_action_in_progress) {
+            random_action_in_progress = true;
+            ESP_LOGI(TAG, "🎭 开始执行随机动作序列 - 最高优先级");
+            
+            // 触发复杂随机动作组合
+            perform_random_action_sequence();
+            
+            // 更新时间记录
+            last_action_time = current_time;
+            last_random_action_time = current_time;
+            random_action_in_progress = false;
+            
+            ESP_LOGI(TAG, "🎭 随机动作序列执行完成，恢复正常检测模式");
+            continue; // 跳过本次检测循环，确保随机动作优先级
+        }
+
+        // 获取摄像头帧
         camera_fb_t *fb = esp_camera_fb_get();
         if (!fb)
         {
@@ -670,24 +1318,6 @@ void task_face_detect(void *arg)
                 last_log_time = current_time;
             }
         }
-        else
-        {
-            // 检查是否超过20秒无动作
-            int64_t current_time = esp_timer_get_time();
-            if (current_time - last_action_time > IDLE_TIMEOUT)
-            {
-                // 添加随机动作触发的特殊提醒日志
-                ESP_LOGI(TAG, "🎭 随机动作触发！20秒无目标检测，开始执行随机动作序列");
-                
-                // 触发复杂随机动作组合
-                perform_random_action_sequence();
-                
-                // 更新上次动作时间
-                last_action_time = current_time;
-                
-                ESP_LOGI(TAG, "🎭 随机动作序列执行完成，恢复正常检测模式");
-            }
-        }
         
         esp_camera_fb_return(fb);
         vTaskDelay(pdMS_TO_TICKS(300)); // 降低处理频率到约3FPS
@@ -769,282 +1399,3 @@ extern "C" void app_main(void)
     // 启动人脸检测任务
     xTaskCreate(task_face_detect, "face_detect", 4 * 1024, NULL, 5, NULL);
 }
-
-// ---------------- Wi-Fi 配置 ----------------
-// #define WIFI_SSID "myssid"     // 修改为你的 WiFi 名
-// #define WIFI_PASS "mypassword" // 修改为你的 WiFi 密码
-// #define MAX_RETRY 5
-
-// static EventGroupHandle_t s_wifi_event_group;
-// static const int WIFI_CONNECTED_BIT = BIT0;
-// static const int WIFI_FAIL_BIT = BIT1;
-// static int s_retry_num = 0;
-
-// static const char *TAG = "cam_http";
-
-// // ---------------- 摄像头引脚定义 ----------------
-// #define CAM_PIN_PWDN -1
-// #define CAM_PIN_RESET -1
-// #define CAM_PIN_XCLK 17
-// #define CAM_PIN_SIOD 20
-// #define CAM_PIN_SIOC 19
-// #define CAM_PIN_D7 42
-// #define CAM_PIN_D6 41
-// #define CAM_PIN_D5 40
-// #define CAM_PIN_D4 39
-// #define CAM_PIN_D3 38
-// #define CAM_PIN_D2 13
-// #define CAM_PIN_D1 12
-// #define CAM_PIN_D0 11
-// #define CAM_PIN_VSYNC 8
-// #define CAM_PIN_HREF 18
-// #define CAM_PIN_PCLK 16
-
-// static camera_config_t camera_config = {
-//     .pin_pwdn = CAM_PIN_PWDN,
-//     .pin_reset = CAM_PIN_RESET,
-//     .pin_xclk = CAM_PIN_XCLK,
-//     .pin_sccb_sda = CAM_PIN_SIOD,
-//     .pin_sccb_scl = CAM_PIN_SIOC,
-
-//     .pin_d7 = CAM_PIN_D7,
-//     .pin_d6 = CAM_PIN_D6,
-//     .pin_d5 = CAM_PIN_D5,
-//     .pin_d4 = CAM_PIN_D4,
-//     .pin_d3 = CAM_PIN_D3,
-//     .pin_d2 = CAM_PIN_D2,
-//     .pin_d1 = CAM_PIN_D1,
-//     .pin_d0 = CAM_PIN_D0,
-//     .pin_vsync = CAM_PIN_VSYNC,
-//     .pin_href = CAM_PIN_HREF,
-//     .pin_pclk = CAM_PIN_PCLK,
-
-//     .xclk_freq_hz = 10000000,
-//     .ledc_timer = LEDC_TIMER_0,
-//     .ledc_channel = LEDC_CHANNEL_0,
-
-//     .pixel_format = PIXFORMAT_RGB565, // 注意：HTTP 发送用 JPEG 最合适
-//     .frame_size = FRAMESIZE_QVGA,     // QVGA 320x240
-//     .jpeg_quality = 12,
-//     .fb_count = 1,
-//     .fb_location = CAMERA_FB_IN_PSRAM,
-//     .grab_mode = CAMERA_GRAB_WHEN_EMPTY,
-//     .sccb_i2c_port = 0,
-// };
-
-// ---------------- Wi-Fi 事件回调 ----------------
-// static void event_handler(void *arg, esp_event_base_t event_base,
-//                           int32_t event_id, void *event_data)
-// {
-//     if (event_base == WIFI_EVENT && event_id == WIFI_EVENT_STA_START)
-//     {
-//         esp_wifi_connect();
-//     }
-//     else if (event_base == WIFI_EVENT && event_id == WIFI_EVENT_STA_DISCONNECTED)
-//     {
-//         if (s_retry_num < MAX_RETRY)
-//         {
-//             esp_wifi_connect();
-//             s_retry_num++;
-//             ESP_LOGI(TAG, "retry to connect to the AP");
-//         }
-//         else
-//         {
-//             xEventGroupSetBits(s_wifi_event_group, WIFI_FAIL_BIT);
-//         }
-//         ESP_LOGI(TAG, "connect to the AP fail");
-//     }
-//     else if (event_base == IP_EVENT && event_id == IP_EVENT_STA_GOT_IP)
-//     {
-//         ip_event_got_ip_t *event = (ip_event_got_ip_t *)event_data;
-//         ESP_LOGI(TAG, "got ip:" IPSTR, IP2STR(&event->ip_info.ip));
-//         s_retry_num = 0;
-//         xEventGroupSetBits(s_wifi_event_group, WIFI_CONNECTED_BIT);
-//     }
-// }
-
-// ---------------- Wi-Fi 初始化 ----------------
-// void wifi_init_sta(void)
-// {
-//     s_wifi_event_group = xEventGroupCreate();
-
-//     ESP_ERROR_CHECK(esp_netif_init());
-//     ESP_ERROR_CHECK(esp_event_loop_create_default());
-//     esp_netif_create_default_wifi_sta();
-
-//     wifi_init_config_t cfg = WIFI_INIT_CONFIG_DEFAULT();
-//     ESP_ERROR_CHECK(esp_wifi_init(&cfg));
-
-//     esp_event_handler_instance_t instance_any_id;
-//     esp_event_handler_instance_t instance_got_ip;
-//     ESP_ERROR_CHECK(esp_event_handler_instance_register(WIFI_EVENT,
-//                                                         ESP_EVENT_ANY_ID,
-//                                                         &event_handler,
-//                                                         NULL,
-//                                                         &instance_any_id));
-//     ESP_ERROR_CHECK(esp_event_handler_instance_register(IP_EVENT,
-//                                                         IP_EVENT_STA_GOT_IP,
-//                                                         &event_handler,
-//                                                         NULL,
-//                                                         &instance_got_ip));
-
-//     wifi_config_t wifi_config = {
-//         .sta = {
-//             .ssid = WIFI_SSID,
-//             .password = WIFI_PASS,
-//         },
-//     };
-//     wifi_config.sta.threshold.authmode = WIFI_AUTH_WPA2_PSK;
-//     ESP_ERROR_CHECK(esp_wifi_set_mode(WIFI_MODE_STA));
-//     ESP_ERROR_CHECK(esp_wifi_set_config(WIFI_IF_STA, &wifi_config));
-//     ESP_ERROR_CHECK(esp_wifi_start());
-
-//     ESP_LOGI(TAG, "wifi_init_sta finished.");
-
-//     EventBits_t bits = xEventGroupWaitBits(s_wifi_event_group,
-//                                            WIFI_CONNECTED_BIT | WIFI_FAIL_BIT,
-//                                            pdFALSE,
-//                                            pdFALSE,
-//                                            portMAX_DELAY);
-
-//     if (bits & WIFI_CONNECTED_BIT)
-//     {
-//         ESP_LOGI(TAG, "connected to ap SSID:%s", WIFI_SSID);
-//     }
-//     else if (bits & WIFI_FAIL_BIT)
-//     {
-//         ESP_LOGI(TAG, "Failed to connect to SSID:%s", WIFI_SSID);
-//     }
-//     else
-//     {
-//         ESP_LOGE(TAG, "UNEXPECTED EVENT");
-//     }
-// }
-
-// ---------------- 摄像头初始化 ----------------
-// static esp_err_t init_camera(void)
-// {
-//     esp_err_t err = esp_camera_init(&camera_config);
-//     if (err != ESP_OK)
-//     {
-//         ESP_LOGE(TAG, "Camera Init Failed");
-//         return err;
-//     }
-//     return ESP_OK;
-// }
-
-// ---------------- HTTP JPG Handler ----------------
-// esp_err_t jpg_httpd_handler(httpd_req_t *req){
-//     camera_fb_t * fb = NULL;
-//     esp_err_t res = ESP_OK;
-
-//     fb = esp_camera_fb_get();
-//     if (!fb) {
-//         ESP_LOGE(TAG, "Camera capture failed");
-//         httpd_resp_send_500(req);
-//         return ESP_FAIL;
-//     }
-
-//     httpd_resp_set_type(req, "image/jpeg");
-//     httpd_resp_set_hdr(req, "Content-Disposition", "inline; filename=capture.jpg");
-
-//     res = httpd_resp_send(req, (const char *)fb->buf, fb->len);
-
-//     esp_camera_fb_return(fb);
-//     return res;
-// }
-// ---------------- HTTP JPG Handler with Face Detection ----------------
-// esp_err_t jpg_httpd_handler(httpd_req_t *req){
-//     camera_fb_t *fb = nullptr;
-//     esp_err_t res = ESP_OK;
-
-//     // 初始化人脸检测器
-//     HumanFaceDetectMSR01 detector(0.3F, 0.3F, 10, 0.3F);
-//     HumanFaceDetectMNP01 detector2(0.4F, 0.3F, 10);
-
-//     while (true) {
-//         fb = esp_camera_fb_get();
-//         if (!fb) {
-//             ESP_LOGE(TAG, "Camera capture failed");
-//             httpd_resp_send_500(req);
-//             return ESP_FAIL;
-//         }
-
-//         // 检测人脸
-//         std::list<dl::detect::result_t> &candidates = detector.infer(
-//             (uint16_t *)fb->buf, {(int)fb->height, (int)fb->width, 3});
-//         std::list<dl::detect::result_t> &results = detector2.infer(
-//             (uint16_t *)fb->buf, {(int)fb->height, (int)fb->width, 3}, candidates);
-
-//         if (!results.empty()) {
-//             // 画检测框
-//             draw_detection_result((uint16_t *)fb->buf, fb->height, fb->width, results);
-//             print_detection_result(results);
-
-//             // 转 JPEG
-//             size_t jpg_len = 0;
-//             uint8_t *jpg_buf = NULL;
-//             if (!frame2jpg(fb, 80, &jpg_buf, &jpg_len)) {
-//                 ESP_LOGE(TAG, "JPEG conversion failed");
-//                 esp_camera_fb_return(fb);
-//                 httpd_resp_send_500(req);
-//                 return ESP_FAIL;
-//             }
-
-//             // HTTP 返回
-//             httpd_resp_set_type(req, "image/jpeg");
-//             httpd_resp_set_hdr(req, "Content-Disposition", "inline; filename=capture.jpg");
-//             res = httpd_resp_send(req, (const char *)jpg_buf, jpg_len);
-
-//             free(jpg_buf);
-//             esp_camera_fb_return(fb);
-//             return res;  // 检测到人脸就退出循环，返回结果
-//         }
-
-//         // 没检测到人脸，释放帧，继续循环
-//         esp_camera_fb_return(fb);
-//         vTaskDelay(pdMS_TO_TICKS(50)); // 50ms 延时，降低 CPU 占用
-//     }
-// }
-
-// ---------------- 启动 HTTP 服务 ----------------
-// static httpd_handle_t start_webserver(void)
-// {
-//     httpd_config_t config = HTTPD_DEFAULT_CONFIG();
-//     httpd_handle_t server = NULL;
-
-//     if (httpd_start(&server, &config) == ESP_OK)
-//     {
-//         httpd_uri_t uri_jpg = {
-//             .uri = "/jpg",
-//             .method = HTTP_GET,
-//             .handler = jpg_httpd_handler,
-//             .user_ctx = NULL};
-//         httpd_register_uri_handler(server, &uri_jpg);
-//     }
-//     return server;
-// }
-
-// ---------------- 主程序 ----------------
-// extern "C" void app_main(void)
-// {
-//     // ESP_ERROR_CHECK(nvs_flash_init());
-
-//     // ESP_LOGI(TAG, "Starting Wi-Fi...");
-//     // wifi_init_sta();
-
-//     ESP_LOGI(TAG, "Init camera...");
-//     if (ESP_OK != init_camera())
-//     {
-//         return;
-//     }
-
-//     ESP_LOGI(TAG, "Starting web server...");
-//     // start_webserver();
-
-//     // 主线程不用做别的，HTTP 请求来了就会自动调用 handler
-//     while (1)
-//     {
-//         vTaskDelay(1000 / portTICK_PERIOD_MS);
-//     }
-// }
