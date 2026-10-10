@@ -1,0 +1,15 @@
+# ESP-IDF build artifacts
+**/build/
+**/managed_components/
+**/dependencies.lock
+
+# SDK config backups
+sdkconfig.old
+
+# IDE files
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db

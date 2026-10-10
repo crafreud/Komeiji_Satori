@@ -1,34 +1,19 @@
 #include <stdio.h>
 #include <string.h>
-#include "driver/ledc.h"
-#include "esp_err.h"
-#include "esp_log.h"
-#include "nvs_flash.h"
-#include "esp_system.h"
-#include "esp_wifi.h"
-#include "esp_event.h"
-#include "esp_random.h"
-#include "freertos/FreeRTOS.h"
-#include "freertos/task.h"
-#include "freertos/event_groups.h"
-#include "esp_camera.h"
-#include "esp_http_server.h"
-#include "esp_timer.h"
-#include "who_human_face_detection.hpp"
-#include "human_face_detect_msr01.hpp"
-#include "human_face_detect_mnp01.hpp"
-#include "who_ai_utils.hpp"
-#include "dl_image.hpp"
-#include <list> // ✅ std::list
-#include <algorithm> // 用于std::abs
+#include <list>
+#include <algorithm>
 #include <vector>
 
 #include "driver/ledc.h"
+#include "esp_err.h"
 #include "esp_log.h"
 #include "esp_camera.h"
+#include "esp_timer.h"
+#include "esp_random.h"
+#include "nvs_flash.h"
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
-#include <list>
+
 #include "who_human_face_detection.hpp"
 #include "human_face_detect_msr01.hpp"
 #include "human_face_detect_mnp01.hpp"
@@ -60,7 +45,7 @@ int constrain(int value, int min_val, int max_val) {
 #define MOTION_MIN_AREA 200     // 最小移动区域像素数 (降低以检测更小的移动)
 #define MOTION_DETECT_INTERVAL 20 // 每隔几帧检测一次移动 (降低检测频率)
 
-// // ---------------- 摄像头引脚定义 ----------------
+// ---------------- 摄像头引脚定义 ----------------
 #define CAM_PIN_PWDN -1
 #define CAM_PIN_RESET -1
 #define CAM_PIN_XCLK 17
@@ -142,69 +127,6 @@ void servo_print_all_pwm()
 #define SERVO_V_MAX 130
 #define SERVO_1_MIN 30
 #define SERVO_1_MAX 100
-
-// void task_face_detect(void *arg)
-// {
-//     HumanFaceDetectMSR01 detector(0.3F, 0.3F, 10, 0.3F);
-//     HumanFaceDetectMNP01 detector2(0.4F, 0.3F, 10);
-
-//     int servo_h_angle = 90; // 初始水平角
-//     int servo_v_angle = 70; // 初始垂直角
-
-//     while (1)
-//     {
-//         camera_fb_t *fb = esp_camera_fb_get();
-//         if (!fb)
-//         {
-//             vTaskDelay(pdMS_TO_TICKS(100));
-//             continue;
-//         }
-
-//         std::list<dl::detect::result_t> &candidates = detector.infer(
-//             (uint16_t *)fb->buf, {(int)fb->height, (int)fb->width, 3});
-//         std::list<dl::detect::result_t> &results = detector2.infer(
-//             (uint16_t *)fb->buf, {(int)fb->height, (int)fb->width, 3}, candidates);
-
-//         if (!results.empty())
-//         {
-//             auto face = results.front(); // 取第一个人脸
-//             int xmin = face.box[0];
-//             int ymin = face.box[1];
-//             int xmax = face.box[2];
-//             int ymax = face.box[3];
-
-//             int cx = (xmin + xmax) / 2;
-//             int cy = (ymin + ymax) / 2;
-
-//             int img_w = fb->width;
-//             int img_h = fb->height;
-
-//             // ---------------- 水平控制（3号舵机） ----------------
-//             float ratio_h = 1.0f - (float)cx / img_w; // 左右翻转
-//             int servo_h_angle = SERVO_H_MIN + ratio_h * (SERVO_H_MAX - SERVO_H_MIN);
-//             servo_set_angle(3, servo_h_angle);
-
-//             // ---------------- 垂直控制（2号舵机） ----------------
-//             float ratio_v = (float)cy / img_h; // 上下映射
-//             int servo_v_angle = SERVO_V_MIN + ratio_v * (SERVO_V_MAX - SERVO_V_MIN);
-//             servo_set_angle(2, servo_v_angle);
-
-//             ESP_LOGI(TAG, "Face center: (%d,%d) -> servo H: %d, V: %d", cx, cy, servo_h_angle, servo_v_angle);
-//         }
-
-//         esp_camera_fb_return(fb);
-//         vTaskDelay(pdMS_TO_TICKS(50));
-//     }
-// }
-// ---------------- 舵机角度范围 ----------------
-#define SERVO_H_MIN 50
-#define SERVO_H_MAX 120
-#define SERVO_V_MIN 100
-#define SERVO_V_MAX 130
-#define SERVO_1_MIN 30
-#define SERVO_1_MAX 100
-
-// static const char *TAG = "face_pid";
 
 // ---------------- 简单 PID 结构体 ----------------
 typedef struct {
